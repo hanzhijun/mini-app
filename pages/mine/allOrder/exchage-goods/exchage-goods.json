@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "radio-box": "/components/radio-box/radio-box",
+    "open-page": "/components/open-page/open-page"
+  },
+  "navigationBarTitleText": "选择服务类型"
+}

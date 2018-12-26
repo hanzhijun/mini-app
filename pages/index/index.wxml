@@ -1,0 +1,114 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<!-- 活动弹窗 -->
+<view class="gamePop" wx:if="{{gamePop}}">
+<view class="closeGamePop" bindtap='closeGamePop'>×</view>
+  <image src="{{imgUrl}}/upload/oneBuy/pop-onebuy .png" bindtap="gotoGame"></image>
+</view>
+
+<!-- 轮播 -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{list[0].data}}" wx:key="">
+        <swiper-item>
+            <image src="{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_300,w_750/format,jpg" class="slide-image" width="355" height="150"
+                   alt="{{item.title}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+                   bindtap="openPageTo"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 分类icon区域 -->
+<view class="headerCon bg-white">
+    <view class="header">
+
+        <view class="circle" wx:for="{{list[1].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+            <view>
+                <image src="{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_90,w_90/format,jpg"></image>
+            </view>
+            <text class="fs-30 fc-gray-darkest">{{item.title}}</text>
+        </view>
+
+    </view>
+</view>
+
+<!-- 活动入口 -->
+<view class="signUp" wx:for="{{list[2].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+      bindtap="openPageTo">
+    <image src="{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_240,w_750/format,jpg"></image>
+</view>
+
+<view class="label" bindtap="openGame">
+    <image src='{{imgUrl}}/upload/index/index-line-txt01.png?v={{timestamp}}' title="口碑爆款"></image>
+</view>
+
+<!-- 大牌购 -->
+<view class="areaOne bg-white">
+    <view wx:for="{{list[3].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+          bindtap="openPageTo">
+        <text class="fs-30 fc-gray-darkest fs-bold">{{item.title}}</text>
+        <text class="fs-24 fc-gray999">{{item.title_sub}}</text>
+        <image src='{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_210,w_210/format,jpg'></image>
+    </view>
+</view>
+
+<!-- 区域5 E-->
+<view class="label">
+    <image wx:for="{{list[4].data}}" wx:key="" src='{{item.img_path}}{{item.img}}' data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo"></image>
+</view>
+
+<!-- 区域6 F-->
+<view class="areaTwo bg-white">
+    <view wx:for="{{list[5].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+        <text class="fs-30 fc-gray-darkest fs-bold">{{item.title}}</text>
+        <text class="fs-22 fc-gray999">{{item.title_sub}}</text>
+        <image src='{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_170,w_170/format,jpg'></image>
+    </view>
+</view>
+
+<!-- 区域7  G-->
+<view class="label">
+    <image wx:for="{{list[6].data}}" wx:key="" src='{{item.img_path}}{{item.img}}' data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo"></image>
+</view>
+
+<view class="areaThree bg-white">
+    <view wx:for="{{list[7].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+          bindtap="openPageTo">
+        <text class="fs-30 fc-gray-darkest fs-bold">{{item.title}}</text>
+        <text class="fs-22 fc-gray999">{{item.title_sub}}</text>
+        <image src='{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_300,w_300/format,jpg'></image>
+    </view>
+</view>
+
+<!-- 热卖推荐 -->
+<view class="recTitle">
+    <image src='{{imgUrl}}/upload/index/index-line-txt04.png?v={{timestamp}}' class="recommendImg" title="热卖推荐"></image>
+</view>
+<view class="goodChoose">
+    <!-- 商品start -->
+    <view class="goods" wx:for="{{goodsList}}" wx:key="" data-jump_data="{{item.goods_id}}" data-jump_type="3"
+          bindtap="openPageTo">
+        <view class="pos">
+            <image src="{{item.list_url_path}}{{item.list_url}}?x-oss-process=image/resize,m_lfit,h_300,w_300/format,jpg"></image>
+        </view>
+        <text class="fs-26 good_title fs-bold">{{item.goods_name}}</text>
+        <view class="fs-24 pre_Price"><text space="ensp">售　价：</text><text class="price">￥{{item.min_price}}</text></view>
+        <view class="fs-24 use_price">用贝价：<text class="price">￥{{item.min_price > surplus_goldshells ? ((item.min_price*1000 - surplus_goldshells*1000)/1000) : 0}}</text> 送 <text class="price">{{item.base_return}}</text>
+            <image src="/images/currency/jinbei.png" class="golden"></image>
+        </view>
+    </view>
+    <!-- 商品end -->
+</view>
+
+<!--悬浮  -->
+<view class="suspension" style='right: {{start_x}}rpx;'>
+    <view>
+        <image src="/images/currency/jinbei.png" class="susIcon"></image>
+        <text class="fc-white">{{userInfo.surplus_goldshells}}</text>
+    </view>
+    <view>
+        <image src="/images/currency/yinbei.png" class="susIcon"></image>
+        <text class="fc-white">{{sliverInfo}}</text>
+    </view>
+</view>
+
+<include src="../include/include.wxml"></include>

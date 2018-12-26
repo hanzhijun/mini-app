@@ -1,0 +1,154 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<view class='bg-white'>
+  <view class='header fs-30 fc-white header-detail'>
+    <view class="header-text">
+      <text bindtap='switchPage' data-type='goods' class='{{tabType=="goods" ? "fc-red-light" : " "}}'>商品</text>
+      <text bindtap='switchPage' data-type='msg' class='{{tabType=="msg" ? "fc-red-light" : " "}}'>详情</text>
+      <!-- <text>推荐</text> -->
+    </view>
+
+    <icon class="iconfont icon-fenxiang1 iconfs-42 iconfont-share-text"></icon>
+    <button class="iconfont-share-btn" open-type="share"></button>
+
+  </view>
+
+  <scroll-view scroll-with-animation="true" style='height: 90vh;' scroll-into-view='{{toPage}}' scroll-y bindscroll="scroll">
+
+    <view id='goods' class='content'>
+      <swiper indicator-dots="true" style='height:{{height}}px;'>
+        <block wx:for="{{imgs_url}}" wx:key="">
+          <swiper-item>
+            <image 
+            bindload='imageLoad' 
+            mode='widthFix' 
+            src="{{imgUrl}}/{{item}}?x-oss-process=image/resize,m_lfit,w_750,h_750/format,jpg" class="slide-image"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view style='padding:5px 20rpx'>
+        <text class='fs-26 goodsTitle fs-bold'>{{goods.goods_name}}</text>
+
+        <view class='text-box'>
+
+          <view>
+              <!-- 活动价格 -->
+              <view wx:if='{{is_active}}'>
+
+                <!--payment 活动商品支付方式，1:金贝+现金; 2:金贝+铜贝;3：银贝   surplus_goldshells-->
+                <text class='fs-26 dis-line' wx:if='{{goods.payment == 1}}'>售　价：<text class="red">￥{{current_info.sale_price/100}}</text></text>
+                <text class='fs-26' wx:if='{{goods.payment == 1}}'>用贝价：<text class="red">￥{{1 > surplus_goldshells ? ((1 - surplus_goldshells*100)/100) : 0}}</text></text>
+                <text class='fs-26' wx:if='{{goods.payment == 2}}'><text class="red">{{current_info.gold_price || 0}}</text>金贝 + <text class="red">{{current_info.copper_price || 0}}</text>铜贝</text>
+                <text class='fs-26' wx:if='{{goods.payment == 3}}'><text class="red">{{current_info.silver_price || 0}}</text> 银贝</text>
+
+                <text class='fs-26 fc-gray' wx:if='{{current_info.base_return}}'> 送 <text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'> (<text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'>消费可抵{{current_info.base_return}}元)</text>
+              </view>
+              <!-- 非活动价格 -->
+              <view wx:else>
+                <text class='fs-26 goodsTitle' wx:if='{{goods.type == -1}}' style="padding-top: 10rpx;">售　价：<text class="red">￥{{current_info.sale_price / 100 || 0}}</text></text>
+                <text class='fs-26' wx:if='{{goods.type == -1}}'>用贝价：<text class="red">￥{{1 > surplus_goldshells ? ((1 - surplus_goldshells*100)/100) : 0}}</text></text>
+                <text class='fs-26' wx:else><text wx:if="{{ goods.type }}"><text class="red">{{current_info.silver_price || 0}}</text> 银贝</text></text>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'> 送 <text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'> (<text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'>消费可抵{{current_info.base_return}}元)</text>
+              </view>
+            
+            <text class='fs-24 fc-gray'>库存：{{current_info.nums}}</text>
+
+            
+          </view>
+
+          <!--<text wx:if='{{goods.collect == 0}}' bindtap='joinCollect' class="iconfont icon-aixin fc-gray"></text>-->
+          <!--<text wx:else bindtap='deleteCollect' class="iconfont icon-aixin fc-red"></text>-->
+        </view>
+      </view>
+    </view>
+
+    <view class='footer fs-24'>
+      <view class="group">
+        <text class="type-name">{{goods.first_attr}}：</text>
+        <view class='view-box color'>
+          <text class='t-box {{current_info.first_attr_id == index && "t-active"}}' wx:for='{{spec.first}}' wx:key="" data-first_attr_id='{{index}}' data-first_attr_name='{{item}}' bindtap='checkSpec'>{{item}}</text>
+        </view>
+      </view>
+
+      <view class="group" wx:if="{{goods.second_attr != '数量'}}">
+        <text class="type-name">{{goods.second_attr}}：</text>
+        <view class='view-box color'>
+          <text class='t-box {{current_info.second_attr_id == index && "t-active"}}' wx:for="{{spec.second}}" wx:key="" data-second_attr_id='{{index}}' data-second_attr_name='{{item}}' bindtap='checkSpec'>{{item}}</text>
+        </view>
+      </view>
+
+      <view class="group goods-num">
+        <text class="type-name">数量：</text>
+        <view class='btn-box'>
+          <button data-type='-1' bindtap='checkNumber'>-</button>
+          <text>{{current_info.num}}</text>
+          <button data-type='1' bindtap='checkNumber'>+</button>
+        </view>
+      </view>
+
+      <view class="group">
+        <text>已选“{{current_info.first_attr_name}}” <text wx:if="{{goods.second_attr != '数量'}}">“{{current_info.second_attr_name}}”</text> “{{current_info.first_attr_name && current_info.num}}”</text>
+      </view>
+    </view>
+
+    <view id='msg' class='goods-interduce'>
+      <text class='fs-24'>商品详情介绍</text>
+      <image mode='widthFix' src='{{imgUrl}}/{{goods.details_imgs_url}}' wx:if="{{goods.details_imgs_url}}"></image>
+    </view>
+
+  </scroll-view>
+  <view id='footer'>
+    <!--商品状态 0 参与中 1 参与成功 2 已购买 3 已过期-->
+    <view class="foot-btn">
+
+      <form bindsubmit="launchOnpurse" data-onebuy_status="{{onebuy_status}}" report-submit="true"  wx:if="{{onebuy_status==-1 || onebuy_status == 3 || onebuy_status == 4}}">
+        <button class="ok" formType="submit" wx:if="{{onebuy_status==-1}}">￥{{discount_price}} 马上抢购</button>
+        <button class="ok" formType="submit" wx:else>￥{{discount_price}} 再玩一次</button>
+      </form>
+
+      <button class="ok ling" data-onebuy_status="{{onebuy_status}}" wx:elif="{{onebuy_status==0}}" bindtap="listClick">还差{{need_num}}人即可{{discount_price * 1}}元领取</button>
+
+      <button class="ok" data-onebuy_status="{{onebuy_status}}" wx:elif="{{onebuy_status==1}}" bindtap="listClick">立即{{discount_price}}元领取</button>
+
+      <button class="ok gray" wx:if="{{onebuy_status==2}}">已购买</button>
+
+      <text class="txt">抢购立省{{current_info.sale_price/100 - discount_price}}元</text>
+    </view>
+
+  </view>
+
+</view>
+
+<!--2.分享弹窗-->
+<view class="specBox {{tcBox == 2 && 'this-show'}}"  catchtouchmove='true'>
+  <view class="gray-back" bindtap="closeSpecBox"></view>
+  <view class="share-bar">
+    <view class="close"><image src="{{host}}/upload/oneBuy/btn-close.png?v=1105" bindtap="closeSpecBox"></image></view>
+    <text class="tit iconfs-40">邀请好友助力</text>
+    <button class="share" bindtap="btnShare" open-type="share">点击分享给好友></button>
+  </view>
+</view>
+
+<!--3. 查看我的抢购弹窗-->
+<view class="specBox {{tcBox == 3 && 'this-show'}}"  catchtouchmove='true'>
+  <view class="gray-back" bindtap="closeSpecBox"></view>
+  <view class="share-bar fs-26">
+    <view class="close"><image src="{{host}}/upload/oneBuy/btn-close.png?v=1105" bindtap="closeSpecBox"></image></view>
+    <view class="ts-txt">
+      <view class="iconfs-40">还差最后<text class="red">1</text>步</view>
+      <view class="iconfs-40">人满即可<text class="red">{{discount_price * 1}}元</text>购买</view>
+    </view>
+    <button class="share" bindtap="lookMyBuy">立即查看我的抢购</button>
+  </view>
+</view>
+
+<include src="../../include/include.wxml"></include>

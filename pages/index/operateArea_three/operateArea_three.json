@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page"
+  }
+}

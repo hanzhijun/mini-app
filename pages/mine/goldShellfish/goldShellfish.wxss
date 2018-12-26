@@ -1,0 +1,112 @@
+.goldeShellNum {
+  width: 100%;
+  margin: 16rpx 0 32rpx 0;
+  background: #fff;
+}
+
+.goldeShellCon {
+  margin: 0 15rpx 0 15rpx;
+}
+
+.g_count {
+  border-bottom: 1px solid #474545;
+}
+
+.g_count text {
+  display: block;
+  color: #333;
+  padding: 20rpx 0 0 32rpx;
+}
+
+.g_count text:last-child {
+  padding-bottom: 20rpx;
+}
+
+.voucher view {
+  position: relative;
+  display: inline-block;
+  margin: 25rpx 0 25rpx 0;
+}
+
+.voucher view image {
+  display: inline-block;
+  margin-right: 25rpx;
+  width: 224rpx;
+  height: 97rpx;
+}
+
+.voucher view:last-child image {
+  margin-right: 0;
+}
+
+.number {
+  position: absolute;
+  top: 32%;
+  left: 5%;
+  color: white;
+}
+
+.g_tip {
+  position: absolute;
+  left: 15%;
+  top: 5rpx;
+}
+
+.g_tip text {
+  display: block;
+  color: #333;
+  font-size: 18rpx;
+  padding-left: 4rpx;
+}
+
+.record {
+  width: 100%;
+  margin-top: 30rpx;
+  background: #fff;
+  padding-bottom: 60rpx;
+}
+
+.record view {
+}
+
+.recordName {
+  color: #333;
+  height: 83rpx;
+  line-height: 83rpx;
+}
+
+.r_list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 15rpx 0 15rpx;
+  border-bottom: 1px solid #474545;
+  padding: 5rpx 0 10rpx;
+}
+
+.r_list view{
+  width:50%;
+}
+
+.r_list view:last-child{
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.cre text {
+  display: block;
+}
+
+.cre .cre_tit {
+  color: #333;
+  margin: 10rpx 0 8rpx 0;
+}
+
+.cre .cre_time {
+  color: #999;
+}
+
+.add_count {
+  line-height: 83rpx;
+  color: #333;
+  box-sizing: border-box;
+}

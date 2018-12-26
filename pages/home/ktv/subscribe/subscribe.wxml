@@ -1,0 +1,69 @@
+<view class="product bor bg-white">
+  <view class="list fs-24">
+    <view class="imgCon">
+      <image src="{{logo_path}}{{logo}}" class="list_img"></image>
+    </view>
+    <view class="proInfo">
+      <text clFass="fc-gray-darkest">{{name}}</text>
+      <text>{{desc_info}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="orderTime bor bg-white">
+  <text class="fc-light-gray fs-24">预约时间</text>
+  <!-- <text class="fs-30 fc-gray-darkest">2018年7月22  19:00</text> -->
+
+  <view class="section fs-30 fc-gray-darkest" >
+    <picker mode="date" value="{{date}}" start="2018-01-01" end="2020-09-01" bindchange="bindDateChange">
+      <view class="picker">
+        {{date}}
+      </view>
+    </picker>
+    <picker mode="time" value="{{time}}" start="00:00" end="24:24" bindchange="bindTimeChange">
+      <view class="picker">
+        {{time}}
+      </view>
+    </picker>
+  </view>
+
+  <text class="fc-light-gray fs-24">修改></text>
+</view>
+<view class="lastest bg-white">
+  <text class="fc-light-gray fs-24">最迟保留时间</text>
+  <text class="fs-30 fc-gray-darkest lastestTime">2018年7月22  19:00</text>
+  <text class="fc-light-gray fs-24"></text>
+</view>
+
+<view class="orderInfo bg-white bor">
+  <view class="fs-30 fc-gray-darkest">预订信息</view>
+  <view class="peopleNum">
+    <text class="fs-30 fc-light-gray">人数</text>
+    <!--数量加减  -->
+    <view class="stepper">
+      <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+      <input type="number" bindchange="bindManual" value="{{num}}" disabled/>
+      <text class="normal" bindtap="bindPlus">+</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="contacts bg-white">
+  <view>
+    <text class="fs-30 fc-gray-darkest">联系人</text>
+    <input type='number' class="bor fs-30" bindinput='contactName' maxlength="11"></input>
+  </view>
+  <view>
+    <text class="fs-30 fc-gray-darkest">联系电话</text>
+    <input type='number' class="bor fs-30" bindblur="contactTel"></input>
+  </view>
+</view>
+
+
+<view class="note bg-white">
+  <text class="fs-30 fc-gray-darkest">预订备注</text>
+  <textarea class="fs-30 noteArea" bindinput='note' maxlength="101"></textarea>
+</view>
+
+<view class="order fs-30" bindtap='ImReservation'>立即预约</view>

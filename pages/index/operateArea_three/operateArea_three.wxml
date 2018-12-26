@@ -1,0 +1,41 @@
+<!--header  -->
+<scroll-view scroll-x="true" class="ip_tab_comtainer">
+  <view class="ip_tab_comtainer_padd"></view>
+  <block wx:for="{{ips}}" wx:for-item="ip" wx:key="{{ip.id}}">
+    <view class="{{ip.isSelect?'ip_tab_item_s':'ip_tab_item_n'}}" bindtap="onIpItemClick" wx:key="{{ip.id}}" data-item="{{ip}}">
+      {{ip.title}}
+    </view>
+  </block>
+  <view class="ip_tab_comtainer_padd"></view>
+</scroll-view>
+
+<!-- 切换内容区 -->
+<view class='content'>
+<!-- {{content}} -->
+  <view class="banner"><image src="/images/index/op_banner.png"></image></view>
+
+  <!--列表  -->
+  <view class="c_listCon">
+    <!--list start  -->
+    <view class="hotList">
+      <view class="pro_img">
+        <image src="/images/mine/coleect1.png"></image>
+      </view>
+      <view class="choiceStore">
+        <view class="fs-24 fc-gray-darkest storeName">
+          <text>海鲜海鲜海鲜海鲜</text>
+          <text>1.1km</text>
+        </view>
+        <view>
+          <button class="btn fs-20">金贝消费</button>
+          <button class="btn fs-20">全返银贝</button>
+        </view>
+        <view class="storeAdress">
+          <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+          <text class="fs-24 fc-gray9">吉泰路二号吉泰路二号</text>
+        </view>
+      </view>
+    </view>
+    <!--list end  -->
+  </view>
+</view>

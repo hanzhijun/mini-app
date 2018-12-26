@@ -1,0 +1,28 @@
+<view>
+  <!--  -->
+  <view class="tel_con clear">
+    <text class="fl fs-30">1.验证原号码</text>
+    <!-- <view class="fl fs-30">
+      <image src="/images/mine/redict.png"></image>
+    </view> -->
+    <text class="fr fs-30">2.绑定新号码</text>
+  </view>
+
+  <!--  -->
+  <view class="check">
+    <view class="checkNumCon">
+      <text class="fs-30">新手机号</text>
+      <input type='number' placeholder='请输入手机号码'  class="telNum fs-30" bindinput="newPhone"></input>
+      <button disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" class="countDown fs-24">
+        {{time}}
+      </button>
+    </view>
+    <text class="c_tip fs-30 fl">验证码</text>
+    <input type='number' placeholder='请输入你收到的验证码' class="checkNumber fs-30" bindinput='code'></input>
+  </view>
+
+  <view>
+    <button class="bindTel" bindtap='bindTel'>绑定</button>
+  </view>
+
+</view>

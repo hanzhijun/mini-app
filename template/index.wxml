@@ -1,0 +1,21 @@
+<template name="areaPicker">
+  <view class='address_picker' wx:if='{{show}}'> 
+      <view>
+        <view class='btn-box'>
+          <text bindtap='bindTap' data-type='close' style='color: #888'>取消</text>
+          <text bindtap='bindTap' data-type='ok' style='color: #89d589'>确定</text>
+        </view>
+        <picker-view class="picker-view" indicator-style="height: 35px;"  value="{{value}}" bindchange="bindChange">
+          <picker-view-column>
+            <view wx:for="{{provinceData}}" wx:key="code" class="addr-item">{{item.fullNameDot}}</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{cityData}}" wx:key="code" class="addr-item">{{item.fullNameDot}}</view>
+          </picker-view-column>
+          <picker-view-column wx:if="{{hideDistrict}}">
+            <view wx:for="{{districtData}}" wx:key="code" class="addr-item">{{item.fullNameDot}}</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+  </view>
+</template>

@@ -1,0 +1,64 @@
+Page {
+  background-color: #fff;
+}
+.banner {
+  height: 300rpx !important;
+}
+
+.banner swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.themes {
+  position: relative;
+  height: 270rpx !important;
+  margin-bottom: 20rpx;
+  padding-top: 20rpx;
+  padding: 5rpx 0 20rpx;
+  border-bottom:12rpx solid #e6e6e6;
+}
+
+.themes image {
+  width: 470rpx !important;
+  height: 270rpx !important;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.english, .title {
+  text-align: center;
+}
+
+.list {
+  margin-top: 10rpx;
+  text-align: center;
+}
+
+.list text {
+  display: block;
+  text-align: left;
+  padding: 0 13rpx;
+}
+
+.list image {
+  width: 724rpx;
+  height: 240rpx;
+}
+
+.list .listTitle {
+  font-weight: bold;
+  padding: 19rpx 13rpx 13rpx;
+}
+
+.zt-bar {
+  overflow: hidden;
+  padding: 20rpx 0 5rpx;
+  text-align: center;
+}
+.zt-bar image {
+  width: 96vw;
+  height: 9vw;
+}

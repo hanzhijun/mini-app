@@ -1,0 +1,208 @@
+<!--桌号  -->
+<view class="header">
+  <text class="fs-30 fc-gray3">欢迎光临本店</text>
+  <text class="fs-30 fc-gray3">您的桌号:{{desk_num}}</text>
+</view>
+
+<view class="main">
+  <!--左边列  -->
+  <scroll-view scroll-y class="left-wrapper fs-24 fc-gray3">
+    <!-- itemActive -->
+    <view 
+    class="item" 
+    wx:for="{{itemList}}" 
+    data-id="{{item.ordering_category_id}}" 
+    wx:key="unique" 
+    class="{{item.ordering_category_id==ordering_categoryid?'itemActive':'nowItem'}}" 
+    bindtap='selectMenu'>{{item.cname}}</view>
+  </scroll-view>
+
+  <!--右边列  -->
+  <view class="dishes" scroll-into-view="{{toView}}">
+    <view id="a{{index}}" wx:key="unique">
+      <!--1  -->
+      <view class="dishItem" wx:for='{{goods_list}}' wx:for-item ='goods'>
+        <image src="{{goods.dishespicture}}" class="dishImg"></image>
+        <view class="proDesc fs-24 fc-gray3">
+          <text>{{goods.dishesname}}</text>
+          <text>{{goods.dishesdesc}}</text>
+          <text>月售{{goods.sales}}</text>
+          <text>￥{{goods.dishesprice/100}}</text>
+        </view>
+         <view class='numberAddReduce' wx:if='{{goods.is_specifications}}'>
+          <button data-img='{{goods.dishespicture}}' class='fs-20' data-ordering_dishes_id='{{goods.ordering_dishes_id}}' bindtap='chooseDesc'>选规格</button>
+        </view> 
+
+        <!-- 不选规格 -->
+        <view class="numberAddReduce" wx:else> 
+          <view wx:if='{{shopcart[goods.ordering_dishes_id]}}'>
+            <text 
+            bindtap='checkNum' 
+            data-num='-1' 
+            data-dishes_id='{{goods.ordering_dishes_id}}'
+            class="iconfont icon-jianhao reduce iconfs-34 "></text>
+            <text class="fs-24 box-sizing ">{{shopcart[goods.ordering_dishes_id].dishes_num || 1}}</text>
+            <text 
+            bindtap='checkNum' 
+            data-num='+1' 
+            data-dishes_id='{{goods.ordering_dishes_id}}'
+            class="iconfont icon-jiahao add"
+            style='position:relative;top:1px'></text>   
+          </view>
+
+           <view wx:else style='padding-top: 2rpx;'>
+            <text 
+            bindtap='joinShopcart'
+            data-type='noformat'
+            data-dishes_id='{{goods.ordering_dishes_id}}'
+            class="iconfont icon-jiahao add"></text>    
+          </view> 
+        </view> 
+        <!-- end -->
+
+      </view>
+      <!--1  -->
+    </view>
+  </view>
+</view>
+
+
+<!--footer  -->
+<!--未点餐  -->
+<!-- <view class="tips theme">
+  <image src="/images/dishs.png" class="dishIcon"></image>
+  <text class="fs-30 fc-white box-sizing">嗨 吃顿好的犒劳一下辛苦的自己吧</text>
+</view> -->
+
+<!--点餐时  -->
+<view class="menuCon ">
+  <!--menu  -->
+  <view class="orderMenu" wx:if="{{showAddCart}}">
+    <view class="menuChoose fs-24 fc-gray3">
+      <view class="m_title">点餐清单</view>
+      <view class="clear" bindtap='clearCart'>
+        <text>清空</text>
+      </view>
+    </view>
+
+    <!--list1  -->
+    <view class="orderItem box-sizing" wx:for='{{shopcart}}' wx:for-item='goods'>
+      <view class="dishesInfo">
+        <text class="dishesTitle fs-24 fc-gray3">{{goods.dishes_name}}</text>
+        <text class="dishesIntro fs-20 fc-gray3">{{goods.specification_name}} {{goods.adddish_name}} {{goods.flavor_name}}</text>
+      </view>
+      <view class="price fs-24 fc-gray3">￥ {{goods.in_total * goods.dishes_num / 100}}</view>
+      <view class="countCon">
+        <text 
+        data-num='-1' 
+        data-index='{{index}}'
+        class="iconfont icon-jianhao reduce iconfs-34" 
+        bindtap="CheckTotalNum"></text>
+
+        <text class="fs-24 box-sizing cartNum">{{goods.dishes_num}}</text>
+        <text 
+        data-num='+1'
+        data-index='{{index}}'
+        class="iconfont icon-jiahao add"
+        bindtap="CheckTotalNum"></text>
+      </view>
+    </view>
+    <!--list1 end  -->
+  </view>
+  <!--menu end  -->
+
+  <!--底部总计和计算  -->
+  <view class="cart">
+    <view class="bg-gray9 cartDivide totalContainer" bindtap='chosenDishes'>
+      <view class="iconCon">
+        <text class="iconfont icon-mifan iconfs-42 dishIcon"></text>
+        <view class="circle fs-20" wx:if='{{shopcart_len}}'>{{shopcart_len}}</view>
+      </view>
+      <view class="totalVer fs-24 fc-white">
+        <text>￥ {{total_price / 100}}</text>
+        <text>总计{{shopcart.length}}个菜</text>
+      </view>
+    </view>
+    <view class="theme cartDivide fs-24 fc-white" bindtap='goBuy'>去结算</view>
+  </view>
+  <!--总计结算end  -->
+</view>
+<!--点餐end   -->
+
+<!--规格  -->
+<view class="pop" wx:if="{{showDesc}}">
+  <view class="specWrapper">
+    <!--商品  -->
+    <view class="curDishes bor_bottom">
+      <image src="{{format_img}}" class="dishImg"></image>
+      <view class="proDesc fs-24 fc-gray3">
+        <text>{{goods_list[ordering_dishes_id].dishesname}}</text>
+          <text>{{goods_list[ordering_dishes_id].dishesdesc}}</text>
+          <text>月售{{goods_list[ordering_dishes_id].sales}}</text>
+          <text>￥{{goods_list[ordering_dishes_id].dishesprice/100}}</text>
+      </view>
+      <text class="close" bindtap='close'>×</text>
+    </view>
+
+    <view class="overflowCon">
+
+      <!-- 规格 -->
+      <view class="spec bor_bottom fs-24 fc-gray3" wx:if='{{format_list.specifications_len}}'>
+        <view class="s_title">规格</view>
+        <view class='varitySpec'>
+          <text bindtap='checkFormat' 
+          data-type='specifications' 
+          wx:for='{{format_list.specifications}}' 
+          data-specifications_id='{{item.specifications_id}}' 
+          data-specifications_name='{{item.specifications_name}}'
+          class="{{check_list.specifications[0] == item.specifications_id && 'specActive'}}">{{item.specifications_name}}</text>
+        </view>
+      </view>
+      <!--规格end  -->
+
+      <!--加菜  -->
+      <view class="spec bor_bottom fs-24 fc-gray3" wx:if='{{format_list.addishes_len}}'>
+        <view class="s_title">加菜（可多选）</view>
+        <view class='varitySpec'>
+            <text
+            wx:for='{{format_list.addishes}}' 
+            data-ordering_adddishe_id='{{item.ordering_adddishe_id}}'
+            data-name='{{item.name}}'
+            data-type='addishes'
+            bindtap='checkFormat' 
+            class='{{check_list.addishes[item.ordering_adddishe_id][0] && "specActive"}}'>{{item.name}} 
+            </text>
+        </view>
+      </view>
+      <!--加菜 end  -->
+
+      <!--口味  -->
+      <view class="spec fs-24 fc-gray3" wx:if='{{format_list.flavors_len}}'>
+        <view class="s_title">口味(可多选)</view>
+        <view class='varitySpec kouwei'>
+
+          <text 
+          bindtap='checkFormat' 
+          data-type='flavors'
+          data-flavortype='{{item.flavortype}}' 
+          data-flavorname='{{item.flavorname}}'
+          data-ordering_flavor_id='{{item.ordering_flavor_id}}'
+          wx:for='{{format_list.flavors}}'
+          class='{{check_list.flavors[item.flavortype][1] == item.flavorname && "specActive"}}'>{{item.flavorname}}</text>
+
+        </view>
+      </view>
+      <!--口味 end  -->
+    </view>
+
+    <!--总计加入  -->
+    <view class="specAddCart fs-24">
+      <view class="specTotalPrice fc-gray3">￥{{check_list.price / 100}}</view>
+      <view 
+      class="join theme" 
+      bindtap='joinShopcart' 
+      data-type='format'>加入点菜</view>
+    </view>
+
+  </view>
+</view>

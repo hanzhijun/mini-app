@@ -1,0 +1,15 @@
+<view class='box {{hidden}}'>
+  <view class='login-box'>
+    <image src='../../images/shopCart/login-box-bg.png' mode='widthFix'></image>
+    <button 
+    open-type='getUserInfo' 
+    class='fs-30 btn1' 
+    bindgetuserinfo='getUserInfo'
+    type='primary '>
+      <image src='../../images/shopCart/weixin.png'></image>
+      微信登录
+    </button>
+
+    <image bindtap='close' class='close' src='../../images/shopCart/close.png' style='display:none'></image>
+  </view>
+</view>

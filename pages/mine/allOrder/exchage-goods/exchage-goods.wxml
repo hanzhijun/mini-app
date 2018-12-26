@@ -1,0 +1,69 @@
+<view class='box'>
+  <view class='bg-white goods-msg'>
+    <image mode='widthFix' src='{{imgUrl}}/{{category_logo_url}}{{res.g_pic}}'></image>
+    <view>
+      <text class='fs-24'>{{res.g_name}}</text>
+      <text class='fs-24'>{{res.g_format}}</text>
+    </view>
+  </view>
+
+  <view class='content bg-white fs-30'>
+    <view>
+      <text>{{type=="huanhuo" ? "换货" : "退款"}}原因</text>
+      <view data-type='1' bindtap='checkRadio'>
+        <text class='fc-gray' wx:if='{{reason}}'>{{reason}}</text>
+        <text class='fc-gray' wx:else>请选择</text>
+        <image src='../../../../images/mine/addArrow.png'></image>  
+      </view>
+    </view>
+
+    <view wx:if='{{type=="huanhuo"}}' style='border:0'>
+      <text>换货说明</text>
+      <input placeholder='（必填）'></input>
+    </view>
+
+    <view wx:else>
+      <text wx:if='{{res.type== -1}}'>商品合计 ￥{{res.subtotal / 100}}</text>
+      <text wx:else>商品合计 {{res.subtotal}} 银贝</text>
+    </view>
+  </view>
+
+  <view wx:if='{{type=="tuikuan"}}' class='return-money bg-white fs-30'>
+    <text>退款说明</text>
+    <input bindchange='explain' placeholder='（必填）'></input>
+  </view>
+
+  <view class='footer bg-white fs-30'>
+    <text>上传凭证</text>
+    <view class='image-box'>
+      <view class='upload fc-gray fs-24' bindtap='upload'>
+        <image src='../../../../images/mine/goods2.png' mode='widthFix'></image>
+        <text>上传凭证</text>
+        <text>（最多八张）</text>
+      </view>
+
+      <view bindtap='delImage' data-index='{{index}}' wx:for='{{aterasale}}' wx:key="" class='{{!item && "hide"}} upload fc-gray fs-24'>
+        <image class='pre' src='{{item !=0 && item}}'></image>
+      </view>
+
+    </view>
+  </view>
+
+  <view style='flex:1'></view>
+
+  <view class='btn-box' wx:if='{{!isShowRadio}}'>
+    <button bindtap='submit' class='bg-red-light fc-white fs-30'>提交</button>
+  </view>
+
+  <view catchtouchmove='preventTouchMove' class='radio_bg aside {{!isShowRadio && "hidden"}}'>
+    <view>
+      <radio-box item='{{items}}' bind:value='getVal'>
+        <text class='fs-30 radio-text'>换货原因</text>
+      </radio-box>  
+      <view class='btn-box' data-type='0' bindtap='checkRadio'>
+        <button class='bg-red-light fc-white fs-30'>关闭</button>
+      </view>
+    </view>
+  </view>
+ 
+</view>

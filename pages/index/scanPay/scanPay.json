@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "扫码支付",
+  "navigationBarBackgroundColor": "#fb2e66",
+  "disableScroll": true,
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  }
+}

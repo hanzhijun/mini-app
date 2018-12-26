@@ -1,0 +1,52 @@
+<view>
+  <view class="goldeShellNum">
+    <view class="goldeShellCon">
+      <!--  -->
+      <view class="g_count">
+        <text class="fs-30">铜贝数量</text>
+        <text class="fs-30">{{copperNum.surplus_copper}}</text>
+      </view>
+      <!--  -->
+      <view class="voucher">
+        <view>
+          <image src="/images/mine/g1.png"></image>
+          <text class="number fs-20">1</text>
+          <text class="g_tip">
+           <text>累计获得</text>
+          <text>{{copperNum.bring_copper}}</text>
+          </text>
+        </view>
+        <view>
+          <image src="/images/mine/g2.png"></image>
+          <text class="number fs-20">2</text>
+          <text class="g_tip">
+           <text>累计使用</text>
+          <text>{{copperNum.use_copper}}</text>
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- list -->
+  <view class="record" wx:if="{{copperList!=''}}">
+    <view class="recordName fs-24 r_list">近30天记录</view>
+    <!--listStart  -->
+    <view class="record_list r_list clear" wx:for="{{copperList}}" wx:key="">
+      <view class="fl cre">
+        <text class="cre_tit fs-24" wx:if="{{item.origin==1}}">首次登录</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==2}}">首次签到</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==3}}">每天签到</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==4}}">连续七天签到</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==5}}">连续15天签到</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==6}}">连续28天签到</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==7}}">点餐赠送</text>
+        <text class="cre_tit fs-24" wx:if="{{item.origin==8}}">购买商品</text>
+        <text class="cre_time fs-24">{{item.create_at}}</text>
+      </view>
+      <view class="fr add_count fs-24" wx:if="{{item.type==0}}">-{{item.amount}}</view>
+      <view class="fr add_count fs-24" wx:else>+{{item.amount}}</view>
+    </view>
+    <!--end  -->
+  </view>
+</view>

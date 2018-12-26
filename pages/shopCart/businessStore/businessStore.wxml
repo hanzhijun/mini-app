@@ -1,0 +1,21 @@
+<view class="c_listCon">
+  <!--1  -->
+  <view class="list fs-24 clear" wx:for='{{res_data}}' wx:key="" data-gid='{{item.gid}}' data-type='{{item.type}}' bindtap='openPage'>
+    <view class="pro_img fl">
+      <image src="{{imgUrl}}/{{item.list_url}}"></image>
+    </view>
+    <view class="pro_info fr">
+      <text class="pro_title">{{item.goods_name}} </text>
+      <view wx:if='{{item.status == 1 && item.goods_activity_id}}'>
+        <text class="pro_price" wx:if='{{item.payment == 1}}'>￥ {{item.price / 100}}</text>
+        <text class="pro_price" wx:elif='{{item.payment==2}}'>￥ {{item.price / 100}}</text>
+      </view>
+      <view wx:else>
+        <text class="pro_price" wx:if='{{item.type == -1}}'>￥ {{item.sale_price /100}}</text>
+        <text class="pro_price" wx:else>{{item.silver_price}}银贝</text>
+      </view>
+      
+    </view>
+  </view>
+  <!--1 end  -->
+</view>

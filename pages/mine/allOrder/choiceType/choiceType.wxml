@@ -1,0 +1,19 @@
+<view>
+  <view class='bg-white goods-msg'>
+    <image mode='widthFix' src='{{imgUrl}}/{{category_logo_url}}{{res.g_pic}}'></image>
+    <view>
+      <text class='fs-24'>{{res.g_name}}</text>
+      <text class='fs-24'>{{res.g_format}}</text>
+    </view>
+  </view>
+
+  <view class='content bg-white fs-20'>
+      <view class='row' bindtap='openPage'>
+          <view>
+            <text>退货退款</text>
+            <image src='../../../../images/mine/addArrow.png'></image>
+          </view>
+          <text class='fc-gray'>已收到货物，需要退换已收到的货物</text>
+      </view>
+  </view>
+</view>

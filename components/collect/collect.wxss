@@ -1,0 +1,51 @@
+@import '../../app.wxss';
+.goods-box-components {
+  display: block;
+  overflow: hidden;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+}
+
+.goods-box-components .box {
+  width: calc((100vw - 60rpx)/2);
+  height: 63vw;
+  overflow: hidden;
+  float: left;
+  margin: 25rpx 0 0 20rpx;
+  position: relative;
+}
+
+.box .image-box {
+  width: 100%;
+}
+
+ .box image {
+   width: calc((100vw - 60rpx)/2);
+   height: calc((100vw - 60rpx)/2);
+}
+
+.box .goods-name {
+  width: calc((100vw - 60rpx)/2);
+  line-height: 35rpx;
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  top: calc((100vw - 60rpx)/2 + 10rpx);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.box .goods-price {
+  display: block;
+  width: calc((100vw - 60rpx)/2);
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  top: calc((100vw - 60rpx)/2 + 85rpx);
+}
+.colorRed {
+  color: #f50c0c;
+}

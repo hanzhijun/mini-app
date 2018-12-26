@@ -1,0 +1,10 @@
+  <view class='radio-box'>
+    <slot></slot>
+    <radio-group class="radio-group" bindchange="radioChange">
+      <label wx:for="{{item}}" wx:key="">
+        <text class='fs-24'>{{item.name}}</text>
+        <radio class="radio" value="{{item.value}}" checked="{{item.checked}}"/>
+      </label>
+    </radio-group>
+  </view>
+  

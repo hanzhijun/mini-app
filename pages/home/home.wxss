@@ -1,0 +1,315 @@
+/*轮播  */
+
+button::after {
+  border: none;
+}
+
+swiper {
+  position: relative;
+  height: 300rpx !important;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/*我的资产  */
+
+.cate_Con {
+  width: 94%;
+  border: 1px solid #f85c45;
+  border-radius: 10rpx;
+  box-shadow: 0 10px 5px #ebe9e9;
+  margin: auto;
+  margin-top: -13rpx;
+  z-index: 9999;
+  position: relative;
+}
+
+.cate_Con view image {
+  height: 89rpx;
+  width: 89rpx;
+  padding-top: 10rpx;
+}
+
+.cate_Con view text {
+  display: block;
+  margin-top: 5rpx;
+  text-align: center;
+}
+
+/* .disPos {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+} */
+
+/* .cate_Con view image {
+  height: 89rpx;
+  width: 89rpx;
+  padding-top: 10rpx;
+} */
+
+.cate_Con view {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+}
+
+/*推荐  */
+
+.recommend {
+  background: #f7f7f7;
+  margin-top: 20rpx;
+}
+
+.recommend view {
+  text-align: center;
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 10rpx;
+}
+
+.recommend image {
+  width: 353rpx;
+  height: 225rpx;
+}
+
+/* tab */
+
+.nav {
+  width: 100%;
+  height: 85rpx;
+  line-height: 80rpx;
+  display: flex;
+  padding: 20rpx 0 20rpx 0;
+}
+
+.nav .tab {
+  width: 33.3%;
+  text-align: center;
+  border-right: 1px solid gainsboro;
+}
+
+.nav .tab:last-child {
+  border-right: 0;
+}
+
+.word {
+  display: inline-block;
+  width: 54%;
+  height: 101rpx;
+  margin: auto;
+}
+
+.activeColor {
+  border-bottom: 2px solid #333;
+}
+
+.active {
+  text-align: center;
+  color: #fc5558;
+  flex: 1;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.default {
+  text-align: center;
+  flex: 1;
+  color: #000;
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+/*新品上市  */
+
+.new {
+  display: flex;
+  height: 100rpx;
+  width: 100%;
+  background: #f7f7f7;
+}
+
+.new .i_con {
+  width: 210rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  margin-top: 30rpx;
+  text-align: right;
+  padding-right: 20rpx;
+  border-right: 2px solid gainsboro;
+}
+
+.new .i_con image {
+  width: 161rpx;
+  height: 40rpx;
+}
+
+.hot {
+  color: #f58369;
+  line-height: 100rpx;
+}
+
+.reco {
+  margin: 35rpx 15rpx 0 23rpx;
+  width: 74rpx;
+  height: 37rpx;
+  color: #f58369;
+  text-align: center;
+  line-height: 37rpx;
+  border: 1px solid #f58369;
+  border-radius: 10rpx;
+}
+
+/*推荐的商品  */
+
+.re_proCon {
+  /* height: 255rpx; */
+  /* width: 100%; */
+  /* padding-bottom: 100rpx; */
+  margin-bottom: 15rpx;
+}
+
+.reList {
+  margin: 0 21rpx 0 21rpx;
+}
+
+.productCon {
+  display: flex;
+  /* height: 210rpx; */
+  width: 100%;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.productCon .proInfo {
+  width: 67%;
+  padding-left: 45rpx;
+  box-sizing: border-box;
+  margin-right: 15rpx;
+}
+
+.proImg {
+  width: 211rpx;
+  height: 211rpx;
+  border-radius: 12rpx;
+  margin-top: 15rpx;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+
+.proImg image {
+  height: 100%;
+  width: 100%;
+}
+
+.golden {
+  width: 42rpx;
+  height: 31rpx;
+  margin-left: 5rpx;
+  vertical-align: middle;
+}
+
+.getGol {
+  display: flex;
+  width: 158rpx;
+  height: 33rpx;
+  border: 1px solid #f58369;
+  border-radius: 10rpx;
+  color: #f58369;
+  justify-content: center;
+  align-items: center;
+}
+
+.pro_name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding-top: 15rpx;
+  text-overflow: ellipsis;
+}
+
+.price {
+  display: inline-block;
+  margin: 20rpx 0 15rpx 0;
+  vertical-align: middle;
+  color: #f01212;
+}
+
+.company {
+  display: flex;
+  height: 46rpx;
+  line-height: 46rpx;
+}
+
+.company text, .company view {
+  display: inline-flex;
+}
+
+.company text, .company text:first-child {
+  width: 80%;
+}
+
+.company text, .company view:last-child {
+  width: 20%;
+}
+
+.company view {
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 10rpx;
+}
+
+.company image {
+  width: 10rpx;
+  height: 17rpx;
+}
+
+.company text {
+  padding-left: 15rpx;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.padd {
+  padding-left: 20rpx;
+}
+
+.suspension {
+  position: fixed;
+  bottom: 140rpx;
+  right: 0;
+  width: 130rpx;
+  height: 260rpx;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15rpx;
+  text-align: center;
+  transition: all .5s;
+  z-index: 9999;
+}
+
+.suspension view:first-child {
+  margin: 30rpx 0 27rpx 0;
+}
+
+.susIcon {
+  width: 52rpx;
+  height: 41rpx;
+}
+
+.suspension text {
+  display: block;
+  font-size: 32rpx;
+}
+
+.list-bar {
+  min-height: calc(100vh - 100px);
+}

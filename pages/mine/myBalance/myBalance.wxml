@@ -1,0 +1,60 @@
+<view class="balance bg-white">
+  <view class="myBalance">
+    <view class="fs-24 fc-gray-darkest">
+      <text>可用余额</text>
+      <text>￥456.00</text>
+    </view>
+    <view class="fs-24 fc-gray-darkest">
+      <text>冻结金额</text>
+      <text>￥234.00</text>
+    </view>
+    <view class="fs-24 fc-gray-darkest">
+      <navigator url="postal/postal" hover-class='none'><button class="forwad fs-24 bg-white">提现</button></navigator>
+      <image src="/images/mine/detail.png"></image>
+    </view>
+  </view>
+  <view class="total">
+    <view class="fs-24 fc-gray-darkest">
+      <text>累计获得</text>
+      <text>￥456.00</text>
+    </view>
+    <view class="fs-24 fc-gray-darkest">
+      <text>累计使用</text>
+      <text>￥234.00</text>
+    </view>
+    <view class="fs-24 fc-gray-darkest">
+      <text>累计节省</text>
+      <text>￥234.00</text>
+    </view>
+  </view>
+</view>
+
+
+<!--  -->
+<view class="record bg-white">
+  <view class="recordName fs-24 r_list">近30天记录</view>
+  <!--1  -->
+  <view class="record_list r_list clear">
+    <view class="fl cre">
+      <text class="cre_tit fs-24">完成商品购买</text>
+      <text class="cre_time fs-24">2018-07-11 15:00</text>
+    </view>
+    <view class="fr add_count fs-24">+45</view>
+  </view>
+  <!--2  -->
+  <view class="record_list r_list clear">
+    <view class="fl cre">
+      <text class="cre_tit fs-24">完成商品兑换</text>
+      <text class="cre_time fs-24">2018-07-11 15:00</text>
+    </view>
+    <view class="fr add_count fs-24">+45</view>
+  </view>
+  <!--3  -->
+  <view class="record_list r_list clear">
+    <view class="fl cre">
+      <text class="cre_tit fs-24">完成商品购买</text>
+      <text class="cre_time fs-24">2018-07-11 15:00</text>
+    </view>
+    <view class="fr add_count fs-24">+45</view>
+  </view>
+</view>

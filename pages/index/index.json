@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page",
+    "login-box": "/components/login-box/login-box",
+    "currency": "/components/currency/currency"
+  },
+  "enablePullDownRefresh": true
+}

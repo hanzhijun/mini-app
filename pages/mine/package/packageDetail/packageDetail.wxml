@@ -1,0 +1,73 @@
+<view class="c_listCon bg-white">
+  <!--商品 start -->
+  <view class="hotList" bindtap='openPage'>
+    <view class="pro_img">
+      <image src="{{imgUrl}}/{{res_data.category_package_url}}/{{res_data.list_img}}"></image>
+    </view>
+    <view class="pro_info fs-24 fc-gray-darkest">
+      <text class="proText proTitle">{{res_data.package_name}}</text>
+      <view class="sliverInfo">
+        <text class="proText colorC">{{res_data.package_desc}}</text>
+        <text class="fs-24 fc-gray-darkest sliverNum">{{res_data.silver}}银贝></text>
+      </view>
+    </view>
+  </view>
+  <!--end  -->
+</view>
+
+<!-- 兑换券 -->
+<view class="packageBg">
+  <image src="/images/mine/package.png"></image>
+  <view class="ticket">
+    <view class='p-line'>
+      <text class="line"></text>
+      <text class="fs-22">截止日期 {{res_data.expire_at}}</text>
+      <text class="line"></text>
+    </view>
+    
+    <view class="ticketNum">
+      <view>
+        <text>兑换券</text>
+        <text class="fs-22">{{res_data.cdkey}}</text>
+      </view>
+      <view class="orderStatus fs-30" 
+      wx:if='{{type=="unused"}}' 
+      bindtap='catCode'
+      data-type='1'
+      >查看二维码</view>
+      <view class="orderStatus fs-30" wx:elif='{{type=="done"}}'>订单已完成</view>
+      <view class="orderStatus fs-30" wx:elif='{{type=="overdue"}}'>订单已过期</view>
+    </view>
+  </view>
+</view>
+
+<!--商家信息  -->
+<view class="bus_info bg-white">
+  <view class="reco_pro fs-24 fc-gray-darkest">商家信息</view>
+  <view class="locationCon">
+    <view class="location">
+      <text class="fc-gray-darkest fs-24 storeIntro">{{res_data.name}}</text>
+      <text class="fs-24 iconColor9 storeAdre">{{res_data.address}}</text>
+      <view class="distance">
+        <text class='iconfont icon-dizhi1 iconfs-40 iconColor9'></text>
+        <text class="fs-24 iconColor9">距您{{res_data.km}}km</text>
+      </view>
+    </view>
+    <view class="contactCon" bindtap='callPhone' data-tel='{{res_data.tel}}'>
+      <text class='iconfont icon-dianhua iconfs-60 iconColor9'></text>
+    </view>
+  </view>
+</view>
+
+<!--提示  -->
+<view class="bus_info bg-white fs-24 fc-gray-darkest">
+  <view class="reco_pro">温馨提示</view>
+  <text class="tips">到期时间 : {{res_data.expire_at}}</text>
+  <text class="tips">不可用时间 : {{res_data.unable_time}}</text>
+</view>
+
+<view data-type='0' bindtap='catCode' class='erweima' wx:if='{{erweima}}'>
+  <view>
+    <image src='{{imgUrl}}{{res_data.qr_url}}'></image>
+  </view>
+</view>

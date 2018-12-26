@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "摇骰乐 摇骰PK得优惠",
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  },
+  "enablePullDownRefresh": true
+}

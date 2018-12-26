@@ -1,0 +1,22 @@
+.offOrderList {
+  height: 116rpx;
+  margin: 15rpx;
+  border-radius: 12rpx;
+  padding: 23rpx;
+  box-sizing: border-box;
+}
+
+.offOrderList>view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marTop{
+  margin-top: 20rpx;
+}
+
+.yinbeiIcon {
+  width: 41rpx;
+  height: 31rpx;
+  vertical-align: text-bottom;
+}

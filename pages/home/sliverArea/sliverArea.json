@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "银贝专区",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page"
+  }
+}

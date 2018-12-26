@@ -1,0 +1,44 @@
+<view class="header">
+  <text class="fs-24 fc-gray3">下单成功</text>
+  <text class="fs-24 fc-gray3">请联系商家进行支付</text>
+  <text class="fs-24 fc-gray3">感谢你对本店的支持，欢迎再次光临</text>
+</view>
+<view class="divider"></view>
+
+<!-- 订单列表 -->
+<view class="listContainer">
+  <text class="fs-24 fc-gray3 busniessName">{{order_detail.business_name || ''}}</text>
+  <!--list  -->
+  <view class="orderList" wx:for='{{order_detail.dishes}}' wx:for-item='goods'>
+    <image src="{{goods.dishes_picture}}" class="proImg"></image>
+    <view class="proInfo">
+      <text class="fs-24 fc-gray3">{{goods.dishes_name}}</text>
+      <text class="fs-24 fc-gray3">{{goods.specification_name || ''}} {{goods.adddish_name || ''}} {{goods.flavor_name || ''}}</text>
+      <text class="fs-24 fc-gray3">x{{goods.dishes_num}}</text>
+    </view>
+    <view class="fs-24 fc-gray3">￥{{goods.dishes_price / 100}}</view>
+    <view style='width:100%' class="note fs-24 fc-gray3 box-sizing">{{goods.remakers}}</view>
+  </view>
+ 
+  <!--list end  -->
+  <!--totalMoney  -->
+  <text class="fs-24 fc-gray3 totalPay">合计  ￥{{order_detail.total_price / 100}}</text>
+</view>
+
+<!--footer  -->
+<view class="footer">
+  <view class="fs-24 fc-gray3">桌号{{order_detail.tablenum || ''}}</view>
+  <view class="fs-24 fc-gray3">
+    <text>支付方式</text>
+    <text wx:if='{{order_detail.pay_type == 1}}'>微信支付</text>
+    <text wx:else>现金/支付宝支付</text>
+  </view>
+  <view class="fs-24 fc-gray3">
+    <text>订单号码</text>
+    <text>{{order_detail.ordernum}}</text>
+  </view>
+  <view class="fs-24 fc-gray3">
+    <text>订单时间</text>
+    <text>{{order_detail.create_at}}</text>
+  </view>
+</view>

@@ -1,0 +1,112 @@
+.header{
+  display: flex;
+  justify-content: space-around;
+  height:80rpx;
+  line-height: 80rpx;
+  width:100%;
+  background: #38454e;
+}
+
+.now {
+  color: white;
+}
+
+.active{
+  color:#f75d45;
+}
+
+.c_listCon {
+  position: relative;
+}
+
+.hotList {
+  display: flex;
+  background: white;
+  padding: 19rpx 13rpx;
+  margin-bottom: 15rpx;
+}
+
+.c_listCon .hotList .pro_img {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.c_listCon .hotList .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+}
+
+.choiceStore {
+  margin-left: 25rpx;
+  width: 66%;
+}
+
+.choiceStore .storeName {
+  display: flex;
+  margin-bottom: 14rpx;
+}
+
+.choiceStore .storeName text:first-child {
+  width: 95%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20rpx;
+}
+
+.choiceStore .btn {
+  display: inline-block;
+  height: 40rpx;
+  width: 100rpx;
+  padding: 0 !important;
+  color: #f85c45;
+  line-height: 40rpx;
+  background-color: #fff;
+  border: 1px solid #f85c45;
+  box-sizing: content-box !important;
+  margin-bottom: 10rpx;
+}
+
+.choiceStore .btn:last-child {
+  margin-left: 10rpx;
+}
+
+.fc-gray9 {
+  color: #999;
+}
+
+button::after {
+  border: none;
+}
+
+.proFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+.proFooter .g_price{
+  display: inline-block;
+  width:60%;
+}
+
+.go_buy {
+  /* margin-right: 25rpx;*/
+  margin-top: -25rpx; 
+}
+
+.bor{
+  border:1px solid #333;
+  width:120rpx;
+  height:40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+}

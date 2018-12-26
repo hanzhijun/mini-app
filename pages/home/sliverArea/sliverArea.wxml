@@ -1,0 +1,135 @@
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" wx:key="unique" class='item {{goods_activity_category_id == item.goods_activity_category_id && "active"}}' bindtap="navbarTap" data-goods_activity_category_id="{{item.goods_activity_category_id}}" data-template_id="{{item.template_id}}">{{item.name}}</text>
+  <open-page url='shopCart/classify/classify?type=1'>
+    <view class='fs-24 more'>更多></view>
+  </open-page>
+</view>
+
+<!--swiper  -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrl}}" wx:key="">
+    <swiper-item bindtap='openH5' data-id='{{item.goods_id}}' data-url='{{item.url}}' data-type='{{item.type}}'>
+      <image src="{{item.image_path}}{{item.image}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<!--template_id=1模板  -->
+<view class="" wx:if="{{template_id==1}}">
+
+  <!-- 图片区域 -->
+  <view>
+    <view class="activity_one">
+      <view class="a_left">
+        <image src="{{img_one.img_cover_path}}{{img_one.img_cover}}" bindtap='openPage' data-id="{{img_one.goods_activity_od_id}}"></image>
+      </view>
+      <view class="a_right">
+        <image src="{{img_two.img_cover_path}}{{img_two.img_cover}}" bindtap='openPage' data-id="{{img_two.goods_activity_od_id}}"></image>
+        <image src="{{img_three.img_cover_path}}{{img_three.img_cover}}" bindtap='openPage' data-id="{{img_three.goods_activity_od_id}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <!--分隔  -->
+  <view class="divider">
+    <view class="line"></view>
+    <view class="fs-30 c_word">优选好物</view>
+    <view class="line"></view>
+  </view>
+
+  <!--优选商品  -->
+  <view class="goodChoose">
+    <view class="goods" wx:for="{{recomList}}" wx:key="" bindtap='goDetail' data-gid="{{item.goods_id}}">
+      <view class="pos">
+        <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+      </view>
+
+      <!--金贝+现金  -->
+      <view wx:if="{{item.payment==1}}">
+        <text class="fs-24 good_title">{{item.goods_name}}</text>
+        <text class="fs-30 good_price">￥{{item.price/ 100}}</text>
+        <text class="fs-24">得<text class="red">{{item.base_return}}</text></text>
+        <image src="/images/currency/jinbei.png" class="golden"></image>
+      </view>
+
+      <!--金贝+铜贝  -->
+      <view wx:if="{{item.payment==2}}">
+        <text class="fs-24 good_title">{{item.goods_name}}</text>
+        <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+        <image src="/images/currency/jinbei.png" class="golden"></image>
+        <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+        <image src="/images/currency/tongbei.png" class="golden"></image>
+      </view>
+
+      <!--银贝  -->
+      <view wx:if="{{item.payment==3}}">
+        <text class="fs-24 fc-gray-darkest pro_name good_title">{{item.goods_name}}</text>
+        <text class="fs-30 fc-gray-darkest price padd">{{item.price}}</text>
+        <image src="/images/currency/yinbei.png" class="golden"></image>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+
+<!--template_id=2模板  -->
+<view class="" wx:if="{{template_id==2}}">
+
+  <!-- 图片区域 -->
+  <view>
+    <view class="activity_three">
+      <view wx:for="{{operationImg}}" wx:key="">
+        <image src="{{item.img_cover_path}}{{item.img_cover}}" bindtap='openPage' data-id="{{item.goods_activity_od_id}}"></image>
+      </view>
+    </view>
+  </view>
+
+  <!--分隔  -->
+  <view class="divider">
+    <view class="line"></view>
+    <view class="fs-30 c_word">优选好物</view>
+    <view class="line"></view>
+  </view>
+
+  <!--优选商品  -->
+  <view class="goodChoose">
+    <view class="goods" wx:for="{{recomList}}" wx:key="" bindtap='goDetail' data-gid="{{item.goods_id}}">
+      <view class="pos">
+        <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+      </view>
+      <!-- <text class="fs-24 good_title">{{item.goods_name}}</text>
+      <image src="/images/home/sliver.png" class="golden"></image>
+      <text class="fs-30 good_price">{{item.price}}银贝</text> -->
+
+      <!--金贝+现金  -->
+      <view wx:if="{{item.payment==1}}">
+        <text class="fs-24 good_title">{{item.goods_name}}</text>
+        <text class="fs-30 good_price">￥{{item.price/ 100}}</text>
+        <text class="fs-24">得{{item.base_return}}</text>
+        <image src="/images/currency/jinbei.png" class="golden"></image>
+      </view>
+
+      <!--金贝+铜贝  -->
+      <view wx:if="{{item.payment==2}}">
+        <text class="fs-24 good_title">{{item.goods_name}}</text>
+        <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+        <image src="/images/currency/jinbei.png" class="golden"></image>
+        <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+        <image src="/images/currency/tongbei.png" class="golden"></image>
+      </view>
+
+      <!--银贝  -->
+      <view wx:if="{{item.payment==3}}">
+        <text class="fs-24 fc-gray-darkest good_title">{{item.goods_name}}</text>
+        <text class="fs-30 fc-gray-darkest price padd">{{item.price}}</text>
+        <image src="/images/currency/yinbei.png" class="golden"></image>
+      </view>
+
+    </view>
+  </view>
+
+</view>

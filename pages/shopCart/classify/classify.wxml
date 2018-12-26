@@ -1,0 +1,25 @@
+<view class='box'>
+  <scroll-view scroll-y class='left fs-24'>
+
+    <text 
+    wx:for='{{classify}}' 
+    wx:key='cid'
+    class='{{current == item.cid && "active"}}'
+    data-cid='{{item.cid}}'
+    data-data='{{item.data}}'
+    bindtap='getClassify'
+    >{{item.c_name}}</text>
+  
+  </scroll-view>
+
+  <scroll-view scroll-y class='bg-white' style='height: 100vh;'>
+    <view class='right '>
+      <open-page url='shopCart/goodsList/goodsList?s_cid={{item.s_cid}}&type={{type}}' wx:key ='{{s_cid}}' wx:for='{{classify_1}}'>
+        <view class='classify-box'>
+          <image src='https://bhs-duishangbao.oss-cn-shenzhen.aliyuncs.com/{{item.s_logo}}?x-oss-process=image/resize,m_lfit,h_180,w_180/format,jpg'></image>
+          <text class='fs-24'>{{item.s_c_name}}</text>
+        </view>
+      </open-page>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,9 @@
+<view>
+  <text wx:if='{{!arr.length}}' bindtap='check'>请选择</text>
+  <text bindtap='check' wx:else>{{arr[0].fullName}} - {{arr[1].fullName}} - {{arr[2].fullName}}</text>
+  <import src="../../template/index.wxml"/>
+  <view bindtap='getSelecedData'>
+    <template is="areaPicker" data="{{...areaPicker}}" />
+  </view>
+
+</view>

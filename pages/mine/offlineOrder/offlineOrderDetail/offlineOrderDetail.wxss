@@ -1,0 +1,21 @@
+.orderDetail{
+  margin: 15rpx;
+  border-radius: 12rpx;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+
+.orderDetail .posCenter{
+  text-align: center;
+  margin: 15rpx;
+}
+
+.orderDetail .posCenter:first-child{
+  padding-top: 30rpx;
+}
+
+.orderDetail .listDetail{
+  display: flex;
+  justify-content: space-between;
+  margin: 10rpx;
+}

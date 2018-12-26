@@ -1,0 +1,125 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.3.0",
+	"appid": "wx7c9cf8c378593759",
+	"projectname": "mini-app",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 9,
+			"list": [
+				{
+					"id": 1,
+					"name": "一元购",
+					"pathName": "pages/onebuy/oneList/oneList",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "抢购详情",
+					"pathName": "pages/onebuy/oneInfo/oneInfo",
+					"query": "launch_id=35"
+				},
+				{
+					"id": 2,
+					"name": "商品详情",
+					"pathName": "pages/onebuy/goodsDetail/goodsDetail",
+					"query": "gid=11918&need_num=1"
+				},
+				{
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/onebuy/order/order",
+					"query": "gid=11869"
+				},
+				{
+					"id": 4,
+					"name": "绑定手机",
+					"pathName": "pages/mine/accoutManage/bindTel/bindTel",
+					"query": "history=onebuy"
+				},
+				{
+					"id": -1,
+					"name": "商品",
+					"pathName": "pages/shopCart/goodsDetail/goodsDetail",
+					"query": "gid=11918"
+				},
+				{
+					"id": -1,
+					"name": "助力购主页",
+					"pathName": "pages/helpPay/home",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "助力购商品详情页",
+					"pathName": "pages/helpPay/goodsDetail/goodsDetail",
+					"query": "gid=26404&type=0"
+				},
+				{
+					"id": 8,
+					"name": "分享购买",
+					"pathName": "pages/shareBuy/shareBuy",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "助力购分享主页",
+					"pathName": "pages/helpPay/shareIndex/shareIndex",
+					"query": "share_id=304"
+				},
+				{
+					"id": -1,
+					"name": "我的分享",
+					"pathName": "pages/mine/share/share",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "detail",
+					"pathName": "pages/helpPay/goodsDetail/goodsDetail",
+					"query": "gid=10548"
+				},
+				{
+					"id": 12,
+					"name": "shareIndex",
+					"pathName": "pages/helpPay/shareIndex/shareIndex",
+					"query": "share_id=122"
+				},
+				{
+					"id": -1,
+					"name": "支付成功",
+					"pathName": "pages/shopCart/paySuccess/paySuccess",
+					"query": "types=支付&status=200&btn=3,2&order_id=18112292542195&business_id=198&ordertype=dtake&buy_type=online&gid=11714"
+				}
+			]
+		}
+	}
+}

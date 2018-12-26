@@ -1,0 +1,427 @@
+page {
+  background: linear-gradient(#ff9500, #fe7800) !important;
+}
+
+.out-side {
+  overflow: hidden;
+  /* background: linear-gradient(to bottom, #ff9500 0%, #fe7800 100%) !important; */
+  background: linear-gradient(#ff9500, #fe7800) !important;
+}
+
+.listContainer {
+  position: relative;
+  width: 94vw;
+  margin: auto;
+  padding-top: 25rpx;
+  margin-bottom: 25rpx;
+}
+
+.product {
+  position: relative;
+}
+
+.list {
+  display: flex;
+  background: #fff;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.proImg {
+  width: 220rpx;
+  height: 220rpx;
+  margin: 17rpx 20rpx;
+}
+
+.proImg image {
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.proInfo {
+  width: 58%;
+  margin-left: 10rpx;
+}
+
+.proName {
+  display: block;
+  height: 125rpx;
+  line-height: 35rpx;
+  padding-top: 40rpx;
+  letter-spacing: 2rpx;
+}
+
+.price {
+  color: #c10202;
+  font-size: 34rpx;
+  margin-left: -5rpx;
+}
+
+.privousPrice {
+  font-size: 20rpx;
+  color: #666;
+  text-decoration: line-through;
+  padding-left: 8rpx;
+  box-sizing: border-box;
+}
+
+.stock {
+  color: #fe7600;
+  font-size: 24rpx;
+  float: right;
+  box-sizing: border-box;
+  padding: 14rpx 12rpx 0 0;
+}
+
+.buyBg {
+  width: 711rpx;
+  height: 899rpx;
+  margin: auto;
+}
+
+.helpCon {
+  position: relative;
+  top: 40rpx;
+  width: 580rpx;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 50rpx;
+}
+
+.buyStatus text {
+  font-size: 38rpx;
+  color: #c91300;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+
+.buyStatus text .num {
+  color: #fe7700;
+}
+
+.buyStatus image {
+  height: 39rpx;
+  width: 39rpx;
+  vertical-align: middle;
+}
+
+.time {
+  color: #666;
+  margin: 35rpx 0 20rpx 0;
+}
+
+.time text {
+  color: #fe7700;
+}
+
+.joinHelpPhoto {
+  margin-top: 40rpx;
+  width: 640rpx;
+  overflow: hidden;
+  padding: 0 0 0 65rpx;
+}
+
+.joinHelpPhoto view {
+  height: 102rpx;
+  width: 102rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  margin: 0 20rpx 20rpx 0;
+}
+
+.joinHelpPhoto view image {
+  height: 102rpx;
+  width: 102rpx;
+}
+
+.helpPhoto view {
+  display: inline-block;
+  width: 20%;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.helpPhoto view image {
+  height: 102rpx;
+  width: 102rpx;
+}
+
+.buyBtn {
+  width: 315rpx;
+  height: 68rpx;
+  margin: 16rpx auto;
+  font-size: 28rpx;
+  color: #f4f4f4;
+  line-height: 68rpx;
+  letter-spacing: 2rpx;
+}
+
+.intro {
+  position: relative;
+  top: 44rpx;
+  width: 580rpx;
+  margin: auto;
+  text-align: left;
+}
+
+.intro view {
+  color: #333;
+  margin-bottom: 12rpx;
+  letter-spacing: 2rpx;
+}
+
+.intro view text {
+  color: #d40707;
+}
+
+.return {
+  width: 200rpx;
+  position: fixed;
+  right: -20rpx;
+  bottom: 3vh;
+  background: #f7e9da;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fe7d00;
+  height: 58rpx;
+  line-height: 58rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.return text:first-child {
+  padding-right: 5rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+.carryStatus {
+  display: flex;
+  justify-content: space-between;
+  margin: 35rpx 0 20rpx 0;
+  color: #666;
+}
+
+.carryStatus view text {
+  color: #fe7700;
+}
+
+.buy-bg {
+  width: 710rpx;
+  overflow: hidden;
+  float: left;
+  background: url(https://img.duishangbao.cn/upload/oneBuy/buyInfo2.png?v=1106) repeat-y / 710rpx 21rpx;
+}
+.share-bar-img {
+  width:710rpx;
+  height:38rpx;
+  float: left;
+}
+.share-bar-img2 {
+  width:710rpx;
+  height:62rpx;
+  float: left;
+  margin-top: -1rpx;
+}
+.txtCenter {
+  text-align: center;
+  width: 710rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.introbg {
+  clear: both;
+  width: 710rpx;
+  height: 253rpx;
+  margin: auto;
+  margin-top: -10rpx;
+}
+
+.footer {
+  width: 100vw;
+  height: 49rpx;
+}
+
+.footer image {
+  height: 100%;
+  width: 100%;
+}
+
+.goBuy {
+  width: 713rpx;
+  height: 154rpx;
+  margin: auto;
+  margin-top: 44rpx;
+  margin-bottom: 44rpx;
+}
+
+.goBuy image {
+  height: 100%;
+  width: 100%;
+}
+
+.joinCon {
+  width: 710rpx;
+  border-radius: 15rpx;
+  background: #fff;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 50rpx;
+}
+
+.joinCon .buyStatus text {
+  display: inline-block;
+  margin-top: 30rpx !important;
+}
+
+.dis {
+  display: block !important;
+}
+
+.specBox {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1011;
+}
+
+.specBox.this-show {
+  display: block;
+}
+
+.specBox .gray-back {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tc-num-bar {
+  width: 750rpx;
+  height: 816rpx;
+  background: url('https://img.duishangbao.cn/upload/oneBuy/tc-numts.png?v=1106') no-repeat 0 0 / 750rpx 816rpx;
+  position: absolute;
+  left: 0;
+  top: calc(50vh - 430rpx);
+  z-index: 3;
+}
+
+.tc-num-bar .tit {
+  display: block;
+  text-align: center;
+  font-size: 34rpx;
+  color: #333;
+  padding: 450rpx 0 0;
+}
+
+.tc-num-bar .tit-ing {
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  padding: 30rpx 0 12rpx;
+}
+
+.tc-num-bar .c {
+  display: block;
+  width: 240rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #fff;
+  margin: 0 auto;
+}
+
+.understand {
+  background: url('https://img.duishangbao.cn/upload/oneBuy/btn-isee.png?v=1106') no-repeat 0 0 / 492rpx 70rpx;
+}
+
+.goBuyforme {
+  background: url('https://img.duishangbao.cn/upload/oneBuy/btn-isee2.png?v=1106') no-repeat 0 0 / 492rpx 70rpx;
+}
+
+/*.tc-num-bar .c:active, .list:active, .recevie:active {
+  opacity: 0.8;
+}*/
+
+.btn {
+  display: flex;
+  border: none;
+  width: 69vw;
+  margin: 60rpx auto;
+}
+
+.btn2{
+  position: relative;
+  left:-6vw;
+  /* bottom: 0; */
+  top:80%;
+  /* top:48vh; */
+}
+.tc-num-bar2 {
+  width: 750rpx;
+  height: 816rpx;
+  background: url('https://img.duishangbao.cn/upload/oneBuy/pop.png?v=1106') no-repeat 0 0 / 656rpx 786rpx;
+  /* position: absolute;
+  left: 50%;
+  margin-left: -328rpx; */
+  top: calc(50vh - 470rpx);
+  z-index: 3;
+  position: relative;
+  left: 6vw;
+}
+
+.popGoBuy {
+  display: block;
+  width: 463rpx;
+  height: 76rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 0 auto;
+  color: #fe7a00;
+  background: url('https://img.duishangbao.cn/upload/oneBuy/btn3.png?v=1106') no-repeat 0 0 / 463rpx 76rpx;
+}
+
+button::after {
+  border: none;
+}
+
+.close {
+  height: 63rpx;
+  width: 62rpx;
+  position: absolute;
+  z-index: 999;
+  bottom: -5vh;
+  left: 50%;
+  margin-left: -71rpx;
+}
+.goBuy:active,
+.return:active,
+.buyBtn:active {
+  opacity: .8;
+}
+
+.current{
+  width: 322rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  background: #b3b3b3;
+  overflow: hidden;
+  text-align: center;
+  font-size: 28rpx;
+  color:white;
+  margin: auto;
+}

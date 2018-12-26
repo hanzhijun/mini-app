@@ -1,0 +1,163 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<view style='padding-bottom: {{option=="shopcart" && ids_len ? 256:0}}rpx;'>
+    <view class='header bg-white' wx:if='{{option != "no"}}'>
+        <view>
+            <text class='iconfont icon-dizhi'></text>
+            <text class='fs-30'>{{address}}</text>
+        </view>
+
+        <view>
+            <text bindtap='switchPage' wx:if="{{option=='shopcart'}}" class='fs-30'>编辑商品</text>
+            <text bindtap='switchPage' wx:elif='{{option == "edit"}}' class='fs-30'>完成</text>
+        </view>
+    </view>
+
+    <!-- 通过current来更新数据 -->
+    <view class="content-box bg-white" wx:key='business_id' wx:for-item='store' wx:for="{{cart_msg}}">
+        <!-- header -->
+        <view class="header">
+            <view class='checkbox'>
+                <checkbox-group
+                        bindchange='checkAll'
+                        data-store_id='{{store.business_id}}'>
+
+                    <checkbox
+                            class='wx-checkbox-input'
+                            value='{{store.business_id}}'
+                            checked='{{store.checked}}'></checkbox>
+
+                </checkbox-group>
+                <text class="fs-30"><!--{{store.business_name}}-->贝划算</text>
+            </view>
+        </view>
+
+        <!-- content -->
+        <view class='content' wx:key='cid' wx:for='{{store.goods_info}}'>
+            <view>
+                <view class='checkbox'>
+                    <checkbox-group
+                            data-store_id="{{store.business_id}}"
+                            data-goods_id='{{item.cid}}'
+                            data-spec_id='{{item.spec_id}}'
+                            bindchange='checked'>
+                        <checkbox
+                                class='wx-checkbox-input'
+                                value='{{item.cid}}'
+                                checked='{{item.checked}}'></checkbox>
+                    </checkbox-group>
+                </view>
+
+                <image class='image' src='{{imgUrl}}/{{category_logo_url}}{{item.list_url}}'></image>
+                <view class="fs-24 desc">
+                    <text>{{item.goods_name}}</text>
+                    <text>{{item.attr}}</text>
+                    <view>
+                        <!-- 活动商品 -->
+                        <view wx:if='{{item.is_activity && item.is_show}}'>
+                            <text wx:if='{{item.payment == 1}}'>￥{{item.price / 100 || 0}} 可打捞金贝 {{item.base_return}}
+                            </text>
+                            <text wx:elif='{{item.payment == 2}}'>{{item.gold_price || 0}}金贝 + {{item.copper_price}}铜贝
+                            </text>
+                            <text wx:elif='{{item.payment == 2}}'>{{item.price || 0}}银贝</text>
+                        </view>
+                        <!-- 非活动商品 -->
+                        <view wx:else>
+                            <text wx:if='{{item.type == 1}}'>{{item.silver_price || 0}}银贝</text>
+                            <text wx:else>￥{{item.sale_price / 100 || 0}} 可打捞金贝 {{item.base_return}}</text>
+                        </view>
+
+                        <view class='btn-box' wx:if='{{option == "shopcart"}}'>
+                            <button
+                                    bindtap='changeNum'
+                                    data-num='-1'
+                                    data-store_id='{{store.business_id}}'
+                                    data-cid='{{item.cid}}'
+                                    class='fs-24'>-
+                            </button>
+
+                            <text>{{item.num}}</text>
+
+                            <button
+                                    bindtap='changeNum'
+                                    data-num='1'
+                                    data-store_id='{{store.business_id}}'
+                                    data-cid='{{item.cid}}'
+                                    class='fs-24'>+
+                            </button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 购物车  -->
+    <view class='footer bg-white' wx:if='{{option == "shopcart" && ids_len}}'>
+        <view class='left checkbox-b'>
+            <checkbox-group bindchange='check'>
+                <checkbox checked='{{allCheck}}' value='true' class='checkbox fs-24'>
+                    <text>全选</text>
+                </checkbox>
+            </checkbox-group>
+        </view>
+
+
+        <view class='result-box fs-24'>
+            <text wx:if='{{pay.price > 0}}'>总计：<text class="red">￥{{pay.price}}</text></text>
+            <text wx:if='{{pay.silver_num > 0}}'>总计：<text class="red">{{pay.silver_num}}银贝</text></text>
+            <text wx:if='{{pay.copper_price > 0}}'>总计：<text class="red">{{pay.copper_price}}铜贝</text></text>
+            <text wx:if="surplus_goldshells && pay.price > 0">可用{{surplus_goldshells}}金贝节省<text wx:if="{{pay.price>surplus_goldshells}}">{{surplus_goldshells}}</text><text wx:else>{{pay.price * 1 - pay.price%1}}</text>元</text>
+            <!-- <text wx:if='{{pay.price > 0}}'>可用{{}}金贝节省{{}}元</text> -->
+            <text wx:if='{{pay.price > 0}}'>可送{{pay.get_goldshells}}金贝</text>
+        </view>
+
+        <view class='right bg-red' bindtap='pay'>
+            <text class='fs-24 fc-white'>去结算</text>
+        </view>
+    </view>
+
+    <!-- 购物车为空 -->
+    <view class='bg-white not-shopcart' wx:if='{{option == "no"}}'>
+        <view>
+            <image style='width:137rpx;height:137rpx;' src='{{imgUrl}}/upload/shopCart/not-shopcart.png'></image>
+            <text style='width:100%;text-align: center;margin-top: 25rpx;' class='fs-24'>购物车空空如也，去逛逛吧</text>
+        </view>
+
+        <view class='br'>
+            <text class='d'></text>
+            <text class='fs-30' style='margin:0 7%'>你还喜欢的</text>
+            <text class='d'></text>
+        </view>
+
+        <!--<collect></collect> 移出来是因为二次show后登录不加载-->
+        <view class='goods-box-components'>
+            <view class='box' bindtap='openPageCollect' data-gid='{{item.gid}}' data-type='{{item.type}}' wx:for='{{myCollectList}}' wx:key="">
+                <view class='image-box'>
+                    <image src='{{imgUrl}}/{{item.category_goods_url}}{{item.list_url}}'></image>
+                </view>
+                <view class="goods-name fs-24 fs-bold">{{item.goods_name}}</view>
+                <view class="goods-price fs-24" wx:if='{{item.type == 1}}'><text class="colorRed">{{item.silver_price}}</text> 银贝</view>
+                <view class="goods-price fs-24 colorRed" wx:else>￥{{item.sale_price / 100}}</view>
+            </view>
+        </view>
+
+    </view>
+
+    <!-- 编辑购物车  -->
+    <view class='footer-edit bg-white' wx:if='{{option == "edit"}}'>
+        <view class='left checkbox-b'>
+            <checkbox-group bindchange='check'>
+                <checkbox checked='{{allCheck}}' value='true' class='checkbox fs-24'>
+                    <text>全选</text>
+                </checkbox>
+            </checkbox-group>
+        </view>
+
+        <view class='footer-btn-box'>
+            <button bindtap='joinCollect' class='fs-24 clear-btn-bd'>移入收藏夹</button>
+            <button bindtap='deleteCart' class='fs-24 clear-btn-bd'>删除({{ids_len}})</button>
+        </view>
+    </view>
+
+</view>

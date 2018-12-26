@@ -1,0 +1,43 @@
+.postalTip {
+  color: #999;
+  padding: 35rpx 28rpx 43rpx 28rpx;
+  box-sizing: border-box;
+}
+
+.telCheck {
+  display: flex;
+  width: 70%;
+  margin: auto;
+  align-items: center;
+}
+
+.countDown {
+  display: inline-block;
+  height: 60rpx;
+  width: 173rpx;
+  line-height: 60rpx;
+  border: 1px solid #474545;
+  text-align: center;
+  margin-right: 0 !important;
+}
+
+.countDown::after {
+  border: 0;
+}
+
+.postalInp {
+  height: 75rpx;
+  width: 70%;
+  padding-left: 20rpx;
+  margin: 34rpx auto;
+}
+
+.postal {
+  width: 55%;
+  margin-top: 50rpx;
+  border: 1px solid #535353;
+}
+
+button::after {
+  border: none;
+}

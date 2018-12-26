@@ -1,0 +1,38 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- nav -->
+<view class="nav bg-white fs-24">
+  <text class="active">潮搭攻略</text>
+  <text>美妆护肤</text>
+  <text>品牌时尚</text>
+  <text>珠光闪耀</text>
+</view>
+
+
+<!-- 商品区域 -->
+<view class="goodChoose">
+  <!-- 商品start -->
+  <view class="goods">
+    <view class="pos">
+      <image src="/images/share/share.jpg"></image>
+    </view>
+    <text class="fs-24 good_title">前男友面膜前男友面膜前男友面膜前男友面膜前男友面膜前男友面膜前男友面膜前男友面膜</text>
+    <view class="author">
+      <view>
+        <image src="/images/share/share.jpg" class="photo"></image>
+        <text class="fs-22 fc-gray-darkest">不吃鲤鱼的猫</text>
+      </view>
+      <view>
+        <text class="iconfont icon-shoucang collect"></text>
+        <text class="fs-22 fc-gray-darkest">1221</text>
+      </view>
+    </view>
+  </view>
+  <!-- 商品end -->
+</view>

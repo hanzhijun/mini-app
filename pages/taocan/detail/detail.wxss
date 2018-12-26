@@ -1,0 +1,189 @@
+/* 套餐顶部 */
+.banner {
+  height: 53vw;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.susIcon {
+  width: 35rpx;
+  height: 26rpx;
+}
+
+.vocherMain {
+  width: calc(100% - 20px);
+  padding: 10px 10px 0 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.price {
+  margin-right: 15rpx;
+}
+
+.vocherMain .v_left {
+  width: calc(100% - 102px);
+  float: left;
+}
+.vocherMain .v_left.w-long {
+  width: calc(100% - 130px);
+}
+
+.vocherMain .v_left view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 20rpx;
+}
+
+.vocherMain .v_right {
+  text-align: right;
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+}
+
+.vocherMain .v_right view {
+  margin-bottom: 12rpx;
+}
+
+.mar {
+  display: inline-block;
+  margin-left: 5rpx;
+  vertical-align: middle;
+}
+
+.buy {
+  display: inline-block;
+  color: #999;
+}
+
+
+
+/* 代金券顶部 */
+.vocher {
+  padding-bottom: 20rpx;
+}
+
+.susIcon {
+  width: 35rpx;
+  height: 26rpx;
+}
+
+.vocherCon {
+  position: relative;
+  height: 160rpx;
+  width: 97%;
+  margin: auto;
+  margin-top: 10rpx;
+}
+
+.vocherCon .vocherBg {
+  width: 100%;
+  height: 160rpx;
+}
+
+.vocherMainCon {
+  position: absolute;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  margin-left: 10%;
+}
+
+.vocherMainCon view:first-child {
+  margin-top: 20rpx;
+}
+
+.price {
+  margin-right: 15rpx;
+}
+
+.vocherMainCon .v_left {
+  width: 60%;
+  float: left;
+}
+
+.vocherMainCon .v_left view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin-bottom: 20rpx;
+}
+
+.vocherMainCon .v_right {
+  /* width: 33%; */
+  float: right;
+  margin-right: 48rpx;
+}
+
+.mar {
+  display: inline-block;
+  margin-left: 5rpx;
+  vertical-align: middle;
+}
+
+.voucherInfo {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  padding: 12rpx 12rpx 0 12rpx;
+}
+
+
+
+/* 套餐详情 */
+
+.detail {
+  margin-top: 10rpx;
+  padding-bottom: 45rpx;
+}
+
+.hotTitle {
+  height: 65rpx;
+  width: 100%;
+  line-height: 65rpx;
+  padding-left: 12rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.intro{
+  padding: 12rpx 12rpx 66rpx 12rpx;
+}
+
+.endTime{
+  padding: 12rpx;
+}
+
+.endTime text{
+  display: block;
+}
+
+.goBuy{
+  position: fixed;
+  bottom:0;
+  height:90rpx;
+  width:100%;
+  background: #f85c45;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color:white;
+}
+
+.wxParse {
+  line-height: 1.5rem;
+}

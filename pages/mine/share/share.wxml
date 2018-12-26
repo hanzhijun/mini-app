@@ -1,0 +1,54 @@
+<!--header  -->
+<view class="header bg-white">
+  <image src="/images/mine/shareBanner.png"></image>
+  <view class="s_count">
+    <view>
+      <text class="fs-30 fc-gray-darkest">总计分享</text>
+      <text class="fs-30 fc-gray-darkest">{{outerInfo.all_count}}次</text>
+    </view>
+    <view>
+      <text class="fs-30 fc-gray-darkest">累计捞得</text>
+      <text class="fs-30 fc-gray-darkest">{{outerInfo.all_num}}金贝</text>
+    </view>
+  </view>
+</view>
+
+
+<!--list  -->
+<view class="bg-white shareCon">
+  <!--  1  -->
+  <view class="pos" wx:for="{{shareList}}" wx:key="">
+
+    <view class="shareList" bindtap='gotoProduct' data-id="{{item.id}}">
+      <text class="shareTime fs-24 fc-gray-darkest">分享时间 : {{item.create_at}}</text>
+      <view class="product">
+        <view class="pro_img">
+          <image src="{{outerInfo.img_url}}{{outerInfo.list_path}}{{item.list_url}}"></image>
+        </view>
+        <view class="proInfo">
+          <text class="fs-24 fc-gray-darkest title">{{item.goods_name}}</text>
+          <text class="status" wx:if="{{item.show_status == 1}}">助力成功</text>
+          <text class="status" wx:if="{{item.show_status == 2}}">助力中~</text>
+          <text class="status" wx:if="{{item.show_status == 5}}">已结束~</text>
+          <view>
+            <text class="fs-20 fc-gray-darkest hasGolden" wx:if="{{item.show_status == 1}}">点击可领取 {{item.activity_indirect_return}}金贝</text>
+            <text class="fs-20 fc-gray-darkest hasGolden" wx:if="{{item.show_status == 2 }}">还差{{item.D_value}}人可领取 {{item.activity_indirect_return}}金贝</text>
+            <text class="fs-20 fc-gray-darkest hasGolden" wx:if="{{item.show_status == 3}}">购买即可领取 {{item.activity_indirect_return}}金贝</text>
+            <text class="fs-20 fc-gray-da6rkest hasGolden" wx:if="{{item.show_status == 4}}">已领取 {{item.activity_indirect_return}}金贝</text>
+            <text class="fs-20 fc-gray-da6rkest hasGolden" wx:if="{{item.show_status == 5}}">活动已经结束了</text>
+          </view>
+
+        </view>
+      </view>
+    </view>
+    
+    <view class="proState">
+      <button class="bg-white fs-24 fc-gray-darkest" wx:if="{{item.show_status == 1}}" bindtap='commReceive' data-id="{{item.id}}">立即领取</button>
+      <button class="bg-white fs-24 fc-gray-darkest" wx:if="{{item.show_status == 2 }}" bindtap="gotoProduct" data-id="{{item.id}}">再去助力</button>
+      <button class="bg-white fs-24 fc-gray-darkest" wx:if="{{item.show_status == 3}}"  data-goods_id="{{item.goods_id}}" data-spec_id="{{item.spec_id}}" bindtap="listClick">立即购买</button>
+      <button class="bg-white fs-24 fc-gray-darkest" wx:if="{{item.show_status == 4}}">已领取</button>
+      <button class="bg-white fs-24 fc-gray-darkest" wx:if="{{item.show_status == 5}}">已结束</button>
+    </view>
+  </view>
+  <!-- 1 -->
+</view>

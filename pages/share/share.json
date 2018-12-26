@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "贝划算分享狂欢",
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  }
+}

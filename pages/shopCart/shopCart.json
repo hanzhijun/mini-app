@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#f85c45",
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "collect": "/components/collect/collect",
+    "login-box": "/components/login-box/login-box"
+  },
+  "enablePullDownRefresh": true
+}

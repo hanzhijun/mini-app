@@ -1,0 +1,218 @@
+/*header  */
+
+.ip_tab_comtainer {
+  width: 100%;
+  background-color: #38454e;
+  height: 80rpx;
+  line-height: 80rpx;
+  white-space: nowrap;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.ip_tab_comtainer_padd {
+  display: inline-block;
+  width: 24rpx;
+}
+
+.active {
+  color: #f85c45!important;
+}
+
+.ip_tab_item_n {
+  display: inline-block;
+  padding: 0 26rpx;
+  color: #fff;
+  margin-right: 8rpx;
+  margin-left: 8rpx;
+  font-size: 28rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**
+去除横向滚动条
+*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.content {
+  /* width: 100%; */
+  padding-top: 80rpx;
+}
+
+/*爆款  */
+
+.divider {
+  margin: 20rpx;
+}
+
+.line {
+  display: inline-block;
+  width: 39.5%;
+  border-bottom: 1px solid #333;
+  vertical-align: middle;
+}
+
+.hot {
+  color: #2b2727;
+  padding: 0 15rpx 0 15rpx;
+  box-sizing: border-box;
+}
+
+/*爆款列表  */
+
+.wrapper {
+  display: flex;
+  white-space: nowrap;
+  margin-left: 14rpx;
+  width:99%;
+  margin: auto;
+}
+
+.hotList {
+  display: inline-flex;
+  background: #fff;
+  box-shadow: 0 5px 5px #e8e5e5;
+  margin-right: 35rpx;
+}
+
+.listImg {
+  width: 263rpx;
+  height: 263rpx;
+  margin-left: 10rpx;
+}
+
+.listImg image {
+  height: 100%;
+  width: 100%;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  width: 320rpx;
+}
+
+.hot-single .intro  {
+    width: 455rpx;
+}
+
+.tongbeiIcon {
+  width: 41rpx;
+  height: 31rpx;
+  padding-left: 15rpx;
+  vertical-align: text-bottom;
+}
+
+.proTitle {
+  padding-bottom: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.proEffect {
+  padding-bottom: 15rpx;
+}
+
+.proPrice {
+  padding-top: 20rpx;
+}
+
+/*为您精选列表  */
+.c_listCon {
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.list {
+  display: flex;
+  background: white;
+  padding: 19rpx 13rpx;
+  margin-bottom: 15rpx;
+  box-sizing: border-box;
+}
+
+.c_listCon .list .pro_img {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.c_listCon .list .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+  position: relative;
+}
+
+.c_listCon .pro_info .proText,
+.c_listCon .pro_info .listPrice {
+  display: block;
+  margin: 10rpx;
+}
+
+.c_listCon .pro_info .listPrice {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom:0;
+}
+
+.c_listCon .pro_info .listTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.c_listCon .pro_info .proText:first-child {
+  margin-top: 0;
+}
+
+.c_listCon .pro_info view text {
+  padding-right: 20rpx;
+  color: #f01212;
+}
+
+.c_listCon .pro_info view text.txt {
+  padding-right: 5px;
+  color: #333;
+  font-size: 22rpx;
+}
+
+.saleHot {
+  height: 45rpx;
+  width: 140rpx;
+  color: #f85c45;
+  line-height: 45rpx;
+  background-color: #fff;
+  border: 1px solid #f85c45;
+  border-radius: 30rpx;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.saleHot:active {
+  opacity: .5;
+}
+
+button::after {
+  border: none;
+}

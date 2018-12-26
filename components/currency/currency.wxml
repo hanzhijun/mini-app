@@ -1,0 +1,17 @@
+<!-- 用法 -->
+<!-- <currency num='[1,2]' type='jinbei'></currency> -->
+<!-- end -->
+
+<view class='currency'>
+  <view wx:if='{{type == "jinbei"}}'>
+    {{num[0]}} <image src='../../images/currency/jinbei.png'></image>
+  </view>
+
+  <view wx:if='{{type == "yinbei"}}'>
+    {{num[0]}} <image src='../../images/currency/yinbei.png'></image>
+  </view>
+
+  <view wx:if='{{type == "tongbei"}}'>
+    {{num[0]}} <image src='../../images/currency/jinbei.png'></image>+{{num[1]}} <image src='../../images/currency/tongbei.png'></image>
+  </view>
+</view>

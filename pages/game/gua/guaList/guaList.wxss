@@ -1,0 +1,54 @@
+.gua-banner image {
+  width: 100%;
+  height: 200rpx;
+}
+
+.goods-item {
+  padding-top: 10rpx;
+}
+
+.item-out {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.item-out:active {
+  opacity: .8
+}
+
+.goods-img image {
+  height: 180rpx;
+  width: 180rpx;
+}
+
+.goods-main {
+  width: 70%;
+}
+
+.goods-main text {
+  /* display: block; */
+  margin-top: 17rpx;
+}
+
+.goods-name {
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.goods-state {
+  display: flex;
+}
+
+.redcolor {
+  color: #dc1717;
+}
+
+.null-list {
+  text-align: center;
+  font-size: 26rpx;
+  padding: 50rpx;
+}

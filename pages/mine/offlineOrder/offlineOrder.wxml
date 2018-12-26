@@ -1,0 +1,15 @@
+<open-page url="mine/offlineOrder/offlineOrderDetail/offlineOrderDetail" hover-class="none">
+<view class="offOrderList bg-white" wx:for='{{offList}}' wx:key="" data-id="{{item.package_order_id}}"  bindtap='orderDetail'  wx:if="{{offList!=''}}">
+  <view class="fs-24 fc-gray-darkest ">
+    <text>{{item.package_name}}</text>
+    <text>-{{item.cash/100}}</text>
+  </view>
+  <view class="fs-22 fc-gray-darkest marTop">
+    <text>{{item.create_at}}</text>
+    <view>
+      <text>+{{item.return_silver}}</text>
+      <image src="/images/currency/yinbei.png" class="yinbeiIcon"></image>
+    </view>
+  </view>
+</view>
+</open-page>

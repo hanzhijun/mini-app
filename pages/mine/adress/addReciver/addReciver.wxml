@@ -1,0 +1,47 @@
+<view>
+  <view class="addContainer">
+    <view class="resevierInfo">
+      <view class="datum">
+        <text class="fs-30">收货人</text>
+        <input type='text' value="{{resiverName}}" placeholder='输入收货人名字' placeholder-class='phcolor' class="fs-24" bindinput='resiverName'></input>
+      </view>
+      <view class="datum">
+        <text class="fs-30">联系电话</text>
+        <input type='number' value="{{resiverPhone}}" placeholder='输入手机号码' placeholder-class='phcolor' class="fs-24" bindinput='resiverPhone'></input>
+      </view>
+      <view class="section datum">
+        <text class="fl fs-30">所在地区</text>
+        <!--选择省市区  -->
+        <text wx:if='{{flag}}' bindtap='regionChange' class="fs-24 fl chooseRegion">请选择</text>
+        <text class="detailAdr fs-24" bindtap='regionChange' wx:else>{{provinceName}} - {{cityName}} - {{townName}}</text>
+        <import src="/template/index.wxml" />
+        <view bindtap='getSelecedData'>
+          <template is="areaPicker" data="{{...areaPicker}}" />
+        </view>
+        <!--选择省市区end  -->
+      </view>
+      <view class="d_adress clear">
+        <text class="fl fs-30">详细地址</text>
+        <textarea class="fr" placeholder='请输入详细地址' value="{{detailAdress}}" class="detailAdress fs-24" placeholder-class='phcolor' bindinput='detailAdress'></textarea>
+      </view>
+      <view class="datum">
+        <text class="fs-30">地址标签</text>
+        <label class='{{num==1?"active":"crruent"}}' data-num='1' catchtap='label'>家</label>
+        <label class='{{num==2?"active":"crruent"}}' data-num='2' catchtap='label'>公司</label>
+        <label class='{{num==3?"active":"crruent"}}' data-num='3' catchtap='label'>学校</label>
+      </view>
+    </view>
+  </view>
+
+  <checkbox-group bindchange="setDefault">
+     <label class="checkbox"> 
+      <checkbox value="{{defalutVal}}" checked="{{defalutVal}}" class="fs-30" />
+      <text class="d_tip fs-30">设为默认地址</text>
+     </label> 
+  </checkbox-group>
+
+<view>
+    <button class="save" bindtap='save'>保存</button>
+  </view>
+  
+</view>

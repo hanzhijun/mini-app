@@ -1,0 +1,51 @@
+
+<view style="position:relative">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:{{height_1875}}px;'>
+    <block wx:for="{{imgUrls}}" wx:key="">
+      <swiper-item>
+        <image src="{{res_data.img_master_path}}{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="collectIcon">
+    <text wx:if='{{collect_id}}' bindtap='deleteCollect' class="iconfont icon-aixin fc-red"></text>
+    <text bindtap='joinCollect' data-id='{{res_data.business_offline_id}}' wx:else class="iconfont icon-aixin fc-white"></text>
+  </view>
+</view>
+<!--商铺信息  -->
+<view class="bus_info bg-white">
+  <text class="fc-gray-darkest fs-24 storeIntro">店铺介绍:{{res_data.desc_info}}</text>
+  <view class="locationCon">
+    <view class="contactCon" data-tel='{{res_data.tel}}' bindtap='callPhone'>
+      <text class='iconfont icon-dianhua iconfs-60 iconColor9'></text>
+    </view>
+    <view class="goAdre" bindtap='openlocation'>
+      <text class='iconfont icon-ditudangqianweizhi iconfs-42'></text>
+      <text class="fs-24">点击前往</text>
+    </view>
+
+    <text class='iconfont icon-dizhi1 iconfs-40 iconColor9'></text>
+    <view class="location">
+      <text class="fc-gray-darkest fs-24">{{res_data.address}}</text>
+      <text class="fs-24">距您{{res_data.km}}km</text>
+    </view>
+
+
+  </view>
+</view>
+
+<!--商户介绍  -->
+<view class="bussinessIntro">
+  <view class="intro bg-white">
+    <view>
+      <text class='iconfont icon-dianpu iconfs-44'></text>
+      <text class="fc-gray-darkest fs-24">商家信息</text>
+    </view>
+    <view class="closeTime fc-gray-darkest fs-24">营业时间: {{res_data.time_do}}</view>
+  </view>
+  <view class="bus_photo">
+    <image mode="widthFix" src="{{res_data.img_publicity_path}}{{item}}" wx:for='{{res_data.img_publicity}}' wx:key=""></image>
+  </view>
+</view>
+
+<!-- <view class="order fs-30" bindtap='retention'>去支付</view> -->

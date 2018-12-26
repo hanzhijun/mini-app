@@ -1,0 +1,15 @@
+/* pages/mine/recommend/recommend.wxss */
+
+.recommend {
+  text-align: center;
+  margin-top: 150rpx;
+}
+
+.recommend view {
+  margin-top: 38rpx;
+}
+
+.gift {
+  font-size: 200rpx;
+  color:#999;
+}

@@ -1,0 +1,67 @@
+<view class="taocan-pay-out">
+
+    <view class="c_listCon bg-white">
+        <!--商品  -->
+        <view class="hotList">
+            <view class="pro_img">
+                <image wx:if='{{res_data.package_type == 1}}'
+                       src="{{imgUrl}}/{{res_data.package_list_img}}{{res_data.list_img}}"></image>
+                <image wx:elif='{{res_data.package_type == 2}}'
+                       src="{{imgUrl}}/{{res_data.category_logo_url}}{{res_data.logo}}"></image>
+            </view>
+            <view class="pro_info fs-24 fc-gray-darkest">
+                <view class="store">
+                    <view class="proTitle">{{res_data.package_name}}</view>
+                    <view class="fc-red proPrice">￥{{res_data.price/100}}</view>
+                </view>
+                <view class="fs-24 fc-gray99 tip">{{res_data.package_tag || ''}}</view>
+            </view>
+
+        </view>
+        <!--商品结束  -->
+    </view>
+    <!--数量  -->
+    <view class="intro bg-white">
+        <view>
+            <text class="fc-gray-darkest fs-24">数量</text>
+        </view>
+        <!-- 数量加减 -->
+        <view class="stepper">
+            <text class='normal' bindtap="checkNum" data-type='-1'>-</text>
+            <input type="number" value="{{num}}" disabled/>
+            <text class="normal" bindtap="checkNum" data-type='1'>+</text>
+        </view>
+    </view>
+    <!--数量结束  -->
+
+    <!--小计  -->
+    <view class="intro bg-white" style="border-bottom:none;">
+        <view>
+            <text class="fc-gray-darkest fs-24">小计</text>
+        </view>
+        <view class="closeTime fs-24 colorR">￥{{total}}</view>
+    </view>
+    <view class="intro bg-white">
+        <view>
+            <text class="fc-gray-darkest fs-24">金贝抵扣 共有{{res_data.surplus_goldshells}}</text>
+            <image src="/images/currency/jinbei.png" class="susIcon"></image>
+        </view>
+        <view class="body-view">
+            <switch bindchange="switch1Change" class="switchIcon" checked='{{switchFlag}}'></switch>
+        </view>
+    </view>
+    <!--小计结束  -->
+
+    <!-- 实付金额 -->
+    <view class="intro bg-white" style="border-bottom:none;">
+        <view>
+            <text class="fc-gray-darkest fs-24 fs-bold">实付金额</text>
+        </view>
+        <view class="closeTime fs-24 colorR fs-bold" wx:if='{{switchFlag}}'>￥{{pay}}</view>
+        <view class="closeTime fs-24 colorR fs-bold" wx:else>￥{{pay}}</view>
+    </view>
+    <!-- 实付金额end -->
+
+    <view class="order fs-30" bindtap='pay'>￥{{pay}} 立即支付</view>
+
+</view>

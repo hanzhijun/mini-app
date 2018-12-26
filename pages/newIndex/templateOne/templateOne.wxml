@@ -1,0 +1,51 @@
+
+<swiper class="swiper-bar" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+  <block wx:for="{{list[0]}}" wx:key="">
+    <swiper-item>
+      <image src="{{item.img_path}}{{item.img}}" class="slide-image" width="355" height="150" alt="{{item.title}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="recommend bg-white">
+  <view class="recommend-outside">
+
+    <scroll-view scroll-x="true" class="recommend-line">
+      <view class="re_goods" wx:for="{{list[1]}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+        <view class="re-goods-img"><image src="{{item.img_path}}{{item.img}}"></image></view>
+        <text class="fs-22 fc-gray-darkest re-goods-txt">{{item.title}}</text>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+
+<!-- 大牌推荐 -->
+<view class="label">
+  <text class="fs-30">大牌推荐</text>
+</view>
+
+<view class="areaThree bg-white">
+  <view wx:for="{{list[2]}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+    <image src='{{item.img_path}}{{item.img}}'></image>
+  </view>
+</view>
+
+<!-- nav -->
+<view class="nav bg-white fs-30">
+  <text wx:for="{{list[3]}}" wx:key="" class="{{item.sort == active ? 'active' : ''}}" data-id="{{item.operation_area_category_id}}" data-sort="{{item.sort}}" bindtap="changeNav">{{item.name}}</text>
+</view>
+
+<!-- 商品区域 -->
+<view class="goodChoose">
+  <!-- 商品start -->
+  <view class="goods" wx:for="{{goodsList}}" wx:key="" data-jump_data="{{item.goods_id}}" data-jump_type="3" bindtap="openPageTo">
+    <view class="pos">
+      <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+    </view>
+    <text class="fs-26 good_title fs-bold">{{item.goods_name}}</text>
+    <view class="fs-24 base-price">售　价：<text class="colorRed">￥{{item.min_price}}</text></view>
+    <view class="fs-24 price">用贝价：<text class="colorRed">￥{{item.min_price > surplus_goldshells ? (item.min_price - surplus_goldshells):0}}</text> 送 <text class="colorRed">{{item.base_return}}</text><image src="/images/currency/jinbei.png" class="golden"></image></view>
+  </view>
+  <!-- 商品end -->
+</view>

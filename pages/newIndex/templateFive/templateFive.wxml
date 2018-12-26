@@ -1,0 +1,35 @@
+<scroll-view scroll-x="true" class="ip_tab_comtainer">
+    <view class="tem-4-head"  wx:for="{{list[0]}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+        <view class="tem-4-bar">
+            <image src="{{item.img_path}}{{item.img}}" class="slide-image"></image>
+            <view class="textWord fs-30 fc-gray-darkest">
+                <text class="fs-bold">{{item.title}}</text>
+                <text>{{item.title_sub}}</text>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+
+<!-- 好物推荐 -->
+<view class="recommend bg-white">
+    <view class="goodsLead fs-24 fc-gray-darkest">
+        <text>HOT</text>
+        <text>热卖推荐</text>
+    </view>
+    <view class="goods {{index<3?'thisover':''}}" wx:for="{{list[1]}}" wx:key="" data-jump_data="{{item.jump_data}}"
+          data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+        <image src="{{item.img_path}}{{item.img}}"></image>
+        <text class="fs-22 fc-gray-darkest">{{item.title}}</text>
+    </view>
+</view>
+
+<view class="product bg-white fc-gray-darkest" wx:for="{{list[2].data}}" wx:key="" data-jump_data="{{item.jump_data}}"
+      data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+    <view>
+        <image src="{{item.img_path}}{{item.img}}"></image>
+    </view>
+    <view>
+        <text class="iconfs-40 title">{{item.title}}</text>
+        <text class="fs-24 intro">{{item.title_sub}}</text>
+    </view>
+</view>

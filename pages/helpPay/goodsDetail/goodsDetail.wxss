@@ -1,0 +1,580 @@
+.header {
+  display: flex;
+  height: 82rpx;
+  background-color: #38454e;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+
+.header view {
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
+.header image {
+  width: 33rpx;
+  height: 33rpx;
+}
+
+.content>image {
+  width: 100%;
+}
+
+.content {
+  /* padding: 20rpx; */
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.text-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.text-box .red {
+  display: inline-block;
+  padding-right: 3px;
+  color: #f01212;
+}
+
+/* .text-box text:last-child {
+  margin-left: 15rpx;
+} */
+
+.content view > image {
+  width: 30rpx;
+  height: 26rpx;
+}
+
+.footer {
+  padding: 40rpx 20rpx 20rpx 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 10px solid #f5f5f5;
+}
+
+.footer .group {
+  padding: 10rpx 0;
+  overflow: hidden;
+}
+
+.footer .group text.type-name {
+  display: inline-block;
+  width: 80rpx;
+  padding-top: 15rpx;
+  float: left;
+}
+
+.footer .group .view-box {
+  width:calc(100vw - 120rpx);
+  float: left;
+  overflow: hidden;
+}
+
+.footer .group.goods-num .btn-box {
+  margin-top: 6rpx;
+  float: left;
+}
+
+.t-box {
+  display: inline-block;
+  padding: 10rpx 25rpx;
+  background-color: #e6e6e6;
+  margin-right: 10rpx;
+}
+
+.color .t-box {
+  margin-top: 10rpx;
+}
+
+.text-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.t-active {
+  color: #fff;
+  background-color: #f75d45;
+}
+
+.btn-box {
+  width: 145rpx;
+  height: 45rpx;
+  display: flex;
+  border: 1px solid #b8b8b8;
+}
+
+.btn-box text {
+  display: inline-block;
+  width: 33%;
+  height: 100%;
+  text-align: center;
+  line-height: 200%;
+  border-left: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+}
+
+.btn-box button {
+  width: 33%;
+  height: 100%;
+  padding: 0;
+  border-radius: 0;
+  margin: 0;
+  font-size: 24rpx;
+  line-height: 200%;
+}
+
+.btn-box button::after, .footer-btn-box button::after {
+  border: 0;
+  border-radius: 0;
+}
+
+.goods-interduce text {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 65rpx;
+  line-height: 65rpx;
+}
+
+.footer-btn-box {
+  /* margin-top: 15rpx; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+
+.footer-btn-box view {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-btn-box view text {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.footer-btn-box button {
+  line-height: 100rpx;
+}
+
+.footer-btn-box button, .footer-btn-box view {
+  width: 33.333%;
+  height: 100%;
+}
+
+.footer-btn-box button, .footer-btn-box-b button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.footer-btn-box image, .footer-btn-box-b image {
+  width: 54rpx;
+  height: 52rpx;
+}
+
+.footer-btn-box-b {
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.width-33 {
+  width: 33%!important;
+}
+
+.footer-btn-box-b view, .footer-btn-box-b button {
+  display: inline-flex;
+  width: 25%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  line-height: normal;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #e5e5e5;
+}
+
+.goods-interduce {
+   margin-bottom: 75rpx;
+}
+
+.goods-interduce image {
+  width: 100%;
+  height: auto;
+}
+
+.slide-image {
+  display: inline;
+}
+
+.store {
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.store image {
+  margin-left: 10rpx;
+  height: 74rpx;
+  width: 196rpx;
+  vertical-align: middle;
+}
+
+.goodsTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.header-detail {
+  display: block;
+}
+
+.header-detail .header-text {
+  display: block;
+  width: calc(100% - 30px);
+  float: left;
+  padding: 0;
+}
+
+.header-detail .header-text text {
+  display: block;
+  line-height: 82rpx;
+  width: 50%;
+  text-align: center;
+  float: left;
+}
+
+.iconfont-share-text {
+  width:30px;
+  height:30px;
+  overflow:hidden;
+  display:inline-block;
+  float:left;
+  margin-top:8px;
+}
+
+.iconfont-share-btn {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  opacity: 0;
+}
+
+.dis-line {
+  display: block;
+  padding-top: 10rpx;
+}
+
+.help-footer {
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100vw;
+  background: #fff;
+}
+
+.help-footer button {
+  width: 75vw;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background: #f55d4b;
+  padding: 0 !important;
+  border-radius: 40rpx;
+  margin-top: 10rpx;
+}
+
+.popTitle{
+  color:#e62343;
+  font-size: 40rpx;
+  margin-top: 45rpx;
+}
+
+.getGoldNum{
+  color: #666666;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+
+.mar{
+  margin-top: 50rpx;
+}
+
+.tc-base {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.tc-base .back {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.8;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tc-base .tc-01 {
+  width: 545rpx;
+  height: 587rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/tc-bj2.png) no-repeat 0 0 / 545rpx 587rpx;
+  left: 102rpx;
+  top: calc(50vh - 300rpx);
+  text-align: center;
+}
+
+.tc-base .tc-01 .note {
+  font-size: 34rpx;
+  color: #fff;
+  padding: 295rpx 0 25rpx 0;
+}
+
+.tc-base .tc-01 .bei text {
+  display: inline-block;
+  line-height: 76rpx;
+  color: #fcec1d;
+  font-size: 48rpx;
+}
+
+.tc-base .tc-01 .bei {
+  display: flex;
+  justify-content: center;
+}
+
+.tc-base .tc-01 .bei .big {
+  font-size: 70rpx;
+}
+
+.tc-base .tc-01 button {
+  width: 236rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  background: url(https://img.duishangbao.cn/upload/sharePay/buyBtn4.png) no-repeat 0 0 / 236rpx 67rpx;
+  margin: 25rpx auto 0;
+  font-size: 28rpx;
+  color: #611;
+}
+
+.tc-base .tc-02 {
+  width: 545rpx;
+  height: 693rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/tc-bj3.png) no-repeat 0 0 / 545rpx 693rpx;
+  left: 102rpx;
+  top: calc(50vh - 350rpx);
+  text-align: center;
+}
+
+.tc-base .tc-02 .note {
+  font-size: 42rpx;
+  color: #fff;
+  padding: 265rpx 0 75rpx 0;
+}
+
+.tc-base .tc-02 .bei {
+  line-height: 55rpx;
+  color: #fbeb1a;
+  font-size: 52rpx;
+}
+
+.tc-base .tc-02 .bei text {
+  display: inline-block;
+  color: #fff;
+}
+
+.tc-base .tc-02 .txt {
+  font-size: 34rpx;
+  color: #fbeb1a;
+  padding: 20rpx 0 55rpx;
+}
+
+.tc-base .tc-02 button {
+  width: 236rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  background: url(https://img.duishangbao.cn/upload/sharePay/buyBtn4.png) no-repeat 0 0 / 236rpx 67rpx;
+  margin: 25rpx auto 0;
+  font-size: 28rpx;
+  color: #611;
+}
+
+.tc-base .tc-03 {
+  width: 577rpx;
+  height: 505rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/tc-bj5.png) no-repeat 0 0 / 577rpx 497rpx;
+  left: 86rpx;
+  top: calc(50vh - 290rpx);
+  text-align: center;
+}
+
+.tc-base .tc-03 .note {
+  padding: 276rpx 0 75rpx 0;
+}
+
+.tc-base .tc-03 .note text {
+  display: block;
+  line-height: 46rpx;
+  font-size: 36rpx;
+  color: #fbeb1a;
+}
+
+.tc-base .tc-03 .isee {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/btn-close.png) no-repeat 0 0 / 50rpx 50rpx;
+  left: 280rpx;
+  top: 520rpx;
+}
+
+.tc-base .tc-04 .isee {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/btn-close.png) no-repeat 0 0 / 50rpx 50rpx;
+  right: -9rpx;
+  top: -85rpx;
+}
+
+.tc-base .tc-04 {
+  width: 600rpx;
+  height: 560rpx;
+  background: #fff;
+  position: absolute;
+  left: 79rpx;
+  top: calc(50vh - 290rpx);
+  text-align: center;
+  border-radius: 15rpx;
+}
+
+.tc-base .tc-04 .tc-06 {
+  width: 540rpx;
+  height: 194rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-07 {
+  width: 273rpx;
+  height: 218rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-08 {
+  width: 197rpx;
+  height: 213rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-09 {
+  width: 309rpx;
+  height: 189rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-10 {
+  width: 558rpx;
+  height: 213rpx;
+  margin-top: 27rpx;
+}
+
+
+.tc-base .tc-04 text {
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.tc-base .tc-04 text:first-child {
+  color: #e62343;
+  font-size: 40rpx;
+  margin-top: 43rpx;
+}
+
+.tc-base .tc-04 text:last-child {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.butBtn {
+  position: absolute;
+  bottom:0;
+  height: 120rpx;
+  width: 599rpx;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin-top: 36rpx;
+  overflow: hidden;
+}
+
+.butBtn button {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #fff;
+  width: 50%;
+  line-height: 120rpx;
+}
+
+.butBtn button:first-child {
+  border-right: 1px solid #ccc;
+  color: #666;
+  font-size: 36rpx;
+  border-radius: 0 0 0 15rpx;
+}
+
+.butBtn button:last-child {
+  color: #e62343;
+  font-size: 36rpx;
+  border-radius: 0 0 15rpx  0;
+}
+
+button::after {
+  border: none;
+}
+
+.shareBtn{
+  padding: 0 !important;
+  width: 455rpx;
+  height: 75rpx;
+  background: #e62343;
+  color: #fff;
+  line-height: 75rpx;
+  font-size: 34rpx;
+  margin-top: 30rpx;
+}

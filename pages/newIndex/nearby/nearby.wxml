@@ -1,0 +1,53 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{list[0]}}" wx:key="title">
+        <swiper-item>
+            <image src="{{item.img_path}}{{item.img}}" class="slide-image" width="355" height="150"
+                   alt="{{item.title}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+                   bindtap="openPageTo"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!--分类icon  -->
+<view class="cate_Con bg-white">
+    <view wx:for="{{list[1]}}" wx:key="title" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+          bindtap="openPageTo">
+        <image src='{{item.img_path}}{{item.img}}'></image>
+        <text class="fs-24 fc-gray-darkest">{{item.title}}</text>
+    </view>
+</view>
+
+<!-- 热门商家 -->
+<view class="hotImg bg-white">
+    <image src='/images/newIndex/hot.png'></image>
+</view>
+
+<view class='content'>
+    <view class="c_listCon">
+        <!--list start  -->
+        <view class="hotList" wx:for="{{hotList}}" wx:key="title" data-id="{{item.business_offline_id}}" bindtap="openPage">
+            <view class="pro_img">
+                <image src="{{web_url}}{{logo_path}}{{item.logo}}"></image>
+            </view>
+            <view class="choiceStore">
+                <view class="fs-24 fc-gray-darkest storeName">
+                    <text class="fs-28 fs-bold">{{item.name}}</text>
+                    <text>{{item.s}}km</text>
+                </view>
+                <view class="fs-24 fc-gray-darkest everyPrice {{item.expense_avg == 0?'this-hidden':''}}">
+                    <text>人均：¥{{item.expense_avg}}</text>
+                </view>
+                <view>
+                    <text class="btn fs-20 colorRed" wx:for="{{item.desc_info}}" wx:for-item="desc" wx:key="address">{{desc}}</text>
+                </view>
+                <view class="storeAdress">
+                    <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+                    <text class="fs-24 fc-gray9">{{item.address}}</text>
+                </view>
+            </view>
+        </view>
+        <!--list end  -->
+    </view>
+</view>

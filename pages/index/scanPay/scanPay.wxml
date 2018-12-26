@@ -1,0 +1,36 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<view class="scanPayBg">
+
+  <image class='image' src="{{imgUrl}}/upload/index/scanPayBg.png"></image>
+
+  <view class="content">
+    <text class="storeName">{{business_name}}</text>
+
+    <view class="inpCon">
+      <text class="priceIcon">￥</text>
+      <input bindinput='checkPrice' type="digit" placeholder='请询问服务员后输入' class="insertPrice fs-30 bg-white"></input>
+    </view>
+
+    <view class="lit-price" wx:if="{{afterPrice && afterPrice * 1 != 0}}">优惠后价格：￥{{afterPrice}}</view>
+
+    <view class="discount bg-white">
+      <view>金贝优惠
+        <text class="fs-24">共{{user_info.surplus_goldshells}}个,可用{{user_info.surplus_goldshells}}个</text>
+      </view>
+      <view class="body-view">
+        <switch  data-type='gold' bindchange="switch1Change" class="switchIcon" />
+      </view>
+    </view>
+
+    <view class="bi-price" wx:if="{{discount > 0 && discount < 100}}">商家特惠：贝划算独享{{discount/10}}折</view>
+    <view style="margin-top:100rpx">
+      <view class="hasDiscount" wx:if='{{useGold}}' >使用金贝：￥{{useGold}} <image src="/images/currency/tongbei.png" class="golden"></image></view>
+      <view class="hasDiscount" wx:if='{{returnGold}}' style="margin-top: 20rpx">赠送金贝：￥{{returnGold}} <image src="/images/currency/tongbei.png" class="golden"></image></view>
+    </view>
+  </view>
+
+  <view class="footer fs-30" bindtap='pay'>立即支付：￥{{pay}}</view>
+</view>
+
+<include src="../../include/include.wxml"></include>

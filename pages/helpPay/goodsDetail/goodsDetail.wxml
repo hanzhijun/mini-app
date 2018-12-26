@@ -1,0 +1,186 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<view class='bg-white'>
+  <view class='header fs-30 fc-white header-detail'>
+    <view class="header-text">
+      <text bindtap='switchPage' data-type='goods' class='{{tabType=="goods" ? "fc-red-light" : " "}}'>商品</text>
+      <text bindtap='switchPage' data-type='msg' class='{{tabType=="msg" ? "fc-red-light" : " "}}'>详情</text>
+      <!-- <text>推荐</text> -->
+    </view>
+
+    <icon class="iconfont icon-fenxiang1 iconfs-42 iconfont-share-text"></icon>
+    <button class="iconfont-share-btn" open-type="share"></button>
+
+  </view>
+
+  <scroll-view scroll-with-animation="true" style='height: 90vh;' scroll-into-view='{{toPage}}' scroll-y bindscroll="scroll">
+
+    <view id='goods' class='content'>
+      <swiper indicator-dots="true" style='height:{{height}}px; '>
+        <block wx:for="{{imgs_url}}" wx:key="">
+          <swiper-item>
+            <image class="slide-image" bindload='imageLoad' mode='widthFix' src="{{imgUrl}}/{{item}}?x-oss-process=image/resize,m_lfit,w_750,h_750/format,jpg"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view style='padding:5px 20rpx'>
+        <text class='fs-26 goodsTitle fs-bold'>{{goods.goods_name}}</text>
+
+        <view class='text-box'>
+
+          <view>
+              <!-- 活动价格 -->
+              <view wx:if='{{is_active}}'>
+
+                <!--payment 活动商品支付方式，1:金贝+现金; 2:金贝+铜贝;3：银贝   surplus_goldshells-->
+                <text class='fs-26 dis-line' wx:if='{{goods.payment == 1}}'>售　价：<text class="red">￥{{current_info.sale_price/100}}</text></text>
+                <text class='fs-26' wx:if='{{goods.payment == 1}}'>用贝价：<text class="red">￥{{current_info.sale_price/100 > surplus_goldshells ? ((current_info.sale_price - surplus_goldshells*100)/100) : 0}}</text></text>
+                <text class='fs-26' wx:if='{{goods.payment == 2}}'><text class="red">{{current_info.gold_price || 0}}</text>金贝 + <text class="red">{{current_info.copper_price || 0}}</text>铜贝</text>
+                <text class='fs-26' wx:if='{{goods.payment == 3}}'><text class="red">{{current_info.silver_price || 0}}</text> 银贝</text>
+
+                <text class='fs-26 fc-gray' wx:if='{{current_info.base_return}}'> 送 <text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'> (<text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'>消费可抵{{current_info.base_return}}元)</text>
+              </view>
+              <!-- 非活动价格 -->
+              <view wx:else>
+                <text class='fs-26 goodsTitle' wx:if='{{goods.type == -1}}' style="padding-top: 10rpx;">售　价：<text class="red">￥{{current_info.sale_price / 100 || 0}}</text></text>
+                <text class='fs-26' wx:if='{{goods.type == -1}}'>用贝价：<text class="red">￥{{current_info.sale_price/100 > surplus_goldshells ? ((current_info.sale_price - surplus_goldshells*100)/100) : 0}}</text></text>
+                <text class='fs-26' wx:else><text wx:if="{{ goods.type }}"><text class="red">{{current_info.silver_price || 0}}</text> 银贝</text></text>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'> 送 <text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'> (<text class="red">{{current_info.base_return}}</text></text>
+                <image wx:if='{{current_info.base_return}}' src="/images/currency/jinbei.png" class="golden"></image>
+                <text class='fs-24 fc-gray' wx:if='{{current_info.base_return}}'>消费可抵{{current_info.base_return}}元)</text>
+              </view>
+            
+            <text class='fs-24 fc-gray'>库存：{{current_info.nums}}</text>
+
+            
+          </view>
+
+          <text wx:if='{{goods.collect == 0}}' bindtap='joinCollect' class="iconfont icon-aixin fc-gray"></text>
+          <text wx:else bindtap='deleteCollect' class="iconfont icon-aixin fc-red"></text>
+        </view>
+      </view>
+    </view>
+
+    <view class='footer fs-24'>
+      <view class="group">
+        <text class="type-name">{{goods.first_attr}}：</text>
+        <view class='view-box color'>
+          <text class='t-box {{current_info.first_attr_id == index && "t-active"}}' wx:for='{{spec.first}}' wx:key="" data-first_attr_id='{{index}}' data-first_attr_name='{{item}}' bindtap='checkSpec'>{{item}}</text>
+        </view>
+      </view>
+
+      <view class="group" wx:if="{{goods.second_attr != '数量'}}">
+        <text class="type-name">{{goods.second_attr}}：</text>
+        <view class='view-box color'>
+          <text class='t-box {{current_info.second_attr_id == index && "t-active"}}' wx:for="{{spec.second}}" wx:key="" data-second_attr_id='{{index}}' data-second_attr_name='{{item}}' bindtap='checkSpec'>{{item}}</text>
+        </view>
+      </view>
+
+      <view class="group goods-num">
+        <text class="type-name">数量：</text>
+        <view class='btn-box'>
+          <button data-type='-1' bindtap='checkNumber'>-</button>
+          <text>{{current_info.num}}</text>
+          <button data-type='1' bindtap='checkNumber'>+</button>
+        </view>
+      </view>
+
+      <view class="group">
+        <text>已选“{{current_info.first_attr_name}}”<text wx:if="{{goods.second_attr != '数量'}}"> “{{current_info.second_attr_name}}”</text> “{{current_info.first_attr_name && current_info.num}}”</text>
+      </view>
+    </view>
+
+    <view id='msg' class='goods-interduce'>
+      <text class='fs-24'>商品详情介绍</text>
+      <image mode='widthFix' src='{{imgUrl}}/{{goods.details_imgs_url}}' wx:if="{{goods.details_imgs_url}}"></image>
+    </view>
+
+  </scroll-view>
+  <view id='footer'>
+
+
+  </view>
+
+
+  <!-- 助力购footer -->
+  <view class="help-footer">
+    <button bindtap='helpbuy'>助力购</button>
+  </view>
+
+</view>
+
+
+<!-- 助力购发起者弹窗 -->
+<view class="tc-base" wx:if="{{tcType != -1}}" catchtouchmove='true'>
+  <view class="back"></view>
+
+
+  <!-- 发起者 主页-商品-同一商品活动进行中购买—弹窗1-->
+  <view class="tc-04" wx:if="{{tcType == 5}}">
+    <button class="isee" bindtap="isee"></button>
+    <image src="{{imgUrl}}/upload/sharePay/tc-06.png?v=1119" class="tc-06"></image>
+    <view class="note">
+      <text>助力进行中~</text>
+      <text>但您尚未支付哦</text>
+    </view>
+    <view class="butBtn">
+      <button open-type="share">我先分享</button>
+      <button bindtap="pay">马上支付</button>
+    </view>
+  </view>
+
+  <!-- 发起者 主页-商品-同一商品活动进行中购买—弹窗2-->
+  <view class="tc-04" wx:if="{{tcType == 6}}">
+    <button class="isee" bindtap="isee"></button>
+    <image src="{{imgUrl}}/upload/sharePay/tc-07.png?v=1119" class="tc-07"></image>
+    <view class="note">
+      <text>助力进行中~</text>
+      <text>还差{{info.limit_num - info.now_num}}人，即可领取{{info.activity_indirect_return}}金贝</text>
+    </view>
+    <button class="shareBtn" open-type="share">立即分享</button>
+  </view>
+
+  <!-- 发起者 主页-商品-同一商品活动进行中购买—弹窗3-->
+  <view class="tc-04" wx:if="{{tcType == 7}}">
+    <button class="isee" bindtap="isee"></button>
+    <text class="popTitle">助力成功</text>
+    <image src="{{imgUrl}}/upload/sharePay/tc-08.png?v=1119" class="tc-08"></image>
+    <text class="getGoldNum">恭喜你获得{{info.activity_indirect_return}}金贝</text>
+    <button class="shareBtn" bindtap="getGold">马上领取</button>
+  </view>
+
+   <!-- 发起者 主页-商品-同一商品活动进行中购买—弹窗4-->
+  <view class="tc-04" wx:if="{{tcType == 8}}">
+    <button class="isee" bindtap="isee"></button>
+    <image src="{{imgUrl}}/upload/sharePay/tc-09.png?v=1119" class="tc-09"></image>
+    <view class="note">
+      <text>助力成功~</text>
+      <text>支付后便可领取{{info.activity_indirect_return}}金贝</text>
+    </view>
+    <button class="shareBtn mar" bindtap="pay">马上支付</button>
+  </view>
+
+  <!-- 发起者 主页-商品-同一商品活动进行中购买—弹窗5-->
+  <view class="tc-04" wx:if="{{tcType == 9}}">
+    <button class="isee" bindtap="isee"></button>
+    <image src="{{imgUrl}}/upload/sharePay/tc-10.png?v=1119" class="tc-10"></image>
+    <view class="note">
+      <text>助力开启中~</text>
+      <text>{{info.limit_num}}个好友进行助力，成功后即可获得{{info.activity_indirect_return}}金贝~</text>
+    </view>
+    <button class="shareBtn mar" open-type="share">立即分享</button>
+  </view>
+
+</view>
+
+
+
+<include src="../../include/include.wxml"></include>

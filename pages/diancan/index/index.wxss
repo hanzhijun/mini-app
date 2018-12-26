@@ -1,0 +1,358 @@
+page {
+  background: #f7f7f7;
+}
+
+.theme {
+  background: #38454e;
+}
+
+.bg-gray9 {
+  background: #999;
+}
+
+.iconfs-34 {
+  font-size: 34rpx;
+}
+
+/*头部  */
+
+.header {
+  position: fixed;
+  display: flex;
+  height: 65rpx;
+  width: 100%;
+  line-height: 65rpx;
+  background: white;
+  padding: 0 13rpx 0 13rpx;
+  box-sizing: border-box;
+}
+
+.header text {
+  display: inline-block;
+  width: 50%;
+}
+
+.header text:last-child {
+  text-align: right;
+}
+
+.main {
+  display: flex;
+  box-sizing: border-box;
+  padding-bottom: 100rpx;
+}
+
+/*左侧列  */
+
+.left-wrapper {
+  position: fixed;
+  width: 155rpx;
+  background: #e6e6e6;
+  height: 100%;
+  top: 65rpx;
+}
+
+.nowItem {
+  height: 65rpx;
+  text-align: center;
+  line-height: 65rpx;
+  overflow: hidden;
+}
+
+.itemActive {
+  height: 65rpx;
+  text-align: center;
+  line-height: 65rpx;
+  background-color: white;
+  overflow: hidden;
+}
+
+.left-wrapper, .dishes {
+  margin-top: 10rpx;
+}
+
+/*右侧菜品列*/
+
+.dishes {
+  margin-left: 180rpx;
+  width: 100%;
+  margin-top: 75rpx;
+}
+
+.dishItem {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.dishImg {
+  height: 175rpx;
+  width: 175rpx;
+}
+
+.proDesc {
+  width: 45%;
+}
+
+.proDesc text {
+  display: block;
+  margin-left: 18rpx;
+  margin-bottom: 15rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.proDesc text:last-child {
+  margin-top: 27rpx;
+}
+
+.numberAddReduce {
+  display: flex;
+  align-items: center;
+}
+
+.numberAddReduce, .initAdd {
+  margin-top: 100rpx;
+}
+
+.initAdd text {
+  color: #666;
+  padding-left: 70rpx;
+}
+
+.numberAddReduce text {
+  color: #666;
+  padding: 0 8rpx 0 8rpx;
+}
+
+.reduce, .add {
+  height: 39rpx;
+  width: 39rpx;
+  vertical-align: middle;
+}
+
+/*footer  */
+
+/*未点餐时  */
+
+.tips {
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.dishIcon {
+  color: white;
+  width: 42rpx;
+  height: 39rpx;
+  vertical-align: middle;
+  padding-right: 10rpx;
+}
+
+/*点餐时  */
+
+.menuCon {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.orderMenu {
+  background: white;
+}
+
+.menuChoose {
+  display: flex;
+}
+
+.menuChoose .m_title, .menuChoose .clear {
+  width: 50%;
+  margin: 20rpx 20rpx 30rpx 20rpx;
+}
+
+.menuChoose .clear text {
+  display: inline-block;
+  height: 38rpx;
+  width: 78rpx;
+  text-align: center;
+  line-height: 38rpx;
+  border: 1px solid #333;
+}
+
+.menuChoose view:last-child {
+  text-align: right;
+}
+
+.orderItem {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10rpx 0 10rpx 0;
+}
+
+.dishesInfo text {
+  display: block;
+  text-align: left;
+}
+
+.orderItem .dishesInfo {
+  width: 40%;
+  margin-left: 20rpx;
+}
+
+.orderItem .price {
+  width: 30%;
+}
+
+.orderItem .countCon {
+  width: 30%;
+  text-align: right;
+  margin-right: 20rpx;
+}
+
+.countCon .cartNum {
+  padding: 0 15rpx 0 15rpx;
+}
+
+.cart {
+  display: flex;
+  width: 100%;
+  line-height: 100rpx;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.cart .cartDivide {
+  width: 50%;
+}
+
+.totalContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.totalVer {
+  display: flex;
+  flex-direction: column;
+}
+
+.totalVer text {
+  text-align: left;
+  line-height: 40rpx;
+  display: block;
+  margin-left: 15rpx;
+}
+
+.iconCon {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  height: 30rpx;
+  width: 30rpx;
+  background: #f00;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 30rpx;
+}
+
+/*规格选择  */
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.specWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -40%;
+  margin-top: -450rpx;
+  width: 80%;
+  height: 900rpx;
+  background: white;
+  padding: 20rpx;
+}
+
+.curDishes {
+  display: flex;
+  height: 208rpx;
+}
+
+.close {
+  width: 30%;
+  text-align: right;
+  margin-top: -13rpx;
+}
+
+.bor_bottom {
+  border-bottom: 1px solid #333;
+}
+
+.s_title {
+  margin-top: 19rpx;
+}
+
+.varitySpec text {
+  display: inline-block;
+  padding: 0 15rpx 0 15rpx;
+  border-radius: 10rpx;
+  border: 1px solid #333;
+  text-align: center;
+  line-height: 55rpx;
+  margin: 14rpx 40rpx 20rpx 0;
+}
+
+.specActive {
+  background: #bfbfbf;
+}
+
+.specAddCart {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.specAddCart view {
+  width: 50%;
+}
+
+.join {
+  color: white;
+}
+
+.specTotalPrice {
+  background: #bfbfbf;
+}
+
+.overflowCon {
+  height: 600rpx;
+  overflow: scroll;
+}
+
+.kouwei {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.kouwei view {
+  display: flex;
+}

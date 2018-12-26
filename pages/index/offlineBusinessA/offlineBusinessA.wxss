@@ -1,0 +1,163 @@
+/*header  */
+button::after {
+  border: none;
+}
+.header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100%;
+  height: 82rpx;
+  background-color: #38454e;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  z-index: 99;
+  box-sizing: border-box;
+}
+
+.active{
+  color:#f75d45;
+}
+
+.header view {
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+}
+
+#scroll {
+  margin-top: 82rpx;
+  height: 100vh;
+}
+
+.header image {
+  width: 33rpx;
+  height: 33rpx;
+}
+
+/*详情轮播图  */
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+.text-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mar {
+  padding: 15rpx;
+}
+
+.price text:first-child {
+  padding-right: 20rpx;
+}
+
+.proTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 10rpx;
+}
+
+/*商家信息  */
+
+.bus_info {
+  width: 100%;
+  margin-top: 15rpx;
+}
+
+.locationCon {
+  display: flex;
+  padding: 12rpx;
+}
+
+.location {
+  width: 80%;
+  border-right: 1px solid #aaa;
+}
+
+.storeIntro {
+  display: block;
+}
+
+.storeAdre {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  margin-top: 10rpx;
+}
+
+.distance {
+  margin-top: 5rpx;
+}
+
+.distance text:first-child {
+  display: inline-block;
+  margin-right: 10rpx;
+}
+
+.l_icon {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.iconColor9 {
+  color: #999;
+}
+
+.contact {
+  height: 64rpx;
+  width: 63rpx;
+}
+
+.contactCon {
+  width: 150rpx;
+  text-align: center;
+  box-sizing: border-box;
+  line-height: 120rpx;
+}
+
+.reco_pro {
+  height: 60rpx;
+  width: 100%;
+  line-height: 60rpx;
+  padding-left: 14rpx;
+  border-bottom: 1px solid #aaa;
+}
+
+.detailCon {
+  box-sizing: border-box;
+  margin: 15rpx 0 90rpx 0;
+  padding-bottom: 20rpx;
+}
+
+.detailCon image {
+  width: 100%;
+}
+
+.detail {
+  text-align: center;
+  padding: 15rpx;
+}
+
+.order {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: white;
+  background: #f85c45;
+}

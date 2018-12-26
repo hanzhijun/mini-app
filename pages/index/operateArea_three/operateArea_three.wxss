@@ -1,0 +1,151 @@
+/*header  */
+button::after {
+  border: none;
+}
+.ip_tab_comtainer {
+  width: 100%;
+  background-color: #38454e;
+  height: 80rpx;
+  line-height: 80rpx;
+  white-space: nowrap;
+}
+
+.ip_tab_comtainer_padd {
+  display: inline-block;
+  width: 24rpx;
+}
+
+.ip_tab_item_s {
+  display: inline-block;
+  padding: 0 26rpx;
+  color: #f85c45;
+  margin-right: 8rpx;
+  margin-left: 8rpx;
+  font-size: 28rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ip_tab_item_n {
+  display: inline-block;
+  padding: 0 26rpx;
+  color: #fff;
+  margin-right: 8rpx;
+  margin-left: 8rpx;
+  font-size: 28rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/**
+去除横向滚动条
+*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.content {
+  width: 100%;
+}
+
+/*banner  */
+
+.banner {
+  height: 215rpx;
+  width: 100%;
+}
+
+.banner image {
+  height: 100%;
+  width: 100%;
+}
+
+/*列表  */
+
+.c_listCon {
+  position: relative;
+  margin-top: 10rpx;
+}
+.hotList {
+  display: flex;
+  height: 175rpx;
+  /* width: 100%; */
+  background: white;
+  padding: 19rpx 13rpx;
+  margin-bottom: 15rpx;
+}
+
+.c_listCon .hotList .pro_img {
+  width: 210rpx;
+  height: 100%;
+}
+
+.c_listCon .hotList .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+}
+.choiceStore {
+  margin-left: 25rpx;
+  width: 66%;
+}
+
+.choiceStore .storeName {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.choiceStore .storeName text:first-child {
+  width: 80%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20rpx;
+}
+
+.choiceStore .storeName text:last-child {
+  text-align: right;
+}
+
+.choiceStore .btn {
+  display: inline-block;
+  height: 40rpx;
+  width: 100rpx;
+  padding: 0 !important;
+  color: #f85c45;
+  line-height: 40rpx;
+  background-color: #fff;
+  border: 1px solid #f85c45;
+  box-sizing: content-box !important;
+  margin-bottom: 10rpx;
+}
+
+.choiceStore .btn:last-child {
+  margin-left: 10rpx;
+}
+
+.fc-gray9 {
+  color: #999;
+}
+
+.storeAdress {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.storeAdress text:first-child {
+  padding-right: 5rpx;
+}

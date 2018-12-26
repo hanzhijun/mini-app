@@ -1,0 +1,37 @@
+.list {
+  display: flex;
+  height: 235rpx;
+  margin: 16rpx 14rpx 0 14rpx;
+}
+.imgCon{
+  width: 188rpx;
+}
+.list_img {
+  width: 188rpx;
+  height: 191rpx;
+}
+
+.proInfo text {
+  display: block;
+  padding-left: 29rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.proInfo text:first-child {
+  margin: 13rpx 0 30rpx 0;
+}
+
+.proInfo text:last-child {
+  color: #999;
+}
+
+.loadMore{
+  text-align: center;
+  font-size: 26rpx;
+  color:#999;
+}

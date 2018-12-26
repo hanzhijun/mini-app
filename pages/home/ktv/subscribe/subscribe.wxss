@@ -1,0 +1,164 @@
+.bor {
+  border-bottom: 1px solid #bfbfbf;
+}
+
+picker {
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.fc-light-gray {
+  color: #999;
+}
+
+.list {
+  display: flex;
+  height: 235rpx;
+  margin: 16rpx 14rpx 0 14rpx;
+}
+
+.imgCon {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.list_img {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.proInfo text {
+  display: block;
+  padding-left: 29rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.proInfo text:first-child {
+  margin: 13rpx 0 10rpx 0;
+}
+
+.proInfo text:last-child {
+  color: #999;
+}
+
+.orderTime, .lastest {
+  display: flex;
+  justify-content: space-between;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 25rpx 0 15rpx;
+  box-sizing: border-box;
+}
+
+.lastest .lastestTime {
+  display: inline-block;
+  margin-left: -113rpx;
+}
+
+.orderInfo {
+  margin-top: 13rpx;
+  padding: 15rpx 0 0 20rpx;
+  box-sizing: border-box;
+}
+
+.peopleNum {
+  display: flex;
+  justify-content: space-between;
+  margin: 40rpx 15rpx 30rpx 0;
+}
+
+.stepper {
+  display: inline-block;
+  width: 80px;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 30rpx;
+}
+
+.stepper text {
+  width: 19px;
+  line-height: 26px;
+  text-align: center;
+  float: left;
+  background: #e6e6e6;
+}
+
+.stepper input {
+  width: 40px;
+  height: 26px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  min-height: 0;
+}
+
+.stepper .normal {
+  color: black;
+}
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+.contacts {
+  height: 200rpx;
+}
+
+.contacts view text {
+  display: inline-block;
+  width: 20%;
+  margin-left: 14rpx;
+}
+
+.contacts view input {
+  width: 70%;
+  display: inline-block;
+}
+
+.contacts view:first-child {
+  padding-top: 28rpx;
+  box-sizing: border-box;
+}
+
+.contacts view:last-child {
+  padding-top: 15rpx;
+  box-sizing: border-box;
+}
+
+.note {
+  margin-top: 14rpx;
+  padding-bottom: 70rpx;
+}
+
+.note text {
+  padding: 14rpx 0 0 13rpx;
+}
+
+.noteArea {
+  height: 265rpx;
+  width: 92%;
+  margin: 40rpx auto;
+  border: 1px solid #b3b3b3;
+}
+
+.order {
+  /* position: fixed;
+  bottom: 0; */
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: white;
+  background: #f85c45;
+}

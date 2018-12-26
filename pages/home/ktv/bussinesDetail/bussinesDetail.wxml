@@ -1,0 +1,42 @@
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{busImg}}" wx:key="">
+    <swiper-item>
+      <image src="{{busDetail.img_master_path}}{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="bus_info bg-white">
+  <text class="fc-gray-darkest fs-24 storeIntro">店铺介绍:{{busDetail.desc_info}}</text>
+  <view class="locationCon">
+    <text class='iconfont icon-dizhi1 iconfs-40 iconColor9'></text>
+    <view class="location">
+      <text class="fc-gray-darkest fs-24">{{provinces}}{{citys}}{{towns}}{{busDetail.address}}</text>
+      <text class="fs-24">距您{{distance}}km</text>
+    </view>
+    <view class="goAdre" bindtap='goToAdre'>
+    <text class='iconfont icon-ditudangqianweizhi iconfs-42'></text>
+      <text class="fs-24">点击前往</text>
+    </view>
+    <view class="contactCon">
+       <text class='iconfont icon-dianhua iconfs-60 iconColor9' bindtap='tel'></text>
+    </view>
+  </view>
+</view>
+
+
+<view class="bussinessIntro">
+  <view class="intro bg-white">
+    <view>
+      <text class='iconfont icon-dianpu iconfs-44'></text>
+      <text class="fc-gray-darkest fs-24">商户介绍</text>
+    </view>
+    <view class="closeTime fc-gray-darkest fs-24">营业至:{{busDetail.time_do}}</view>
+  </view>
+  <view class="bus_photo" wx:for="{{busIntroImg}}" wx:key="">
+    <image src="{{busDetail.img_publicity_path}}{{item}}"></image>
+  </view>
+</view>
+
+<view class="order fs-30" bindtap='retention'>立即预约</view>

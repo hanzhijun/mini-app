@@ -1,0 +1,21 @@
+<view class='content'>
+  <view class="imgCon">
+    <view wx:if='{{type==1}}'>
+      <image src='../../../images/shopCart/success.png'></image>
+      <text class="status">恭喜你支付成功</text>    
+    </view>
+    <view wx:else>
+      <image src='../../../images/shopCart/close2.png'></image> 
+      <text class="status">很遗憾支付失败</text>
+    </view>
+    
+    
+  </view>
+
+  <view class="btncon">
+    <text class="bgGary fc-white" bindtap='openPage' data-type='home'>回到首页</text>
+    <text class="bg_red fc-white" bindtap='openPage' data-type='pay' wx:if='{{type == 0}}'>再次支付</text>
+    <text class="bg_red fc-white" bindtap='openPage' data-type='detail' wx:else>查看详情</text>
+  </view>
+</view>
+

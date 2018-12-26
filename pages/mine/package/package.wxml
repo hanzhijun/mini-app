@@ -1,0 +1,48 @@
+<!--header  -->
+<view class="header fs-30">
+  <text bindtap='switchBar' data-type='unused' class="now {{current == 'unused' && 'active'}}">未使用</text>
+  <text bindtap='switchBar' data-type='done' class="now {{current == 'done' && 'active'}}">已使用</text>
+  <text bindtap='switchBar' data-type='refund' class="now {{current == 'refund' && 'active'}}">退款</text>
+</view>
+
+
+<!--content  -->
+
+<view class="c_listCon">
+  <!--列表包含套餐列表 和 代金券列表  样式一样  -->
+
+  <!--商品  -->
+  <view class="hotList" wx:for='{{list_data}}' wx:key="" bindtap='openPage' data-id='{{item.package_order_id}}'>
+    <view class="pro_img">
+      <image wx:if='{{item.package_type == 1}}' src="{{imgUrl}}/{{item.file_url}}{{item.list_img}}"></image>
+      <image wx:elif='{{item.package_type == 2}}' src="{{imgUrl}}/{{item.business_logo_url}}{{item.logo}}"></image>
+    </view>
+    <view class="choiceStore">
+      <view class="fs-24 fc-gray-darkest storeName">
+        <text>{{item.package_name}}</text>
+      </view>
+      <view class="storeAdress">
+        <text class="fs-24 fc-gray9">截止时间：{{item.use_time_format}}</text>
+      </view>
+      <view class="storeAdress">
+        <text class="fs-24 fc-gray9">数量：{{item.num}}</text>
+      </view>
+      <view class="proFooter">
+        <text class="fs-24 fc-gray9 g_price">总价：￥{{item.total_cost/100}}</text>
+        <!-- 未使用button -->
+        <text wx:if='{{item.status == 1}}' class="go_buy fs-24 fc-gray-darkest bor">查看券码</text>  
+
+        <!-- 已使用button -->
+        <text wx:elif='{{item.status == 2}}' class="go_buy fs-24 fc-gray-darkest">已使用</text>
+
+        <!-- 退款button -->
+        <text wx:elif='{{item.status == 3}}' class="go_buy fs-24 fc-gray-darkest">退款中</text>
+
+        <!-- 已退款 -->
+        <text wx:elif='{{item.status == 4}}' class="go_buy fs-24 fc-gray-darkest">已退款</text>
+      </view>
+    </view>
+  </view>
+  <!--商品 end  -->
+
+</view>

@@ -1,0 +1,69 @@
+<!--header  -->
+<scroll-view scroll-x="true" class="ip_tab_comtainer">
+  <view class="ip_tab_comtainer_padd"></view>
+  <block wx:for="{{res_data_2}}" wx:key="">
+    <view 
+    class="{{item.goods_activity_category_id == current ?'ip_tab_item_s':'ip_tab_item_n'}}" 
+    bindtap="switchBar" 
+    data-goods_activity_category_id = '{{item.goods_activity_category_id}}'
+    data-offline_type_od = '{{item.offline_type_od}}'
+    >
+      {{item.name}}
+    </view>
+  </block>
+  <view class="ip_tab_comtainer_padd"></view>
+</scroll-view>
+
+<!-- 切换内容区 -->
+<view class='content'>
+<!-- {{content}} -->
+  <view class="banner">
+  <image 
+  src="{{res_data_1.img_header_path}}{{res_data_1.img_header}}"></image>
+  </view>
+
+  <!--列表  -->
+  <view class="c_listCon">
+    <!--list start 套餐 -->
+    <view class="hotList" wx:if='{{offline_type_od == 3}}' wx:for='{{data_list}}' wx:key="">
+      <view class="pro_img">
+        <image src="{{item.list_img_path}}{{item.list_img}}"></image>
+      </view>
+      <view class="pro_info fs-24 fc-gray-darkest">
+        <text class="proText proTitle">{{item.package_name}}</text>
+        <view>
+          <text>{{item.silver_price}}银贝</text>
+          <text>已售{{item.sale}}</text>
+        </view>
+        <text class="proText fs-30">{{item.business_name}}</text>
+        <button 
+        data-type='package'
+        class="go_buy fs-24" 
+        bindtap='openPage' 
+        data-id='{{item.package_id}}'>购买</button>
+      </view>
+    </view>
+
+    <!--list start  商家 -->
+    <view class="hotList" wx:if='{{offline_type_od==2}}' wx:for='{{data_list}}' wx:for-item='business' wx:key="" bindtap='openPage' data-type='business' data-id='{{business.business_offline_id}}'>
+      <view class="pro_img">
+        <image src="{{business.logo_path}}{{business.logo}}"></image>
+      </view>
+      <view class="choiceStore">
+        <view class="fs-24 fc-gray-darkest storeName">
+          <text>{{business.business_name}}</text>
+          <text>{{business.km}}km</text>
+        </view>
+        <view>
+          <button class="btn fs-20" wx:for='{{business.label}}' wx:key="">{{item}}</button>
+        </view>
+        <view class="storeAdress">
+          <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+          <text class="fs-24 fc-gray9">{{business.address}}</text>
+        </view>
+      </view>
+    <!--list end  -->
+  </view>
+    <!--list end  -->
+  </view>
+</view>

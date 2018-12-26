@@ -1,0 +1,23 @@
+@import '../../app.wxss';
+.radio-box {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  padding: 0 25rpx;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center
+}
+
+.radio-group label {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  border-bottom: 1px solid #d6d6d6;
+  height: 65rpx;
+  align-items: center;
+}

@@ -1,0 +1,25 @@
+<view class="orderDetail bg-white fs-24 fc-gray-darkest">
+  <view class="posCenter">{{offDetail.package_name}}</view>
+  <view class="posCenter">-{{offDetail.cash}}</view>
+  <view class="posCenter" wx:if="{{offDetail.status == -1}}">取消订单</view>
+  <view class="posCenter" wx:if="{{offDetail.status == 0}}">待支付</view>
+  <view class="posCenter" wx:if="{{offDetail.status == 1}}">已支付</view>
+  <view class="posCenter" wx:if="{{offDetail.status == 2}}">已完成</view>
+  <view class="posCenter" wx:if="{{offDetail.status == 3}}">已退款</view>
+  <view class="listDetail">
+    <text>获得银贝</text>
+    <text>+{{offDetail.return_silver}}</text>
+  </view>
+  <view class="listDetail">
+    <text>付款方式</text>
+    <text>微信</text>
+  </view>
+  <view class="listDetail">
+    <text>付款时间</text>
+    <text>{{offDetail.create_at}}</text>
+  </view>
+  <view class="listDetail" wx:if="{{offDetail.serialnumber!=null}}">
+    <text>流水号</text>
+    <text>{{offDetail.serialnumber}}</text>
+  </view>
+</view>

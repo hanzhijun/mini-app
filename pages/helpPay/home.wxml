@@ -1,0 +1,55 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--分类icon  -->
+<view class="cate_Con bg-white">
+  <view>
+    <image src='/images/helppay/icon1.png'></image>
+    <text class="current active">推荐</text>
+  </view>
+  <view>
+    <image src='/images/helppay/icon2.png'></image>
+    <text class="current">美妆</text>
+  </view>
+  <view>
+    <image src='/images/helppay/icon3.png'></image>
+    <text class="current">数码</text>
+  </view>
+  <view>
+    <image src='/images/helppay/icon4.png'></image>
+    <text class="current">家居</text>
+  </view>
+</view>
+
+<!-- 商品 -->
+<view class="listContainer">
+  <!-- 列表 -->
+  <view class="product">
+    <view class="list">
+      <view class="proImg">
+        <image src="/images/helppay/test.jpg"></image>
+      </view>
+      <view class="proInfo">
+        <text class="proName fs-24">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</text>
+        <view class="middle">
+          <text class='fs-22 symbol'>￥</text>
+          <text class='price'>10</text>
+          <text class='fs-22 symbol'>.00</text>
+          <text class="privousPrice">￥1.00</text>
+          <text class="stock">送6金贝</text>
+        </view>
+        <view class="assistance">
+          <image src="/images/helppay/test2.jpg"></image>
+          <text class="fs-22 need">6人助力.多得20金贝</text>
+        </view>
+        <button class="helpBtn">助力购</button>
+      </view>
+    </view>
+  </view>
+  <!-- 列表end -->
+</view>

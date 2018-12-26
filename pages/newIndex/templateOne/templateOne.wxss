@@ -1,0 +1,186 @@
+.swiper-bar {
+  height: 300rpx !important;
+}
+
+.swiper-bar image {
+  width: 100%;
+  height: 100%;
+}
+
+.recommend {
+  display: block;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.recommend-outside {
+  width: 100vw;
+  overflow-x: auto;
+}
+
+.recommend-line {
+  width: 100%;
+  height: 36vw;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.recommend .re_goods {
+  padding-top: 30rpx;
+  width: 181rpx;
+  text-align: center;
+  margin-left: 55rpx;
+  clear: both;
+  display: inline-block;
+}
+
+.recommend .re_goods image {
+  height: 178rpx;
+  width: 178rpx;
+}
+
+.re-goods-img {
+  height: 178rpx;
+  width: 178rpx;
+  float: left;
+}
+.re-goods-txt {
+  display: inline-block;
+  width: 178rpx;
+  padding-top: 8rpx;
+  float: left;
+}
+
+.recommend .re_goods text {
+  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* 大牌购 */
+
+.label {
+  position: relative;
+}
+
+.label text {
+  display: inline-block;
+  height: 46rpx;
+  line-height: 46rpx;
+  padding: 0 20rpx 0 10rpx;
+  color: #fff;
+  z-index: 999;
+  position: absolute;
+  top: 8rpx;
+  background-image: url('https://img.duishangbao.cn/upload/index/label3-violet.png');
+  background-repeat: no-repeat;
+  background-size: 276rpx 46rpx;
+  background-position: right;
+}
+
+.areaThree {
+  margin-top: 25rpx;
+  padding: 43rpx 0 20rpx 0;
+}
+
+.areaThree view {
+  width: 49.8%;
+  text-align: center;
+  display: inline-block;
+}
+
+.areaThree view image {
+  height: 354rpx;
+  width: 354rpx;
+  margin-top: 14rpx;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #666;
+  margin-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+
+.active {
+  border-bottom: 2px solid #f75d45;
+  color: #f75d45;
+}
+
+.goods {
+  background: #fff;
+  display: inline-block;
+  width: 352rpx;
+  height: calc((100vw - 45rpx) / 1.28);
+  float: left;
+  overflow: hidden;
+  margin: 0 0 5rpx 15rpx;
+  position: relative;
+}
+
+.goods .pos image {
+  width: 352rpx;
+  height: 352rpx;
+}
+
+.good_title {
+  display: block;
+  color: #4c4c4c;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding: 5rpx 0 0 5rpx;
+  box-sizing: border-box;
+  line-height: 40rpx;
+}
+
+.good_price {
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  padding-right: 20rpx;
+  color: #f01212;
+}
+
+.golden {
+  width: 43rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+
+.padd {
+  padding-left: 13rpx;
+}
+
+.price {
+  position: absolute;
+  left: 5rpx;
+  top: 490rpx;
+}
+
+.base-price {
+  position: absolute;
+  left: 5rpx;
+  top: 450rpx;
+}
+
+.give {
+  padding-left: 10rpx;
+}
+
+.colorRed {
+  color: #f90404;
+}
+
+.goodChoose {
+  overflow: hidden;
+  background-color: #fff;
+  min-height: 50vh;
+}

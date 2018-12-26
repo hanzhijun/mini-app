@@ -1,0 +1,565 @@
+page {
+  background: #050102 !important;
+  height: 100%;
+}
+
+.game-outside {
+  overflow: hidden;
+  background: url(https://img.duishangbao.cn/upload/game/bg2.jpg) repeat-y;
+  background-size: contain;
+}
+
+.scr {
+  position: relative;
+  height: 100%;
+}
+
+.game {
+  font-size: 28rpx;
+  background: url(https://img.duishangbao.cn/upload/game/gua_bj01.jpg) no-repeat 0 0 / 750rpx 1360rpx;
+}
+
+.game-banner {
+  overflow: hidden;
+  height: 728rpx;
+}
+
+.game-banner image {
+  width: 100vw;
+  height: 728rpx;
+}
+
+.bgBanner {
+  margin: auto;
+  width: 693rpx;
+  padding-top: 100rpx;
+  margin-top: -100rpx;
+  text-align: center;
+}
+
+.gua_header {
+  height: 583rpx;
+}
+
+.gua_header image {
+  height: 583rpx;
+  width: 100%;
+  margin-left: 21rpx;
+  margin-top: -5rpx;
+}
+
+.gua-bar {
+  position: relative;
+  width: 611rpx;
+  height: 295rpx;
+  margin: -8rpx auto;
+  text-align: center;
+}
+
+.gua-bar canvas,
+.gua-bar .prizeTips {
+  display: none;
+}
+
+.gua-bar.showCanvas canvas,
+.gua-bar.showCanvas .prizeTips {
+  display: block;
+}
+
+.gua-bar.showCanvas .btn-start {
+  //display: none;
+  opacity: 0;
+}
+
+.gua-bar .btn-start {
+  position: absolute;
+  left: 185rpx;
+  top: 90rpx;
+}
+
+.btn1 {
+  width: 258rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  margin: auto;
+  margin-top: 30rpx;
+}
+
+/* cover-view {
+  line-height: 72rpx !important;
+  margin-top: -100rpx;
+  color: #f9fffc;
+  position: absolute;
+  left: 50%;
+  margin-left: -126rpx;
+  z-index: 99999;
+} */
+
+button::after {
+  border: none;
+}
+
+.gua-count {
+  margin-top: 20rpx;
+  color: #feb322;
+  line-height: 61rpx;
+}
+
+.gua-count view {
+  display: inline-block;
+}
+
+.circle {
+  height: 61rpx;
+  width: 61rpx;
+  margin-left: 2rpx;
+}
+
+.btn2 {
+  width: 355rpx;
+  height: 89rpx;
+  line-height: 89rpx;
+  color: #f9fffc;
+  letter-spacing: 5rpx;
+}
+
+.yaoRecord {
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.record {
+  color: white;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  letter-spacing: 15rpx;
+}
+
+.inviteIntro {
+  width: 601rpx;
+  height: 68rpx;
+  padding-top: 40rpx;
+}
+
+.prize {
+  width: 647rpx;
+  height: 742rpx;
+  margin: 40rpx auto;
+}
+
+.prize-content {
+  position: relative;
+  top: 186rpx;
+  left: 72rpx;
+  height: 497rpx;
+  width: 508rpx;
+}
+
+.prize-content view {
+  width: 50%;
+  height: 248rpx;
+  float: left;
+  display: none;
+}
+
+.prize-content view.this-show {
+  display: inline-block;
+}
+
+.prizeImg {
+  width: 144rpx;
+  height: 144rpx;
+  margin-top: 16rpx;
+}
+
+.prize-content view text {
+  display: block;
+  color: #802520;
+  padding: 0 5rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.activityIntro {
+  width: 647rpx;
+  height: 516rpx;
+  margin: 40rpx auto;
+}
+
+.explain-bar {
+  /* height: 360rpx; */
+  width: 560rpx;
+  margin: auto;
+}
+
+.special {
+  position: relative;
+  top: 112rpx;
+}
+
+.explain-bar text {
+  display: block;
+  text-align: left;
+  color: #feb322;
+  letter-spacing: 4rpx;
+  margin-bottom: 28rpx;
+}
+
+.method text {
+  margin-bottom: 15rpx !important;
+}
+
+.method text:first-child {
+  padding-top: 20rpx;
+}
+
+/* .method {
+  position: relative;
+  top: 112rpx;
+} */
+
+.explain-bar text:first-child {
+  /* position: relative; *//* top: -10rpx; */
+}
+
+.yao-bar image {
+  width: 100%;
+  height: 522rpx;
+}
+
+.yao-bg {
+  width: 637rpx;
+  /* height: 873rpx; */
+  margin: auto;
+  margin-top: -10rpx;
+  margin-bottom: -14rpx;
+}
+
+.yao-record {
+  text-align: right !important;
+  color: white !important;
+  /* margin-top: -22rpx; */
+}
+
+.list-outside {
+  width: 92%;
+  background: #000;
+  border-radius: 15rpx;
+  margin: auto;
+}
+
+.list-inside {
+  position: relative;
+  top: 10rpx;
+  width: 97%;
+  background: #f22f2f;
+  border-radius: 15rpx;
+  margin: auto;
+}
+
+.goods {
+  display: inline-block;
+  /* width: 295rpx; */
+  width: calc((84vw - 45rpx) / 2);
+  float: left;
+  overflow: hidden;
+  margin: 0 0 15rpx 10rpx;
+  position: relative;
+  height: 480rpx;
+}
+
+.pos {
+  position: relative;
+  height: 295rpx;
+}
+
+.goods .pos image {
+  width: 295rpx;
+  height: 295rpx;
+}
+
+.label {
+  position: absolute;
+  bottom: 20rpx;
+  right: 0;
+  height: 50rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 30rpx 0 0 30rpx;
+  color: white;
+  line-height: 50rpx;
+  padding: 0 20rpx 0 20rpx;
+  box-sizing: border-box;
+}
+
+.good_title {
+  /* width:calc((100vw - 45rpx) / 2); */
+  display: block;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding: 5rpx 0 0 5rpx;
+  box-sizing: border-box;
+  text-align: left;
+  min-height: 80rpx;
+}
+
+.good_price {
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  padding-right: 20rpx;
+}
+
+.golden {
+  width: 43rpx;
+  height: 32rpx;
+  vertical-align: middle;
+}
+
+.padd {
+  padding-left: 13rpx;
+}
+
+.price {
+  /* width:calc((100vw - 45rpx) / 2); */
+  text-align: left;
+  /* position: absolute;
+  left: 5rpx;
+  bottom: 13rpx; */
+  color: #fff;
+}
+
+.base-price {
+  /* width:calc((100vw - 45rpx) / 2); */
+  text-align: left;
+  /* position: absolute;
+  left: 5rpx;
+  bottom: 57rpx; */
+  color: #fff;
+}
+
+.give {
+  padding-left: 10rpx;
+}
+
+.goodChoose {
+  overflow: hidden;
+  display: none;
+}
+.goodChoose.this-show {
+  display: block;
+}
+.clearfix {
+  clear: both;
+}
+
+.yao-nav {
+  display: flex;
+  justify-content: space-around;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: white;
+  margin: 10rpx 0 20rpx 0;
+}
+
+.active {
+  color: #f5f814;
+  border-bottom: 2px solid #f5f814;
+  font-size: 32rpx;
+}
+
+.goHome {
+  position: fixed;
+  bottom: 100rpx;
+  right: 20rpx;
+  background: rgba(0, 0, 0, 0.4);
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  color: white;
+  z-index: 2;
+}
+
+.goHome text:first-child {
+  font-size: 46rpx;
+  margin: 13rpx 0 5rpx 0;
+}
+
+.goHome text {
+  text-align: center;
+  display: block;
+}
+
+.footer {
+  position: relative;
+  left: -10rpx;
+  bottom: -13rpx;
+}
+
+.footer image {
+  width: 100vw;
+  height: 182rpx;
+  margin-left: -18rpx;
+}
+
+.pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  width: 100vw;
+  height: 100vh;
+}
+
+.pop-main {
+  width: 570rpx;
+  position: absolute;
+  top: calc(50vh - 280rpx);
+  left: 90rpx;
+  background: white;
+  border-radius: 15rpx;
+  text-align: center;
+  overflow: hidden;
+  padding-bottom: 60rpx;
+}
+
+.close {
+  color: #444;
+  font-size: 30px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  position: absolute;
+  right: 2rpx;
+  top: 2rpx;
+  z-index: 3;
+}
+
+.colse:active {
+  opacity: .8
+}
+
+.pop-title {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  padding-top: 60rpx;
+  margin-bottom: 40rpx;
+}
+
+.pop-img {
+  height: 153rpx;
+  width: 153rpx;
+}
+
+.tips {
+  font-size: 26rpx;
+  color: #333;
+  display: block;
+  margin: 23rpx 100rpx 0 100rpx;
+  font-weight: bold;
+}
+
+.return {
+  display: flex;
+  justify-content: space-around;
+  height: 80rpx;
+  width: 280rpx;
+  background: #f85c45;
+  color: white;
+  line-height: 80rpx;
+  padding: 0 !important;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.pro {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pro view {
+  width: 50%;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.pro view:last-child {
+  margin-top: 30rpx;
+  padding-right: 40rpx;
+}
+
+.pro image {
+  height: 200rpx;
+  width: 200rpx;
+}
+
+.pop-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60rpx;
+}
+
+.pop-btn button {
+  width: 220rpx;
+  font-size: 28rpx;
+}
+
+.color-gray {
+  background: #ededed;
+  color: #333;
+}
+
+.color-red {
+  background: #f85c45;
+  color: #fff;
+}
+
+.jinbei {
+  display: flex;
+  justify-content: space-around;
+}
+
+.jinbei view {
+  width: 50%;
+  font-size: 22rpx;
+  color: #333;
+}
+
+.jinbei view:last-child {
+  margin-top: 30rpx;
+  padding-right: 40rpx;
+}
+
+.jinbei image {
+  width: 176rpx;
+  height: 137rpx;
+}
+
+.jinbei view  text {
+  display: block;
+  margin-top: 10rpx;
+}
+
+.prizeTips {
+  position: absolute;
+  top: 120rpx;
+  width: 90%;
+  font-size: 36rpx;
+  left: 4%;
+  color: #999;
+  padding: 0 10rpx 0 10rpx;
+  box-sizing: border-box;
+}
+
+.getGold text{
+  font-size: 34rpx;
+  text-align: left;
+}

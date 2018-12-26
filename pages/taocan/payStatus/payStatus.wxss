@@ -1,0 +1,53 @@
+.content {
+  padding-bottom: 50rpx;
+  margin-top: 15rpx;
+}
+
+page {
+  background: white;
+}
+
+.imgCon {
+  text-align: center;
+  padding-top: 60rpx;
+}
+
+.status {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.btncon {
+  width: 100%;
+  text-align: center;
+}
+
+.btncon text {
+  display: inline-block;
+  height: 90rpx;
+  width: 200rpx;
+  border-radius: 20rpx;
+  margin-top: 100rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 26rpx;
+}
+
+.btncon text:first-child {
+  margin-right: 20rpx;
+}
+
+.content .imgCon image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.bgGary {
+  background: #dcdcdc;
+}
+
+.bg_red {
+  background: #f75d45;
+}

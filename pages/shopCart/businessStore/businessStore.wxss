@@ -1,0 +1,55 @@
+.c_listCon {
+  position: relative;
+}
+
+.c_listCon .list {
+  position: relative;
+  margin-top: 17rpx;
+  /* height: 200rpx; */
+  width: 100%;
+  background-color: #fff;
+  padding: 29rpx 14rpx 29rpx 14rpx;
+  box-sizing: border-box;
+}
+
+.c_listCon .list .pro_img {
+  width: 208rpx;
+  height: 208rpx;
+}
+
+.c_listCon .list .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .list .pro_info {
+  height: 100%;
+  width: 67%;
+}
+
+.c_listCon .list .pro_info text {
+  display: block;
+  color: #333;
+}
+
+.c_listCon .list .pro_info .pro_title {
+  margin-bottom: 33rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.go_buy {
+  padding: 0 !important;
+  height: 50rpx;
+  width: 150rpx;
+  color: #333;
+  line-height: 50rpx;
+  background-color: #fff;
+  margin-right: 10rpx;
+  border: 1px solid #333;
+  box-sizing: content-box !important;
+}

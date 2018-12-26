@@ -1,0 +1,39 @@
+<!--scroll header  -->
+<scroll-view scroll-x="true" class="ip_tab_comtainer" scroll-left="{{ scrollLeft }}">
+    <block wx:for="{{res_data}}" wx:for-item="class_1" wx:key="">
+        <view class="{{current_1 == index ? 'ip_tab_item_s':'ip_tab_item_n'}}" data-index='{{index}}' data-type='1' bindtap="onIpItemClick">{{class_1.name}}
+        </view>
+    </block>
+</scroll-view>
+
+<!--classify  -->
+<scroll-view scroll-x="true" class="ip_tab_comtainer bg-white">
+    <block wx:for="{{res_data[current_1].child}}" wx:for-item="class_2" wx:key="">
+        <view class="{{index == current_2?'ip_tab_item_s':'ip_tab_item'}}" bindtap="onIpItemClick" data-index='{{index}}' data-type="2">{{class_2.name}}
+        </view>
+    </block>
+</scroll-view>
+
+
+<!--content  -->
+<view class='content'>
+    <view class="c_listCon">
+        <!--list start  -->
+        <view class="hotList" wx:for='{{goods_data}}' wx:key="" data-id='{{item.business_offline_id}}' bindtap='openPage'>
+            <view class="pro_img">
+                <image src="{{logo_path}}{{item.logo}}?x-oss-process=image/resize,m_lfit,h_180,w_180/format,jpg"></image>
+            </view>
+            <view class="choiceStore">
+                <view class="fs-24 fc-gray-darkest storeName">
+                    <text>{{item.name}}</text>
+                    <text>{{item.km}}km</text>
+                </view>
+                <view class="storeAdress">
+                    <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+                    <text class="fs-24 fc-gray9">{{item.address}}</text>
+                </view>
+            </view>
+        </view>
+        <!--list end  -->
+    </view>
+</view>

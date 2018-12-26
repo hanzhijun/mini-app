@@ -1,0 +1,108 @@
+<view style='min-height: 100vh;height: 100%'>
+    <login-box bind:loginevent='loginevent'></login-box>
+    <!--<tab-bar phone_msg='{{phone_msg}}'></tab-bar>-->
+    <!--swiper  -->
+    <swiper indicator-dots="{{indicatorDots}}"
+            autoplay="{{autoplay}}"
+            interval="{{interval}}"
+            duration="{{duration}}">
+        <block wx:for="{{banner}}" wx:key="">
+            <swiper-item bindtap='openH5'
+                    data-id='{{item.goods_id}}'
+                    data-url='{{item.url}}'
+                    data-type='{{item.type}}'>
+                <image src="{{item.image_path}}{{item.image}}" class="slide-image" width="355" height="150"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!--分类icon  -->
+    <view class="cate_Con bg-white">
+        <view wx:for="{{categoryIcon}}" wx:key="" data-id='{{item.goods_category_id}}' bindtap='openPage' data-type='classify'>
+            <image src="{{item.img_path}}{{item.img}}"></image>
+            <text class="fs-24 fc-gray-darkest">{{item.name}}</text>
+        </view>
+    </view>
+
+    <!--运营区  -->
+    <view class="recommend">
+        <view wx:for="{{operateArea}}" wx:key="" data-goods_activity_od_id="{{item.goods_activity_od_id}}" data-url="{{item.url}}"
+              data-type="{{item.type}}" bindtap='operation'>
+            <image src="{{item.img_cover_path}}{{item.img_cover}}"></image>
+        </view>
+    </view>
+
+    <!-- tab切换列表 -->
+    <view class="nav bg-white">
+        <view class='tab fs-30' wx:for="{{tabName}}" wx:key="" data-goods_activity_category_id="{{item.goods_activity_category_id}}" data-offline_type_od="{{item.offline_type_od}}" bindtap='getProList'>
+            <text class='word fs-30 fc-gray-darkest {{goods_activity_category_id == item.goods_activity_category_id && "activeColor"}}'>
+                {{item.name}}
+            </text>
+        </view>
+    </view>
+
+
+    <view class='list-bar' style="margin-bottom:{{phone_msg == 'iphonex' ? 250 : 150}}rpx;min-height:calc(100vh-100px)">
+        <!--新品上市  -->
+        <view class="new">
+            <view class="i_con">
+                <image src="/images/home/new.png"></image>
+            </view>
+            <view class="reco fs-30">
+                <text>推荐</text>
+            </view>
+            <view class="fs-30 hot">“最受欢迎的热门兑换爆款”</view>
+        </view>
+        <!--列表  -->
+        <view>
+            <view class="re_proCon bg-white" wx:for="{{list}}" wx:key="">
+                <view class="reList">
+                    <view class="productCon" bindtap='openPage' data-type='goods' data-id='{{item.goods_id}}'>
+
+                        <!--金贝+现金  -->
+                        <view class="proInfo" wx:if="{{item.payment==1}}">
+                            <text class="fs-24 fc-gray-darkest pro_name">{{item.goods_name}}</text>
+                            <text class="fs-30 fc-gray-darkest price">￥{{item.price/ 100}}</text>
+                            <text class="fs-22 fc-gray-darkest padd">送{{item.base_return}}</text>
+                            <image src="/images/currency/jinbei.png" class="golden"></image>
+                        </view>
+
+                        <!--金贝+铜贝  -->
+                        <view class="proInfo" wx:if="{{item.payment==2}}">
+                            <text class="fs-24 fc-gray-darkest pro_name">{{item.goods_name}}</text>
+                            <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+                            <image src="/images/currency/jinbei.png" class="golden"></image>
+                            <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+                            <image src="/images/currency/tongbei.png" class="golden"></image>
+                        </view>
+
+                        <!--银贝  -->
+                        <view class="proInfo" wx:if="{{item.payment==3}}">
+                            <text class="fs-24 fc-gray-darkest pro_name">{{item.goods_name}}</text>
+                            <text class="fs-30 fc-gray-darkest price">{{item.price}}</text>
+                            <image src="/images/currency/yinbei.png" class="golden"></image>
+                        </view>
+
+                        <view class="proImg">
+                            <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+        <!--列表 end  -->
+    </view>
+</view>
+
+<!--悬浮  -->
+<view class="suspension" style='bottom: {{phone_msg == "iphonex"  ? 190 : 140}} rpx;right: {{start_x}}rpx'>
+    <view>
+        <image src="/images/currency/jinbei.png" class="susIcon"></image>
+        <text class="fc-white">{{userInfo.surplus_goldshells}}</text>
+    </view>
+    <view>
+        <image src="/images/currency/yinbei.png" class="susIcon"></image>
+        <text class="fc-white">{{sliverInfo}}</text>
+    </view>
+</view>

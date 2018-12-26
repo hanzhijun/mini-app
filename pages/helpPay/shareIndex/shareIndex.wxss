@@ -1,0 +1,552 @@
+.bg {
+  width: 100vw;
+  height: 100vh;
+  /* background: url('/images/sharePay/bg.jpg') no-repeat;
+  background-size: cover; */
+  
+}
+
+.getJInbei {
+  width: 100vw;
+  height: 150rpx;
+  text-align: center;
+  padding-top: 50rpx;
+  box-sizing: border-box;
+}
+
+.getJInbei text {
+  display: block;
+  color: #ffec02;
+}
+
+.getJInbei text:first-child {
+  font-size: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.getJInbei text:last-child {
+  font-size: 32rpx;
+}
+
+.headerImg {
+  height: 335rpx;
+  width: 100vw;
+}
+
+.rule {
+  color: #5e1f15;
+  float: right;
+  margin: -20rpx 20rpx 0 0;
+}
+
+.userInfo {
+  padding-top: 45rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.userInfo .photo {
+  height: 158rpx;
+  width: 158rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.userInfo .photo image {
+  height: 100%;
+  width: 100%;
+}
+
+.userInfo .nickname {
+  margin-top: 20rpx;
+}
+
+.content {
+  width: 86vw;
+  margin: auto;
+  margin-top: 34rpx;
+}
+
+.hotList {
+  display: flex;
+}
+
+.hotList .pro_img {
+  width: 33vw;
+  height: 33vw;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.hotList .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+}
+
+.choiceStore {
+  margin-left: 30rpx;
+  width: 55%;
+}
+
+.choiceStore .storeName {
+  display: flex;
+  margin-bottom: 12rpx;
+  line-height: 30rpx;
+}
+
+.choiceStore .storeName text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20rpx;
+  line-height: 36rpx;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.pre_Price {
+  margin-top: 60rpx;
+}
+
+.use_price {
+  margin-top: 12rpx;
+}
+
+.pre_Price .price, .use_price .price {
+  color: #f50c0c;
+}
+
+.return {
+  width: 200rpx;
+  position: fixed;
+  right: -20rpx;
+  bottom: 37vh;
+  background: #e97707;
+  border-radius: 30rpx;
+  box-sizing: border-box;
+  text-align: center;
+  color: #fefefe;
+  height: 58rpx;
+  line-height: 58rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.return text:first-child {
+  padding-right: 5rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+.more {
+  display: flex;
+  justify-content: space-around;
+  width: 90vw;
+  margin: auto;
+  margin-top: 40rpx;
+}
+
+.btnClass {
+  width: 289rpx;
+  height: 77rpx;
+  text-align: center;
+  line-height: 77rpx;
+  color: #fff;
+}
+
+.btnClass2 {
+  width: 532rpx;
+  height: 77rpx;
+  text-align: center;
+  line-height: 77rpx;
+  color: #fff;
+}
+
+.divider {
+  text-align: center;
+  margin: 30rpx 0 40rpx 0;
+}
+
+.divider .line {
+  display: inline-block;
+  width: 14vw;
+  border-top: 1px solid #e5e5e5;
+  height: 1rpx;
+  vertical-align: middle;
+}
+
+.tips {
+  text-align: center;
+  margin: 40rpx 10rpx 40rpx 10rpx;
+  color: #3b3b3b;
+}
+
+.userPhoto {
+  width: 90vw;
+  margin: auto;
+}
+
+.userPhoto view {
+  width: 20%;
+  height: 19vw;
+  text-align: center;
+  float: left;
+}
+
+.userPhoto view image {
+  height: 95rpx;
+  width: 95rpx;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.userPhoto view text {
+  font-size: 22rpx;
+  color: #4c4c4c;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.time {
+  clear: both;
+  font-size: 28rpx;
+  width: 100vw;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.time text {
+  color: #f98100;
+}
+
+.tc-base {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.tc-base .back {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.8;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tc-base .tc-01 {
+  width: 545rpx;
+  height: 587rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/tc-bj2.png) no-repeat 0 0 / 545rpx 587rpx;
+  left: 102rpx;
+  top: calc(50vh - 300rpx);
+  text-align: center;
+}
+
+.tc-base .tc-01 .note {
+  font-size: 34rpx;
+  color: #fff;
+  padding: 295rpx 0 25rpx 0;
+}
+
+.tc-base .tc-01 .bei text {
+  display: inline-block;
+  line-height: 76rpx;
+  color: #fcec1d;
+  font-size: 48rpx;
+}
+
+.tc-base .tc-01 .bei {
+  display: flex;
+  justify-content: center;
+}
+
+.tc-base .tc-01 .bei .big {
+  font-size: 70rpx;
+}
+
+.tc-base .tc-01 button {
+  width: 236rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  background: url(https://img.duishangbao.cn/upload/sharePay/buyBtn4.png) no-repeat 0 0 / 236rpx 67rpx;
+  margin: 25rpx auto 0;
+  font-size: 28rpx;
+  color: #611;
+}
+
+.tc-base .tc-02 {
+  width: 545rpx;
+  height: 693rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/tc-bj3.png) no-repeat 0 0 / 545rpx 693rpx;
+  left: 102rpx;
+  top: calc(50vh - 350rpx);
+  text-align: center;
+}
+
+.tc-base .tc-02 .note {
+  font-size: 42rpx;
+  color: #fff;
+  padding: 265rpx 0 75rpx 0;
+}
+
+.tc-base .tc-02 .bei {
+  line-height: 55rpx;
+  color: #fbeb1a;
+  font-size: 52rpx;
+}
+
+.tc-base .tc-02 .bei text {
+  display: inline-block;
+  color: #fff;
+}
+
+.tc-base .tc-02 .txt {
+  font-size: 34rpx;
+  color: #fbeb1a;
+  padding: 20rpx 0 55rpx;
+}
+
+.tc-base .tc-02 button {
+  width: 236rpx;
+  height: 67rpx;
+  line-height: 67rpx;
+  background: url(https://img.duishangbao.cn/upload/sharePay/buyBtn4.png) no-repeat 0 0 / 236rpx 67rpx;
+  margin: 25rpx auto 0;
+  font-size: 28rpx;
+  color: #611;
+}
+
+.tc-base .tc-03 {
+  width: 577rpx;
+  height: 505rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/tc-bj5.png) no-repeat 0 0 / 577rpx 497rpx;
+  left: 86rpx;
+  top: calc(50vh - 290rpx);
+  text-align: center;
+}
+
+.tc-base .tc-03 .note {
+  padding: 276rpx 0 75rpx 0;
+}
+
+.tc-base .tc-03 .note text {
+  display: block;
+  line-height: 46rpx;
+  font-size: 36rpx;
+  color: #fbeb1a;
+}
+
+.tc-base .tc-03 .isee {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/btn-close.png) no-repeat 0 0 / 50rpx 50rpx;
+  left: 280rpx;
+  top: 520rpx;
+}
+
+.tc-base .tc-04 .isee {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  background: url(https://img.duishangbao.cn/upload/sharePay/btn-close.png) no-repeat 0 0 / 50rpx 50rpx;
+  right: -9rpx;
+  top: -85rpx;
+}
+
+.tc-base .tc-04 {
+  width: 600rpx;
+  height: 560rpx;
+  background: #fff;
+  position: absolute;
+  left: 79rpx;
+  top: calc(50vh - 290rpx);
+  text-align: center;
+  border-radius: 15rpx;
+}
+
+.tc-base .tc-04 .tc-06 {
+  width: 540rpx;
+  height: 194rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-07 {
+  width: 273rpx;
+  height: 218rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-08 {
+  width: 197rpx;
+  height: 213rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-09 {
+  width: 309rpx;
+  height: 189rpx;
+  margin-top: 27rpx;
+}
+
+.tc-base .tc-04 .tc-10 {
+  width: 558rpx;
+  height: 213rpx;
+  margin-top: 27rpx;
+}
+
+
+.tc-base .tc-04 text {
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.tc-base .tc-04 text:first-child {
+  color: #e62343;
+  font-size: 40rpx;
+  margin-top: 43rpx;
+}
+
+.tc-base .tc-04 text:last-child {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.butBtn {
+  position: absolute;
+  bottom:0;
+  height: 120rpx;
+  width: 599rpx;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  margin-top: 36rpx;
+  overflow: hidden;
+}
+
+.butBtn button {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #fff;
+  width: 50%;
+  line-height: 120rpx;
+}
+
+.butBtn button:first-child {
+  border-right: 1px solid #ccc;
+  color: #666;
+  font-size: 36rpx;
+  border-radius: 0 0 0 15rpx;
+}
+
+.butBtn button:last-child {
+  color: #e62343;
+  font-size: 36rpx;
+  border-radius: 0 0 15rpx  0;
+}
+
+button::after {
+  border: none;
+}
+
+.shareBtn{
+  padding: 0 !important;
+  width: 455rpx;
+  height: 75rpx;
+  background: #e62343;
+  color: #fff;
+  line-height: 75rpx;
+  font-size: 34rpx;
+  margin-top: 30rpx;
+}
+
+.tc-base .tc-03 .isee:active, .return:active, .btnClass:active,
+.btnClass2:active, .rule:active, .tc-base .tc-02 button:active,
+.tc-base .tc-01 button:active {
+  opacity: 0.8;
+}
+
+.ruleContent {
+  position: absolute;
+  width: 670rpx;
+  height: calc(100vh - 80rpx);
+  line-height: 40rpx;
+  top: 20rpx;
+  left: 20rpx;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  z-index: 2;
+  font-size: 24rpx;
+  overflow: scroll;
+  padding: 20rpx;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+
+.dividerLine {
+  width: 85vw;
+  border-top: 1px solid #e5e5e5;
+  margin: 25rpx auto;
+}
+
+.popTitle{
+  color:#e62343;
+  font-size: 40rpx;
+  margin-top: 45rpx;
+}
+
+.getGoldNum{
+  color: #666666;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+
+.mar{
+  margin-top: 50rpx;
+}
+
+@media screen and (max-width: 375px ) and (max-height:667px) {
+  .bg {
+    padding-bottom: 30rpx;
+  }
+}
+
+.shuang .btnClass2,
+.shuang .btnClass2 {
+  margin-bottom: 25rpx;
+}
+
+.bg-01 {
+  overflow: hidden;
+  background: url(https://img.duishangbao.cn/upload/sharePay/help_bj_02.jpg) repeat-y 0 0 / 750rpx 100rpx;
+}
+.bg-02 {
+  overflow: hidden;
+  background: url(https://img.duishangbao.cn/upload/sharePay/help_bj_01.jpg) no-repeat 0 0 / 750rpx 750rpx;
+}
+.bg-03 {
+  width: 750rpx;
+  height: 98rpx;
+  overflow: hidden;
+  background: url(https://img.duishangbao.cn/upload/sharePay/help_bj_03.jpg) no-repeat 0 0 / 750rpx 98rpx;
+}

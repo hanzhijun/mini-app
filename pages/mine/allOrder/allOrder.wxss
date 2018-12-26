@@ -1,0 +1,147 @@
+@import '../../../components/goods-msg/goods-msg.wxss';
+
+.order-box {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.dds {
+  margin-bottom: 100rpx;
+}
+
+.result {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.result text {
+  text-align: right;
+}
+
+.result text:nth-child(2) {
+  width: auto !important;
+}
+
+.nav-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 72rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.content-outside {
+  overflow: hidden;
+  padding-top: 52rpx;
+}
+
+.current {
+  padding-bottom: 14rpx;
+  border-bottom: 1px solid #f75d45;
+  margin-top: 14rpx;
+}
+
+.pay-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+}
+
+.pay-box .pay {
+  width: 195rpx;
+  margin: 0;
+  background-color: #f75d45;
+  color: #fff;
+  border-radius: 0;
+  line-height: 100rpx;
+}
+
+.other {
+  border-color: #f75d45;
+  color: #f75d45
+}
+
+.good-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.good-footer .btn-box {
+  padding-top: 30rpx;
+  display: flex;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 20rpx;
+}
+
+.btn-box button {
+  background: transparent;
+}
+
+.btn-box button:first-child {
+  margin-right: 20rpx;
+}
+
+.content-box:last-child {
+  margin-bottom: 20rpx;
+}
+
+.content > view {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.beijing {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.alert-msg view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 0;
+}
+
+.alert-msg {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.alert-msg button {
+  border: 0;
+  background-color: #249cd3;
+  border-radius: 0;
+}
+
+.image {
+  width: 155px;
+}

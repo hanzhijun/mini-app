@@ -1,0 +1,95 @@
+<!--header  -->
+<scroll-view scroll-x="true" class="ip_tab_comtainer">
+  <view wx:for="{{res_data_2}}" wx:key="" class="ip_tab_item_n {{item.goods_activity_category_id == current && 'active'}}" data-goods_activity_category_id="{{item.goods_activity_category_id}}" bindtap='switchBar'>
+    {{item.name}}
+  </view>
+</scroll-view>
+
+<!-- 切换内容区 -->
+<view class='content'>
+  <!-- {{content}} -->
+  <!--特价爆款分隔  -->
+  <view class="divider" wx:if='{{res_data_3.length}}'>
+    <view class="line"></view>
+    <text class="hot fs-30">特价爆款</text>
+    <view class="line"></view>
+  </view>
+  <!--特价爆款列表  -->
+  <scroll-view scroll-x="true" class="wrapper {{ (res_data_3_len === 1)? 'hot-single' : ''}}">
+    <!--1  -->
+    <view class="hotList" wx:for='{{res_data_3}}' wx:key="" data-id='{{item.goods_id}}' bindtap='openPage'>
+      <view class="listImg">
+        <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+      </view>
+      <view class="intro fc-gray-darkest">
+        <text class="fs-30 proTitle">{{item.goods_name}}</text>
+        <!--金贝+现金  -->
+        <view wx:if="{{item.payment==1}}">
+          <text class="fs-30 fc-gray-darkest price">￥{{item.price/ 100}}</text>
+          <text class="fs-24 fc-gray-darkest padd"><text class="txt">送</text>{{item.base_return}}</text>
+          <image src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+        </view>
+
+        <!--金贝+铜贝  -->
+        <view wx:if="{{item.payment==2}}">
+          <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+          <image src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+          <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+          <image src="/images/currency/tongbei.png" class="tongbeiIcon"></image>
+        </view>
+
+        <!--银贝  -->
+        <view wx:if="{{item.payment==3}}">
+          <text class="fs-30 fc-gray-darkest price">{{item.price}}</text>
+          <image src="/images/currency/yinbei.png" class="tongbeiIcon"></image>
+        </view>
+      </view>
+    </view>
+    <!--1 end  -->
+  </scroll-view>
+
+  <!--为您精选分隔  -->
+  <view class="divider" wx:if='{{res_data_4.length}}'>
+    <view class="line"></view>
+    <text class="hot fs-30">为您精选</text>
+    <view class="line"></view>
+  </view>
+
+  <!--为您精选列表  -->
+  <view class="c_listCon">
+    <!--list start  -->
+    <view class="list" wx:for='{{res_data_4}}' wx:key="" data-id='{{item.goods_id}}' bindtap='openPage'>
+      <view class="pro_img">
+        <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+      </view>
+      <view class="pro_info fs-24 fc-gray-darkest">
+        <text class="proText listTitle">{{item.goods_name}}</text>
+        <view class="fs-24 listPrice">
+          <!--金贝+现金  -->
+          <view wx:if="{{item.payment==1}}">
+            <text class="fs-30 fc-gray-darkest price">￥{{item.price/ 100}}</text>
+            <text class="fs-24 fc-gray-darkest padd"><text class="txt">送</text>{{item.base_return}}</text>
+            <image src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+          </view>
+
+          <!--金贝+铜贝  -->
+          <view wx:if="{{item.payment==2}}">
+            <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+            <image src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+            <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+            <image src="/images/currency/tongbei.png" class="tongbeiIcon"></image>
+          </view>
+
+          <!--银贝  -->
+          <view wx:if="{{item.payment==3}}">
+            <text class="fs-30 fc-gray-darkest price">{{item.price}}</text>
+            <image src="/images/currency/yinbei.png" class="tongbeiIcon"></image>
+          </view>
+        </view>
+        <view class="saleHot fs-24">热卖中</view>
+      </view>
+    </view>
+    <!--list end  -->
+  </view>
+
+</view>

@@ -1,0 +1,59 @@
+<!--banner  -->
+<view class="banner">
+    <image src="{{imgUrl.img_header_path}}{{imgUrl.img_header}}"></image>
+</view>
+
+<!-- icon区域 -->
+<view class="iconCon fs-30">
+    <view>
+        <text class='{{goods_activity_category_id == item.goods_activity_category_id && "active"}}'
+              wx:for="{{category_info}}" wx:key="" data-goods_activity_category_id="{{item.goods_activity_category_id}}"
+              data-category_name="{{item.category_name}}" bindtap='tabList'>{{item.category_name}}
+        </text>
+    </view>
+</view>
+
+
+<!--品牌  -->
+<view class="divider" wx:if="{{category_num!=0}}">
+    <view class="line"></view>
+    <view class="fs-30 c_word">{{category_name}}</view>
+    <view class="line"></view>
+</view>
+
+<!--商品  -->
+<view class="goodChoose">
+
+    <view class="goods" wx:for="{{proList}}" wx:key="" bindtap='goDetail' data-gid="{{item.goods_id}}">
+        <view class="pos">
+            <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+        </view>
+
+        <!--金贝+现金  -->
+        <view wx:if="{{item.payment==1}}">
+            <text class="fs-24 good_title">{{item.goods_name}}</text>
+            <text class="fs-30 good_price">￥{{item.price/ 100}}</text>
+            <text class="fs-24">送
+                <text class="red">{{item.base_return}}</text>
+            </text>
+            <image src="/images/currency/jinbei.png" class="golden"></image>
+        </view>
+
+        <!--金贝+铜贝  -->
+        <view wx:if="{{item.payment==2}}">
+            <text class="fs-24 good_title">{{item.goods_name}}</text>
+            <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+            <image src="/images/currency/jinbei.png" class="golden"></image>
+            <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+            <image src="/images/currency/tongbei.png" class="golden"></image>
+        </view>
+
+        <!--银贝  -->
+        <view wx:if="{{item.payment==3}}">
+            <text class="fs-24 fc-gray-darkest pro_name good_title padd">{{item.goods_name}}</text>
+            <text class="fs-30 fc-gray-darkest price">{{item.price}}</text>
+            <image src="/images/currency/yinbei.png" class="golden"></image>
+        </view>
+
+    </view>
+</view>

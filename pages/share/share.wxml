@@ -1,0 +1,182 @@
+
+<!-- 规则内容 -->
+  <text class="ruleContent" wx:if='{{show_guize}}' bindtap='rule' data-guize='1'>
+  活动规则
+一、活动时间
+          贝划算线上商城，长期有此活动
+
+二、活动内容
+在贝划算线上商城中，用户购买部分金贝产品，采取分享购买获金贝的方式下单，且用现金完成购买，即可分享活动链接至微信好友，参与免费获取金贝的活动；
+不同微信好友可通过分享的链接进入活动页面，好友即可获取金贝，最终在活动结束时，分享活动用户将有机会再获取一笔金贝。
+
+三、活动细则
+1、只能是用现金购买商品的用户才有机会参与分享获取金贝的活动；
+2、活动分享出去之后，点击分享链接的微信好友将会获取金贝；
+3、用户将活动分享给微信好友之后将会立即获取一定量的金贝，在活动结束之时，好友参与人数达到要求，即活动成功，那么该用户还会额外再获取一定量的金贝；
+4、每名购买用户，一天内最多只能分享10次获取金贝的活动，且每一次分享均针对不同的商品；
+5、每项活动均有时间限制，例如2小时，微信好友需在活动时间内点击分享链接，进入页面，活动才能参与成功，超过时间，该项活动将显示结束；
+6、用户可以在“订单列表”和“我的分享”中再次分享未过期的活动；
+7、根据商品的不同，分享获取的金贝数量会有所不同；
+8、每项活动会有参与好友的人数限制，在人数达到上限之后，未参加的好友，将无法成功参与此活动。
+
+四、FAQ
+1、每项金贝商品均有分享获取金贝的活动吗？
+不是的，部分商品才会有此活动，即：能参与活动的商品，在下单时才会有分享购买按钮
+
+2、参与好友的人数没有达到最高人数，还能获取金贝吗？
+能获取，每位好友获取的金贝数量=总金贝数/最高人数
+
+3、若分享活动的参与好友数未达到最高人数，该活动的发起者，即用户还会获得金贝吗？
+不会获取，每一项活动的分享出去后，活动结束时，未达到要求的人数，即活动失败，用户不会再另外获取金贝。
+
+  
+
+  </text>
+
+<view class='box' style='background:url("{{imgUrl}}/upload/share/bg.jpg") no-repeat;width: 100%;' wx:else>
+<login-box bind:loginevent='loginevent'></login-box>
+  <view class="rule" bindtap='rule'>
+    <image src="/images/share/rule.png"></image>
+  </view>
+
+  <!-- 第一个模块 -->
+  <view class='top_1' bindtap='openPage' data-gid='{{res_data.goods_id}}'>
+    <image class='header' src='../../images/mine/about_log.png'></image>
+    <view class='fs-24 fc-gray-darkest'>
+      <view style='color: #c54f0f'>“
+        <text class='fc-gray-darkest'>  我购买了一件好货快来领取金贝吧  </text>”</view>
+
+      <view class='top_1_list'>
+        <view>
+          <image style='width: 133rpx;height: 133rpx;' src='{{res_data.img_url}}{{res_data.list_path}}{{res_data.g_pic}}'></image>
+        </view>
+
+        <view class='top_1_list_right'>
+          <!-- 非活动 -->
+          <view wx:if='{{res_data.payment == 0}}'>
+            <view class='color-red fs-30'>￥{{res_data.g_price/100}}/{{res_data.g_price/100}}金贝</view>
+          </view>
+          <!-- 活动 -->
+          <view wx:else>
+            <view class='color-red fs-30' wx:if='{{res_data.payment == 1}}'>￥{{res_data.ac_price/100}}/{{res_data.ac_price/100}}金贝</view>
+            <view class='color-red fs-30' wx:elif='{{res_data.payment == 2}}'>
+              {{res_data.ac_gold_price}} 金贝 + {{res_data.ac_copper_price}} 铜贝
+            </view>
+          </view>
+          <view class='color-red' style='margin: 10rpx 0;'>
+            <text class='btn-text'>可捞得{{res_data.base_return}}金贝</text>
+          </view>
+          <view>
+            分享购买可多得{{res_data.extra_gold}}金贝
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class='top_2'>
+    <view class='bar'>
+      <view class='bar-in' style='background:url({{imgUrl}}/upload/share/bar.png) repeat-x;width:{{start_x}}rpx'></view>
+      <view class='circle' style='left:{{start_x-20}}rpx;'></view>
+    </view>
+    <view class='bar-btn' style='left: {{start_x-62.5}}rpx'>捞得{{res_data.have_get}}金贝</view>
+    <view class='bar-text' wx:if='{{start_x != 630}}'>{{res_data.all_gold}}金贝</view>
+  </view>
+
+  <view class='top_3' wx:if='{{click_type == "share" && s> 0 && res_data.status == 0}}'>
+    <view class="shareAgain">
+      <button open-type="share" style='background: rgba(0,0,0,0);border:none'>
+        <image src="/images/share/again.png" class="shareAgainImg"></image>
+      </button>
+      <view class="time bg-white">
+        <text wx:if='{{s<=0}}'>已结束</text>
+        <text wx:else>{{time[0]}}时{{time[1]}}分{{time[2]}}秒后结束</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='top_3' wx:if='{{res_data.status == 1 || s<=0}}'>
+    <text class='active-btn {{btnText[1] ? "bg-gray" : "red"}}' bindtap='getGold' wx:if='{{click_type=="share" && res_data.status == 1}}'>{{btnText[0]}}{{res_data.activity_indirect_return}}金贝</text>
+    <text class='active-btn gray' wx:elif='{{res_data.status == 0}}'>活动失败，请再接再厉</text>
+    <text class='active-btn red' wx:elif='{{click_type=="join" && res_data.status == 1}}'>活动成功</text>
+  </view>
+
+  <!-- 参与者倒计时 -->
+  <view class='active-btn red timeTo' wx:if='{{click_type == "join" && res_data.status == 0}}'>
+    <view wx:if='{{s<=0}}'>已结束</view>
+    <view wx:else>
+      <text>{{time[0]}}</text>时
+      <text>{{time[1]}}</text>分
+      <text>{{time[2]}}</text> 秒后结束
+    </view>
+   
+  </view>
+
+  <!-- 分享帮 -->
+  <view class="shareList">
+    <image src="/images/share/shareList.png" class="shareListImg"></image>
+    <view class="sharePerson">
+
+      <!-- 加入分享者列表 -->
+      <view class="personList" wx:for='{{res_data.join_info}}' wx:key="">
+        <text class="fc-gray-darkest fs-24 number">{{index+1}}</text>
+        <image src="{{item.avatarUrl}}" class="joinPhoto"></image>
+        <view class="personInfo">
+          <text class="fc-gray-darkest fs-24">{{item.nickname}}</text>
+          <text class="fs-20 ">领取成功</text>
+        </view>
+        <text class="fs-24 getGolden">获得{{item.gold}}金贝</text>
+      </view>
+      <!-- end -->
+
+    </view>
+  </view>
+
+
+  <!-- 推荐商品 -->
+  <view class="goodChoose">
+
+    <view class="goods" wx:for='{{goods_list.data}}' wx:key="" bindtap='openPage' data-gid='{{item.gid}}'>
+      <view class="pos">
+        <image src="{{goods_list.img_url}}{{goods_list.list_path}}{{item.list_url}}"></image>
+      </view>
+      <text class="fs-24 good_title">{{item.goods_name}}</text>
+      <image src="/images/home/golden.png" class="golden"></image>
+      <text class="fs-30 good_price">{{item.sale_price/100}}金贝</text>
+    </view>
+
+  </view>
+</view>
+
+
+<!--参与弹框  -->
+<view class="pop {{showPop?'show':'hide'}}">
+  <view class="popContent">
+    <!-- 关闭按钮-->
+    <view class="close" bindtap='closePop'></view>
+
+    <!-- 弹框图 -->
+    <image src="/images/share/pop.png" class="pop_img"></image>
+    <view class="activityWord">恭喜你获得
+      <text>{{alert_data.get_gold}}</text>金贝</view>
+    <!-- ,也帮您的小伙伴获得<text>666</text>金贝  -->
+    <!-- <view class="activityWord">参与人数已满</view> -->
+    <view class="joinStatus color_yellow">参与成功</view>
+    <!-- <view class="joinStatus color_yellow">参与失败</view> -->
+    <view class="fs-24 color_yellow">好礼享不停!</view>
+    <!--  -->
+
+    <!-- 按钮 -->
+    <view class="textPos" bindtap='closePop'>
+      <image src="/images/share/btn.png" class="pop_btn"></image>
+      <view class="textWord">我知道啦</view>
+    </view>
+    <view class="textPos" data-type='buy' data-gid='{{alert_data.gid}}' bindtap='closePop'>
+      <image src="/images/share/btn.png" class="pop_btn"></image>
+      <view class="textWord">快去购买</view>
+    </view>
+    <!-- 按钮end -->
+
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "商家详情",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page"
+  }
+}

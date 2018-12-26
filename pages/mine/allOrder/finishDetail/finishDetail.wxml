@@ -1,0 +1,217 @@
+<view>
+    <view class='header bg-white' wx:if='{{ordertype == "aftersale" && !order_detail[0].game_concession_record_id && !order_detail[0].goods_info[0].option}}'>
+        <view class='aftersale'>
+            <text class='fs-30' wx:if='{{aftersale.exc_status==1}}'>申请退款</text>
+            <text class='fs-30' wx:if='{{aftersale.exc_status==2}}'>退款中</text>
+            <text class='fs-30' wx:if='{{aftersale.exc_status==3}}'>退款成功</text>
+            <text class='fs-30' wx:if='{{aftersale.exc_status==4}}'>退款失败</text>
+            <view>
+                <text class='fs-24'>• 如果卖家同意，会将退货地址发给您，需要你退货给卖家</text>
+                <text class='fs-24'>• 如果卖家拒绝，需要你修改退货申请</text>
+            </view>
+        </view>
+        <view class='order_box fs-24' wx:if='{{ordertype == "aftersale" && aftersale.exc_status==2}}'>
+            <view class='fc-gray'>
+                <text>物流公司：</text>
+                <input bindchange='logInfo' data-type='company' value='{{logistics}}' disabled='{{disable}}' placeholder='请填写物流公司'></input>
+            </view>
+
+            <view class='fc-gray'>
+                <text>物流单号：</text>
+                <input bindchange='logInfo' data-type='order' value='{{logistics_id}}' disabled='{{disable}}' placeholder='请填写物流单号'></input>
+            </view>
+
+            <view>
+                <button wx:if='{{!logistics_id}}' bindtap='submit' data-exc_id='{{aftersale.exc_id}}' class='fs-24'>
+                    提交退货信息
+                </button>
+            </view>
+        </view>
+    </view>
+    <view class='header bg-white' wx:else>
+        <view class='header-top'>
+            <text class='fs-30'>{{order_status[ordertype].name}}</text>
+            <image src='../../../../images/mine/finishDetail.png'></image>
+        </view>
+
+        <view class='header-content'>
+            <view wx:if='{{ordertype == "dtake" || ordertype == "dcollect"}}' class='wuliu'>
+                <view class='fs-30' wx:for="{{order_detail[0].goods_info}}" wx:key="">
+                    <view wx:if='{{item.logistics_id && item.logistics}}'>
+                        <text>{{item.logistics}}：{{item.logistics_id}}</text>
+                        <button data-logistics_id='{{item.logistics_id}}' bindtap='copy' class='fs-30 fc-gray'>复制</button>
+                    </view>
+                    <text class='fs-30' wx:else>暂无物流信息</text>
+                </view>
+            </view>
+        </view>
+
+        <view class='header-bottom '>
+            <text class="iconfont icon-dizhi1 iconColor9"></text>
+            <view style='width: 100%'>
+                <text class='fs-22'>收货人：{{orthor.receiver_name}}</text>
+                <view style='width: 100%;padding-left: 0'>
+                    <text class='fs-22'>收货地址：{{orthor.receiver_address}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='content'>
+        <!-- 通过current来更新数据 -->
+        <view class="content-box bg-white">
+
+            <!-- header -->
+            <view class="header">
+                <view class='checkbox'>
+                    <text class="fs-30"><!--{{item.business_name}}-->贝划算</text>
+                </view>
+            </view>
+
+            <!-- content -->
+            <view wx:for='{{order_detail}}' wx:key="" style="width:calc(100vw - 50rpx)">
+                <checkbox-group bindchange='checked' style='width:100%'>
+                    <view class='content' wx:key='cid' wx:for='{{item.goods_info}}' wx:for-item="goods">
+                        <view class='first'>
+                            <image style='flex-shrink:0;width: 100px;height:100px; background: #eee;' src='{{imgUrl}}/{{category_logo_url}}{{goods.g_pic}}' data-info_id='{{goods.info_id}}'></image>
+                            <view class="fs-24 desc" style="width: 500rpx">
+                                <text>{{goods.g_name}}</text>
+                                <text>{{goods.g_format}}</text>
+                                <view wx:if=''></view>
+                                <view></view>
+                                <view>
+                                    <!-- 非活动 -->
+                                    <view wx:if='{{goods.payment == 0}}'>
+                                        <text wx:if='{{goods.g_type == -1}}'>￥{{goods.g_price / 100}}</text>
+                                        <text wx:else>{{goods.use_silver / goods.g_num}}银贝</text>
+                                    </view>
+                                    <!-- 活动 -->
+                                    <view wx:else>
+                                        <text wx:if='{{goods.payment == 1}}'>￥{{(goods.g_price)/100}}</text>
+                                        <text wx:if='{{goods.payment == 2}}'>{{goods.gold}}金贝+{{goods.copper}}铜贝</text>
+                                        <text wx:if='{{goods.payment == 3}}'>{{goods.silver}}银贝</text>
+                                    </view>
+                                    <text>x {{goods.g_num}}</text>
+                                </view>
+                            </view>
+                        </view>
+
+                        <view class='btn-box' wx:if='{{ordertype == "finish" && !order_detail[0].game_concession_record_id && !order_detail[0].goods_info[0].option}}'>
+                            <button data-info_id='{{goods.info_id}}' bindtap='openPage' class='btn fc-white'>申请售后</button>
+                        </view>
+
+                        <view class='msg fs-24' wx:if="{{goods.leave_word}}">
+                            <text>我的留言：{{goods.leave_word}}</text>
+                        </view>
+
+                    </view>
+                </checkbox-group>
+            </view>
+
+            <!-- footer -->
+            <view class="footer" style='padding-top: 0;margin-top:0'>
+                <view class='result fs-24'>
+                    <view class='row-p'>
+                        <text>共{{order_detail[0].goods_num}}件商品<!-- 合计 ：--></text>
+                        <!--<text>￥{{(total.price)/100}} + {{total.gold}}金贝（含运费￥{{total.freight / 100}})</text>-->
+                    </view>
+
+                    <!--<view class='row-p' wx:if='{{total.use_silver}}'>-->
+                        <!--<text>{{total.use_silver}} 银贝</text>-->
+                    <!--</view>-->
+
+                    <!--<view class='row-p' wx:if='{{total.copper}}'>-->
+                        <!--<text>{{total.copper}} 铜贝</text>-->
+                    <!--</view>-->
+                </view>
+            </view>
+
+            <view class="order-count" wx:if="{{ordertype == 'aftersale'}}">
+                <view class="cou-item">
+                    <text class="l fs-24">商品总价</text>
+                    <text class="r fs-24">￥{{order_detail[0].goods_num/100}}</text>
+                </view>
+
+                <view class="cou-item">
+                    <text class="l fs-24">订单总价</text>
+                    <text class="r fs-24">￥{{order_detail[0].total_amount/100}}</text>
+                </view>
+                <view class="cou-item">
+                    <text class="l fs-24">金贝抵扣</text>
+                    <text class="r fs-24">￥{{order_detail[0].gold}}</text>
+                </view>
+                <view class="cou-item">
+                    <text class="l fs-24">运费</text>
+                    <text class="r fs-24">￥{{order_detail[0].freight/100}}</text>
+                </view>
+            </view>
+
+            <view class="order-count" wx:else>
+                <view class="cou-item">
+                    <text class="l fs-24">商品总价</text>
+                    <text class="r fs-24" wx:if="{{order_detail[0].game_concession_record_id}}" data-1="{{order_detail[0].total_amount}}" data-2="{{order_detail[0].freight}}" data-3="{{order_detail[0].discount}}">
+                        <text wx:if="{{order_detail[0].activity && order_detail[0].activity!=0}}">￥{{(order_detail[0].total_amount + order_detail[0].activity - order_detail[0].freight)/100}}</text>
+                        <text wx:else>￥{{(order_detail[0].total_amount*1 + order_detail[0].discount*1 - order_detail[0].freight)/100}}</text>
+                    </text>
+                    <text class="r fs-24" wx:else>￥{{(order_detail[0].total_amount - order_detail[0].freight)/100}}</text>
+                </view>
+                <view class="cou-item" wx:if="{{order_detail[0].game_concession_record_id}}">
+                    <text class="l fs-24">活动优惠</text>
+                    <text class="r fs-24" wx:if="{{order_detail[0].activity && order_detail[0].activity!=0}}">￥{{order_detail[0].activity/100}}</text>
+                    <text class="r fs-24" wx:else>￥{{order_detail[0].discount/100}}</text>
+                </view>
+
+                <view class="cou-item" wx:if="{{order_detail[0].goods_info[0].option == 1}}">
+                    <text class="l fs-24">活动优惠</text>
+                    <text class="r fs-24">-￥{{order_detail[0].g_price/100 - 1}}</text>
+                </view>
+
+                <view class="cou-item" wx:if="{{order_detail[0].gold}}">
+                    <text class="l fs-24">订单总价</text>
+                    <text class="r fs-24">￥{{order_detail[0].total_amount/100}}</text>
+                </view>
+                <view class="cou-item">
+                    <text class="l fs-24">金贝抵扣</text>
+                    <text class="r fs-24">-{{order_detail[0].gold}}</text>
+                </view>
+                <view class="cou-item">
+                    <text class="l fs-24">运费</text>
+                    <text class="r fs-24">￥{{order_detail[0].freight/100}}</text>
+                </view>
+            </view>
+
+        </view>
+
+        <view class="pay-count" wx:if="{{ordertype == 'aftersale'}}">
+            <text class="l fs-24">实付款（含运费）</text>
+            <text class="r red fs-24">￥{{order_detail[0].amount_payable/100}}</text>
+        </view>
+
+        <view class="pay-count" wx:else>
+            <text class="l fs-24">实付款（含运费）</text>
+            <text class="r red fs-24">￥{{order_detail[0].amount_payable/100}}</text>
+        </view>
+
+        <view class='order-msg-box bg-white' wx:if='{{ordertype == "aftersale"}}'>
+            <text wx:if='{{aftersale.exc_resason}}'>退款原因：{{aftersale.exc_resason}}</text>
+            <text wx:if='{{aftersale.type == -1}}'>退款金额：￥{{aftersale.subtotal / 100}}</text>
+            <text wx:if='{{aftersale.type == 1}}'>退款金额：{{aftersale.subtotal / 100}} 银贝</text>
+            <text wx:if='{{aftersale.create_at}}'>申请时间：{{aftersale.create_at}}</text>
+            <text wx:if='{{aftersale.refund_oid}}'>退款编号：{{aftersale.refund_oid}}</text>
+        </view>
+
+        <view class='order-msg-box bg-white' wx:else>
+            <text wx:if='{{orthor.order_id}}'>订单编号：{{orthor.order_id}}</text>
+            <text wx:if='{{orthor.create_at}}'>创建时间：{{orthor.create_at}}</text>
+            <text wx:if='{{orthor.payment_at}}'>付款时间：{{orthor.payment_at}}</text>
+            <text wx:if='{{orthor.deliver_at}}'>发货时间：{{orthor.deliver_at}}</text>
+            <text wx:if='{{orthor.finish_at}}'>成交时间：{{orthor.finish_at}}</text>
+        </view>
+    </view>
+
+    <view class='footer bg-white' wx:if='{{ordertype != "aftersale"}}'>
+        <text class='fs-24'>我的收藏</text>
+        <collect></collect>
+    </view>
+
+</view>

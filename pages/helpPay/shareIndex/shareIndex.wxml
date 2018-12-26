@@ -1,0 +1,361 @@
+<login-box bind:loginevent='loginevent'></login-box>
+
+<view class="bg-01">
+
+  <view class="bg-02">
+    <view class="getJInbei">
+      <!-- 参与者-->
+      <view wx:if="{{share_type==0}}">
+
+        <!--异常流程-人满了 -->
+        <view wx:if="{{res_data.now_num >= res_data.limit_num || res_data.expire == 1}}">
+
+          <!--已过期-->
+          <view wx:if="{{res_data.expire == 1}}">
+            <!--已参与-->
+            <view wx:if="{{res_data.join==1}}">
+              <!--已支付-->
+              <view wx:if="{{res_data.is_pay == 1}}">
+                <text>你已成功获得{{res_data.pj_gold}}金贝</text>
+                <text>消费时可以直接抵扣哦</text>
+              </view>
+              <!--未支付-->
+              <view wx:else>
+                <text>活动已经结束了</text>
+                <!--很遗憾 活动已经结束了-->
+                <text>去看看商品吧~</text>
+              </view>
+            </view>
+            <!--未参与-->
+            <view wx:else>
+              <text>很遗憾 活动已经结束了</text>
+              <text>去看看商品吧~</text>
+            </view>
+          </view>
+
+          <!--未过期-->
+          <view wx:else>
+            <!--已参与-->
+            <view wx:if="{{res_data.join==1}}">
+              <!--已支付-->
+              <view wx:if="{{res_data.is_pay == 1}}">
+                <text>你已成功获得{{res_data.pj_gold}}金贝</text>
+                <text>消费时可以直接抵扣哦</text>
+              </view>
+              <!--未支付-->
+              <view wx:else>
+                <text>助力对 象正在努力中</text>
+                <text>TA成功你将会获得{{res_data.pj_gold}}金贝</text>
+              </view>
+            </view>
+            <!--未参与-->
+            <!-- <view wx:else>
+              <text>助力即可获得{{res_data.pj_gold}}金贝</text>
+              <text>消费时可以直接抵扣哦</text>
+            </view> -->
+            <view wx:else>
+              <text>很遗憾 活动已经结束了</text>
+              <text>去看看商品吧~</text>
+            </view>
+          </view>
+
+        </view>
+
+
+        <!--助力未成功，且未过期-->
+        <view wx:else>
+          <!--已支付-->
+          <view wx:if="{{res_data.is_pay == 1}}">
+            <view wx:if="{{res_data.join==1}}">
+              <text>你已成功获得{{res_data.pj_gold}}金贝</text>
+              <text>消费时可以直接抵扣哦</text>
+            </view>
+
+            <view wx:else>
+              <text>助力即可获得{{res_data.pj_gold}}金贝</text>
+              <text>消费时可以直接抵扣哦</text>
+            </view>
+          </view>
+          <!--未支付-->
+          <view wx:else>
+            <view wx:if="{{res_data.join==1}}">
+              <text>助力对象正在努力中</text>
+              <text>TA成功你将会获得{{res_data.pj_gold}}金贝</text>
+            </view>
+
+            <view wx:else>
+              <text>助力即可获得{{res_data.pj_gold}}金贝</text>
+              <text>消费时可以直接抵扣哦</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- 发起者-->
+      <view wx:if="{{share_type==1}}">
+        <!--领取成功-->
+        <view wx:if="{{res_data.is_get == 1}}">
+          <text>你已经成功获得{{res_data.activity_indirect_return}}金贝</text>
+          <text>消费时可以直接抵扣哦</text>
+        </view>
+
+        <view wx:else>
+          <!--已支付-->
+          <view wx:if="{{res_data.is_pay == 1}}">
+            <!--已过期-->
+            <view wx:if="{{res_data.expire == 1}}">
+              <!--助力中-->
+              <view wx:if="{{res_data.now_num < res_data.limit_num}}">
+                <text>活动时间到  已结束</text>
+              </view>
+              <!--助力完成-->
+              <view wx:else>
+                <text>恭喜你！成功获得{{res_data.activity_indirect_return}}金贝</text>
+                <text>点击“立即领取吧”</text>
+              </view>
+            </view>
+            <!--未过期-->
+            <view wx:else>
+              <!--助力中-->
+              <view wx:if="{{res_data.now_num < res_data.limit_num}}">
+                <text>只需请好友点一下</text>
+                <text>即可多得{{res_data.activity_indirect_return}}金贝哦！</text>
+              </view>
+              <!--助力完成-->
+              <view wx:else>
+                <text>恭喜你！成功获得{{res_data.activity_indirect_return}}金贝</text>
+                <text>点击“立即领取吧”</text>
+              </view>
+            </view>
+
+          </view>
+
+          <!--未支付-->
+          <view wx:else>
+            <!--已过期-->
+            <view wx:if="{{res_data.expire == 1}}">
+              <text>活动时间到  已结束</text>
+            </view>
+            <!--未过期-->
+            <view wx:else>
+              <!--助力中-->
+              <view wx:if="{{res_data.now_num < res_data.limit_num}}">
+                <text>好友火热助力中  快去购买吧</text>
+              </view>
+              <!--助力完成-->
+              <view wx:else>
+                <text>好友已经助力成功了</text>
+                <text>购买马上领取{{res_data.activity_indirect_return}}金贝</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <!-- 发起者end -->
+
+    </view>
+
+    <!-- 活动规则 -->
+    <view class="rule fs-24" bindtap="openRule">活动规则></view>
+
+    <!-- 用户头像区域 -->
+    <view class="userInfo">
+      <view class="photo">
+        <image src="{{res_data.user_avatar}}"></image>
+      </view>
+      <view class="nickname fs-30">{{res_data.user_name}}</view>
+    </view>
+
+   
+    <view wx:if="{{share_type== 0}}">
+      <view class="divider">
+        <text class="line"></text>
+          <!-- 参与者所见  人满了! -->
+          <text class="tips fs-24" wx:if="{{res_data.now_num >= res_data.limit_num}}">通过分享我多得了{{res_data.activity_indirect_return}}金贝,你也来试试吧</text>
+          <!-- 参与者所见  时间过期 失败 未支付 -->
+          <text class="tips fs-24" wx:if="{{res_data.expire == 1 && res_data.is_pay == 0 && res_data.now_num < res_data.limit_num}}">"好友不给力,忘了支付啊!"</text>
+        <text class="line"></text>
+      </view>
+    </view>
+    
+    <view class="dividerLine" wx:else></view>
+
+
+    <!-- 商品区域 -->
+    <view class="content">
+      <view class="hotList">
+        <view class="pro_img">
+          <image src="{{res_data.img_url}}{{res_data.list_url}}"></image>
+        </view>
+        <view class="choiceStore" wx:if="{{res_data.sale_price}}">
+          <view class="fs-28 fc-gray-darkest storeName fs-bold ">
+            <text>{{res_data.goods_name}}</text>
+          </view>
+          <view class="fs-30 pre_Price">
+            <text space="ensp">售　价:</text>
+            <text class="price"> ￥{{res_data.sale_price/100}}</text>
+          </view>
+          <view class="fs-30 use_price" wx:if="{{res_data.is_pay == 1}}">实付款:
+            <text class="price">￥{{res_data.cash/100}}<text>+{{res_data.gold}}金贝</text></text>
+          </view>
+        </view>
+        <view class="choiceStore fs-30" wx:else>
+          数据加载中...
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="divider">
+    <text class="line"></text>
+
+    <block wx:if="{{share_type== 0}}">
+      <!-- 参与者所见  时间过期 失败 未支付 -->
+      <text class="tips fs-24" wx:if="{{res_data.expire == 1 && res_data.is_pay == 0 && res_data.now_num < res_data.limit_num}}">还差{{res_data.limit_num - res_data.now_num}}人</text>
+      <text class="tips fs-24" wx:else>最划算的分享购买，推荐你也试一试！</text>
+      <!-- 参与者显示end -->
+    </block>
+
+    <block wx:if="{{share_type== 1}}">
+      <!-- 发起者显示下列start -->
+      <!-- 发起者所见  时间过期 失败 未支付 -->
+      <text class="tips fs-24" wx:if="{{res_data.is_get == 1}}">好的东西，就是要和大家分享</text>
+      <text class="tips fs-24" wx:else>
+        <text wx:if="{{res_data.now_num < res_data.limit_num}}">
+          <text wx:if="{{res_data.expire==0}}">还差{{res_data.limit_num - res_data.now_num}}人，就能多得{{res_data.activity_indirect_return}}金贝哦！</text>
+          <text wx:else>
+            <text class="tips fs-24"  wx:if="{{res_data.is_pay == 0}}">"可惜忘了付 再来试一次"</text>
+            <text wx:else>千山万水总是情 再买一个行不行</text>
+          </text>
+        </text>
+        <text wx:else>
+           <text class="tips fs-24">你的人缘真好呀^_^</text> 
+        </text>
+      </text>
+    </block>
+
+    <text class="line"></text>
+
+  </view>
+
+
+  <!-- 头像 -->
+  <view class="userPhoto">
+    <view wx:for='{{join_info}}' wx:key="">
+      <image src="{{item.b_avatar}}"></image>
+      <text>{{item.b_nickname}}</text>
+    </view>
+  </view>
+
+  <!-- 倒计时 发起者  正常流程-活动正在进行中-->
+  <view class='time' wx:if='{{res_data.expire == 0 && res_data.now_num < res_data.limit_num}}'>剩余<text>{{time[0]}}:{{time[1]}}:{{time[2]}}</text>结束</view>
+
+  <!-- 底部button -->
+  <view class="more fs-30">
+
+    <block wx:if='{{share_type==0}}'>
+      <!-- 参与者所见btn start -->
+      <!-- 参与者所有状态皆有 更多商品 状态 -->
+      <view style="background: url('{{imgUrl}}/upload/sharePay/buyBtn1.png') no-repeat;background-size: cover;" class="btnClass" bindtap="moreGoods">更多商品</view>
+
+      <!-- 正常流程 && 异常流程-发起者未支付 -->
+      <view wx:if='{{res_data.expire==0 && res_data.now_num < res_data.limit_num && res_data.join==0}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn2.png') no-repeat;background-size: cover;" class="btnClass" bindtap="goHelp">立即助力</view>
+
+      <!-- 参与成功后 && 参与成功 && 人满了-->
+      <view wx:else style="background: url('{{imgUrl}}/upload/sharePay/buyBtn2.png') no-repeat;background-size: cover;" class="btnClass" bindtap="openPage">我也要买</view>
+
+      <!-- 参与者所见btn end -->
+    </block>
+
+    <block wx:else>
+      <view wx:if='{{res_data.is_get == 1}}'>
+        <view style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap="moreGoods">更多商品</view>
+      </view>
+      <view wx:else>
+        <!--已过期-->
+        <view wx:if="{{res_data.expire == 1}}" class="{{(res_data.now_num >= res_data.limit_num && res_data.is_pay == 1)?'shuang':''}}">
+          <view wx:if='{{res_data.now_num >= res_data.limit_num && res_data.is_pay == 1}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap='immeReceive'>立即领取</view>
+          <view wx:else style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap="moreGoods">更多商品</view>
+        </view>
+        <!--未过期-->
+        <view wx:else>
+          <!--助力成功，未领取-->
+          <view wx:if="{{res_data.now_num >= res_data.limit_num && res_data.is_pay == 1}}">
+            <view wx:if='{{res_data.now_num == res_data.limit_num && res_data.is_pay == 1}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap='immeReceive'>立即领取</view>
+          </view>
+          <view wx:else>
+            <view wx:if='{{res_data.is_pay == 0}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap="listClick">马上支付</view>
+            <view wx:else><button open-type="share" wx:if='{{res_data.now_num < res_data.limit_num}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2">邀请好友来助力</button></view>
+          </view>
+
+        </view>
+      </view>
+
+    </block>
+
+  </view>
+
+
+  <view class="return fs-24" bindtap="gotoHome">
+    <text class="iconfont icon-shouye"></text>
+    <text>返回首页</text>
+  </view>
+
+  <view class="bg-03"></view>
+
+</view>
+
+
+
+<!--弹窗-->
+<view class="tc-base" wx:if="{{tcType != -1}}" catchtouchmove='true'>
+  <view class="back"></view>
+
+  <!--发起者 成功-->
+  <view class="tc-01" wx:if="{{tcType == 1}}">
+    <view class="note">恭喜您！获得</view>
+    <view class="bei">
+      <text class="big">{{res_data.activity_indirect_return}}</text>
+      <text class="r"> 金贝</text>
+    </view>
+    <button bindtap="isee">我知道了</button>
+  </view>
+
+
+  <!--参与者领取成功-->
+  <view class="tc-02" wx:if="{{tcType == 2}}">
+    <view class="note">恭喜你！</view>
+    <view class="bei">
+      <text>获得</text>{{res_data.pj_gold}}金贝</view>
+    <view class="txt">可当现金使用{{res_data.pj_gold}}元</view>
+    <button bindtap="isee">我知道了</button>
+  </view>
+
+
+  <!--参与者领取成功 发起者未支付状态-->
+  <view class="tc-03" wx:if="{{tcType == 3}}">
+    <view class="note">
+      <text>您的助力对象正在努力购买中~</text>
+      <text>成功后就会获得{{res_data.pj_gold}}金币~</text>
+    </view>
+    <button class="isee" bindtap="isee"></button>
+  </view>
+
+
+  <!-- 规则内容 -->
+  <text class="ruleContent" wx:if='{{tcType == 4}}' bindtap='isee' data-guize='1'>
+        分享活动规则：
+
+        1. 用户选择分享购买活动的商品进行分享购买后，在规定时间内邀请指定数量的好友助力，即可完成分享活动，获得额外的金贝奖励。
+
+        2. 每件分享购买的商品都有助力金贝奖励，在分享活动未完成之前，助力成功的好友皆可获得一定数量的金贝。
+
+        3. 每位用户每天仅能分享购买10个活动商品，超过10个后将按照正常购买模式进行购买。
+    </text>
+
+</view>
+
+<include src="../include/include.wxml"></include>

@@ -1,0 +1,118 @@
+<!-- 代金券售后/套餐售后 -->
+<!--content  -->
+<view class='content'>
+  <!-- {{content}}  -->
+  <view class="c_listCon">
+    <!--商品  -->
+    <view class="hotList">
+      <view class="pro_img">
+        <image wx:if='{{res_data.package_type == 1}}' src="{{imgUrl}}/{{res_data.list_package_url}}{{res_data.list_img}}"></image>
+        <image wx:elif='{{res_data.package_type == 2}}' src="{{imgUrl}}/{{res_data.list_business_url}}{{res_data.logo}}"></image>
+      </view>
+      <view class="choiceStore">
+        <view class="fs-24 fc-gray-darkest storeName">
+          <text>{{res_data.package_name}}</text>
+        </view>
+        <view class="storeAdress marTop">
+          <text class="fs-24 fc-gray9">数量：{{res_data.num}}</text>
+        </view>
+        <view class="proFooter">
+          <text class="fs-24 fc-gray9 txt">总价：￥{{res_data.total_cost/100}}</text>
+          <!-- 显示分四种状态 -->
+          <!-- 未使用显示状态 -->
+          <button class="go_buy fs-24" bindtap='openPage' data-status='{{res_data.status}}' wx:if='{{res_data.status == 1}}'>申请退款</button>
+
+          <!--已使用显示状态  -->
+          <!-- 已使用状态时  券码状态为灰色 -->
+          <text class="fs-24 txt fc-gray-darkest" wx:elif='{{res_data.status == 2}}'>已使用</text>
+
+          <!-- 退款中显示状态 -->
+          <view class="fs-24" wx:elif='{{res_data.status == 3}}'><text class="fc-gray9" >退款中 | </text><text class="fc-gray-darkest" bindtap='openPage' data-status='{{res_data.status}}'>查看详情</text></view>
+
+          <!-- 已退款显示状态 -->
+          <view class="fs-24" wx:elif='{{res_data.status == 4}}'><text class="fc-gray9">已退款 | </text><text class="fc-gray-darkest" bindtap='openPage' data-status='{{res_data.status}}'>查看详情</text></view>
+        </view>
+      </view>
+    </view>
+    <!--商品 end  -->
+  </view>
+</view>
+
+
+<!-- 券码 -->
+<view class="voucherCode bg-white">
+  <view  
+  style='{{res_data.status != 1 && "opacity: .2"}}' 
+  class="code fs-20 fc-gray-darkest">券码： {{res_data.cdkey}}</view>
+  <view 
+  class="codeImg" 
+  style='{{res_data.status != 1 && "opacity: .2"}}'
+  bindtap='previewImg'>
+    <image src="{{imgUrl}}/{{res_data.qr_url}}"></image>
+  </view>
+</view>
+
+<!-- 截止时间 -->
+<view class="abortTime bg-white fs-24 fc-gray-darkest">截止时间：{{res_data.use_time_format}}</view>
+
+<!-- 商家信息 -->
+<view class="bussinessInfo bg-white">
+  <view class="hotTitle fs-24 fc-gray-darkest">商家信息</view>
+  <view class="c_listCon">
+    <!--商品  -->
+    <view class="hotList">
+      <view class="pro_img">
+        <image src="{{imgUrl}}/{{res_data.list_business_url}}{{res_data.logo}}"></image>
+      </view>
+      <view class="choiceStore">
+        <view class="fs-24 fc-gray-darkest storeName">
+          <text>{{res_data.name}}</text>
+          <text>{{res_data.km}}km</text>
+        </view>
+        <view class="storeAdress marTop">
+          <text class="fs-24 fc-gray-darkest">人均：￥{{res_data.expense_avg}}</text>
+        </view>
+        <view class="storeAdress">
+          <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+          <text class="fs-24 fc-gray9">{{res_data.address}}</text>
+        </view>
+      </view>
+    </view>
+    <!--商品 end  -->
+  </view>
+</view>
+
+<!-- 套餐详情 -->
+<view class="detail bg-white">
+  <view class="hotTitle fs-24 fc-gray-darkest">套餐详情</view>
+  <view class="intro">
+    <import src="../../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+  </view>
+
+
+</view>
+
+
+<!-- 套餐信息 -->
+<view class="taocanInfo bg-white fs-24 fc-gray-darkest">
+  <view class="hotTitle">套餐信息</view>
+  <view class="listDetail ">
+    <text>下单时间</text>
+    <text>{{res_data.create_at_format}}</text>
+  </view>
+  <view class="listDetail">
+    <text>支付方式</text>
+    <view>
+      <text wx:if='{{res_data.cash > 0}}'>现金支付</text>
+      <text wx:if='{{res_data.gold > 0}}'>{{res_data.cash > 0 ? '+' : ''}}金贝
+</text>
+    </view>
+  </view>
+  <view class="listDetail">
+    <text>支付数量</text>
+    <text>金贝：{{res_data.gold}}  现金：{{res_data.cash/100}}</text>
+  </view>
+</view>

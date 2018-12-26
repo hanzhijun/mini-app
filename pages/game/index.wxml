@@ -1,0 +1,205 @@
+<import src="../../components/scratch/scratch.wxml" />
+<login-box bind:loginevent='loginevent' id='loginBox'></login-box>
+
+<view class="game-outside">
+  <view class="game">
+    <!--海报区域-->
+    <view class="game-banner"></view>
+
+    <!-- 中间内容部分 -->
+    <view class="bgBanner">
+
+      <!-- 刮刮乐头部图片 -->
+      <view class="gua_header"></view>
+
+      <!-- 刮刮乐区域 -->
+      <view class="gua-bar {{showCanvas===1?'showCanvas':''}}" style="background: url('{{game_host}}/gua.png?v=1024-2') no-repeat;background-size: contain;">
+      <view class="prizeTips" wx:if="{{result.scratchcards_goods_type == 2}}">中奖了：{{prizeName}}金贝 ！</view>
+        <view class="prizeTips" wx:else>{{prizeName}}</view>
+        <template is="scratch" data="{{scratch, isScroll}}"></template>
+
+        <block wx:if="{{count.remain_num > 0}}">
+          <form bindsubmit="onStart" report-submit="true" >
+            <button formType="submit" class="img btn1 btn-start" style="background: url('{{game_host}}/btn4.png?v=1024') no-repeat;background-size: contain;"></button>
+          </form>
+        </block>
+        <block wx:else>
+          <form bindsubmit="nullStart" report-submit="true">
+            <button formType="submit" class="img btn1 btn-start" style="background: url('{{game_host}}/btn4.png?v=1024') no-repeat;background-size: contain;"></button>
+          </form>
+        </block>
+      </view>
+
+      <!-- 次数 -->
+      <view class="gua-count fs-30">
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">你</view>
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">还</view>
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">有</view>
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">{{count.remain_num}}</view>
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">次</view>
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">机</view>
+        <view class="circle" style="background: url('{{game_host}}/circle.png') no-repeat;background-size: contain;">会</view>
+      </view>
+
+      <!-- 刮奖记录 -->
+      <button class="btn2 fs-30 record" bindtap='openPage' data-type='guaRecord' style="background: url('{{game_host}}/gameBtn1.png?v=1024') no-repeat;background-size: contain;"></button>
+
+      <!-- 解锁更多刮奖机会 -->
+      <button class="btn2 fs-30" bindtap="btnShare" open-type="share" style="background:  url('{{game_host}}/gameBtn2.png?v=1024') no-repeat;background-size: contain;"></button>
+
+      <!-- 邀请介绍 -->
+      <image src="{{game_host}}/gua-intro.png?v=1024" class="inviteIntro"></image>
+
+      <!--奖品列表-->
+      <view style="background: url('{{game_host}}/prize.png?v=1024') no-repeat;background-size: contain;" class="prize">
+        <view class="prize-content">
+          <view wx:for="{{ggl_data}}" class="{{index<4?'this-show':''}}" wx:key="">
+            <image src="{{web_url}}{{ggl_save_path}}{{item.scratchcards_img}}?x-oss-process=image/resize,m_lfit,h_150,w_150/format,png" class="prizeImg"></image>
+            <text class="fs-20">{{item.scratchcards_goods_name}}</text>
+            <text class="fs-20">价值￥{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 活动说明 -->
+      <view style="background: url('{{game_host}}/activityIntro.png?v=1024') no-repeat;background-size: contain;" class="activityIntro">
+        <view class="explain-bar special fs-24">
+          <text>1.在活动期间，用户可通过参与贝划算刮奖活动获得奖品，每位用户有三次刮卡机会。</text>
+          <text>2.将该活动分享给好友并且好友进行刮卡后，可获得额外的刮卡机会，活动期间每位用户参与刮卡上限为10次。</text>
+          <text>3.由于本次奖品数量较多，我们会尽快安排发货。如有疑问，请关注公众号【贝划算】联系我们的客服</text>
+        </view>
+      </view>
+
+
+      <!-- 摇骰子 -->
+      <view class="yao-bar">
+        <image src="{{game_host}}/yao-bar.png?v=1024-3"></image>
+      </view>
+
+      <!-- 摇骰玩法 -->
+      <image src="{{game_host}}/bg1.png?v=1024" style='width:637rpx;height:100rpx;'></image>
+      <view style="background: url('{{game_host}}/bg2.png?v=1024') repeat-y;background-size: contain;" class="yao-bg">
+        <view class="explain-bar fs-24 method">
+          <text>1.进入心仪商品详情，点击“摇骰得优惠”按钮进行摇骰后，即可分享给好友进行摇骰pk。</text>
+          <text>2.每局摇骰pk时间为10分钟，结算时根据连续胜利次数发放奖励，每胜利一次都有对应奖励，连续胜利5次即可获得最大奖励，每局胜利次数相互独立不累计。</text>
+          <text>3.一个商品仅能领取一次奖励，领取奖励后，当前商品不可再进行摇骰pk；如不领取奖励，视作放弃该奖励，可重新开启该商品新的摇骰pk获得新的奖励。</text>
+          <text>4.活动期间，每位用户可邀请同一位好友参与5局PK（不限商品），一局PK同一好友只能PK一次。</text>
+          <text>获胜tips：分享到不同的群里，参与的人越多，胜利的机会越大哦~</text>
+        </view>
+      </view>
+      <image src="{{game_host}}/bg3.png?v=1024" style='width:637rpx;height:38rpx;'></image>
+
+      <!-- 摇骰记录 -->
+      <button class="btn2 fs-30 yaoRecord" bindtap='openPage' data-type='yaoRecord' style="background: url('{{game_host}}/gameBtn3.png?v=1024') no-repeat;background-size: contain;"></button>
+
+      <!--摇一摇活动商品列表-->
+      <view class="list-outside">
+        <view class="list-inside">
+
+          <!-- 摇骰nav -->
+          <view class="yao-nav fs-30">
+            <text wx:for="{{yyy_data}}" wx:key="" class='{{yyy_id == item.id && "active"}}' bindtap="navbarTap" data-id="{{item.id}}">{{item.name}}</text>
+          </view>
+
+          <view class="goodChoose clearfix {{yyy_id == item.id && 'this-show'}}" wx:for="{{yyy_data}}">
+
+            <view class="goods" wx:for="{{item.list}}" wx:for-item="yyyList" bindtap="gotoDetail" data-id="{{yyyList.id}}" data-gid="{{yyyList.goods_id}}" wx:key="">
+              <view class="pos">
+                <image src="{{web_url}}{{yyy_save_path}}{{yyyList.list_url}}?x-oss-process=image/resize,m_lfit,h_300,w_300/format,jpg"></image>
+                <view class="label fs-24" wx:if="{{yyyList.benefit_type==1}}">最高可享:{{yyyList.benefit_value/10}}折</view>
+                <view class="label fs-24" wx:else>最高立减:￥{{yyyList.benefit_value}}</view>
+              </view>
+              <text class="fs-26 good_title fs-bold">{{yyyList.goods_name}}</text>
+              <view class="fs-24 base-price">售　价: <text class="">￥{{yyyList.sale_price/100}}</text></view>
+              <view class="fs-24 price">用贝价: <text class="">￥{{yyyList.sale_price/100 > surplus_goldshells ? (yyyList.sale_price*10 - surplus_goldshells*1000)/1000:0}}</text> 送 <text class="">{{yyyList.base_return}}</text><image src="/images/currency/jinbei.png" class="golden"></image></view>
+            </view>
+
+          </view>
+
+        </view>
+      </view>
+
+      <!-- 去首页icon -->
+      <view class="goHome" bindtap='openPage' data-type='index'>
+        <text class="iconfont icon-shouye"></text>
+        <text class="fs-24">去首页</text>
+      </view>
+
+      <!-- footer -->
+      <view class="footer">
+        <image src="{{game_host}}/footer.png?v=1024"></image>
+      </view>
+
+    </view>
+
+
+    <!-- 次数弹窗 -->
+    <view class="pop" wx:if='{{is_alert_pop}}' catchtouchmove='true'>
+      <view class="pop-main">
+        <view class="close" bindtap='close'>×</view>
+        <!-- 10次机会用完了 -->
+        <view wx:if="{{count_ten}}">
+          <text class="pop-title">刮奖次数已用完</text>
+          <image src="{{game_host}}/xiao.png?v=1024" class="pop-img"></image>
+          <text class='tips'>亲，刮奖次数已经用完哦，赶快去看看你的奖励吧~</text>
+          <button class="return" bindtap='close'>返回活动</button>
+        </view>
+
+        <!-- 3次机会用完了 -->
+        <view wx:if="{{count_three}}">
+          <text class="pop-title">刮奖次数已用完</text>
+          <image src="{{game_host}}/xiao.png?v=1024" class="pop-img"></image>
+          <text class='tips'>亲，刮奖次数已经用完哦，每邀请一个好友来参加，立即送你刮出大奖的机会</text>
+          <button class="return" open-type="share" bindtap='close'>立即分享</button>
+        </view>
+
+        <!-- 未中奖 -->
+        <view wx:if="{{closePrize==1}}">
+          <text class="pop-title">未中奖哦</text>
+          <image src="{{game_host}}/ku.png?v=1024" class="pop-img"></image>
+          <text class='tips'>亲，这刮奖的姿势很重要哦请再接再厉</text>
+          <button class="return" bindtap='close'>再玩一次</button>
+        </view>
+
+        <!-- 商品 -->
+        <view wx:if="{{closePrize==2}}">
+          <text class="pop-title">恭喜你获得一份礼品</text>
+          <view>
+            <view class="pro">
+              <view>
+                <image src="{{result.img_path}}{{result.scratchcards_img}}"></image>
+              </view>
+              <view>{{result.scratchcards_goods_name}}</view>
+            </view>
+            <view class="pop-btn">
+              <button class="color-gray" bindtap='close'>再玩一次</button>
+              <button class="color-red" bindtap="receive" data-record_id="{{result.record_id}}">立即领取</button>
+            </view>
+          </view>
+        </view>
+
+        <!-- 金贝 -->
+        <view wx:if="{{closePrize==3}}">
+          <text class="pop-title">恭喜你获得一份礼品</text>
+          <view class="jinbei">
+            <view>
+              <image src="{{result.img_path}}{{result.scratchcards_img}}"></image>
+            </view>
+            <view class='getGold'>
+              <text>贝划算{{result.scratchcards_gold_num}}金贝</text>
+              <text>金贝1:1抵扣现金</text>
+            </view>
+          </view>
+          <view class="pop-btn">
+            <button class="color-gray" bindtap='close'>再玩一次</button>
+            <button class="color-red" bindtap='jumpTo'>立即使用</button>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<include src="../include/include.wxml"></include>

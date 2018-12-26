@@ -1,0 +1,67 @@
+<!--header  -->
+<view class='header fs-30 fc-white'>
+  <view>
+    <text bindtap='toview' class='{{toView=="package" && "active"}}' data-msg='package'>套餐</text>
+    <text bindtap='toview' class='{{toView=="detail" && "active"}}' data-msg='detail'>详情</text>
+
+    <text class="iconfont icon-fenxiang1 iconfs-42"></text>
+  </view>
+</view>
+
+<scroll-view id='scroll' scroll-y='true' scroll-into-view='{{toView}}' scroll-with-animation='true' style="height: 90vh;padding-bottom:100rpx;">
+  <!--详情轮播图 -->
+  <swiper style='height:{{height}}px' id='package' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{res_data.imgs}}" wx:key="">
+      <swiper-item>
+        <image src="{{imgUrl}}/{{res_data.imgs_save_path}}{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="bg-white mar">
+    <text class='fs-24 proTitle'>{{res_data.package_name}}</text>
+    <view class='text-box'>
+      <view class="price">
+        <text class='fs-30'>{{res_data.silver_price}}金贝</text>
+        <text class='fs-24 fc-gray'>剩余:{{res_data.num}}</text>
+      </view>
+      <text wx:if='{{collect_id}}'  bindtap='deleteCollect' class="iconfont icon-aixin fc-red"></text>
+      <text wx:else bindtap='joinCollect'  data-id='{{res_data.package_id}}'  class="iconfont icon-aixin fc-gray"></text>
+    </view>
+  </view>
+
+
+  <!--商家信息  -->
+  <view class="bus_info bg-white">
+    <view class="reco_pro fs-24 fc-gray-darkest">商家信息</view>
+
+    <view class="locationCon">
+      <view class="location" bindtap='openPage' data-type='business' data-id='{{res_data.business_id}}'>
+        <text class="fc-gray-darkest fs-24 storeIntro">{{res_data.business_name}}</text>
+        <text class="fs-24 iconColor9 storeAdre">{{res_data.address}}</text>
+        <view class="distance">
+          <text class='iconfont icon-dizhi1 iconfs-40 iconColor9'></text>
+          <text class="fs-24 iconColor9">距您{{res_data.km}}km</text>
+        </view>
+      </view>
+      <view class="contactCon" bindtap='callPhone' data-tel='{{res_data.tel}}'>
+        <text class='iconfont icon-dianhua iconfs-60 iconColor9'></text>
+      </view>
+    </view>
+
+  </view>
+
+  <!--详情  -->
+  <view class="detailCon bg-white" id='detail'>
+    <view class="fs-24 fc-gray-darkest detail">详情介绍</view>
+    <view style='padding: 0 10rpx;'>
+      <text class='fs-24'>{{res_data.package_desc}}</text>
+    </view>
+  </view>
+
+</scroll-view>
+
+<!--购买  -->
+<open-page url="index/offlineBusinessA/goBuy/goBuy?package_id={{package_id}}">
+  <view class="order fs-30">立即支付</view>
+</open-page>

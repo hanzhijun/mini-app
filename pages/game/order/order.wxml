@@ -1,0 +1,187 @@
+<view>
+
+  <view class='header bg-white' bindtap='openPageAddress'>
+    <view class='addr-btn' wx:if='{{!defaultreceiver.receiver_id}}'>
+      <button class='clear-btn-bd fs-26'>请选择您的收货地址</button>
+    </view>
+
+    <view class='fs-26 addr-mess' wx:else>
+      <view class="addr-name">
+        <text>收货人： {{defaultreceiver.receiver_name}} {{defaultreceiver.receiver_phone}}</text>
+      </view>
+
+      <view class="addr-main">
+        <text class='iconfont icon-dizhi1 iconfs-26 iconColor9 addr-icon1'></text>
+        <text class="addr-txt">收货地址：{{defaultreceiver.receiver_address}}</text>
+        <view class='addr-icon2'>
+          <image src='../../../images/shopCart/right.png'></image>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='content'>
+
+    <!-- 通过current来更新数据 -->
+    <view class="content-box bg-white" wx:for='{{result}}' wx:key="">
+
+      <!-- content -->
+      <view class='content' wx:key='cid' wx:for='{{item.goods_info}}' wx:for-item="goods">
+
+        <view style='width:100%'>
+          <view class='checkbox' wx:if='{{checkBox}}'>
+            <checkbox bindtap='getIds' class='wx-checkbox-input' checked='{{item.checked}}' value='{{item.id}}'></checkbox>
+          </view>
+          <view class="orderImg">
+            <image class='image' src='{{imgUrl}}/{{category_logo_url}}{{goods.thumb_url}}'></image>
+          </view>
+ <!-- mode='widthFix' -->
+          <view class="fs-24 desc" style="width:80%;">
+            <text>{{goods.goods_name}}</text>
+            <text>{{goods.format}}</text>
+            <view>
+              <view>
+                <text class="golder-l-txt">{{goods.price/100}} 元 送{{goods.returnbell}}</text>
+                <image src="/images/currency/jinbei.png" class="golden"></image>
+              </view>
+              <text>x {{goods.nums}}</text>
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+      <view class="yunfei">
+        <text>配送方式</text>
+        <text>运费￥{{store_info[item.business_id].freight_frient / 100}}</text>
+      </view>
+
+      <view class='msg fs-24'>
+        <text>买家留言：</text>
+        <input data-cid='{{goods.goods_id}}' bindchange='dealMsg' placeholder='留言'>
+        </input>
+      </view>
+
+      <view class="footer">
+        <view class='result fs-24'>
+          <text>共{{item.goods_info.length}}件商品</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='footer'>
+
+    <!-- 金贝优惠 -->
+    <view class="view-box-1 bg-white {{game_discount.game_type==1?'this-hide':''}}" wx:if='{{(is_gold || is_yu) && !ginfo.share }}'>
+      <view class='left'>
+        <view class="gold">
+          <text class='fs-30 goldhell-name' style="width:34%;">金贝优惠</text>
+          <image src="/images/currency/jinbei.png" class="golden"></image>
+        </view>
+
+        <text class='fs-24 fc-gray goldhell-num'>共{{user_account.surplus_goldshells}}个，可用{{user_account.surplus_goldshells}}个</text>
+      </view>
+      <switch wx:if='{{!is_gold_copper}}' data-num='{{user_account.surplus_goldshells}}' data-type='jinbei' bindchange='checkSwitch' checked='{{jinbei}}'></switch>
+    </view>
+
+
+    <view class='view-box-3 bg-white fs-30'>
+
+      <block wx:if="{{game_discount.game_type == 1}}">
+
+        <view>
+          <text>商品总额</text>
+          <text class="">￥{{total.price / 100}}</text>
+        </view>
+        <view>
+          <text>活动优惠</text>
+          <text>￥{{total.price / 100}}</text>
+        </view>
+        <view>
+          <text>运费</text>
+          <text class="">￥0</text>
+        </view>
+
+        <view class='total' style='padding-top:30rpx;'>
+          <text class="fs-bold">实付金额：</text>
+          <text class="fs-bold">￥0</text>
+        </view>
+
+      </block>
+
+
+      <block wx:else>
+
+        <view>
+          <text>商品总额</text>
+          <text class="">￥{{total.price / 100}}</text>
+        </view>
+        <view wx:if="{{game_discount.reward_discount || game_discount.reward_gold}}">
+          <text>活动优惠</text>
+          <text wx:if="{{game_discount.reward_discount}}">-￥{{total.price * (100 - game_discount.reward_discount) / 10000}}</text>
+          <text wx:else>￥{{game_discount.reward_gold}}</text>
+        </view>
+        <view wx:if="{{jinbei && user_account.surplus_goldshells > 0}}">
+          <text>使用金贝</text>
+          <!--<text>￥{{total.price * 10 - total.price * 10}}</text>-->
+          <text wx:if="{{game_discount.reward_discount}}">-￥{{(total.price *10 + total.freight_frient*10 - total.payment*10 - total.price * (100 - game_discount.reward_discount) / 10)/1000}}</text>
+          <text wx:else>￥{{(total.price *10 + total.freight_frient*10 - total.payment*10 - game_discount.reward_gold *1000)/1000}}</text>
+          <!--x = total.price *10 + total.freight_frient*10 - total.payment*10 - yh-->
+        </view>
+        <view>
+          <text>运费</text>
+          <text class="">￥{{total.freight_frient / 100}}</text>
+        </view>
+
+        <view class='total' style='padding-top:30rpx;'>
+          <text class="fs-bold">实付金额：</text>
+          <text class="fs-bold">￥{{total.payment / 100}}</text>
+        </view>
+
+      </block>
+
+
+      <button wx:if='{{defaultreceiver.receiver_id}}' bindtap='pay' class='clear-btn-bd pay bg-red-light fc-white'>去支付
+      </button>
+      <button wx:else class='clear-btn-bd pay bg-gray fc-white'>去支付</button>
+    </view>
+  </view>
+
+  <view class='alert-box' wx:if='{{alert_box}}'>
+
+    <view class='first-box' wx:if='{{alert_box_msg == 1 || alert_box_msg == 2}}'>
+      <text bindtap='closeBox' class='fc-gray fs-30'>X</text>
+      <text class='fs-30' wx:if='{{alert_box_msg == 1}}'>请添加收货地址</text>
+      <text class='fs-30' wx:else>为了保证您的资产安全，请绑定您的手机号</text>
+      <button bindtap='openPage' class='fs-30 fc-white bg-red-light'>前往设置</button>
+    </view>
+
+    <view class='code-box' wx:if='{{alert_box_msg == 403}}'>
+      <text class='fs-30'>请输入 {{phone}} 收到的验证码</text>
+      <view class='code-box-1 fs-24'>
+        <text>验证码</text>
+        <input maxlength="5" type='number' bindinput='editCode' placeholder='请填写短信验证码'></input>
+        <text wx:if='{{!count_down}}' bindtap='getCode' style='color:#5c914e'>获取验证码</text>
+        <text style='color:#5c914e' wx:else>{{count_down}}</text>
+      </view>
+      <view class='code-box-2'>
+        <button bindtap='closeBox' class='fs-30'>取消</button>
+        <button bindtap='checkCode' class='fs-30 bg-red-light fc-white'>确认</button>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="pop" wx:if='{{!defaultreceiver.receiver_id}}'>
+  <view class="setAdress fs-30">
+    <view class="txtCenter">
+      <text class="fc-gray-darkest">请添加你的收货地址</text>
+    </view>
+    <button class="goSet" bindtap='openPageAddress'>前往设置</button>
+  </view>
+</view>

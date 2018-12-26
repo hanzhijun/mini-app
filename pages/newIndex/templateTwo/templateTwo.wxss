@@ -1,0 +1,97 @@
+.nav {
+  display: none;
+  justify-content: space-around;
+  width: 100vw;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #666;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 101;
+}
+.nav.this-show {
+  display: flex;
+}
+
+.active {
+  border-bottom: 2px solid #f75d45;
+  color: #333;
+}
+
+.content {
+  padding-top: 72rpx;
+  width: 100%;
+}
+
+.content.this-show {
+  padding-top: 75rpx;
+}
+
+.c_listCon {
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.hotList {
+  display: flex;
+  background: white;
+  padding: 19rpx 0 19rpx 14rpx;
+  margin-bottom: 15rpx;
+}
+
+.c_listCon .hotList .pro_img {
+  width: 187rpx;
+  height: 187rpx;
+}
+
+.c_listCon .hotList .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+}
+
+.choiceStore {
+  margin-left: 25rpx;
+  width: 70%;
+}
+
+.choiceStore .storeName {
+  display: flex;
+  margin-bottom: 12rpx;
+  /* height: 70rpx; */
+  line-height: 30rpx;
+}
+
+.choiceStore .storeName text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20rpx;
+  line-height: 36rpx;
+}
+
+.pre_Price {
+  margin-top: 28rpx;
+}
+
+.use_price {
+  margin-top: 10rpx;
+}
+
+.pre_Price .price, .use_price .price {
+  color: #f50c0c;
+}
+
+.golden {
+  width: 43rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}

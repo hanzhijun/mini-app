@@ -1,0 +1,12 @@
+.refundCon{
+  padding: 25rpx 15rpx 15rpx 15rpx;
+}
+
+.refundCon view {
+  margin-bottom: 20rpx;
+}
+
+.refundCon view text:nth-child(2){
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}

@@ -1,0 +1,88 @@
+<login-box bind:loginevent='loginevent' id='loginBox'></login-box>
+
+<!--banner  -->
+<view class="banner">
+    <swiper>
+        <block wx:for="{{res_data.img_master}}">
+            <swiper-item>
+                <image src="{{imgs_host}}{{res_data.business_master}}{{item}}" class="slide-image" width="355" height="150"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+
+<!--商铺信息  -->
+<view class="bus_info bg-white">
+    <text class="fc-gray-darkest fs-28 storeIntro f-weight">{{res_data.name}}</text>
+    <view class="locationCon">
+        <text class='iconfont icon-dizhi1 iconfs-40 iconColor9'></text>
+        <view class="location">
+            <text class="fc-gray-darkest fs-24">{{res_data.address}}</text>
+            <text class="fs-24">距您{{res_data.km}}km</text>
+        </view>
+        <view class="contactCon">
+            <text bindtap='call' class='iconfont icon-dianhua iconfs-60 iconColor9'></text>
+        </view>
+    </view>
+</view>
+
+<!-- 热销套餐 -->
+<view class="hot bg-white" wx:if="{{package_data!=''}}">
+    <view class="hotTitle fs-24 fc-gray-darkest f-weight">热销套餐</view>
+    <!-- 滑动区域 -->
+    <scroll-view scroll-x="true" bindscrolltolower="lower" class="wrapper" lower-threshold='50'>
+        <!--列表start  -->
+        <view class="operation" wx:for='{{package_data}}' data-id='{{item.package_id}}' data-type='package' bindtap='openPage'>
+            <view class="imgCon" style="background-image:url('{{imgs_host}}{{list_save_path}}{{item.list_img}}')">
+            </view>
+            <view class="operationIntro">
+                <text class="fc-gray-darkest taocanTitle fs-26">{{item.package_name}}</text>
+                <view class="taocanPrice fs-22">
+                    <text class="fc-red">￥{{item.price/100}}</text>
+                    <text class="fc-gray-darkest" wx:if="{{item.price > 99}}">{{item.gold_price}}</text>
+                    <image src="/images/currency/jinbei.png" class="susIcon" wx:if="{{item.price > 99}}"></image>
+                </view>
+                <view class="fc-gray hasSale fs-22">已售 {{item.sale}}</view>
+            </view>
+        </view>
+        <!-- 列表end -->
+    </scroll-view>
+</view>
+
+<!-- 代金券 -->
+<view class="vocher bg-white" wx:if="{{res_data.cash_coupon_list != ''}}"  data-type='coupon'>
+    <view class="hotTitle fs-26 fc-gray-darkest f-weight">代金券</view>
+    <!-- 代金券列表start -->
+    <view class="vocherCon" wx:for='{{res_data.cash_coupon_list}}' wx:if='{{is_cash_coupon == 0 && index == 0 || is_cash_coupon == 1}}' data-id='{{item.package_id}}' bindtap='openPage'>
+        <image src="/images/taocan/vocherBg2.png" class="vocherBg"></image>
+        <view class="vocherMain">
+            <view class="v_left">
+                <view class="fs-28 fc-gray-darkest code-name">{{item.package_name}}</view>
+                <view class="fs-24 fc-gray">{{item.enable_time || ''}}</view>
+            </view>
+            <view class="v_right">
+                <view class="gold-top">
+                    <text class="fs-28 fc-red price">￥{{item.price/100}}</text>
+                    <text class="fs-24 fc-gray-darkest" wx:if="{{item.price>99}}">{{item.gold_price}}</text>
+                    <image src="/images/currency/jinbei.png" class="susIcon mar" wx:if="{{item.price>99}}"></image>
+                </view>
+                <view style="margin-top: 25rpx">
+                    <text data-id='{{item.package_id}}' data-type='coupon' class="fs-24 fc-gray buy">抢购</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 代金券列表end -->
+    <view class="fs-24 txtCenter" bindtap='showMore' wx:if='{{res_data.cash_coupon_list.length - 1 > 0 && is_cash_coupon == 0}}'>更多{{res_data.cash_coupon_list.length - 1}}张代金券></view>
+</view>
+
+<!--商家信息  -->
+<view class="busInfo bg-white">
+    <view class="hotTitle fs-24 fc-gray-darkest f-weight">商家信息</view>
+    <view class="info fs-24 fc-gray-darkestfs-24 fc-gray-darkest">
+        <text>营业时间</text>
+        <text>{{res_data.time_do}}</text>
+        <text>人均消费</text>
+        <text>{{res_data.expense_avg}}</text>
+    </view>
+</view>

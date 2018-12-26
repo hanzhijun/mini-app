@@ -1,0 +1,20 @@
+<view class='tab-bar' style='{{phone_msg == "iphonex" && "height: 200rpx;"}}' >
+  <view>
+    <view bindtap='switchPage' data-type='1'>
+      <image src='../../images/mine/home.png'></image>
+      <text class='fs-24'>首页</text>
+    </view>
+  </view>
+  <view>
+    <view bindtap='switchPage' data-type='2'>
+      <image src='../../images/mine/cart.png'></image>
+      <text class='fs-24'>购物车</text>
+    </view>
+  </view>
+  <view>
+    <view bindtap='switchPage' data-type='3'>
+      <image src='../../images/mine/mine.png'></image>
+      <text class='fs-24'>我的</text>
+    </view>
+  </view>
+</view>

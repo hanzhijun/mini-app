@@ -1,0 +1,81 @@
+.adressListCon {
+  padding: 16rpx 0 10rpx 0;
+}
+
+.adressList {
+  padding: 0 41rpx 0 41rpx;
+  height: 145rpx;
+  margin-top: 16rpx;
+  background: #fff;
+}
+
+.aInfo {
+  width: 72%;
+  margin-top: 15rpx;
+  height: auto;
+}
+
+.nameTel {
+  color: #4c4c4c;
+  display: flex;
+  justify-content: space-between;
+}
+
+.defaultAdress {
+  display: inline-block;
+  border: 1px solid #333;
+  height: 33rpx;
+  width: 70rpx;
+  text-align: center;
+  line-height: 33rpx;
+  margin-left: 5rpx;
+}
+
+.name {
+  padding-left: 5rpx;
+}
+
+.tel {
+  box-sizing: border-box;
+}
+
+.addr_detail {
+  color: #999;
+  margin-top: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.a_choose {
+  width: 62rpx;
+  height: auto;
+  line-height: 130rpx;
+}
+
+.a_choose radio {
+  transform: scale(0.8);
+}
+
+.updateIcon {
+  width: 15%;
+  height: auto;
+  text-align: center;
+  line-height: 145rpx;
+}
+
+.updateIcon image {
+  width: 39rpx;
+  height: 38rpx;
+}
+
+.addReciver {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70%;
+  background: #f85c45;
+  color: white;
+  margin-top: 100rpx;
+}

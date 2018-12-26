@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "活动首页",
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  },
+  "enablePullDownRefresh": true
+}

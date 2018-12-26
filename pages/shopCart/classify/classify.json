@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#f85c45",
+  "navigationBarTitleText": "商品分类",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page"
+  }
+}

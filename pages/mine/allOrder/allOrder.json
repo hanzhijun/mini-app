@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#f85c45",
+  "navigationBarTitleText": "我的订单",
+  "usingComponents": {
+    "radio-box": "/components/radio-box/radio-box",
+    "open-page": "/components/open-page/open-page"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,86 @@
+<!--swiper  -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrl}}" wx:key="">
+    <swiper-item bindtap='openH5'
+    data-id='{{item.goods_id}}'
+    data-url='{{item.url}}'
+    data-type='{{item.type}}'>
+      <image src="{{item.image_path}}{{item.image}}" class="slide-image" width="355" height="150"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!--分类  -->
+<view class="categroy">
+  <view class="cate_Con bg-white">
+    <view wx:for="{{iconImg}}" wx:key="" data-type='classify' bindtap='openPage' data-id='{{item.goods_category_id}}'>
+      <image src="{{item.img_path}}{{item.img}}"></image>
+      <text class="fs-24 fc-gray-darkest">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+<!-- 固定运营区 -->
+<view class="activity_one">
+  <view class="a_left">
+    <image src="{{fixImg_one.img_cover_path}}{{fixImg_one.img_cover}}" bindtap='openPage' data-id="{{fixImg_one.goods_activity_od_id}}" data-cid="{{fixImg_one.goods_activity_category_id}}"></image>
+  </view>
+  <view class="a_right">
+    <image src="{{fixImg_two.img_cover_path}}{{fixImg_two.img_cover}}" bindtap='openPage' data-id="{{fixImg_two.goods_activity_od_id}}" data-cid="{{fixImg_two.goods_activity_category_id}}" style='margin-bottom: 5px;'></image>
+    <image src="{{fixImg_three.img_cover_path}}{{fixImg_three.img_cover}}" bindtap='openPage' data-id="{{fixImg_three.goods_activity_od_id}}" data-cid="{{fixImg_three.goods_activity_category_id}}"></image>
+  </view>
+</view>
+
+<!--固定运营区  -->
+<view class="a_middle" >
+  <image src="{{fixImg_four.img_cover_path}}{{fixImg_four.img_cover}}" bindtap='openPage' data-id="{{fixImg_four.goods_activity_od_id}}" data-cid="{{fixImg_four.goods_activity_category_id}}"></image>
+  <image src="{{fixImg_five.img_cover_path}}{{fixImg_five.img_cover}}" bindtap='openPage' data-id="{{fixImg_five.goods_activity_od_id}}" data-cid="{{fixImg_five.goods_activity_category_id}}"></image>
+  <image src="{{fixImg_six.img_cover_path}}{{fixImg_six.img_cover}}" bindtap='openPage' data-id="{{fixImg_six.goods_activity_od_id}}" data-cid="{{fixImg_six.goods_activity_category_id}}"></image>
+</view>
+
+<!-- 推荐运营区 -->
+<view class="activity_last" wx:for="{{recommendImg}}" wx:key="">
+  <image src="{{item.img_cover_path}}{{item.img_cover}}" bindtap='openPage' data-id="{{item.goods_activity_od_id}}"></image>
+</view>
+
+<!--分隔  -->
+<view class="divider">
+  <view class="line"></view>
+  <view class="fs-30 c_word">好物优选</view>
+  <view class="line"></view>
+</view>
+
+<!--优选商品  -->
+<view class="goodChoose">
+  <view class="goods" wx:for="{{recommendList}}" wx:key="goods_name" bindtap='goDetail' data-gid="{{item.goods_id}}">
+    <view class="pos">
+      <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+    </view>
+
+      <!--金贝+现金  -->
+      <view wx:if="{{item.payment==1}}">
+        <text class="fs-24 good_title">{{item.goods_name}}</text>
+        <text class="fs-30 good_price">￥{{item.price/ 100}}</text>
+        <text class="fs-24">送<text class="red">{{item.base_return}}</text></text>
+        <image src="/images/currency/jinbei.png" class="golden"></image>
+      </view>
+
+      <!--金贝+铜贝  -->
+      <view wx:if="{{item.payment==2}}">
+        <text class="fs-24 good_title">{{item.goods_name}}</text>
+        <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+        <image src="/images/currency/jinbei.png" class="golden"></image>
+        <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+        <image src="/images/currency/tongbei.png" class="golden"></image>
+      </view>
+
+      <!--银贝  -->
+      <view wx:if="{{item.payment==3}}">
+        <text class="fs-24 fc-gray-darkest pro_name good_title">{{item.goods_name}}</text>
+        <text class="fs-30 fc-gray-darkest price padd">{{item.price}}</text>
+        <image src="/images/currency/yinbei.png" class="golden"></image>
+      </view>
+  
+
+  </view>
+</view>

@@ -1,0 +1,160 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<view class="out-side">
+
+    <view class="bg">
+        <!-- header图 -->
+        <view class="txtCenter">
+            <image src="{{imgUrl}}/upload/oneBuy/poster.png?v=1105" class="poster"></image>
+        </view>
+
+        <!-- 规则 -->
+        <view class="rule fs-30" style="background: url('{{imgUrl}}/upload/oneBuy/rule.png?v=1105') no-repeat;background-size: contain;">
+            <view class=" ruleContainer">
+                <view><text>1</text>活动商品每人限购一件</view>
+                <view><text>2</text>仅新用户可以助力</view>
+            </view>
+        </view>
+
+    </view>
+
+    <!-- 商品 -->
+    <view class="listContainer">
+
+        <!-- 列表 -->
+        <view class="product" wx:for="{{oneList}}" wx:key="">
+            <view class="list" data-status="{{item.status}}"
+                  data-goods_id="{{item.goods_id}}"
+                  data-need_num="{{item.num}}"
+                  data-produc_name="{{item.goods_name}}"
+                  data-price="{{item.price}}"
+                  data-spec_id="{{item.spec_id}}"
+                  data-help_id="{{item.help_id}}"
+                  data-eid="{{item.id}}"
+                  data-list_url="{{item.list_url}}"
+                  data-discount_price="{{item.discount_price}}"
+                  bindtap="listClick">
+                <view class="proImg">
+                    <image src="{{img_path}}{{item.list_url}}"></image>
+                </view>
+                <view class="proInfo">
+                    <text class="proName fs-24">{{item.goods_name}}</text>
+                    <view>
+                        <text class='price'>￥{{item.discount_price/100}}</text>
+                        <text class="privousPrice">￥{{item.price/100}}</text>
+                        <text class="stock">剩余{{item.nums}}件</text>
+                    </view>
+                    <view class="assistance">
+                        <text class="fs-22 need">需要<text>{{item.num}}</text>人助力</text>
+                    </view>
+                </view>
+
+                <text class="end-time fs-24" wx:if="{{item.status == 1&&item.success_expiry_time}}">{{item.end_time}}</text>
+
+                <text class="recevie fs-30 bgRed" wx:if="{{item.status == 1}}">{{item.discount_price/100}}元领取></text>
+                <text class="recevie fs-30 bgYellow" wx:if="{{item.status == 0}}">还差{{item.num - item.help_num}}人></text>
+                <text class="recevie fs-30 bgGray" wx:if="{{item.status == 2}}">已购买></text>
+
+            </view>
+
+            <!--0 参与中 1 参与成功 2 已购买，3 失败，4 失败(成功未领取)，null: 未参与-->
+            <text class="recevie fs-30 bgRed" wx:if="{{item.status == 3 || item.status == 4 || item.status == null}}" data-status="{{item.status}}"
+                  data-goods_id="{{item.goods_id}}"
+                  data-need_num="{{item.num}}"
+                  data-produc_name="{{item.goods_name}}"
+                  data-price="{{item.price}}"
+                  data-spec_id="{{item.spec_id}}"
+                  data-help_id="{{item.help_id}}"
+                  data-eid="{{item.id}}"
+                  data-list_url="{{item.list_url}}"
+                  data-discount_price="{{item.discount_price}}"
+                  bindtap="listClickBtn"><text wx:if="{{item.status == 3||item.status == 4}}">再玩一次></text><text wx:else>{{item.discount_price/100}}元去抢></text></text>
+
+            <!-- 已售罄样式 -->
+            <view class="saleOut" wx:if="{{(item.status == null || item.status == 3 || item.status == 4) && item.nums <= 0}}">
+                <image src="{{imgUrl}}/upload/oneBuy/saleout.png?v=1105"></image>
+            </view>
+        </view>
+        <!-- 列表end -->
+    </view>
+
+</view>
+
+<!--1.活动规格弹窗-->
+<view class="specBox {{tcBox == 1 && 'this-show'}}"  catchtouchmove='true'>
+    <view class="gray-back" bindtap="closeSpecBox"></view>
+    <view class="spec-bar fs-22">
+        <view class="group">
+            <text class="type-name">{{goods.first_attr}}：</text>
+            <view class='view-box color'>
+                <text class='t-box {{current_info.first_attr_id == index && "t-active"}}' wx:for='{{spec.first}}' wx:key="" data-first_attr_id='{{index}}' data-first_attr_name='{{item}}' bindtap='checkSpec'>{{item}}</text>
+            </view>
+        </view>
+
+        <view class="group" wx:if="{{goods.second_attr != '数量'}}">
+            <text class="type-name">{{goods.second_attr}}：</text>
+            <view class='view-box color'>
+                <text class='t-box {{current_info.second_attr_id == index && "t-active"}}' wx:for="{{spec.second}}" wx:key="" data-second_attr_id='{{index}}' data-second_attr_name='{{item}}' bindtap='checkSpec'>{{item}}</text>
+            </view>
+        </view>
+
+        <view class="group goods-num">
+            <text class="type-name">数量：</text>
+            <view class='view-box'>
+                <text>1</text>
+            </view>
+        </view>
+
+        <view class="group">
+            <text class="yi-xuan">已选：{{current_info.first_attr_name}}, <text wx:if="{{goods.second_attr != '数量'}}">{{current_info.second_attr_name}}, </text>1件</text>
+        </view>
+
+        <view class="foot-btn">
+            <form bindsubmit="launchOnpurse" report-submit="true">
+                <button class="ok" formType="submit">确定</button>
+            </form>
+            <text class="txt">抢购立省{{(overGoodsInfo.price - overGoodsInfo.discount_price)/100}}元</text>
+        </view>
+    </view>
+</view>
+
+<!--2.分享弹窗-->
+<view class="specBox {{tcBox == 2 && 'this-show'}}"  catchtouchmove='true'>
+    <view class="gray-back" bindtap="closeSpecBox"></view>
+    <view class="share-bar">
+        <view class="close"><image src="{{imgUrl}}/upload/oneBuy/btn-close.png?v=1105" bindtap="closeSpecBox"></image></view>
+        <text class="tit iconfs-40">邀请好友助力</text>
+        <button class="share" bindtap="btnShare" open-type="share">点击分享给好友></button>
+    </view>
+</view>
+
+<!--3. 查看我的抢购弹窗-->
+<view class="specBox {{tcBox == 3 && 'this-show'}}"  catchtouchmove='true'>
+    <view class="gray-back" bindtap="closeSpecBox"></view>
+    <view class="share-bar fs-26">
+        <view class="close"><image src="{{imgUrl}}/upload/oneBuy/btn-close.png?v=1105" bindtap="closeSpecBox"></image></view>
+        <view class="ts-txt">
+            <view class="iconfs-40">还差最后<text class="red">1</text>步</view>
+            <view class="iconfs-40">人满即可<text class="red">{{overGoodsInfo.discount_price/100}}元</text>购买</view>
+        </view>
+        <button class="share" bindtap="lookMyBuy">立即查看我的抢购</button>
+    </view>
+</view>
+
+ <!--4. 提示正在抢购中商品数量弹窗-->
+ <view class="specBox {{tcBox == 4 && 'this-show'}}"  catchtouchmove='true'>
+     <view class="gray-back" bindtap="closeSpecBox"></view>
+     <view class="tc-num-bar fs-26">
+         <text class="tit">你有{{oneBuyNum}}件商品</text>
+         <text class="tit-ing">正在抢购中...</text>
+         <div class="btn">
+             <button class="c" bindtap="closeSpecBox">我知道了</button>
+         </div>
+     </view>
+ </view>
+
+<view class="return fs-24" bindtap="gotoHome">
+  <text class="iconfont icon-shouye"></text>
+  <text>返回首页</text>
+</view>
+<include src="../../include/include.wxml"></include>

@@ -1,0 +1,31 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="banner" circular="true">
+    <block wx:for="{{list[0]}}" wx:key="">
+        <swiper-item>
+            <image src="{{item.img_path}}{{item.img}}" class="slide-image" width="355" height="150" alt="{{item.title}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class="zt-bar" wx:for="{{list[1]}}" wx:key="">
+    <image src="{{item.img_path}}{{item.img}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo"></image>
+</view>
+
+<view>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="110rpx" next-margin="110rpx" current="1" class="themes" circular="true">
+        <block wx:for="{{list[2]}}" wx:key="">
+            <swiper-item data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+                <image src="{{item.img_path}}{{item.img}}" class="slide-image" width="470" height="270"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>
+
+<view class="zt-bar" wx:for="{{list[3]}}" wx:key="" style="padding: 0;">
+    <image src="{{item.img_path}}{{item.img}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo"></image>
+</view>
+
+<view class="list fc-gray-darkest fs-24" wx:for="{{list[4].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+    <image src="{{item.img_path}}{{item.img}}"></image>
+    <text class="listTitle">{{item.title}}</text>
+    <text>{{item.title_sub}}</text>
+</view>

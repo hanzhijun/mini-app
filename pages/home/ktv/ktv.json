@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "商家列表",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page"
+  }
+}

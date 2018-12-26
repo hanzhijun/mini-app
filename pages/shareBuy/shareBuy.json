@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分享购买",
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,164 @@
+swiper {
+  position: relative;
+  height: 300rpx !important;
+}
+
+swiper-item image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 分类 */
+
+.cate_Con {
+  padding: 30rpx 14rpx 5rpx 14rpx;
+  box-sizing: border-box;
+}
+
+.cate_Con view image {
+  height: 75rpx;
+  width: 75rpx;
+}
+
+.cate_Con view text {
+  display: block;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60%;
+  margin: auto;
+  margin-top: -8rpx;
+}
+
+.current {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.cate_Con view {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
+}
+
+.active {
+  font-size: 32rpx;
+  color: #f55d4b;
+  border-bottom: 2px solid #f55d4b;
+}
+
+
+.listContainer {
+  position: relative;
+  width: 100vw;
+  margin:auto;
+}
+
+.product {
+  position: relative;
+}
+
+.list {
+  display: flex;
+  background: #fff;
+  overflow: hidden;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.proImg {
+  width: 249rpx;
+  height: 262rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.proImg image {
+  height: 100%;
+  width: 100%;
+}
+
+.proName {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.proInfo {
+  width: 61%;
+  margin-left: 23rpx;
+}
+
+.proName {
+  margin-bottom: 30rpx;
+  letter-spacing: 2rpx;
+}
+
+.symbol{
+  color:#bf0000;
+}
+
+.price {
+  color: #bf0000;
+  font-size: 34rpx;
+  margin-left: -5rpx;
+}
+
+.privousPrice {
+  font-size: 20rpx;
+  color: #666;
+  text-decoration: line-through;
+  margin: 0 15rpx 0 15rpx;
+  box-sizing: border-box;
+}
+
+.stock {
+  color: #fe7600;
+  font-size: 24rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+}
+
+.need {
+  color: #666;
+  margin: 0 15rpx 0 10rpx;
+}
+
+.assistance {
+  display: inline-block;
+  z-index: 1;
+}
+
+.assistance image{
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+
+.helpBtn{
+  width: 160rpx;
+  height: 65rpx;
+  background: #f55d4b;
+  color: white;
+  padding: 0!important;
+  font-size: 28rpx;
+  line-height: 65rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+button::after{
+  border:none;
+}
+
+.middle{
+  margin-bottom: 60rpx;
+}

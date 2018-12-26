@@ -1,0 +1,14 @@
+
+<open-page url="home/ktv/bussinesDetail/bussinesDetail" hover-class="none">
+  <view class="list bg-white fs-24" wx:for="{{list.data}}" wx:key="" id="{{item.business_offline_id}}" bindtap='saveId'>
+    <view class="imgCon">
+      <image src="{{list.img_master_path}}{{item.img_master[0]}}" class="list_img"></image>
+    </view>
+    <view class="proInfo">
+      <text clFass="fc-gray-darkest">{{item.name}}</text>
+      <!-- <text>{{item.province}}{{item.city}}{{item.town}}{{item.address}}</text> -->
+      <text>{{item.address}}</text>
+    </view>
+  </view>
+</open-page>
+<view class="loadMore"  hidden="{{hideBottom}}">{{loadMoreData}}</view>

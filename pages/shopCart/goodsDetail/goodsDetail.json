@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page",
+    "login-box": "/components/login-box/login-box"
+  }
+}

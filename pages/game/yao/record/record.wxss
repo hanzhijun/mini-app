@@ -1,0 +1,231 @@
+page {
+  background: #fff;
+}
+
+.yao {
+  display: none;
+}
+.yao.this-show {
+  display: block;
+}
+.title {
+  font-size: 36rpx;
+  color: #333;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 30rpx;
+}
+
+.time {
+  font-size: 36rpx;
+  color: #f75d45;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  height: 110rpx;
+  line-height: 110rpx;
+}
+
+.end {
+  font-size: 36rpx;
+  color: #999;
+  text-align: center;
+  width: 70%;
+  margin: auto;
+  height: 110rpx;
+  line-height: 110rpx;
+}
+
+.invited {
+  width: 65%;
+  color: white;
+  font-size: 42rpx;
+  background: #f75d45;
+  padding: 0 !important;
+  margin-top: 50rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  letter-spacing:5rpx;
+}
+
+.invited:active {
+  opacity: .8
+}
+
+button::after {
+  border: none;
+}
+
+.divide {
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.divide text {
+  display: inline-block;
+  font-size: 24rpx;
+  vertical-align: middle;
+}
+
+.divide text:first-child {
+  border-top: 1px solid #535353;
+  width: 100rpx;
+  margin-right: 20rpx;
+}
+
+.divide text:last-child {
+  border-top: 1px solid #535353;
+  width: 100rpx;
+  margin-left: 20rpx;
+}
+
+.join {
+  font-size: 24rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.record {
+  border: 1px solid #aaa;
+  height: 125rpx;
+  width: 580rpx;
+  margin: 20rpx auto 0;
+  border-radius: 15rpx;
+  position: relative;
+}
+
+.record .pk-icon {
+  width: 100rpx;
+  height: 90rpx;
+  float: left;
+  margin: 15rpx 24rpx 0 28rpx;
+}
+.pk-icon image {
+  width: 100rpx;
+  height: 90rpx;
+}
+
+.user-img {
+  width: 89rpx;
+  height: 89rpx;
+  float: left;
+  margin-top: 18rpx;
+}
+
+.user-img image {
+  width: 89rpx;
+  height: 89rpx;
+}
+
+.user-info {
+  width: 215rpx;
+  overflow: hidden;
+  float: left;
+  padding-top: 10rpx;
+}
+
+.user-info text {
+  display: block;
+  font-size: 24rpx;
+  color: #333;
+  margin: 15rpx 0 0 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pk-img text {
+  display: inline-block;
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+}
+
+.pk-img text:first-child {
+  left: 464rpx;
+  top: 19rpx;
+}
+.pk-img text:last-child {
+  left: 506rpx;
+  top: 65rpx;
+}
+
+.pk-img text.shai-1 {
+  background: url(https://img.duishangbao.cn/upload/game/shai_7.png) no-repeat 0 0 / 42rpx 42rpx;
+}
+.pk-img text.shai-2 {
+  background: url(https://img.duishangbao.cn/upload/game/shai_8.png) no-repeat 0 0 / 42rpx 42rpx;
+}
+.pk-img text.shai-3 {
+  background: url(https://img.duishangbao.cn/upload/game/shai_9.png) no-repeat 0 0 / 42rpx 42rpx;
+}
+.pk-img text.shai-4 {
+  background: url(https://img.duishangbao.cn/upload/game/shai_10.png) no-repeat 0 0 / 42rpx 42rpx;
+}
+.pk-img text.shai-5 {
+  background: url(https://img.duishangbao.cn/upload/game/shai_11.png) no-repeat 0 0 / 42rpx 42rpx;
+}
+.pk-img text.shai-6 {
+  background: url(https://img.duishangbao.cn/upload/game/shai_12.png) no-repeat 0 0 / 42rpx 42rpx;
+}
+
+.discount {
+  position: relative;
+  width: 596rpx;
+  height: 285rpx;
+  background:url('https://img.duishangbao.cn/upload/game/zhe.png') no-repeat;
+  background-size: contain;
+  margin: auto;
+}
+.discount.yiling {
+  background:url('https://img.duishangbao.cn/upload/game/discount.png') no-repeat;
+  background-size: contain;
+}
+
+.tips {
+  font-size: 24rpx;
+  color: #333;
+  width: 70%;
+  margin: auto;
+  margin-top: 20rpx;
+}
+
+.discount-count {
+  color: white;
+  position: absolute;
+  width: 200rpx;
+  height:160rpx;
+  top:65rpx;
+  left: 48rpx;
+  text-align: center;
+  overflow: hidden;
+}
+
+.discount-count text:first-child {
+  font-size: 110rpx;
+}
+
+.discount-count text:last-child {
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+
+.date {
+  color: white;
+  position: absolute;
+  top: 31%;
+  left: 39%;
+  font-size: 20rpx;
+}
+
+.record-outside {
+  overflow: hidden;
+  padding-bottom: 30rpx;
+}

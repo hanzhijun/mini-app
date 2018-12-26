@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "助力购(GO)",
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  },
+  "enablePullDownRefresh": true
+}

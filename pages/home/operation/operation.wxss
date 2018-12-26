@@ -1,0 +1,115 @@
+.banner {
+  height: 300rpx;
+  width: 100%;
+}
+
+.banner image {
+  height: 100%;
+  width: 100%;
+}
+
+.iconCon {
+  width: 100%;
+  background: #37434f;
+}
+
+.iconCon>view>text {
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  /* width:149rpx; */
+  width:20%;
+  /* border:1px solid transparent; */
+   /* border-right: 1px solid white; */
+  /* border-bottom: 1px solid white;  */
+  color: white;
+}
+
+.iconCon>view>text:nth-child(10) {
+  border-right: none;
+  /* width:150rpx; */
+}
+
+.iconCon>view>text:nth-child(5) {
+  border-right: none;
+  /* width:150rpx; */
+}
+
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider .c_word {
+  color: #2b2727;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 20rpx 0 20rpx;
+}
+
+.line {
+  width: 21%;
+  height: 1rpx;
+  background: #333;
+}
+
+.goodChoose {
+  width: 95%;
+  margin:15rpx auto;
+}
+
+.goods {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 30rpx;
+}
+
+.goods .pos image {
+  /* width: 339rpx;
+  height: 258rpx; */
+  height:100%;
+  width:100%;
+}
+
+.pos {
+  text-align: center;
+  height:339rpx;
+  width: 339rpx;
+}
+
+.good_title {
+  display: inline-block;
+  width: 90%;
+  color: #4c4c4c;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  /* padding-left: 10rpx; */
+  box-sizing: border-box;
+}
+
+.good_price {
+  padding-right: 40rpx;
+  box-sizing: border-box;
+  color: #f01212;
+}
+
+.golden {
+  width: 43rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+
+.active {
+  background: white;
+  color: #333 !important;
+}
+
+text.red,
+.fc-gray-darkest.price {
+  color: #f01212;
+}

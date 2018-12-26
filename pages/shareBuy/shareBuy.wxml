@@ -1,0 +1,209 @@
+<login-box bind:loginevent='loginevent'></login-box>
+
+<view class="bg" style="background: url('{{imgUrl}}/upload/sharePay/bg.jpg?v=1102') no-repeat;background-size: 100% 100%;">
+
+    <view class="getJInbei">
+        <!-- 参与者-->
+        <view wx:if="{{click_type=='join'}}">
+            <!-- 领取成功显示 -->
+            <view wx:if="{{have_get == 1}}">
+                <text>你已成功获得{{joinGetCount}}金贝</text>
+                <text>消费时可以直接抵扣哦</text>
+            </view>
+            <view wx:elif="{{have_get == 2}}">
+                <text>真遗憾！今日参与次数已达上限</text>
+            </view>
+            <!--领取失败显示  0参与人数已满、 2今日参与次数已达上限、1成功-->
+            <view wx:elif="{{have_get == 0}}">
+                <text>真遗憾！你来晚了，金贝已领完</text>
+                <text>下次请早一点哦</text>
+            </view>
+            <view wx:else>
+                <text>{{joinInfo}}</text>
+            </view>
+
+             <!--参与者end-->
+        </view>
+
+
+        <!-- 发起者-->
+        <view wx:if="{{click_type=='share'}}">
+
+            <!-- 未领取 -->
+            <view wx:if="{{res_data.status == 0 && s>0}}">
+                <text>只需请好友点一下</text>
+                <text>即可以获得{{res_data.activity_indirect_return}}金贝哦！</text>
+            </view>
+
+            <!-- 失败 -->
+            <view wx:if='{{res_data.status == 0 && s<=0}}'>
+                <text>很遗憾！活动时间到</text>
+            </view>
+
+            <!-- 成功 -->
+            <view wx:if='{{res_data.status == 1 && !btnText[1]}}'>
+                <text>恭喜你！成功获得{{res_data.activity_indirect_return}}金贝</text>
+                <text>点击“立即领取吧”</text>
+            </view>
+
+            <!-- 领取成功 -->
+            <view wx:if="{{res_data.status == 1 && btnText[1]}}">
+                <text>你已经成功获得{{res_data.activity_indirect_return}}金贝</text>
+                <text>消费时可以直接抵扣哦</text>
+            </view>
+
+        </view>
+        <!-- 发起者end -->
+
+    </view>
+
+
+    <!-- 活动规则 -->
+    <view class="rule fs-24" bindtap="openRule">活动规则></view>
+
+    <!-- 用户头像区域 -->
+    <view class="userInfo">
+        <view class="photo">
+            <image src="{{res_data.avatarUrl}}"></image>
+        </view>
+        <view class="nickname fs-30">{{res_data.nickname}}</view>
+    </view>
+
+
+    <view class="dividerLine"></view>
+
+    <!-- 商品区域 -->
+    <view class="content">
+        <view class="hotList">
+            <view class="pro_img">
+                <image src="{{res_data.img_url}}{{res_data.list_path}}{{res_data.g_pic}}"></image>
+            </view>
+            <view class="choiceStore" wx:if="{{res_data.ac_price}}">
+                <view class="fs-28 fc-gray-darkest storeName fs-bold ">
+                    <text>{{res_data.g_name}}</text>
+                </view>
+                <view class="fs-30 pre_Price">
+                    <text space="ensp">售　价:</text>
+                    <text class="price"> ￥{{res_data.ac_price/100}}</text>
+                </view>
+                <view class="fs-30 use_price ">实付款:
+                    <text class="price">￥{{res_data.cash/100}}<text>+{{res_data.gold}}金贝</text></text>
+                </view>
+            </view>
+            <view class="choiceStore fs-30" wx:else>
+                数据加载中...
+            </view>
+        </view>
+    </view>
+
+
+    <view class="divider">
+        <text class="line"></text>
+
+        <!-- 参与者显示下列start -->
+        <text class="tips fs-24" wx:if="{{click_type=='join' && have_get == 0}}">通过分享我多得了{{res_data.activity_indirect_return}}金贝，你也来试试吧！</text>
+        <text class="tips fs-24" wx:if="{{click_type=='join' && have_get != 0}}">最划算的分享购买，推荐你也试一试！</text>
+        <!-- 参与者显示end -->
+
+        <!-- 发起者显示下列start -->
+        <!-- 未领取 -->
+        <text class="tips fs-24" wx:if="{{click_type=='share' && res_data.status == 0 && s>0}}">还差{{res_data.limit_num - res_data.now_num}}人，就能多得{{res_data.activity_indirect_return}}金贝哦！</text>
+
+        <!-- 失败 -->
+        <text class="tips fs-24" wx:if="{{click_type=='share' && res_data.status == 0 && s<=0}}">还差{{res_data.limit_num - res_data.now_num}}人，下次再接再厉~</text>
+
+        <!-- 成功 -->
+        <text class="tips fs-24" wx:if="{{click_type=='share' && res_data.status == 1 && !btnText[1]}}">你的人缘真好呀^_^</text>
+
+        <!-- 领取成功 -->
+        <text class="tips fs-24" wx:if="{{click_type=='share' && res_data.status == 1 && btnText[1]}}">好的东西，就是要和大家分享</text>
+        <!--发起者显示end -->
+
+        <text class="line"></text>
+
+    </view>
+
+
+    <!-- 头像 -->
+    <view class="userPhoto">
+        <view wx:for='{{join_info}}' wx:key="">
+            <image src="{{item.avatarUrl}}"></image>
+            <text>{{item.nickname}}</text>
+        </view>
+    </view>
+
+    <!-- 倒计时 发起者  未领取时  才显示此倒计时-->
+    <view class='time' wx:if='{{res_data.status == 0 && s>0}}'>剩余<text>{{time[0]}}:{{time[1]}}:{{time[2]}}</text>结束</view>
+
+    <!-- 底部button -->
+    <view class="more fs-30">
+
+        <!-- 参与者所见btn start -->
+        <view wx:if='{{click_type=="join"}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn1.png') no-repeat;background-size: cover;" class="btnClass" bindtap="moreGoods">更多商品</view>
+        <view wx:if='{{click_type=="join"}}' style="background: url('{{imgUrl}}/upload/sharePay/buyBtn2.png') no-repeat;background-size: cover;" class="btnClass" bindtap="openPage">我也要买</view>
+        <!-- 参与者所见btn end -->
+
+        <!-- 发起者所见btn start -->
+        <!-- 未领取 -->
+        <button open-type="share" wx:if="{{res_data.status == 0 && s>0 && click_type=='share'}}" style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2">邀请好友来领取</button>
+
+        <!-- 失败 -->
+        <view wx:if="{{res_data.status == 0 && s<=0 && click_type=='share'}}" style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap="moreGoods">更多商品</view>
+
+        <!-- 成功 -->
+        <view wx:if="{{res_data.status == 1 && !btnText[1] && click_type=='share'}}" style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap='getGold'>立即领取</view>
+
+        <!-- 领取成功 -->
+        <view wx:if="{{res_data.status == 1 && btnText[1] && click_type=='share'}}" style="background: url('{{imgUrl}}/upload/sharePay/buyBtn3.png') no-repeat;background-size: cover;" class="btnClass2" bindtap="moreGoods">更多商品</view>
+        <!-- 发起者所见btn end -->
+    </view>
+
+
+    <view class="return fs-24" bindtap="gotoHome">
+        <text class="iconfont icon-shouye"></text>
+        <text>返回首页</text>
+    </view>
+
+</view>
+
+<!--弹窗-->
+<view class="tc-base" wx:if="{{tcType != -1}}" catchtouchmove='true'>
+    <view class="back"></view>
+
+    <!--发起者领取成功-->
+    <view class="tc-01" wx:if="{{tcType == 1}}">
+        <view class="note">恭喜您！获得</view>
+        <view class="bei"><text class="big">{{res_data.activity_indirect_return}}</text><text class="r"> 金贝</text></view>
+        <button bindtap="isee">我知道了</button>
+    </view>
+
+    <!--参与者领取成功-->
+    <view class="tc-02" wx:if="{{tcType == 2}}">
+        <view class="note">恭喜你！</view>
+        <view class="bei"><text>获得</text>{{alert_data.get_gold}}金贝</view>
+        <view class="txt">可当现金使用{{alert_data.get_gold}}元</view>
+        <button bindtap="isee">我知道了</button>
+    </view>
+
+    <!--参与者领取失败 0参与人数已满、 2今日参与次数已达上限、1成功-->
+    <view class="tc-03" wx:if="{{tcType == 3}}">
+        <view class="note" wx:if="{{have_get == 2}}"><text>真遗憾</text><text>今日参与次数已达上限</text></view>
+        <view class="note" wx:if="{{have_get == 0}}"><text>真遗憾</text><text>你来晚了，金贝已领完</text><text>下次请早一点哦</text></view>
+        <view class="note" wx:if="{{have_get == 3}}"><text>{{joinInfo}}</text></view>
+        <button class="isee" bindtap="isee"></button>
+    </view>
+
+    <!-- 规则内容 -->
+    <text class="ruleContent" wx:if='{{tcType == 4}}' bindtap='isee' data-guize='1'>
+        分享活动规则：
+
+        1. 用户选择分享购买活动的商品进行分享购买后，在规定时间内邀请指定数量的好友助力，即可完成分享活动，获得额外的金贝奖励。
+
+        2. 每件分享购买的商品都有助力金贝奖励，在分享活动未完成之前，助力成功的好友皆可获得一定数量的金贝。
+
+        3. 每位用户每天仅能分享购买10个活动商品，超过10个后将按照正常购买模式进行购买。
+    </text>
+
+</view>
+
+<include src="../include/include.wxml"></include>

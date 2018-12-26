@@ -1,0 +1,263 @@
+<login-box bind:loginevent='loginevent' id='loginBox'></login-box>
+
+<view class="yao {{isLogin == 1 && pageShow == 1 ? 'this-show':''}}">
+
+  <!--活动商品-->
+  <view class="goods-detail" bindtap="goToUse">
+    <view class="goods-img">
+      <image src="{{goodsInfo.list_url_path}}{{goodsInfo.list_url}}"></image>
+    </view>
+    <view class="goods-main">
+      <text class="goods-name fs-24 fs-bold">{{goodsInfo.goods_name}}</text>
+      <view class="goods-price">
+        <view class="info fs-24">售　价：
+          <text>￥{{goodsInfo.sale_price/100}}</text>
+        </view>
+        <view class="info fs-24">用贝价：
+          <text class="price">￥{{goodsInfo.sale_price/100 > surplus_goldshells ? ((goodsInfo.sale_price/100*1000 - surplus_goldshells*1000)/1000) : 0}}</text> 送
+          <text class="price">{{goodsInfo.base_return}}</text>
+          <image src="/images/currency/jinbei.png" class="golden"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="game-ts">
+
+    <view class="game-text fs-24 fs-bold" wx:if="{{type == 3}}">只要你摇的点数比好友的小，你的好友就可以获得折扣哦</view>
+    <view class="game-text fs-24 fs-bold" wx:if="{{type == 2}}">感谢参与~你也可以通过摇骰pk赢奖励哦！</view>
+    <view class="game-text fs-24" wx:if="{{type == 2 || type == 3}}">好友点数：
+      <text class="red">{{sponsor_record.game_num}}</text> 点
+    </view>
+  </view>
+
+  <!--摇一摇场景区域-->
+  <view class="game-bar">
+    <view class="yao-out {{gaiDou==1?'gai-dou':''}}">
+      <!--发起者摇出点数-->
+      <view wx:if="{{type==1}}">
+        <view wx:if="{{sponsor_record && sponsor_record.first_num && sponsor_record.second_num}}">
+          <text class="shai-left shai-{{sponsor_record.first_num}}"></text>
+          <text class="shai-right shai-{{sponsor_record.second_num}}"></text>
+        </view>
+      </view>
+
+      <!--参与者摇出点数-->
+      <view wx:if="{{type==2}}">
+        <view wx:if="{{join_record && join_record.first_num && join_record.second_num}}">
+          <text class="shai-left shai-{{join_record.first_num}}"></text>
+          <text class="shai-right shai-{{join_record.second_num}}"></text>
+        </view>
+      </view>
+      <image class="yao-gai {{gaiMove==1?'gai-move':''}}" src="{{imgUrl}}/upload/game/guan_12.png?v=1016"></image>
+
+    </view>
+  </view>
+
+  <view class="game-btn" wx:if="{{minute!=-1}}">
+
+    <!--发起者-->
+    <view wx:if="{{type == 1}}">
+
+      <!--未开始-->
+      <view wx:if="{{sponsor_record == ''}}">
+        <form bindsubmit='moniYaoyiYao' report-submit="true">
+          <button class="btn-info btn-yaoyiyao" formType="submit">点击摇一摇</button>
+        </form>
+      </view>
+      <!--已摇-->
+      <view wx:else>
+        <!--未结束-->
+        <view wx:if="{{minute!==''}}">
+          <view class="game-time fs-24">本轮剩余时间：{{minute}}:{{second}}</view>
+          <button class="btn-info btn-yaoqing" open-type="share" title="立即邀请好友参与PK"></button>
+          <text class="btn-info fs-30 my-pk" bindtap="goTopkList" title="查看奖励">我的PK记录</text>
+        </view>
+        <!--已结束-->
+        <view wx:else>
+          <block class="game-state fs-24" wx:if="{{benefit_name}}">
+            <view class="fs-24 text-c" wx:if="{{sponsor_record.status == 3}}">恭喜您获得了
+              <text wx:if="{{benefit_type==1}}">{{benefit_value/10}}折</text>
+              <text wx:else>{{benefit_value}}元</text>商品优惠</view>
+            <view class="fs-24 text-c" wx:else>恭喜您获得了
+              <text wx:if="{{benefit_type==1}}">{{benefit_value/10}}折</text>
+              <text wx:else>{{benefit_value}}元</text>商品优惠点击“查看奖励”领取</view>
+          </block>
+
+          <view wx:if="{{sponsor_record.status == 3}}">
+            <text class="btn-info btn-shiyong" bindtap="goToUse" title="立即使用"></text>
+          </view>
+
+          <view wx:else>
+            <form bindsubmit='moniYaoyiYao' report-submit="true">
+              <button class="btn-info btn-yaoyiyao" formType="submit">点击摇一摇</button>
+            </form>
+          </view>
+
+          <text class="btn-info fs-30 my-pk" bindtap="goTopkList" title="查看奖励">我的PK记录</text>
+
+          <view wx:if="{{minute!==''}}">
+            <view class="game-time fs-24">本轮剩余时间：{{minute}}:{{second}}</view>
+            <form bindsubmit='moniYaoyiYao' report-submit="true">
+              <button class="btn-info btn-yaoyiyao" formType="submit">点击摇一摇</button>
+            </form>
+          </view>
+          <view class="game-time fs-24" wx:else>本轮已结束</view>
+
+          <navigator class="btn-info fs-30" url="../index">返回活动主页</navigator>
+        </view>
+      </view>
+
+    </view>
+
+    <!--参与者 已摇-->
+    <view wx:elif="{{type == 2}}">
+      <view class="game-time fs-24" wx:if="{{minute!==''}}">本轮剩余时间：{{minute}}:{{second}}</view>
+      <view class="game-time fs-24" wx:else>本轮已结束</view>
+      <navigator class="btn-info fs-30 to-pk" url="../index" title="开启我的PK"></navigator>
+    </view>
+
+    <!--参与者 未摇-->
+    <view wx:else>
+      <view class="game-time fs-24" wx:if="{{minute!==''}}">本轮剩余时间：{{minute}}:{{second}}</view>
+      <view class="game-time fs-24" wx:else>本轮已结束</view>
+      <form bindsubmit='moniYaoyiYao' report-submit="true" wx:if="{{sponsor_record.status == 1}}">
+        <button class="btn-info btn-yaoyiyao2" formType="submit">帮助好友</button>
+      </form>
+      <!--<navigator class="btn-info fs-30 to-pk" url="../index" title="开启我的PK"></navigator>-->
+    </view>
+
+  </view>
+
+  <!--优惠列表-->
+  <view class="game-meed">
+    <view class="meed-list fs-24" wx:for="{{goodsInfo.benefit_info}}" wx:key="">
+      <text wx:if="{{index == 1}}" class="fs-bold">胜利一次的奖励：</text>
+      <text wx:if="{{index == 2}}" class="fs-bold">胜利二次的奖励：</text>
+      <text wx:if="{{index == 3}}" class="fs-bold">胜利三次的奖励：</text>
+      <text wx:if="{{index == 4}}" class="fs-bold">胜利四次的奖励：</text>
+      <text wx:if="{{index == 5}}" class="fs-bold">胜利五次的奖励：</text>
+      <text wx:if="{{item.benefit_type == 2}}">购买立减￥{{item.benefit_value}}</text>
+      <text wx:else>购买优惠{{item.benefit_value/10}}折</text>
+    </view>
+  </view>
+
+  <!--参与用户列表-->
+  <view class="join-bar" wx:if="{{total>0}}">
+    <view class="join-tit fs-24">
+      <text>已有{{total}}位朋友参与PK</text>
+    </view>
+    <view class="join-list">
+      <view class="list-item" wx:for="{{pkList}}" wx:key="">
+
+        <view class="pk-icon">
+          <image src="{{game_host}}/sheng.png" wx:if="{{item.result == 3}}"></image>
+          <image src="{{game_host}}/pk.png" wx:elif="{{item.result == 2}}"></image>
+          <image src="{{game_host}}/bai.png" wx:else></image>
+        </view>
+
+        <view class="join-img">
+          <image src="{{item.avatarUrl}}"></image>
+        </view>
+        <view class="join-name fs-30">{{item.nickname}}</view>
+        <view class="join-num fs-30">
+          <text class="red">{{item.game_num}}</text> 点
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--活动规则-->
+  <view class="game-rule">
+    <view class="rule-tit fs-30">
+      <text>活　动　规　则</text>
+    </view>
+    <view class="rule-content fs-24">
+      <text>1.进入心仪商品详情，点击“摇骰得优惠”按钮进行摇骰后，即可分享给好友进行摇骰pk。</text>
+      <text>2.每局摇骰pk时间为10分钟，结算时根据连续胜利次数发放奖励，每胜利一次都有对应奖励，连续胜利5次即可获得最大奖励，每局胜利次数相互独立不累计。</text>
+      <text>3.一个商品仅能领取一次奖励，领取奖励后，当前商品不可再进行摇骰pk；如不领取奖励，视作放弃该奖励，可重新开启该商品新的摇骰pk获得新的奖励。</text>
+      <text>4.活动期间，每位用户可邀请同一位好友参与5局PK（不限商品），一局PK同一好友只能PK一次。</text>
+      <text>获胜tips：分享到不同的群里，参与的人越多，胜利的机会越大哦~</text>
+    </view>
+  </view>
+
+  <!-- 去活动首页icon -->
+  <view class="goHome" bindtap='returnIndex' data-type='index'>
+    <text class="iconfont icon-shouye"></text>
+    <text class="fs-24">去活动</text>
+  </view>
+
+
+  <!-- 弹窗 -->
+  <view class="pop" wx:if="{{type==2 && resultTc == 1}}">
+    <view class="pop-main">
+      <view class="close" bindtap='close'>×</view>
+
+      <!--平局弹窗-->
+      <view wx:if="{{yaoInfo.game_result==2}}">
+        <image src="{{imgUrl}}/upload/game/ping.png?v=1015" class="titleImg"></image>
+        <view>
+          <image src="{{avatarUrl}}" class="photo"></image>
+          <image src="{{yaoInfo.sponsor_avatar_url}}" class="photo"></image>
+        </view>
+        <text class="courage">加油吧,胜利就在眼前</text>
+        <view class="pop-btn">
+          <button class="color-red" bindtap="returnIndex">立即参与活动</button>
+        </view>
+      </view>
+
+      <!-- 赢了弹窗 -->
+      <view wx:elif="{{yaoInfo.game_result==3}}">
+        <image src="{{imgUrl}}/upload/game/2.png?v=1015" class="titleImg"></image>
+        <view>
+          <image src="{{avatarUrl}}" class="photo"></image>
+          <image src="{{yaoInfo.sponsor_avatar_url}}" class="photo"></image>
+        </view>
+        <image src="{{imgUrl}}/upload/game/1.png?v=1015" class="smallImg"></image>
+        <text class="courage">无人能敌,赶紧参与活动吧!</text>
+        <view class="pop-btn">
+          <button class="color-red" bindtap="returnIndex">立即参与活动</button>
+        </view>
+      </view>
+
+
+      <!-- 输了弹窗 -->
+      <view wx:else>
+        <image src="{{imgUrl}}/upload/game/4.png?v=1015" class="titleImg"></image>
+        <view>
+          <image src="{{avatarUrl}}" class="photo"></image>
+          <image src="{{yaoInfo.sponsor_avatar_url}}" class="photo"></image>
+        </view>
+        <image src="{{imgUrl}}/upload/game/3.png?v=1015" class="smallImg"></image>
+        <text class="courage">我不服气,我也要PK</text>
+        <view class="pop-btn">
+          <button class="color-red" bindtap="returnIndex">立即参与活动</button>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="tc-ts" wx:if="{{tcTs == 1}}">
+    <image src="{{imgUrl}}/upload/game/icon_dui.png?v=1015" class="icon-dui"></image>
+    <text class="ts-text fs-26">{{tsText}}</text>
+  </view>
+
+  <view class="tc-ts-share" wx:if="{{tcTs == 1}}">
+    <image src="{{imgUrl}}/upload/game/icon_dui.png?v=1015" class="icon-dui"></image>
+    <text class="ts-text fs-26">{{tsText}}</text>
+  </view>
+
+  <view class="pop" wx:if='{{is_alert_pop}}' catchtouchmove='true'>
+    <view class="share-after">
+      <text class="txt">立即前往查看PK记录</text>
+      <view class="this-btn">
+        <text class="l" bindtap="close2">取消</text>
+        <text class="r" bindtap="lookPk">查看</text>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<include src="../../include/include.wxml"></include>

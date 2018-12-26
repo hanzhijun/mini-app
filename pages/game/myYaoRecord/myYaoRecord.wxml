@@ -1,0 +1,53 @@
+<!-- nav -->
+<view class="nav bg-white fs-24">
+    <text class="{{status==1?'active':''}}" data-state="1" bindtap="navClick">
+        <text>进行中</text>
+    </text>
+    <text class="{{status==3?'active':''}}" data-state="3" bindtap="navClick">
+        <text>已领取</text>
+    </text>
+    <text class="{{status==2?'active':''}}" data-state="2" bindtap="navClick">
+        <text>未领取</text>
+    </text>
+    <text class="{{status==0?'active':''}}" data-state="0" bindtap="navClick">
+        <text>已结束</text>
+    </text>
+</view>
+
+<!-- 内容区域 -->
+<view class="content">
+    <view class="c_listCon" wx:if="{{data}}">
+        <!--list start  -->
+        <view class="hotList" wx:for="{{data}}">
+            <view class="pro_img">
+                <image src="{{item.goods_info.list_url_path}}{{item.goods_info.list_url}}"></image>
+            </view>
+            <view class="choiceStore">
+                <view class="fs-28 fc-gray-darkest storeName fs-bold">
+                    <text>{{item.goods_info.goods_name}}</text>
+                </view>
+                <view class="fs-24 pre_Price">
+                    <text space="ensp">售　价：</text>
+                    <text class="price">￥{{item.goods_info.sale_price}}</text>
+                </view>
+                <view class="fs-24 use_price">用贝价：
+                    <text class="price">￥{{item.goods_info.sale_price > surplus_goldshells ? ((item.goods_info.sale_price*1000 - surplus_goldshells*1000)/1000) : 0}}</text>
+                    送
+                    <text class="price">{{item.goods_info.base_return}}</text>
+                    <image src="/images/currency/jinbei.png" class="golden"></image>
+                </view>
+            </view>
+            <!--状态 0-已结束 1-进行中 2-未领取 3-已领取-->
+            <view class="status bg-gray" wx:if="{{item.status==0}}" data-id="{{item.reward_id}}" data-diceid="{{item.game_dice_record_id}}" data-goodsid="{{item.goods_id}}" data-index="{{index}}" data-index="{{index}}">已结束</view>
+            <view class="status bg-red" wx:if="{{item.status==1}}" data-id="{{item.reward_id}}" data-diceid="{{item.game_dice_record_id}}" data-goodsid="{{item.goods_id}}" data-index="{{index}}" bindtap="gotoPk">继续PK</view>
+            <view class="status bg-red" wx:if="{{item.status==2}}" data-id="{{item.reward_id}}" data-diceid="{{item.game_dice_record_id}}" data-goodsid="{{item.goods_id}}" data-index="{{index}}" bindtap="getdicereward">点击领取</view>
+            <view class="status bg-red" wx:if="{{item.status==3}}" data-id="{{item.reward_id}}" data-diceid="{{item.game_dice_record_id}}" data-goodsid="{{item.goods_id}}" data-index="{{index}}" bindtap="gotoDetail">
+                <text wx:if="{{item.benefit_info.benefit_type == 1}}">{{item.benefit_info.benefit_value/10}}折优惠</text>
+                <text wx:else>{{item.benefit_info.benefit_value}}元优惠</text>
+            </view>
+        </view>
+        <!--list end  -->
+    </view>
+</view>
+
+<include src="../../include/include.wxml"></include>

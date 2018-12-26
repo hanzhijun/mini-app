@@ -1,0 +1,18 @@
+
+<view class="bindPhoneCon bg-white">
+    <view class="phoneNum">
+      <text class="fs-30 fc-gray-darkest">手机号</text>
+      <input type='number' placeholder='请输入手机号' class="phone fs-30" bindinput="bindPhoneNum"></input>
+      <button disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" class="countDown fs-24 fr">
+        {{time}}
+      </button>
+    </view>
+    <view class="checkCon">
+      <text class="fs-30 fc-gray-darkest">验证码</text>
+      <input type='number' placeholder='请输入你收到的验证码' class="phone fs-30" bindinput='code'></input>
+    </view>
+</view>
+
+<view>
+    <button class="bindTel" bindtap='bindTel'>绑定</button>
+  </view>

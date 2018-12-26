@@ -1,0 +1,36 @@
+<view class="c_listCon bg-white">
+  <!--商品  -->
+  <view class="hotList">
+    <view class="pro_img">
+      <image src="{{imgUrl}}/{{res_data.category_logo_url}}{{res_data.list_img}}"></image>
+    </view>
+    <view class="pro_info fs-24 fc-gray-darkest">
+      <text class="proText proTitle">{{res_data.package_name}}</text>
+      <view class="sliverInfo">
+        <text class="proText colorC">{{res_data.expire_time}}</text>
+        <text class="fs-24 fc-gray-darkest sliverNum">{{res_data.silver_price}}金贝</text>
+      </view>
+    </view>
+  </view>
+  <!--商品结束  -->
+
+  <!--数量  -->
+  <view class="intro bg-white">
+    <view>
+      <text class="fc-gray-darkest fs-24">数量</text>
+    </view>
+    <view class="closeTime fc-gray-darkest fs-24">1</view>
+  </view>
+  <!--数量结束  -->
+
+  <!--小计  -->
+  <view class="intro bg-white">
+    <view>
+      <text class="fc-gray-darkest fs-24">小计</text>
+    </view>
+    <view class="closeTime fs-24 colorR">{{res_data.silver_price}}金贝</view>
+  </view>
+  <!--小计结束  -->
+</view>
+
+<view class="order fs-30" bindtap='pay'>立即兑换</view>

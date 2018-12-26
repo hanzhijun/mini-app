@@ -1,0 +1,17 @@
+
+<!--公共引用-->
+<!--居中灰色块Loading-->
+<view class="loading-bar" wx:if="{{loading=='1'}}" catchtouchmove='true'>
+  <view class="gray-back"></view>
+  <view class="black-back">
+    <view class="img">
+      <image src="https://img.duishangbao.cn/upload/index/loading2.gif"></image>
+    </view>
+    <view class="txt">加载中...</view>
+  </view>
+</view>
+
+<!--提示文字-->
+<view class="show-toast" wx:if="{{toast=='1'}}">
+  <text>{{toastTxt}}</text>
+</view>

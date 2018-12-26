@@ -1,0 +1,157 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.radio-text {
+  width: 100%;
+  padding: 20rpx;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.content, .footer{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.content>view {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d6d6d6;
+  height: 75rpx;
+  padding: 0 15rpx;
+}
+
+.content view > view {
+  display: flex;
+  align-items: center;
+}
+
+.content image {
+  width: 20rpx;
+  height: 30rpx;
+  padding-left: 20rpx;
+}
+
+.content>view:last-child{
+  justify-content: flex-start;
+}
+
+ .return-money input{
+    flex: 1;
+    height: 42rpx;
+    border: 1px solid #d6d6d6;
+    margin-left: 30rpx;
+    padding-left: 10rpx;
+ }
+
+.footer > text {
+  width: 100%;
+  height: 75rpx;
+  line-height: 75rpx;
+  border-bottom: 1px solid #d6d6d6;
+  padding: 0 15rpx;
+}
+
+.return-money {
+  margin-top: 15rpx;
+  display: flex;
+  height: 75rpx;
+  padding: 0 15rpx; 
+  align-items: center;
+}
+
+.image-box {
+  width: 100%;
+  padding: 45rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.upload {
+  width: 182rpx;
+  height: 182rpx;
+  box-sizing: border-box;
+  border: 1px dashed #d6d6d6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 45rpx;
+}
+
+.upload text {
+  text-align: center;
+  width: 100%;
+}
+
+.upload .pre {
+  width: 100%;
+  height: 100%;
+}
+
+.upload image {
+  width: 70rpx;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.footer {
+  margin-bottom: 15rpx;
+}
+
+.btn-box {
+  z-index: 99999;
+}
+
+.btn-box button {
+  border-radius: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.aside{
+  position: fixed;
+  bottom: 105rpx;
+}
+
+.goods-msg {
+  display: flex;
+  padding: 35rpx;
+}
+
+.goods-msg image{
+  width: 220rpx;
+}
+
+.goods-msg view {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 35rpx;
+}
+
+.goods-msg view text {
+  width: 100%;
+}
+
+.radio_bg {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.radio_bg > view {
+  position: absolute;
+  bottom: 0;
+}

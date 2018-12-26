@@ -1,0 +1,19 @@
+<view>
+  <view class="accountCon">
+    <view class="m_account clear">
+      <text class="fl fs-30">新密码</text>
+      <view class="fl">
+        <input type='text' placeholder='请输入新密码' class="fs-30"></input>
+      </view>
+    </view>
+    <view class="m_account clear">
+      <text class="fl fs-30">确认密码</text>
+      <view class="fl">
+        <input type='text' placeholder='请确认新密码'  class="fs-30"></input>
+      </view>
+    </view>
+  </view>
+  <view>
+    <button class="sure" bindtap='sure'>确认</button>
+  </view>
+</view>

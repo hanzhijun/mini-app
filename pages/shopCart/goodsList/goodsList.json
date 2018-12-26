@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#f85c45",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "商品列表",
+  "usingComponents": {
+    "open-page": "/components/open-page/open-page"
+  }
+}

@@ -1,0 +1,38 @@
+.m_account {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+
+.m_account:last-child {
+  border: none;
+}
+
+.m_account text {
+  display: inline-block;
+  width:200rpx;
+  color: #333;
+  padding-left: 33rpx;
+  box-sizing: border-box;
+}
+
+.m_account input{
+  display: inline-block;
+  height:50rpx;
+  width:300rpx;
+  border:1px solid #ccc;
+  color:#999999;
+  padding-left: 15rpx;
+  vertical-align: middle;
+}
+
+.sureUpdate {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70%;
+  background: #f85c45;
+  color: white;
+  margin-top: 100rpx;
+}

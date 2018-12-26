@@ -1,0 +1,62 @@
+<login-box bind:loginevent='loginevent' id='loginBox'></login-box>
+
+<!-- 套餐头部 -->
+<!--banner  -->
+<view wx:if='{{type == "package"}}'>
+  <view class="banner" style="background-image:url('{{res_data.imgs_host}}{{res_data.list_save_path}}{{res_data.list_img}}')">
+    <!--<image src="{{res_data.imgs_host}}{{res_data.list_save_path}}{{res_data.list_img}}"></image>-->
+  </view>
+
+  <view class="vocherMain bg-white">
+      <view class="v_left {{ res_data.price_len > 4 ? 'w-long':''}}">
+        <view class="fs-24 fc-gray-darkest">{{res_data.package_name}}</view>
+        <view class="fs-20 fc-gray">{{res_data.package_tag}}</view>
+      </view>
+      <view class="v_right">
+        <view>
+          <text class="fs-24 fc-red price" wx:if="{{res_data.price}}">￥{{res_data.price/100}}</text>
+          <text class="fs-24 fc-gray-darkest" wx:if="{{res_data.price}}">{{res_data.price/100}}</text>
+          <image src="/images/currency/jinbei.png" class="susIcon mar" wx:if="{{res_data.price}}"></image>
+        </view>
+        <view>
+          <text class="fs-20 fc-gray buy">已售{{res_data.sale}}</text>
+        </view>
+      </view>
+  </view>
+</view>
+
+<!-- 代金券头部 -->
+<view class="vocher bg-white" wx:else>
+  <view class="vocherCon">
+    <image src="/images/taocan/vocherBg.png" class="vocherBg"></image>
+    <view class="vocherMainCon">
+      <view class="v_left {{ res_data.price > 99999 ? 'w-long':''}}">
+        <view class="fs-24 fc-gray-darkest">{{res_data.package_name}}</view>
+        <view class="fs-20 fc-gray">{{res_data.enable_time}}</view>
+      </view>
+      <view class="v_right">
+        <view>
+          <text class="fs-24 fc-red price">￥{{res_data.price/100}}</text>
+          <text class="fs-20 fc-gray-darkest">{{res_data.price/100}}</text>
+          <image src="/images/currency/jinbei.png" class="susIcon mar"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="voucherInfo fs-20">
+    <text>{{res_data.package_tag || ''}}</text>
+    <text>已售 {{res_data.sale}}</text>
+  </view>
+</view>
+
+<!-- 套餐详情 -->
+<view class="detail bg-white">
+  <view class="hotTitle fs-24 fc-gray-darkest">套餐详情</view>
+  <view class="intro">
+    <import src="../../../wxParse/wxParse.wxml"/> 
+    <view class="wxParse" decode="{{true}}" space="{{true}}">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" decode="{{true}}" space="{{true}}"/>
+    </view>
+  </view>
+  <view class="goBuy" bindtap='openPage'>立即购买</view>
+</view>

@@ -1,0 +1,62 @@
+<!--banner  -->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style='height:{{height_1875}}px;'>
+  <block wx:for="{{imgUrls}}" wx:key="">
+    <swiper-item>
+      <image src="{{imgUrl}}/{{res_data.business_master}}{{item}}" class="slide-image"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+
+<!--商铺信息  -->
+<view class="bus_info bg-white">
+  <text class="fc-gray-darkest fs-24 storeIntro">店铺介绍:{{res_data.desc_info}}</text>
+  <view class="locationCon">
+    <text class='iconfont icon-dizhi1 iconfs-40 iconColor9'></text>
+    <view class="location">
+      <text class="fc-gray-darkest fs-24">{{res_data.address}}</text>
+      <text class="fs-24">距您{{res_data.km}}km</text>
+    </view>
+    <view class="goAdre" bindtap='openlocation'>
+      <text class='iconfont icon-ditudangqianweizhi iconfs-42'></text>
+      <text class="fs-24">点击前往</text>
+    </view>
+    <view class="contactCon" data-tel='{{res_data.tel}}' bindtap='callPhone'>
+      <text class='iconfont icon-dianhua iconfs-60 iconColor9'></text>
+    </view>
+  </view>
+</view>
+
+<view class="tabbar bg-white fs-24">
+  <text class="{{show == 'list' && 'tabSctive'}}" bindtap='switchBar' data-type='list'>套餐推荐</text>
+  <text class="{{show == 'msg' && 'tabSctive'}}" bindtap='switchBar' data-type='msg'>商家信息</text>
+</view>
+
+<!--套餐推荐  -->
+<view class="c_listCon bg-white" wx:if='{{show == "list"}}'>
+  <view wx:if="{{res_data.package_list==''}}" class="noData fs-30">暂无数据....</view>
+  <!--list start  -->
+  <view class="hotList" wx:for='{{res_data.package_list}}' wx:key="">
+    <view class="pro_img">
+      <image src="{{imgUrl}}/{{item.category_package_url}}{{item.list_img}}"></image>
+    </view>
+    <view class="pro_info fs-24 fc-gray-darkest">
+      <text class="proText proTitle">{{item.package_name}}</text>
+      <text class="fc-gray-darkest">{{item.silver_price}}金贝</text>
+      <view class="colorC">
+        <text class="proText ">已售{{item.sale_num}}</text>
+        <text class="proText">剩余{{item.num}}</text>
+      </view>
+      <button bindtap='openPage' data-id='{{item.package_id}}' class="go_buy fs-24">购买</button>
+    </view>
+  </view>
+  <!--list end  -->
+</view>
+
+
+
+<!--商家信息  -->
+<view class="detailCon bg-white" wx:else>
+  <image mode="widthFix" src="{{imgUrl}}/{{res_data.business_publicity}}{{res_data.img_publicity}}"></image>
+</view>

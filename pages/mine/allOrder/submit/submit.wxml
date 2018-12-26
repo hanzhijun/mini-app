@@ -1,0 +1,53 @@
+<view class='box'>
+  <view class='header bg-white'>
+    <view>
+      <image src='../../../../images/mine/sumit.png'></image>
+    </view>
+    <view>
+      <text class='fs-36'>{{type == 'tuikuan' ? "退款" : "换货"}}单提交成功</text>
+      <text class='fs-24'>我们将在三个工作日内处理完毕</text> 
+      <text class='fs-24'>请你耐心等待</text> 
+    </view>
+  </view>
+
+  <view class='content bg-white'>
+    <view class='list-box'>
+      <view>
+      <view class="iconfont icon-wodeshoucang colorR"></view>
+        <!-- <image src='../../../../images/mine/star.png'></image> -->
+      </view>
+
+      <view>
+        <text class='fs-30'>质量问题商品退货</text>
+        <text class='fs-24 fc-gray'>质量问题商品自发货之日起60天内支持退货，并由 ##承担来回运费及商品损耗成本。</text>
+      </view>
+    </view>
+
+    <view class='list-box'>
+      <view>
+      <view class="iconfont icon-wodeshoucang colorR"></view>
+         <!-- <image src='../../../../images/mine/star.png'></image>  -->
+      </view>
+
+      <view>
+        <text class='fs-30'>质量问题商品退货</text>
+        <text class='fs-24 fc-gray'>质量问题商品自发货之日起60天内支持退货，并由 ##承担来回运费及商品损耗成本。</text>
+      </view>
+    </view>
+  </view>
+  
+
+  <view class='footer'>
+    <view>
+      <open-page url='mine/allOrder/allOrder?ordertype=aftersale'>
+        <button class='fs-30 btn'>我的订单</button>
+      </open-page>
+    </view>
+
+    <view>  
+      <open-page url='mine/allOrder/finishDetail/finishDetail?order_id={{order_id}}&info_id={{info_id}}&ordertype=aftersale'>
+        <button class='fs-30 detail-btn'>查看详情</button>
+      </open-page>
+    </view>
+  </view>
+</view>

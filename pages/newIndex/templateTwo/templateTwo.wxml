@@ -1,0 +1,32 @@
+<!-- nav -->
+<view class="nav bg-white fs-24 {{list[0].length>1?'this-show':''}}">
+    <text wx:for="{{list[0]}}" wx:key="" class="{{item.operation_area_category_id == operation_area_category_id ? 'active' : ''}}" data-id="{{item.operation_area_category_id}}" data-sort="{{item.sort}}" bindtap="changeNav">{{item.name}}</text>
+</view>
+
+<!-- 内容区域 -->
+<view class="content {{list[0].length>3?'this-show':''}}">
+    <view class="c_listCon">
+        <!--list start  -->
+        <view wx:for="{{goodsList}}" wx:key="" class="hotList" data-jump_data="{{item.goods_id}}" data-jump_type="3" bindtap="openPageTo">
+            <view class="pro_img {{index < (autoCount + 1) ? 'this-show': ''}}">
+                <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+            </view>
+            <view class="choiceStore">
+                <view class="fs-28 fc-gray-darkest storeName fs-bold">
+                    <text>{{item.goods_name}}</text>
+                </view>
+                <view class="fs-24 pre_Price">
+                    <text space="ensp">售　价:</text>
+                    <text class="price"> ￥{{item.min_price}}</text>
+                </view>
+                <view class="fs-24 use_price">用贝价:
+                    <text class="price">￥{{item.min_price > surplus_goldshells ? item.min_price - surplus_goldshells : 0}}</text>
+                    送
+                    <text class="price">{{item.base_return}}</text>
+                    <image src="/images/currency/jinbei.png" class="golden"></image>
+                </view>
+            </view>
+        </view>
+        <!--list end  -->
+    </view>
+</view>

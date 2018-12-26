@@ -1,0 +1,65 @@
+<view class="yao {{pageShow == 1 ? 'this-show':''}}">
+
+  <view class="title">PK记录</view>
+
+  <view wx:if="{{minute!==-1}}">
+    <!-- 摇骰子pk记录 -->
+    <button class="invited" bindtap="goToYao" wx:if="{{sponsor_record.status == 0}}">别灰心!再摇一次</button>
+    <!-- 摇骰进行中状态 -->
+    <view class="time" wx:if="{{minute!==''}}">本轮剩余时间：{{minute}}:{{second}}</view>
+    <button class="invited" wx:if="{{minute!==''}}" open-type="share">立即邀请好友参与PK</button>
+
+    <!-- 摇骰结束 已领取状态 -->
+    <view class="end" wx:if="{{minute===''}}">本轮已结束</view>
+    <view class="discount {{sponsor_record.status == 3 ? 'yiling' : ''}}" wx:if="{{benefit_name && minute===''}}" bindtap="getdicereward">
+      <view class="discount-count">
+       <text wx:if="{{benefit_type == 1}}">{{benefit_value/10}}</text>
+       <text wx:else>{{benefit_value}}</text>
+       <text wx:if="{{benefit_type == 1}}">折</text>
+       <text wx:else>元</text>
+      </view>
+      <view class="date">有效期截止:2018.11.05</view>
+    </view>
+
+    <view class="tips" wx:if="{{minute!==''}}">温馨提示：PK时间结束后即可领取奖励</view>
+    <view class="tips" wx:else>温馨提示：领取此商品优惠后就不能再次参与此商品的摇骰活动</view>
+    <button class="invited" bindtap="goToYao" wx:if="{{minute==='' && sponsor_record.status == 2}}">再摇一次赢更多</button>
+    <button class="invited" bindtap="goToUse" wx:if="{{sponsor_record.status == 3}}">立即使用</button>
+  </view>
+  <view class="divide">
+    <text></text>
+    <text>我的PK记录</text>
+    <text></text>
+  </view>
+
+  <view class="join" wx:if="{{total>0}}">共与{{total}}人参与PK</view>
+
+  <!-- pk记录列表 -->
+  <view class="record-outside">
+    <view class="record" wx:for="{{pkList}}" wx:if="{{total>0}}" wx:key="">
+      <view class="pk-icon">
+        <image src="{{game_host}}/sheng.png" wx:if="{{item.result == 1}}"></image>
+        <image src="{{game_host}}/pk.png" wx:elif="{{item.result == 2}}"></image>
+        <image src="{{game_host}}/bai.png" wx:else></image>
+      </view>
+
+      <view class="user-img">
+        <image src="{{item.avatarUrl}}"></image>
+      </view>
+
+      <view class="user-info">
+        <text>{{item.nickname}}</text>
+        <text>{{item.create_at}}</text>
+      </view>
+
+      <view class="pk-img">
+        <text class="shai-left shai-{{item.first_num}}"></text>
+        <text class="shai-right shai-{{item.second_num}}"></text>
+      </view>
+
+    </view>
+  </view>
+
+</view>
+
+<include src="../../../include/include.wxml"></include>

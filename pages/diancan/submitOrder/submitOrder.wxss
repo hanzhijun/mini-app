@@ -1,0 +1,104 @@
+.listContainer {
+  margin: 26rpx 12rpx 150rpx 19rpx;
+}
+.bg-gray9{
+  background: #999;
+}
+
+.orderList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.proImg {
+  height: 175rpx;
+  width: 175rpx;
+}
+
+.proInfo {
+  width: 60%;
+  margin-left: 30rpx;
+}
+
+.proInfo text {
+  display: block;
+  margin-bottom: 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.note {
+  border: 1px solid #38454e;
+  width: 95%;
+  margin: 19rpx 0 30rpx 0;
+  height: 60rpx;
+  padding-left: 15rpx;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  height: 100rpx;
+  width: 100%;
+  color: #fffefe;
+  text-align: center;
+  line-height: 100rpx;
+}
+
+.footer text {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.submitOrder {
+  background: #38454e;
+}
+
+.pop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+.popMenu {
+  position: fixed;
+  bottom: 0;
+  height: 333rpx;
+  width: 100%;
+  background: #fff;
+}
+
+.bor-bottom {
+  border-bottom: 1px solid #38454e;
+}
+
+.popMenu .way {
+  height: 73rpx;
+  line-height: 73rpx;
+  padding-left: 23rpx;
+}
+
+.popMenu .way radio {
+  float: right;
+  transform: scale(0.7);
+}
+
+.paySure {
+  margin: 40rpx auto;
+  height: 70rpx;
+  width: 70%;
+  border: 1px solid #38454e;
+  color: #333232;
+  text-align: center;
+  line-height: 70rpx;
+}

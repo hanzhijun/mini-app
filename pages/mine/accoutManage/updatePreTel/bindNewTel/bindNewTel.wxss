@@ -1,0 +1,130 @@
+page {
+  background: #f2f2f2;
+}
+
+.clear {
+  clear: both;
+  overflow: hidden;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.tel_con {
+  height: 80rpx;
+  width: 100%;
+  background: #fff;
+  padding: 20rpx 0 20rpx 0;
+  line-height: 80rpx;
+}
+
+.tel_con text {
+  width: 49%;
+}
+
+.tel_con text:first-child {
+  border-right: 1px solid #ccc;
+}
+
+.tel_con text:first-child {
+  color: #ccc;
+}
+
+.tel_con text:last-child {
+  color: #333;
+}
+
+.tel_con view {
+  width: 20%;
+}
+
+.tel_con text, .tel_con view {
+  display: inline-block;
+  text-align: center;
+}
+
+.tel_con view image {
+  width: 49rpx;
+  height: 76rpx;
+  vertical-align: middle;
+}
+
+.check {
+  height: 300rpx;
+  width: 100%;
+  background: #fff;
+  margin-top: 22rpx;
+}
+
+.checkNumCon {
+  display: flex;
+  justify-content: space-between;
+  height: 170rpx;
+  line-height: 170rpx;
+  border-bottom: 1px solid #474545;
+  margin: 0 25rpx 0 25rpx;
+  align-items: center;
+}
+
+.telNum {
+  display: inline-block;
+  /* vertical-align: middle; */
+  margin-left: 15rpx;
+  color: #333;
+  /* width: 53%; */
+}
+
+.countDown {
+  display: inline-block;
+  height: 67rpx;
+  /* width: 180rpx; */
+  border: 1px solid #474545;
+  color: #333;
+  background: #fff;
+  vertical-align: middle;
+  /* margin-left: 30rpx; */
+}
+
+button[disabled] {
+  border: none;
+}
+
+.countDown::after {
+  border: 0;
+}
+
+.checkNumber {
+  display: inline-block;
+  height: 80rpx;
+  width: 400rpx;
+  /* border: 1px solid #ccc; */
+  color: #999;
+  padding-left: 8rpx;
+  margin: 25rpx 0 0 40rpx;
+}
+
+.bindTel {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70%;
+  background: #f85c45;
+  color: white;
+  margin-top: 100rpx;
+}
+
+.checkNumCon text {
+  color: #333;
+}
+
+.c_tip {
+  display: inline-block;
+  color: #333;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  padding-top: 50rpx;
+}

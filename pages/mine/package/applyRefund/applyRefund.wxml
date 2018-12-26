@@ -1,0 +1,68 @@
+<scroll-view id='scroll' scroll-y='true' scroll-into-view='{{toView}}' scroll-with-animation='true' style="height: 95vh;padding-bottom:90rpx;">
+
+  <view class="tips fs-24">
+    退款成功后，购买使用的金贝将退回原账户</view>
+
+  <view class="c_listCon">
+    <!--商品  -->
+    <view class="hotList">
+      <view class="pro_img">
+        <image wx:if='{{res_data.package_type == 1}}' src="{{imgUrl}}/{{res_data.list_package_url}}{{res_data.list_img}}"></image>
+        <image wx:elif='{{res_data.package_type == 2}}' src="{{imgUrl}}/{{res_data.business_logo_url}}{{res_data.logo}}"></image>
+      </view>
+      <view class="choiceStore">
+        <view class="fs-24 fc-gray-darkest storeName">
+          <text>{{res_data.package_name}}</text>
+        </view>
+        <view class="storeAdress mar">
+          <text class="fs-24 fc-gray9">截止时间：{{res_data.expire_at_format}}</text>
+        </view>
+        <view class="storeAdress">
+          <text class="fs-24 fc-gray9">数量：{{res_data.num}}</text>
+        </view>
+        <view class="proFooter">
+          <text class="fs-24 fc-gray9 g_price">总价：￥{{res_data.total_cost/100}}</text>
+        </view>
+
+      </view>
+    </view>
+    <!--商品 end  -->
+  </view>
+
+
+  <!-- 退还内容 -->
+  <view class="bg-white refundMoney fs-24 fc-gray-darkest">
+    <view class="hotTitle">退还内容</view>
+    <view class="content">
+      <text>现金：</text>
+      <text>￥{{res_data.cash/100}}</text>
+    </view>
+    <view class="content">
+      <text>金贝：</text>
+      <text>{{res_data.gold}}</text>
+    </view>
+  </view>
+
+  <!-- 退还方式 -->
+  <view class="bg-white refundMoney fs-24 fc-gray-darkest">
+    <view class="hotTitle">退还方式</view>
+    <view class="content">
+      <text>原路返回 </text>
+      <text class="themeColor">(1-7个工作日内退款到原支付方)</text>
+    </view>
+  </view>
+
+  <!-- 退款原因 -->
+  <view class="bg-white refundMoney fs-24 fc-gray-darkest mar_bottom">
+    <view class="hotTitle">退款原因(至少选一项)</view>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{items}}" wx:key="">
+        <text>{{item.value}}</text>
+        <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+      </label>
+    </checkbox-group>
+  </view>
+
+</scroll-view>
+<!-- footer -->
+<view class="footer fs-30" bindtap='submit'>申请退款</view>

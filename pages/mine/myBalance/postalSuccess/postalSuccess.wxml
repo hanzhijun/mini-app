@@ -1,0 +1,11 @@
+
+<view class="postal_suc">
+  <image src="/images/mine/sumit.png"></image>
+  <view class="statuSuc">
+    <text class="fs-30 fc-gray-darkest">恭喜，提现成功</text>
+    <text class="fs-24 fc-gray-darkest">余额： ￥23.00</text>
+  </view>
+</view>
+
+<button class="postal fs-30 fc-gray-darkest bg-white">确定</button>
+<view class="fs-24 sucTip"><text>注：您的金额已成功提现到该账户绑定的微信账号内，请注意查看。</text></view>

@@ -1,0 +1,120 @@
+.box{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header, .content {
+  margin-top: 15rpx;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  height: 300rpx;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.header view {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  justify-content: flex-end;
+}
+
+.header view:first-child {
+  padding-right: 50rpx;
+}
+
+.header view:last-child {
+  flex: 70%;
+  justify-content: flex-start;
+}
+
+.header image {
+  width: 89rpx;
+  height: 89rpx;
+}
+
+.header view text {
+  width: 100%;
+}  
+
+.header view text:nth-child(2) {
+  margin-top: 25rpx;
+} 
+
+.content {
+  height: 360rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-box {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-right: 50rpx;
+}
+
+.list-box view {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.list-box view:first-child {
+  width: 20%;
+  justify-content: flex-end;
+}
+
+.list-box view:last-child {
+  width: 80%;
+  padding-left: 40rpx;
+}
+
+.list-box view text{
+  width: 100%;
+}
+
+.list-box image {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.footer {
+  display: flex;
+  margin-top: 110rpx;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer view {
+  display: flex;
+}
+
+.footer view:first-child {
+  justify-content: flex-end;
+  margin-right: 40rpx;
+}
+
+.footer view:last-child {
+  justify-content: flex-start;
+}
+
+.footer input {
+  width: 200rpx;
+  height: 70rpx;
+}
+
+.detail-btn {
+  background-color: #f75d45;
+  color: #fff;
+}
+
+.colorR{
+  color:#f75d45;
+}

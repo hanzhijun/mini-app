@@ -1,0 +1,73 @@
+<!-- 通过current来更新数据 -->
+  <view class="content-box bg-white">
+    <!-- <slot name="before"></slot>   -->
+    
+    <!-- header -->
+    <view class="header">
+      <view class='checkbox'>
+        <checkbox-group wx:if='{{checkBox}}' bindchange='checkAll' 
+        data-id='{{store.id}}'>
+           <checkbox bindtap='getIds' 
+           class='wx-checkbox-input' 
+           value='{{store.id}}' 
+           checked='{{store.checked}}'></checkbox> 
+        </checkbox-group>
+        
+        <text class="fs-30">{{item.business_name}}</text>
+      </view>
+      <!-- 状态 待付款||待收货 。。。  -->
+      <text class='fc-red-light fs-24'>待付款</text>
+    </view>
+
+    <!-- content -->
+    <checkbox-group bindchange='checked' style='width:100%'>
+      <view class='content' 
+      wx:key='cid'
+      wx:for='{{item.goods_info}}'
+      wx:for-item="goods">
+        <view>
+          <view class='checkbox' wx:if='{{checkBox}}'>
+            <checkbox bindtap='getIds'
+             class='wx-checkbox-input' 
+             checked='{{item.checked}}' 
+             value='{{item.id}}'></checkbox>
+          </view>
+
+          <image class='image' src='../../images/test1.png'></image>
+          <view class="fs-24 desc">
+            <text>{{goods.g_name}}</text>
+            <text>{{goods.g_format}}</text>
+           
+            <view>
+              <text wx:if='{{goods.goods_type==-1}}'>{{goods.price}}元</text>
+              <text wx:else>{{goods.silver_price}}银贝</text>
+              <text>x {{goods.nums}}</text> 
+            </view>
+            
+          </view> 
+        </view>  
+   
+      </view>
+
+
+      <view class='msg fs-24'>
+        <text>我的留言：</text>
+        <input bindchange='getMsg' value='{{id_info[goods.cid]}}' placeholder='留言'></input>
+      </view>   
+    </checkbox-group>
+
+    <!-- footer -->
+    <view class="footer">    
+      <view class='result fs-24'>
+        <text>共{{item.goods_info.length}}件商品  合计：{{total.silver_price}} 银贝（含运费￥{{freight}})</text>
+      </view>
+    </view>
+    
+    <view class='good-footer'>
+      <view class='btn-box-footer'>
+        <button bindtap='getBtn' data-store_id='{{store.id}}' data-key='{{item}}' class='order-btn {{item == 2 && "other"}}'  wx:for="{{texts[store.status].button}}" wx:key="">
+        {{btns[item]}}
+        </button>
+      </view>
+    </view>
+  </view>

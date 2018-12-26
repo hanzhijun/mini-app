@@ -1,0 +1,79 @@
+<view class="gua">
+
+    <view class="gua-banner">
+        <image src="{{game_host}}/wodegua.png"></image>
+    </view>
+
+    <view class="goods-list">
+
+        <view class="null-list" wx:if="{{res_data == '' && loading == 0}}">没有任何刮奖记录</view>
+        <view class="goods-item" wx:for="{{res_data}}">
+
+
+            <view wx:if="{{item.reward_type == 0}}">
+                <view class="item-out">
+                    <view class="goods-img">
+                        <image src="{{game_host}}/icon_yihan.jpg?v=1025"></image>
+                    </view>
+                    <view class="goods-main">
+                        <text class="goods-name fs-24 fc-gray-darkest">这次您未刮中奖 再接再厉</text>
+                        <text class="goods-time fs-24 fc-gray-darkest">参与时间：{{item.create_at_format}}</text>
+                        <view class="goods-state fs-24 fc-gray-darkest">
+                            <text>中奖状态：</text>
+                            <text class="redcolor">未中奖</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view wx:else>
+                <view class="item-out"  wx:if="{{item.status==1}}" data-record_id="{{item.record_id}}" data-index="{{index}}" data-type="{{item.scratchcards_goods_type}}" bindtap="receive">
+                    <view class="goods-img">
+                        <image src="{{item.scratchcards_img_path}}{{item.scratchcards_img}}"></image>
+                    </view>
+                    <view class="goods-main">
+                        <text class="goods-name fs-24 fc-gray-darkest">{{item.scratchcards_goods_name}}</text>
+                        <text class="goods-time fs-24 fc-gray-darkest">参与时间：{{item.create_at_format}}</text>
+                        <view class="goods-state fs-24 fc-gray-darkest" wx:if="{{item.reward_type != 2}}">
+                            <text>中奖状态：</text>
+                            <text class="redcolor">未领取</text>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="item-out" wx:if="{{item.status==2}}" data-goods_id="{{item.goods_id}}" data-spec_id="{{item.spec_id}}" data-type="{{item.scratchcards_goods_type}}" bindtap="gotoUse">
+                    <view class="goods-img">
+                        <image src="{{item.scratchcards_img_path}}{{item.scratchcards_img}}"></image>
+                    </view>
+                    <view class="goods-main">
+                        <text class="goods-name fs-24 fc-gray-darkest">{{item.scratchcards_goods_name}}</text>
+                        <text class="goods-time fs-24 fc-gray-darkest">参与时间：{{item.create_at_format}}</text>
+                        <view class="goods-state fs-24 fc-gray-darkest" wx:if="{{item.reward_type != 2}}">
+                            <text>中奖状态：</text>
+                            <text class="redcolor">未使用</text>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="item-out" wx:if="{{item.status==3}}">
+                    <view class="goods-img">
+                        <image src="{{item.scratchcards_img_path}}{{item.scratchcards_img}}"></image>
+                    </view>
+                    <view class="goods-main">
+                        <text class="goods-name fs-24 fc-gray-darkest">{{item.scratchcards_goods_name}}</text>
+                        <text class="goods-time fs-24 fc-gray-darkest">参与时间：{{item.create_at_format}}</text>
+                        <view class="goods-state fs-24 fc-gray-darkest" wx:if="{{item.reward_type != 2}}">
+                            <text>中奖状态：</text>
+                            <text class="redcolor">已使用</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+
+</view>
+
+<include src="../../../include/include.wxml"></include>

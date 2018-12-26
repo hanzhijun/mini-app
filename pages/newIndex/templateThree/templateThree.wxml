@@ -1,0 +1,41 @@
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+    <block wx:for="{{list[0]}}" wx:key="">
+        <swiper-item>
+            <image src="{{item.img_path}}{{item.img}}" class="slide-image" width="355" height="150"
+                   alt="{{item.title}}" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}"
+                   bindtap="openPageTo"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 好物推荐 -->
+<view class="recommend bg-white">
+    <view class="goodsLead fs-24 fc-gray-darkest">
+        <text>HOT</text>
+        <text>热卖推荐</text>
+    </view>
+    <view class="goods {{index<3?'thisover':''}}" wx:for="{{list[1]}}" wx:key="" data-jump_data="{{ item.jump_data }}" data-jump_type="{{ item.jump_type }}" bindtap="openPageTo" >
+        <image src="{{item.img_path}}{{item.img}}"></image>
+        <text class="fs-22 fc-gray-darkest">{{item.title}}</text>
+    </view>
+</view>
+
+<view class='content'>
+    <view class="c_listCon">
+        <!--list start  -->
+        <view class="hotList" wx:for="{{list[2].data}}" wx:key="" data-jump_data="{{item.jump_data}}" data-jump_type="{{item.jump_type}}" bindtap="openPageTo">
+            <view class="pro_img">
+                <image src="{{item.img_path}}{{item.img}}"></image>
+            </view>
+            <view class="choiceStore">
+                <view class="fs-30 fc-gray-darkest storeName">
+                    <text>{{item.title}}</text>
+                </view>
+                <view class="author">
+                    <view class="label fs-24 " wx:if="{{item.pgc_remark}}">#{{item.pgc_remark}}</view>
+                </view>
+            </view>
+        </view>
+        <!--list end  -->
+    </view>
+</view>

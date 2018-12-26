@@ -1,0 +1,235 @@
+<view class="personal">  
+
+  <button class="photoCon" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> </button>
+  <button class="photoCon test">
+    <view class="photo">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <open-data type="userNickName" class="nickname">00</open-data>
+  </button>
+
+  <view class="asset">
+
+    <open-page url="mine/goldShellfish/goldShellfish" hover-class="none">
+      <view>
+        <image src="/images/mine/goldenIcon.png" class="goldenIcon"></image>
+        <text>{{userInfo.surplus_goldshells}}</text>
+      </view>
+    </open-page>
+    <open-page url="mine/silverShellfish/silverShellfish" hover-class="none">
+      <view>
+        <image src="/images/mine/sliverIcon.png" class="sliverIcon"></image>
+        <text>{{sliverInfo}}</text>
+      </view>
+    </open-page>
+    <open-page url="mine/copperShellfish/copperShellfish" hover-class="none">
+      <view>
+        <image src="/images/mine/tongbeiIcon.png" class="tongbeiIcon"></image>
+        <text>{{userInfo.surplus_copper}}</text>
+      </view>
+    </open-page>
+  </view>
+</view>
+
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<!--order  -->
+<view class="orderCon">
+  <view class="orderMain">
+    <!--allorder  -->
+    <view class="allOrder clear">
+      <view class="fl">
+        <text class='iconfont icon-dingdan1 iconfs-40 iconColor8'></text>
+        <text class="fs-30">我的订单</text>
+      </view>
+      <open-page url="mine/allOrder/allOrder?ordertype=all" hover-class="none">
+        <view class="fr">
+          <text class="watchAll fs-24">查看全部订单</text>
+          <image src="/images/mine/arrow.png" class="arrow"></image>
+        </view>
+      </open-page>
+    </view>
+    <!--orderState  -->
+    <view class="orderStateCon">
+      <open-page url="mine/allOrder/allOrder?ordertype=dpay">
+        <view class="orderState parOff">
+          <text class='iconfont icon-daifukuan iconfs-38'></text>
+          <text class="fs-24">待付款</text>
+          <view class="circle" wx:if="{{dpay}}">{{dpay}}</view>
+        </view>
+      </open-page>
+
+      <open-page url="mine/allOrder/allOrder?ordertype=dtake">
+        <view class="orderState sendOff">
+          <text class='iconfont icon-icon-test iconfs-50'></text>
+          <text class="fs-24">待发货</text>
+          <view class="circle" wx:if="{{dtake}}">{{dtake}}</view>
+        </view>
+      </open-page>
+
+      <open-page url="mine/allOrder/allOrder?ordertype=dcollect">
+        <view class="orderState resevieOff">
+          <text class='iconfont icon-dengdaishouhuo iconfs-52'></text>
+          <text class="fs-24">待收货</text>
+          <view class="circle" wx:if="{{dcollect}}">{{dcollect}}</view>
+        </view>
+      </open-page>
+
+      <open-page url='mine/allOrder/allOrder?ordertype=finish'>
+        <view class="orderState finish">
+          <text class='iconfont icon-dingdanyiwancheng iconfs-40'></text>
+          <text class="fs-24">已完成</text>
+          <!-- <view class="circle" wx:if="{{finish}}">{{finish}}</view> -->
+        </view>
+      </open-page>
+
+      <open-page url='mine/allOrder/allOrder?ordertype=aftersale'>
+        <view class="orderState cancel">
+          <text class='iconfont icon-shouhouguanli iconfs-44'></text>
+          <text class="fs-24">售后</text>
+          <view class="circle" wx:if="{{aftersale}}">{{aftersale}}</view>
+        </view>
+      </open-page>
+
+    </view>
+  </view>
+</view>
+
+<!-- other -->
+<view class="m_otherCon">
+  <view class="otherMain">
+    <open-page url="mine/package/package" hover-class="none">
+      <view class="fs-30 label">
+        <view class="location disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-fl-dingdan iconfs-44 iconColor9'></text>
+          </view>
+          <text>我的套餐</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+
+    <open-page url="mine/offlineOrder/offlineOrder" hover-class="none">
+      <view class="fs-30 label">
+        <view class="location disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-dingdan2 iconfs-44 iconColor10'></text>
+          </view>
+          <text>线下订单</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+    <open-page url="mine/share/share" hover-class="none">
+      <view class="fs-30 label">
+        <view class="location disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-fenxiang1 iconfs-42 iconColor4'></text>
+          </view>
+          <text>我的分享</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+
+    <open-page url="mine/recommend/recommend" hover-class="none">
+      <view class="fs-30 label marBot">
+        <view class="location disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-tuijiansel iconfs-42 iconColor5'></text>
+          </view>
+          <text>我的推荐</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+  </view>
+</view>
+
+<view class="m_otherCon">
+  <view class="otherMain">
+    <open-page url="mine/collect/collect" hover-class="none">
+      <view class="fs-30 label">
+        <view class="collect disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-wodeshoucang iconfs-42 iconColor1'></text>
+          </view>
+          <text>我的收藏</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+
+    <open-page url="mine/accoutManage/accoutManage" hover-class="none">
+      <view class="fs-30 label">
+        <view class="user disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-zhanghaoguanli iconfs-42 iconColor2'></text>
+          </view>
+          <text>账号管理</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+
+    <open-page url="mine/adress/adress" hover-class="none">
+      <view class="fs-30 label">
+        <view class="location disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-dizhi iconfs-44 iconColor3'></text>
+          </view>
+          <text>地址管理</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+
+    <open-page>
+      <view class="label fs-30">
+        <button open-type="contact" session-from="weapp" class="contact fs-30">
+          <view class="contact disInline fs-30">
+            <view class="img_pos">
+              <text class='iconfont icon-custom-service iconfs-42 iconColor6'></text>
+            </view>
+            <text>联系客服</text>
+          </view>
+          <view class="fr">
+            <image src="/images/mine/arrow.png" class="arrow link"></image>
+          </view>
+        </button>
+      </view>
+    </open-page>
+
+    <open-page url="mine/aboutus/aboutus" hover-class="none">
+      <view class="fs-30 label bd-none">
+        <view class="aboutus disInline">
+          <view class="img_pos">
+            <text class='iconfont icon-guanyuwomenicon iconfs-42 iconColor7'></text>
+          </view>
+          <text>关于我们</text>
+        </view>
+        <view class="fr">
+          <image src="/images/mine/arrow.png" class="arrow link"></image>
+        </view>
+      </view>
+    </open-page>
+
+  </view>
+</view>
+
+<!-- </view> -->

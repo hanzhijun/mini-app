@@ -1,0 +1,50 @@
+
+.address_picker{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(0,0,0,.5)
+}
+
+.address_picker > view {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 280px;
+  background-color: #fff
+}
+
+.picker-view {
+  width: 100%;
+  height: 235px;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 45px;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+}
+
+.addr-item {
+  line-height: 35px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 350;
+}
+
+.show {
+  text-align: center;
+  margin: 20px;
+  height: 35px;
+}
+
+.choose {
+  margin: 20px 0;
+}

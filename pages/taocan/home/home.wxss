@@ -1,0 +1,291 @@
+/*banner  */
+
+button::after {
+  border: none;
+}
+
+.banner {
+  height: 400rpx;
+  width: 100%;
+}
+
+.banner swiper {
+  height: 400rpx;
+}
+
+.banner image {
+  height: 400rpx;
+  width: 100vw;
+}
+
+.bus_info {
+  padding: 10rpx 0 15rpx 0;
+}
+
+.locationCon {
+  display: block;
+  margin: 15rpx 12rpx 0 12rpx;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.storeIntro {
+  width: 96%;
+  display: block;
+  margin: 15rpx auto;
+  white-space: normal;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* margin: 16rpx 14rpx 0 14rpx; */
+}
+
+.location {
+  width: 72vw;
+  border-right: 1px solid #b5b5b5;
+  float: left;
+}
+
+.location text {
+  display: block;
+  margin: 10rpx 0 0 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.location text:last-child, .goAdre text {
+  color: #999;
+}
+
+.l_icon {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.goAdress {
+  height: 36rpx;
+  width: 36rpx;
+}
+
+.goAdre {
+  width: 160rpx;
+  text-align: center;
+  border-right: 1px solid #dedede;
+}
+
+.goAdre text {
+  display: block;
+}
+
+.contact {
+  height: 64rpx;
+  width: 63rpx;
+}
+
+.contactCon {
+  text-align: center;
+  padding: 10rpx 0 0 44rpx;
+  box-sizing: border-box;
+  float: left;
+}
+
+.iconColor9 {
+  color: #999;
+}
+
+/* 热销套餐 */
+
+.hot {
+  margin-top: 10rpx;
+  clear: both;
+}
+
+.vocher, .busInfo {
+  margin-top: 10rpx;
+}
+
+.hotTitle {
+  height: 65rpx;
+  width: calc((100vw - 40rpx));
+  line-height: 65rpx;
+  margin-left: 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+/*滑动区域  */
+
+.wrapper {
+  white-space: nowrap;
+  width: calc(100vw - 20rpx);
+  margin-left: 10rpx;
+}
+
+.operation {
+  display: inline-flex;
+  flex-direction: column;
+  width: 212rpx;
+  background: white;
+  margin-top: 12rpx;
+  margin-right: 50rpx;
+  padding-bottom: 12rpx;
+}
+
+.operation:first-child {
+  margin-left: 10rpx;
+}
+
+.operation:last-child {
+  margin-right: 10rpx;
+}
+
+.imgCon {
+  width: 210rpx;
+  height: 210rpx;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.operation .imgCon image {
+  width: 100%;
+  height: 100%;
+}
+
+.operationIntro {
+  width: 100%;
+}
+
+.operationIntro text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.susIcon {
+  width: 35rpx;
+  height: 26rpx;
+}
+
+.taocanTitle {
+  display: block;
+  margin: 12rpx 8rpx 16rpx 8rpx;
+}
+
+.taocanPrice text {
+  display: inline-block;
+}
+
+.taocanPrice text:first-child {
+  margin: 0 20rpx 0 6rpx;
+}
+
+.hasSale {
+  margin: 8rpx 20rpx 0 6rpx;
+}
+
+/* 代金券 */
+
+.vocher {
+  padding-bottom: 20rpx;
+}
+
+.vocherCon {
+  position: relative;
+  width: calc(100vw - 36rpx);
+  margin: auto;
+  margin-top: 15rpx;
+}
+
+.vocherCon .vocherBg {
+  width: calc(100vw - 36rpx);
+  height: calc(33vw - 12rpx);
+}
+
+.vocherMain {
+  position: absolute;
+  top: 0;
+  width: calc(100vw - 110rpx);
+  height: calc(33vw - 32rpx);
+  padding: 20rpx 0 0 74rpx;
+}
+
+.price{
+  margin-right:15rpx;
+}
+
+.vocherMain .v_left {
+  width: 65%;
+  float: left;
+}
+
+.vocherMain .v_left view {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.vocherMain .v_right {
+  width: 33%;
+  float: right;
+}
+
+.mar {
+  display: inline-block;
+  margin-left: 5rpx;
+  vertical-align: middle;
+}
+
+.buy {
+  display: inline-block;
+  height: 40rpx;
+  width: 120rpx;
+  background-color: #f85c45;
+  text-align: center;
+  line-height: 40rpx;
+  color: white;
+  margin-left: 10rpx;
+}
+
+.txtCenter {
+  text-align: center;
+  color: #f85c45;
+  margin-top: 20rpx;
+}
+
+.busInfo {
+  padding-bottom: 20rpx;
+}
+
+.busInfo .info text {
+  display: block;
+  margin: 17rpx 0 17rpx 12rpx;
+}
+
+.icon-dizhi1 {
+  display: inline-block;
+  float: left;
+  margin-top: 40rpx;
+}
+
+.info {
+  padding: 10rpx 12rpx;
+}
+
+.code-name {
+  padding: 36rpx 0 0 0;
+  margin-bottom: 40rpx;
+}
+
+.gold-top {
+  padding: 22rpx 0 0 0;
+}

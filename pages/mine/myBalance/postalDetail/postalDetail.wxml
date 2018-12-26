@@ -1,0 +1,11 @@
+<view class="fs-24 postalTip">
+  <text>为了您的账户安全，提现操作需要向您绑定的手机号码发送验证码</text>
+</view>
+<view class="telCheck">
+  <text class="fs-30 fc-gray-darkest">手机号:12587414745</text>
+  <button disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" class="countDown fs-24 fc-gray-darkest bg-white">
+    {{time}}
+  </button>
+</view>
+<view><input type="number" placeholder='请输入手机验证码' class="postalInp bg-white fs-30"></input></view>
+<navigator url="../postalSuccess/postalSuccess" hover-class='none'><button class="postal fs-30 fc-gray-darkest bg-white">提现</button></navigator>

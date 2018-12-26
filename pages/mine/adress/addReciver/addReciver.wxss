@@ -1,0 +1,150 @@
+@import '/template/index.wxss';
+
+.addContainer {
+  height: auto;
+  width: 100%;
+  background-color: #fff;
+}
+
+.resevierInfo {
+  margin: 0 10rpx 0 10rpx;
+}
+
+.datum {
+  position: relative;
+  height: 78rpx;
+  line-height: 78rpx;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.datum text, .d_adress text {
+  color: #666;
+  width: 157rpx;
+  display: inline-block;
+  padding-left: 13rpx;
+  box-sizing: border-box;
+  float: left;
+}
+
+.datum input {
+  display: inline-block;
+  height: 50rpx;
+  vertical-align: middle;
+  color: #999;
+}
+
+picker {
+  display: inline-block;
+  color: #999;
+}
+
+.picker {
+  display: inline-block;
+  height: 78rpx;
+  line-height: 78rpx;
+  /* color: #ccc; */
+}
+
+.choose {
+  display: inline-block;
+  height: 78rpx;
+}
+
+.choose image {
+  position: absolute;
+  top: 30%;
+  height: 34rpx;
+  width: 18rpx;
+  padding-left: 50rpx;
+}
+
+.d_adress {
+  height: 150rpx;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.d_adress text {
+  padding-top: 16rpx;
+}
+
+.phcolor {
+  color: #999;
+}
+
+.detailAdress {
+  width: calc(100% - 13rpx);
+  padding-left: 13rpx;
+  display: inline-block;
+  padding-top: 7rpx;
+  height: 90rpx !important;
+  color: #999;
+}
+
+.datum label {
+  display: inline-block;
+  height: 47rpx;
+  width: 100rpx;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 45rpx;
+  text-align: center;
+  margin-right: 22rpx;
+}
+
+.crruent {
+  border: 1px solid #666;
+}
+
+.active {
+  border: 1px solid #f85c45;
+}
+
+.defalut {
+  margin: 26rpx 0 0 24rpx;
+}
+
+.d_tip {
+  color: #666;
+  vertical-align: middle;
+}
+
+.save {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70%;
+  background: #f85c45;
+  color: white;
+  margin-top: 100rpx;
+}
+
+.address_picker {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+
+.chooseRegion {
+  color: #999;
+  padding-left: 0 !important;
+}
+
+.detailAdr {
+  display: inline-block !important;
+  width: 60% !important;
+  padding-left: 0 !important;
+}
+
+checkbox-group{
+  margin-top: 20rpx;
+}
+.checkbox{
+  display: inline-block;
+}
+checkbox{
+  transform: scale(0.7);
+  margin-left: 20rpx;
+}

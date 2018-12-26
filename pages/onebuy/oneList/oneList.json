@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "一元购",
+  "usingComponents": {
+    "login-box": "/components/login-box/login-box"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,46 @@
+<view class="listContainer">
+  <!--list  -->
+  <view class="orderList"  wx:for='{{shopcart}}' wx:for-item='goods'>
+    <image src="{{goods.dishes_picture}}" class="proImg"></image>
+    <view class="proInfo">
+      <text class="fs-24 fc-gray3">{{goods.dishes_name}}</text>
+      <text class="fs-24 fc-gray3">{{goods.specification_name}} {{goods.adddish_name}} {{goods.flavor_name}}</text>
+      <text class="fs-24 fc-gray3">x {{goods.dishes_num}}</text>
+    </view>
+    <view class="fs-24 fc-gray3">￥{{goods.in_total * goods.dishes_num / 100}}</view>
+    <view style='width: 100%;'>
+      <input 
+      bindchange='note'
+      value='{{goods.remakers}}'
+      data-id='{{index}}'
+      placeholder='备注' 
+      type='text' 
+      class="note fs-24 fc-gray3 box-sizing" 
+      maxlength="30"></input>
+    </view>
+  </view>
+  <!--list end  -->
+</view>
+
+<!--footer  -->
+<view class="footer">
+  <text class="fs-24 bg-gray9">合计:￥{{total_price / 100}}</text>
+  <text class="fs-24 submitOrder" bindtap="submitOrder">提交订单</text>
+</view>
+
+<!--弹框支付方式  -->
+<view class="pop" hidden="{{showPop}}">
+  <view class="popMenu">
+    <radio-group class="radio-group" bindchange="radioChange">
+      <view class="way fs-24 fc-gray3 bor-bottom box-sizing">
+        <text>微信支付</text>
+        <radio value='1' checked='checked'></radio>
+      </view>
+      <view class="way fs-24 fc-gray3 box-sizing">
+        <text>现金/支付宝</text>
+        <radio value='2'></radio>
+      </view>
+    </radio-group>
+    <view class="paySure fs-24" bindtap='sure'>确认支付 ￥{{total_price / 100}}</view>
+  </view>
+</view>

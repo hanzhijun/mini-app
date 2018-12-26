@@ -1,0 +1,96 @@
+.balance {
+  height: 250rpx;
+  width: 100%;
+}
+
+.myBalance {
+  height: 120rpx;
+  margin: 0 15rpx 0 15rpx;
+  border-bottom: 1px solid #474545;
+}
+
+.total {
+  height: 130rpx;
+  margin: 0 15rpx 0 15rpx;
+}
+
+.myBalance view, .total view {
+  display: inline-block;
+  width: 33.3%;
+  height: 100%;
+  text-align: center;
+  padding-top: 25rpx;
+  box-sizing: border-box;
+}
+
+.myBalance view text, .total view text {
+  display: block;
+}
+
+.myBalance view text, .total view text:nth-child(2) {
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+
+.forwad {
+  display: inline-block;
+  height: 50rpx;
+  width: 114rpx;
+  line-height: 50rpx;
+  border: 1px solid #474545;
+  margin-right: 27rpx;
+  vertical-align: text-bottom;
+}
+
+.myBalance view image {
+  height: 40rpx;
+  width: 40rpx;
+}
+
+.record {
+  width: 100%;
+  margin-top: 30rpx;
+  padding-bottom: 60rpx;
+}
+
+.record view {
+  height: 83rpx;
+}
+
+.recordName {
+  color: #333;
+  line-height: 83rpx;
+}
+
+.r_list {
+  margin: 0 15rpx 0 15rpx;
+  border-bottom: 1px solid #474545;
+}
+
+.cre text {
+  display: block;
+}
+
+.cre .cre_tit {
+  color: #333;
+  margin: 10rpx 0 8rpx 0;
+}
+
+.cre .cre_time {
+  color: #999;
+}
+
+.add_count {
+  line-height: 83rpx;
+  color: #333;
+  padding-right: 34rpx;
+  box-sizing: border-box;
+}
+
+button::after {
+  border: none;
+}
+
+navigator {
+  display: inline-block;
+}

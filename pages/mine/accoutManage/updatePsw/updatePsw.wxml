@@ -1,0 +1,23 @@
+<view>
+  <view class="accountCon">
+
+  <navigator class="m_account" url="../updateAssetPsw/updateAssetPsw">
+    <view class="clear" >
+      <text class="fl fs-30">修改资产密码</text>
+      <view class="fr">
+        <image src="/images/mine/u_arrow.png"></image>
+      </view>
+    </view>
+    </navigator>
+
+<navigator class="m_account" url="../resetPsw/resetPsw">
+    <view class="clear">
+      <text class="fl fs-30">重置密码</text>
+      <view class="fr">
+        <image src="/images/mine/u_arrow.png"></image>
+      </view>
+    </view>
+
+    </navigator>
+  </view>
+</view>

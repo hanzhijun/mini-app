@@ -1,0 +1,203 @@
+<login-box bind:loginevent='loginevent' id="loginBox"></login-box>
+
+<view class="out-side">
+  <view class="one-info">
+    <!-- 商品 -->
+    <view class="listContainer">
+      <view class="list">
+        <view class="proImg">
+          <image src="{{product.img_path}}{{product.list_url}}"></image>
+        </view>
+        <view class="proInfo">
+          <text class="proName fs-24">{{product.goods_name}}</text>
+          <view>
+            <text class='price'>￥{{product.discount_price/100}}</text>
+            <text class="privousPrice">￥{{product.price/100}}</text>
+            <text class="stock">剩余{{product.nums}}件</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 商品end -->
+
+
+    <!-- 发起者 -->
+    <view wx:if="{{type=='share'}}">
+      <view class='txtCenter'>
+        <image class="share-bar-img" src="{{imgUrl}}/upload/oneBuy/buyInfo1.png?v=1106" style=''></image>
+        <view style="background: url('{{imgUrl}}/upload/oneBuy/buyInfo2.png?v=1106') repeat-y;background-size: contain;" class="buy-bg">
+          <view class="helpCon">
+            <!-- 助力文字 状态 -->
+            <!-- 进行中 -->
+            <!-- statu 0 参与中 1 参与成功 2 已购买 3 失败  4 过期未领取-->
+            <view class="buyStatus fs-bold"  wx:if="{{onpurse_status==0}}">
+              <text>还差<text class="num">{{need_num - help_num}}</text>人 </text>
+            </view>
+
+            <!-- 助力成功提示文字 -->
+            <view class="buyStatus fs-bold"  wx:if="{{onpurse_status==1}}">
+              <text>真棒 助力完成！ 赶快抢购下单吧</text>
+            </view>
+
+            <!-- 助力成功提示文字 -->
+            <view class="buyStatus fs-bold"  wx:if="{{onpurse_status==2}}">
+              <text>真棒 助力完成！</text>
+            </view>
+
+            <!-- 助力失败提示文字 -->
+            <view class="buyStatus fs-bold" wx:if="{{onpurse_status==3}}">
+              <image src="{{imgUrl}}/upload/oneBuy/ku.png?v=1106"></image>
+              <text>很遗憾！抢购失败</text>
+            </view>
+
+
+            <!-- 领取失效提示文字 -->
+            <view class="buyStatus fs-bold" wx:if="{{onpurse_status==4}}">
+              <text> 很遗憾 你未在24小时内领取下单已失效</text>
+            </view>
+
+            <!-- 时间 -->
+            <!-- 进行中显示下列 -->
+            <view class="carryStatus"  wx:if="{{onpurse_status==0}}">
+              <view class="fs-24">赶快召唤小伙伴来助力~</view>
+              <view class="fs-24">{{autoTime}}</view>
+            </view>
+
+            <!-- 助力失败和助力成功都显示下列 -->
+            <view class="time fs-24" wx:if="{{onpurse_status==1 || onpurse_status==2 ||  onpurse_status==4}}">用时<text>{{useTime}}</text></view>
+
+            <!-- 助力头像 -->
+            <view class="helpPhoto">
+              <view wx:for="{{helpInfo}}" wx:key="">
+                <image src="{{item.logo}}?v=1106"></image>
+              </view>
+            </view>
+            <!-- 助力头像end -->
+
+            <!-- btn状态 -->
+            <!-- 进行中btn -->
+            <button wx:if="{{onpurse_status==0}}"  open-type="share" class="buyBtn" style="background: url('{{imgUrl}}/upload/oneBuy/buyBtn.png?v=1106') no-repeat;background-size:contain;">
+              邀请好友来助力抢购
+            </button>
+
+            <!-- 助力成功btn -->
+            <button  wx:if="{{onpurse_status==1}}" class="buyBtn" bindtap="listClick" style="background: url('{{imgUrl}}/upload/oneBuy/buyBtn.png?v=1106') no-repeat;background-size:contain;">
+              立即1元领取
+            </button>
+
+            <!-- 1元领取成功后状态 -->
+            <view class="current" wx:if="{{onpurse_status==2}}">1元领取成功</view>
+
+            <!-- 助力失败btn -->
+            <button  wx:if="{{onpurse_status==3 || onpurse_status==4}}" bindtap="gotoProduct" class="buyBtn" style="background: url('{{imgUrl}}/upload/oneBuy/buyBtn.png?v=1106') no-repeat;background-size:contain;">
+              别灰心！再来一次
+            </button>
+
+          </view>
+        </view>
+        <image class="share-bar-img2" src="{{imgUrl}}/upload/oneBuy/buyInfo3.png?v=1106"></image>
+      </view>
+
+      <!-- 活动说明 -->
+      <view style="background: url('{{imgUrl}}/upload/oneBuy/introbg.png?v=1106') no-repeat;background-size:cover;" class="introbg">
+        <view class="intro fs-22">
+          <view>选择抢购商品并邀请好友助力，在
+            <text>活动时间内</text>助力好友
+            <text>达到指定人数</text>则可成功购买1元商品</view>
+          <view>若活动时间结束助力人数
+            <text>没有达到指定人数</text>，则
+            <text>系统自动结束</text>抢购，可再次发起抢购</view>
+            <view>若抢购助力成功未在24小时内领取，则领取失效</view>
+        </view>
+      </view>
+      <!-- <view class="footer">
+        <image src="{{imgUrl}}/upload/oneBuy/footer.png"></image>
+      </view> -->
+
+    </view>
+    <!-- 发起者end -->
+
+
+    <!-- 参与者 -->
+    <view wx:if="{{type=='join'}}">
+      <view class='goBuy' bindtap="gotoProduct">
+        <image src="{{imgUrl}}/upload/oneBuy/go.png" class=''></image>
+      </view>
+
+      <view class="joinCon">
+
+        <!-- 成功提示文字 -->
+        <view class="buyStatus fs-bold" wx:if="{{onpurse_status==0}}">
+          <text class="dis" wx:if="{{is_help}}">你已助力  还差<text class="num">{{need_num - help_num}}</text>人</text>
+          <text class="dis" wx:else>还差<text class="num">{{need_num - help_num}}</text>人</text>
+          <text class="dis">TA即可抢购成功</text>
+        </view>
+
+        <!-- 成功提示文字 -->
+        <view class="buyStatus fs-bold" wx:if="{{(onpurse_status==1||onpurse_status==2)&&is_help}}">
+          <text>真棒! 有你助力，TA的抢购成功啦</text>
+        </view>
+
+        <!-- 成功提示文字 -->
+        <view class="buyStatus fs-bold" wx:if="{{(onpurse_status==1||onpurse_status==2)&&!is_help}}">
+          <text>真棒! TA的抢购成功啦</text>
+        </view>
+
+        <!-- 失败提示文字 -->
+        <view class="buyStatus fs-bold" wx:if="{{onpurse_status==3||onpurse_status==4}}">
+          <text>TA的抢购已结束 </text>
+        </view>
+
+        <!-- 失败显示时间 -->
+        <view class="time fs-24" wx:if="{{onpurse_status==1||onpurse_status==2||onpurse_status==4}}">用时 <text>{{useTime}}</text></view>
+        <view class="time fs-24" wx:if="{{onpurse_status==0}}">{{autoTime}}</view>
+
+        <!-- 助力头像 -->
+        <view class="joinHelpPhoto">
+            <view wx:for="{{helpInfo}}" wx:key="">
+              <image src="{{item.logo}}?v=1106"></image>
+            </view>
+        </view>
+
+      </view>
+    </view>
+    <!-- 参与者end -->
+
+  </view>
+
+
+</view>
+
+<view class="return fs-24" bindtap="gotoProduct">
+  <text class="iconfont icon-shouye"></text>
+  <text>返回首页</text>
+</view>
+
+
+<!-- 参与者助力弹窗 -->
+<!-- 老用户 -->
+<view class="specBox" wx:if="{{popAlert == 1}}">
+     <view class="gray-back"></view>
+     <view class="tc-num-bar fs-26">
+         <text class="tit">该商品仅限新用户能助力哦</text>
+         <text class="tit-ing">老朋友不如自己去抢吧~</text>
+         <div class="btn">
+             <button class="c understand" bindtap="close">知道了</button>
+             <button class="c goBuyforme" bindtap="gotoProduct">我也要抢购</button>
+         </div>
+     </view>
+ </view>
+
+<!-- 助力成功 -->
+<view class="specBox" wx:if="{{popAlert == 2}}">
+     <view class="gray-back"></view>
+     <view class="tc-num-bar2 fs-26">
+         <div class="btn btn2">
+             <button class="c popGoBuy" bindtap="gotoProduct">我也要抢</button>
+         </div>
+         <view><image src="{{imgUrl}}/upload/oneBuy/close.png?v=1106" class="close" bindtap="close"></image></view>
+     </view>
+ </view>
+
+<include src="../../include/include.wxml"></include>
+

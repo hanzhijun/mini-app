@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "线下订单",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "open-page": "/components/open-page/open-page"
+    }
+}

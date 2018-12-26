@@ -1,0 +1,391 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 75rpx; 
+  padding: 0 15rpx;
+  align-items: center;
+}
+
+.header view {
+  display: flex;
+  align-items: center;
+}
+
+.header view text {
+  margin-left: 10rpx;
+}
+
+.header image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.content {
+  display: flex;
+}
+
+.content > view {
+  width: 100%;
+}
+
+.goods-box {
+  display: flex;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 25rpx;
+}
+
+
+
+.footer .left {
+  display: flex;
+  padding-left: 15rpx;
+  padding-top: 30rpx;
+  width: 225rpx;
+}
+
+.result-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15rpx 10rpx;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.result-box text {
+  width: 100%;
+}
+
+.right{
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+
+.content-box {
+  display: flex;
+  margin-top: 20rpx;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 25rpx;
+}
+
+.content-box .header, .content-box .content, .content-box .footer {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.content-box .header {
+  justify-content: space-between; 
+  padding-bottom: 30rpx;
+  padding: 0 30rpx 35rpx 0;
+  border-bottom: 1px solid #d6d6d6;
+  align-items: center;
+}
+
+.header .checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox .wx-checkbox-input {
+   transform: scale(0.8);  
+}
+
+.checkbox-b .wx-checkbox-input {
+  transform: scale(0.7); 
+}
+
+.content-box .content {
+  display: flex;
+  padding: 40rpx 30rpx 35rpx 0;
+  justify-content: space-between;
+  border-bottom: 1px solid #d6d6d6;
+  flex-wrap: wrap;
+}
+
+.content>view{
+  display: flex;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+  border-bottom: 1px solid #d6d6d6;
+
+}
+
+.content>view:last-child{
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.content>view:first-child{
+  padding-top: 0;
+}
+
+.desc {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 45rpx;
+  align-items: center;
+  width: 63%
+}
+
+.desc>text, .desc>view {
+  width: 100%;
+}
+
+.desc>view {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image {
+  width: 155rpx;
+  height: 155rpx;
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  justify-content: center;
+  line-height:40rpx;
+}
+
+
+.footer .msg ,.footer .result{
+  padding: 30rpx 35rpx;
+  width: 100%;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.footer .result{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer .btn-box {
+  display: flex;
+  padding-top: 30rpx;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.btn {
+  margin: 0 30rpx 0 0;
+  width: 145rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  background-color: transparent;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border: 1px solid #333;
+}
+
+.pay-box {
+  width: 100%;
+  height: 100rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #fff;
+}
+
+.pay-box .pay {
+  width: 195rpx;
+  margin: 0;
+  background-color: #f75d45;
+  color: #fff;
+  border-radius: 0;
+  line-height: 100rpx;
+}
+
+.btn-box {
+  display: flex;
+}
+
+.btn-box button{
+  padding: 0;
+  border-radius: 0;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.btn-box text {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.btn-box-footer {
+  padding-top: 30rpx;
+  display: flex;
+}
+
+.store-footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30rpx;
+}
+
+
+/* 编辑商品 */
+
+.footer-edit {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-top: 15rpx;
+  height: 100rpx;
+  display: flex;
+  padding: 0 15rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.footer-edit .left {
+  display: flex;
+  padding-left: 15rpx;
+}
+
+.footer-edit .footer-btn-box {
+  display: flex;
+}
+
+.footer-btn-box button {
+  width: 185rpx;
+  height: 58rpx;
+  margin-right: 20rpx;
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid rgba(0,0,0,.2);
+}
+
+.not-shopcart {
+  height: 100vh;
+}
+
+.not-shopcart > view {
+  box-sizing: border-box;
+  padding: 40rpx 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center
+}
+
+.br {
+  display: flex;
+  justify-content: space-around;
+}
+
+.d {
+  display: inline-block;
+  width: 33%;
+  border-bottom: 1px solid #ddd;
+}
+
+text.red {
+  color: #f90404;
+}
+
+.note-holiday {
+  height: 70rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.scrolltxt {
+  padding: 0 20rpx;
+  background-color: #fbe6c8;
+}
+
+.marquee_box {
+  position: relative;
+  color: #d48107;
+  height: 70rpx;
+  display: block;
+  overflow: hidden;
+}
+
+.marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  font-size: 24rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+/*原collect*/
+.goods-box-components {
+  display: block!important;
+  overflow: hidden;
+  background-color: #fff;
+  padding-bottom: 30rpx;
+}
+
+.goods-box-components .box {
+  width: calc((100vw - 60rpx)/2);
+  height: 63vw;
+  overflow: hidden;
+  float: left;
+  margin: 25rpx 0 0 20rpx;
+  position: relative;
+}
+
+.box .image-box {
+  width: 100%;
+}
+
+.box image {
+  width: calc((100vw - 60rpx)/2);
+  height: calc((100vw - 60rpx)/2);
+}
+
+.box .goods-name {
+  width: calc((100vw - 60rpx)/2);
+  line-height: 35rpx;
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  top: calc((100vw - 60rpx)/2 + 10rpx);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.box .goods-price {
+  display: block;
+  width: calc((100vw - 60rpx)/2);
+  font-size: 24rpx;
+  position: absolute;
+  left: 0;
+  top: calc((100vw - 60rpx)/2 + 85rpx);
+}
+.colorRed {
+  color: #f50c0c;
+}

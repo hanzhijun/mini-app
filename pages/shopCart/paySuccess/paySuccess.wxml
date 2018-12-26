@@ -1,0 +1,39 @@
+<view class="content bg-white">
+
+  <view class="imgCon">
+    <!-- 支付成功 -->
+    <image wx:if='{{status == 200}}' src='../../../images/shopCart/success.png'></image>
+
+    <!-- 支付失败 -->
+    <image wx:else src='../../../images/shopCart/close2.png'></image>
+  </view>
+  
+  <!-- 支付成功 -->
+  <view wx:if='{{status == 200}}'>
+    <text class="status">支付成功</text>
+    <view class="fc-gray-darkest mar">支付金额：{{pay_success_data.cash / 100}}</view>
+    <view class="fc-gray-darkest mar">获得金贝：{{pay_success_data.activity_direct_return}}</view>
+    <!--<view class="fs-24 fc-gray-darkest mar3">恭喜你获得捞取资格，好友点击也可捞得金贝</view>-->
+    <!--<button class="btns active fs-30" open-type="share" wx:if="{{limitMax == 0}}">分享好友,立即捞取</button>-->
+    <!--<button class="btns active fs-30 gray" wx:else>分享好友,立即捞取</button>-->
+    <!--<view class="tips">再有{{pay_success_data.limit_num}}位好友点击便可获得金贝</view>-->
+    <!--<view class="btns now fs-30" bindtap='giveUp' data-type='order'>放弃机会,返回订单</view>-->
+    <button class="btns active fs-30" bindtap="goHome">返回首页</button>
+    <button class="btns active fs-30" bindtap="goShare">查看我的助力购</button>
+  </view>
+
+  <!-- 支付失败 -->
+  <view wx:else>
+    <view class="fc-gray-darkest mar">本次订单支付失败,请重新支付</view>
+    <button bindtap='openPage' data-type='pay' class="payagain active fs-30">重新支付</button>
+  </view>
+
+</view>
+
+<!-- 支付失败显示底部 -->
+<view class='footer fs-24'>
+  <text>温馨提示：</text>
+  <text>贝划算不会以订单异常，系统升级为由要求您点击任何网址链接进行退款操作。</text>
+</view>
+
+<include src="../include/include.wxml"></include>

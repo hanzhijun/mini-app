@@ -1,0 +1,36 @@
+<view class='refresh'>
+    <!--header  -->
+    <scroll-view scroll-x="true" class="ip_tab_comtainer">
+        <block wx:for="{{ips}}" wx:for-item='ip' wx:key="{{ip.id}}">
+            <view class="{{ip.business_category_id == current?'ip_tab_item_s':'ip_tab_item_n'}}" bindtap="onIpItemClick" data-id='{{ip.business_category_id}}'>{{ip.name}}</view>
+        </block>
+    </scroll-view>
+
+    <!--content  -->
+    <view class='content'>
+        <!-- {{content}}  -->
+        <view class="c_listCon">
+            <!--list start  -->
+            <view class="hotList" wx:for='{{goods_list}}' wx:key="" bindtap='openPage' data-business_offline_id='{{item.business_offline_id}}' data-insert_package_status='{{item.insert_package_status}}'>
+                <view class="pro_img">
+                    <image src="{{logo_path}}{{item.logo}}"></image>
+                </view>
+                <view class="choiceStore">
+                    <view class="fs-24 fc-gray-darkest storeName">
+                        <text>{{item.name}}</text>
+                        <text>{{item.km}}km</text>
+                    </view>
+                    <view style='display:none'>
+                        <button class="btn fs-20">金贝消费</button>
+                        <button class="btn fs-20">全返银贝</button>
+                    </view>
+                    <view class="storeAdress">
+                        <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+                        <text class="fs-24 fc-gray9">{{item.address}}</text>
+                    </view>
+                </view>
+            </view>
+            <!--list end  -->
+        </view>
+    </view>
+</view>

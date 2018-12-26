@@ -1,0 +1,10 @@
+<view class='goods-box-components'>
+    <view class='box' bindtap='openPage' data-gid='{{item.gid}}' data-type='{{item.type}}' wx:for='{{item}}' wx:key="">
+        <view class='image-box'>
+            <image src='{{imgUrl}}/{{item.category_goods_url}}{{item.list_url}}'></image>
+        </view>
+        <view class="goods-name fs-24 fs-bold">{{item.goods_name}}</view>
+        <view class="goods-price fs-24" wx:if='{{item.type == 1}}'><text class="colorRed">{{item.silver_price}}</text> 银贝</view>
+        <view class="goods-price fs-24 colorRed" wx:else>￥{{item.sale_price / 100}}</view>
+    </view>
+</view>

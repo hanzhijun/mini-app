@@ -1,0 +1,23 @@
+.m_account {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  background: #fff;
+}
+
+.m_account:last-child {
+  border: none;
+}
+
+.m_account image {
+  width: 18rpx;
+  height: 28rpx;
+  margin-right: 42rpx;
+}
+
+.m_account text {
+  color: #333;
+  padding-left: 33rpx;
+  box-sizing: border-box;
+}

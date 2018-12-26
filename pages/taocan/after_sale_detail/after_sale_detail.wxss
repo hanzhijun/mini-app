@@ -1,0 +1,202 @@
+.content {
+  width: 100%;
+}
+
+.c_listCon {
+  position: relative;
+}
+
+.hotList {
+  display: flex;
+  background: white;
+  padding: 19rpx 13rpx;
+  margin-bottom: 15rpx;
+}
+
+.c_listCon .hotList .pro_img {
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.c_listCon .hotList .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+}
+
+.choiceStore {
+  margin-left: 25rpx;
+  width: 66%;
+}
+
+.choiceStore .storeName {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+
+.choiceStore .storeName text:first-child {
+  width: 95%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20rpx;
+}
+
+.choiceStore .btn {
+  display: inline-block;
+  height: 40rpx;
+  width: 100rpx;
+  padding: 0 !important;
+  color: #f85c45;
+  line-height: 40rpx;
+  background-color: #fff;
+  border: 1px solid #f85c45;
+  box-sizing: content-box !important;
+  margin-bottom: 10rpx;
+}
+
+.choiceStore .btn:last-child {
+  margin-left: 10rpx;
+}
+
+.fc-gray9 {
+  color: #999;
+}
+
+button::after {
+  border: none;
+}
+
+.proFooter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+
+/* .proFooter text {
+  display: inline-block;
+  width: 80%;
+} */
+
+.proFooter text:nth-child(2) {
+  text-align: right;
+}
+
+.go_buy {
+  padding: 0 !important;
+  height: 42rpx;
+  width: 122rpx;
+  color: #333;
+  line-height: 42rpx;
+  background-color: #fff;
+  border: 1px solid #333;
+  box-sizing: content-box !important;
+  margin-right: 0;
+}
+
+.voucherCode {
+  text-align: center;
+  margin-top: 10rpx;
+  padding: 10rpx;
+}
+
+.code {
+  background: #e5e5e5;
+  border-radius: 10rpx;
+  padding: 12rpx;
+  width: 260rpx;
+  margin: auto;
+}
+
+.codeImg {
+  margin: auto;
+  height: 203rpx;
+  width: 203rpx;
+  margin-top: 17rpx;
+}
+
+.codeImg image {
+  height: 100%;
+  width: 100%;
+}
+
+.abortTime {
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-top: 10rpx;
+  padding-left: 12rpx;
+}
+
+.bussinessInfo {
+  margin-top: 10rpx;
+}
+
+.hotTitle {
+  height: 65rpx;
+  width: 100%;
+  line-height: 65rpx;
+  padding-left: 12rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.storeAdress {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.storeAdress text:first-child {
+  padding-right: 5rpx;
+}
+
+.marTop {
+  margin-top: 84rpx;
+}
+
+/* 套餐详情 */
+
+.detail {
+  margin-top: 10rpx;
+}
+
+.hotTitle {
+  height: 65rpx;
+  width: 100%;
+  line-height: 65rpx;
+  padding-left: 12rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.intro {
+  padding: 12rpx;
+}
+
+.endTime {
+  padding: 12rpx;
+}
+
+.endTime text {
+  display: block;
+}
+
+/* 套餐信息 */
+
+.taocanInfo {
+  margin-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+
+.listDetail {
+  display: flex;
+  justify-content: space-between;
+  margin: 10rpx;
+}

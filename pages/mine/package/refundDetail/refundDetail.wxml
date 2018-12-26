@@ -1,0 +1,20 @@
+<view class="bg-white refundCon fs-24 fc-gray-darkest">
+  <view>
+    <text>退款金额</text>
+    <text wx:if='{{res_data.cash && res_data.cash!=0}}'>￥{{res_data.cash/100}}</text>
+    <text wx:if='{{res_data.gold && res_data.gold!=0}}'>{{res_data.gold * 1}}金贝</text>
+    <text wx:if='{{res_data.silver && res_data.silver!=0}}'>{{res_data.silver * 1}}银贝</text>
+  </view>
+  <view>
+    <text>退款账户</text>
+    <text>原路返回</text>
+  </view>
+  <view>
+    <text>到账时间</text>
+    <text>预计最迟到账时间：{{res_data.create_at_format}}</text>
+  </view>
+  <view>
+    <text>退款原因</text>
+    <text>{{res_data.reason}}</text>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<!--header  -->
+<view class="header">
+  <image src="{{imgUrl}}/upload/index/signBanner.png" class="banner"></image>
+  <view class="sign">
+    <view class="circleOuter">
+      <view class="circleIn fs-30">
+        <text bindtap="signIn">{{result.sign ? '已签到' : '未签到'}}</text>
+      </view>
+    </view>
+    <view class="fs-24 signDay">
+      <text>当月已累计签到{{result.count}}天</text>
+      <view>
+        <text>每日奖励：铜贝{{result.days_sign}}</text>
+        <image src="/images/currency/tongbei.png" class="tongbeiIcon"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--奖励列表  -->
+<view class="signListCon bg-white">
+  <view class="title fs-30 fc-gray-darkest">累计奖励</view>
+
+  <view class="list fs-24 fc-gray-darkest" wx:for='{{config}}' wx:key="">
+    <text class="conDivider">累计签到{{item[0]}}天</text>
+    <view class="copper conDivider">
+      <text>铜贝</text>
+      <image src="/images/currency/tongbei.png" class="listIcon"></image>
+    </view>
+    <text class="conDivider">{{ result[item[1]+'_sign'] }}</text>
+    <view class="conDivider">
+      <button class="fs-24 btn btnNative" bindtap='receiveReward' data-type='{{index}}' wx:if='{{item[0] - result.count <= 0 && !result[item[1]+"_sign_status"]}}'>立即领取 </button>
+      <button class="fs-24 btn btnNow conDivider" wx:elif='{{item[0] - result.count <= 0 && result[item[1]+"_sign_status"]}}'>已领取</button>
+      <button class="fs-24 btn result[item[1]+'_sign_status'] ? 'btnNative' : 'btnNow'" wx:else>还剩{{item[0] - result.count}}次</button>
+    </view>
+  </view>
+</view>

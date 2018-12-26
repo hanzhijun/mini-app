@@ -1,0 +1,35 @@
+
+.postal_suc{
+  display: flex;
+  height:89rpx;
+  width:320rpx;
+  margin:89rpx auto;
+}
+
+.postal_suc image{
+  height:89rpx;
+  width:89rpx;
+  padding-right: 23rpx;
+}
+
+.statuSuc text{
+  display: flex;
+  margin-top: 8rpx;
+}
+
+.postal{
+  width:65%;
+  margin-top: 80rpx;
+  border: 1px solid #535353;
+}
+
+button::after{
+border: none;
+}
+
+
+.sucTip{
+  color:#999;
+  padding: 40rpx 60rpx 0 60rpx;
+  box-sizing: border-box;
+}

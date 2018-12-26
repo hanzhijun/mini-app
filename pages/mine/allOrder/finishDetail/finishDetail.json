@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#f85c45",
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "goods-msg": "/components/goods-msg/goods-msg",
+    "open-page": "/components/open-page/open-page",
+    "collect": "/components/collect/collect"
+  }
+}

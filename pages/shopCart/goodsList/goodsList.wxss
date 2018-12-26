@@ -1,0 +1,68 @@
+.box {
+  padding: 0 0 20px 12px;
+  overflow: hidden;
+}
+
+.goods {
+  width: calc((100vw - 34px)/2);
+  padding-top: 12px;
+  margin-right: 10px;
+  float: left;
+  overflow: hidden;
+}
+
+.goods > image {
+  height: calc((100vw - 34px)/2);
+  width: calc((100vw - 34px)/2);
+}
+
+.goods > text {
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.goods .goods-mess {
+  height: 58px;
+  overflow: hidden;
+}
+
+.goods .goods-mess .goodsName {
+  display: block;
+  padding-bottom: 3px;
+  text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goods .goods-mess .goodsTxt {
+  display: block;
+  height:35rpx;
+}
+
+.goods .goods-mess image {
+  width: 20px;
+  height: 16px;
+}
+
+.goods .goods-mess .goodsTxt .red {
+  color: #f01212;
+}
+
+.goods-null {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 16px;
+    color: #0099e9;
+}
+
+.goods-null:active {
+  opacity: .6;
+}

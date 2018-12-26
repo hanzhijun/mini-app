@@ -1,0 +1,140 @@
+<view class='order-box {{ordertype == "dpay" && (orders.length >= 2 || ids.length >= 2) && "dds"}}'>
+    <!-- 导航 -->
+    <view class="nav-box fs-24 fc-gray-darkest bg-white">
+        <text class="{{ordertype == index && 'current fc-red-light'}}" data-ordertype="{{index}}" wx:for="{{order_status}}" wx:key="" bindtap='switchTab'>{{item.name}}
+        </text>
+    </view>
+
+    <!-- 通过current来更新数据 -->
+    <view class="content-outside">
+        <view class="content-box bg-white" wx:for='{{order_list}}' wx:key="">
+
+            <!-- header -->
+            <view style='width: 100%;border-bottom:1px solid #e6e6e6;padding: 0 30rpx 35rpx 0;'>
+                <view>
+                    <checkbox-group bindchange='checkAll' data-order_id='{{item.order_id}}'>
+                        <view class='checkbox' style='display:flex;justify-content: space-between'>
+                            <view>
+                                <checkbox checked='{{item.checked}}' value='{{item.order_id}}'
+                                          wx:if='{{ordertype == "dpay"}}'></checkbox>
+                                <text class="fs-30"><!--{{item.business_name}}-->贝划算</text>
+                            </view>
+
+                            <view wx:if='{{ordertype == "aftersale"}}' class='fs-24 fc-red'>
+                                <text wx:for="{{item.goods_info}}" wx:for-item="goods" wx:key="">
+                                    <text wx:if='{{goods.except_status == 1}}'>申请退款</text>
+                                    <text wx:if='{{goods.except_status == 2}}'>退款中</text>
+                                    <text wx:if='{{goods.except_status == 3}}'>退款成功</text>
+                                    <text wx:if='{{goods.except_status == 4}}'>退款失败</text>
+                                </text>
+
+                            </view>
+
+                            <view wx:else class='fs-24 fc-red'>
+                                <text wx:if='{{ordertype == "dpay"}}'>待付款</text>
+                                <text wx:elif='{{ordertype == "dtake"}}'>待发货</text>
+                                <text wx:elif='{{ordertype == "dcollect"}}'>待收货</text>
+                                <text wx:elif='{{ordertype == "finish"}}'>已完成</text>
+                            </view>
+
+                        </view>
+                    </checkbox-group>
+                </view>
+            </view>
+
+            <!-- content -->
+            <view class='content' wx:key='cid' wx:for='{{item.goods_info}}' wx:for-item="goods" data-order_id='{{goods.order_id}}' data-business_id='{{item.business_id}}'>
+
+                <view style='width:100%'>
+                    <checkbox-group bindchange='check' data-goods_id='{{goods.goods_id}}' data-id='{{goods.info_id}}'
+                                    data-order_id='{{item.order_id}}'>
+                        <view class='checkbox' wx:if='{{ordertype == "dpay"}}'>
+                            <checkbox checked='{{goods.checked}}' value='{{goods.info_id}}'></checkbox>
+                        </view>
+                    </checkbox-group>
+                    <image
+                            bindtap='getBtn'
+                            data-order_id='{{goods.order_id}}'
+                            data-business_id='{{item.business_id}}'
+                            style='width: 75px;height:75px;flex-shrink:0'
+                            src='{{imgUrl}}/{{category_logo_url}}{{goods.g_pic}}'></image>
+
+                    <view class="fs-24 desc"
+                          bindtap='getBtn'
+                          data-order_id='{{goods.order_id}}'
+                          data-business_id='{{item.business_id}}'>
+                        <text>{{goods.g_name}}</text>
+                        <text>{{goods.g_format}}</text>
+
+                        <view>
+                            <!-- 活动商品 -->
+                            <view wx:if='{{goods.payment != 0}}'>
+                                <text wx:if='{{goods.payment == 1}}'>￥{{goods.g_price / 100 || 0}}</text>
+                                <text wx:elif='{{goods.payment == 2}}'>{{goods.gold_price || 0}}金贝 +
+                                    {{goods.copper_price}}铜贝
+                                </text>
+                                <text wx:elif='{{goods.payment == 3}}'>{{goods.g_price || 0}}银贝</text>
+                            </view>
+                            <!-- 非活动商品 -->
+                            <view wx:else>
+                                <text wx:if='{{goods.g_type == 1}}'>{{goods.silver || 0}}银贝</text>
+                                <text wx:else>￥{{goods.g_price / 100 || 0}} 可打捞金贝 {{goods.back_gold}}</text>
+                            </view>
+                            <text>x {{goods.g_num}}</text>
+                        </view>
+
+                    </view>
+                </view>
+
+            </view>
+
+            <!-- footer -->
+            <view class="footer">
+                <view class='result fs-24'>
+                    <text>共{{order_list[item.order_id].goods_num}}件商品 合计：</text><text class='width100' wx:if='{{order_info[item.order_id].price || order_info[item.order_id].gold}}'>￥{{order_list[item.order_id].amount_payable / 100}} + {{order_list[item.order_id].gold}}金贝<text wx:if='{{order_info[item.order_id].freight}}'>(含运费：￥{{order_info[item.order_id].freight/100}})</text></text>
+
+                    <text class='width100' wx:if='{{order_info[item.order_id].use_silver}}'>{{order_info[item.order_id].use_silver}} 银贝<text wx:if='{{order_info[item.order_id].freight}}'>(含运费：￥{{order_info[item.order_id].freight/100}})</text>
+                    </text>
+
+                    <text class='width100' wx:if='{{order_info[item.order_id].copper}}'>{{order_info[item.order_id].copper}} 铜贝<text wx:if='{{order_info[item.order_id].freight}}'>(含运费：￥{{order_info[item.order_id].freight/100}})</text>
+                    </text>
+
+                    <text class="width100" wx:if='{{!order_info[item.order_id].price && !order_info[item.order_id].gold && !order_info[item.order_id].use_silver && !order_info[item.order_id].copper}}'>0</text>
+                </view>
+
+                <view class='btn-box' wx:if='{{item.sharedata}}' bindtouchstart="shareAgain" data-e_data='{{item.sharedata.e_data}}' data-index="{{index}}">
+                    <button class='order-btn fs-30' data-e_data='{{item.sharedata.e_data}}' data-index="{{index}}">查看分享</button>
+                </view>
+                <view class='btn-box' wx:for-item='btn' wx:for='{{order_status[item.ordertype].button}}' wx:key="">
+                    <button data-business_id='{{item.business_id}}'
+                            data-order_id='{{item.order_id}}'
+                            data-game_concession_record_id = '{{item.game_concession_record_id}}'
+                            data-option="{{item.option}}"
+                            bindtap='getBtn'
+                            data-key='{{btn}}'
+                            class='fs-30 order-btn {{btn == 2 && "other"}}'>{{btns[btn]}}</button>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view style='flex:1'></view>
+
+    <view class='pay-box' wx:if='{{ordertype == "dpay" && (orders.length >= 2 || ids.length >= 2)}}'>
+        <button bindtap='pay' class='pay fs-24'>合并支付</button>
+    </view>
+
+    <view class='alert-msg' wx:if='{{show_alert}}'>
+        <radio-box item='{{alert_msg}}' bindvalue='getVal'>
+            <view>
+                <text style='font-size: 36rpx;'>请选择取消原因</text>
+            </view>
+        </radio-box>
+
+        <button data-type='finish' bindtap='hide' class='fs-30 fc-white'>完成</button>
+    </view>
+
+    <view class='beijing' data-type='hide' bindtap='hide' wx:if='{{show_alert}}'></view>
+
+</view>
+

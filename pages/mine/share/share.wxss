@@ -1,0 +1,146 @@
+.header {
+  position: relative;
+  height: 260rpx;
+  width: 100%;
+  margin: 5rpx 0 15rpx 0;
+  text-align: center;
+  padding-top: 14rpx;
+  box-sizing: border-box;
+}
+
+.header image {
+  width: 702rpx;
+  height: 229rpx;
+}
+
+.s_count {
+  display: flex;
+  position: absolute;
+  top: 30%;
+  right: 12%;
+  height: 150rpx;
+  width: 55%;
+}
+
+.s_count view {
+  width: 50%;
+  height: 100%;
+}
+
+.s_count view text {
+  display: block;
+}
+
+.s_count view text:nth-child(1) {
+  font-weight: bold;
+}
+
+.s_count view text:nth-child(2) {
+  padding-top: 20rpx;
+  box-sizing: border-box;
+}
+
+.shareCon {
+  width: 100%;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+
+.shareTit {
+  height: 64rpx;
+  width: 100%;
+  line-height: 64rpx;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+}
+
+.pos{
+  position: relative;
+}
+
+.shareList {
+  /* position: relative; */
+  height: 230rpx;
+  width: 93%;
+  margin: auto;
+  border: 1px solid #e2e2e2;
+  box-shadow: 2px 2px 5px #e2e2e2;
+  margin-bottom: 30rpx;
+}
+
+.shareTime {
+  display: block;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 100%;
+  background: #f6d6d2;
+  padding-left: 7rpx;
+  box-sizing: border-box;
+}
+
+.product {
+  display: flex;
+}
+
+.pro_img {
+  width: 25%;
+}
+
+.pro_img image {
+  height: 144rpx;
+  width: 144rpx;
+  margin: 20rpx 0 20rpx 27rpx;
+}
+
+.proInfo {
+  width: 50%;
+  margin-left: 7rpx;
+}
+
+.proInfo .title, .proInfo .hasGolden {
+  display: block;
+}
+
+.proInfo .title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 24rpx 0 15rpx 0;
+}
+
+.proInfo .hasGolden {
+  margin: 55rpx 0 15rpx 0;
+}
+
+.proState {
+  display: flex;
+  width: 25%;
+  /* width: 44%;  */
+  position: absolute;
+  bottom: 14rpx;
+  right: 20rpx;
+}
+
+.proState button {
+  padding: 0!important;
+  display: flex;
+  height: 55rpx;
+  min-width: 150rpx;
+  border: 1px solid #333;
+  justify-content: center;
+  align-items: center;
+  line-height: 55rpx;
+}
+
+button::after {
+  border: none;
+}
+
+.status {
+  position: absolute;
+  top: 56rpx;
+  right: 44rpx;
+  font-size: 24rpx;
+}

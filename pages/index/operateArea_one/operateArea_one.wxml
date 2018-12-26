@@ -1,0 +1,65 @@
+<!--banner  -->
+<view class="banner">
+  <image src="{{res_data_1.img_header_path}}{{res_data_1.img_header}}"></image>
+</view>
+
+<!--滑动区域  -->
+<scroll-view scroll-x="true" class="wrapper">
+  <!--1  -->
+  <view class="operation" wx:for='{{res_data_2}}' wx:key="" data-type='h5' bindtap='linkH5' data-url='{{item.url}}'>
+    <view class="imgCon">
+      <image src="{{item.img_path}}{{item.img}}"></image>
+    </view>
+    <view class="operationIntro fs-30">
+      <text class="fc-gray-darkest">{{item.title}}</text>
+      <text class="fc-gray">{{item.title_sub}}</text>
+    </view>
+  </view>
+  <!--1 end  -->
+</scroll-view>
+
+
+<!--今日推荐  -->
+<view class="todayRecommend">
+  <text class="fs-30">今日推荐</text>
+  <text class="fs-30">Today</text>
+</view>
+
+<!--列表  -->
+<view class="c_listCon">
+  <!--list start  -->
+  <view class="hotList" wx:for='{{goods_data}}' wx:key="" bindtap='openPage' data-id='{{item.goods_id}}'>
+    <view class="pro_img">
+      <image src="{{item.list_url_path}}{{item.list_url}}"></image>
+    </view>
+    <view class="pro_info fs-24 fc-gray-darkest">
+      <text class="proText proTitle">{{item.goods_name}}</text>
+
+        <!--金贝+现金  -->
+        <view class="money-bar" wx:if="{{item.payment==1}}">
+          <text class="fs-30 fc-gray-darkest price">￥{{item.price/ 100}}</text>
+          <text class="fs-24 fc-gray-darkest padd"><text class="txt">送</text>{{item.base_return}}</text>
+          <image src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+        </view>
+
+        <!--金贝+铜贝  -->
+        <view class="money-bar" wx:if="{{item.payment==2}}">
+          <text class="fs-30 fc-gray-darkest price">{{item.gold_price}}</text>
+          <image src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+          <text class="fs-30 fc-gray-darkest price">+{{item.copper_price}}</text>
+          <image src="/images/currency/tongbei.png" class="tongbeiIcon"></image>
+        </view>
+
+        <!--银贝  -->
+        <view class="money-bar" wx:if="{{item.payment==3}}">
+          <text class="fs-30 fc-gray-darkest price">{{item.price}}</text>
+          <image src="/images/currency/yinbei.png" class="tongbeiIcon"></image>
+        </view>
+      <!-- </view> -->
+
+      <!-- <text class="proText storeName">{{item.business_name}}</text>
+      <view class="saleHot fs-24">{{item.category_name}}</view> -->
+    </view>
+  </view>
+  <!--list end  -->
+</view>

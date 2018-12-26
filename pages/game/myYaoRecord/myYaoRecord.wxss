@@ -1,0 +1,116 @@
+.nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #333;
+}
+
+.nav.this-show {
+  display: flex;
+}
+
+.active {
+  border-bottom: 2px solid #f75d45;
+  color: #f75d45;
+}
+
+.content {
+  padding-top: 0;
+  width: 100%;
+}
+
+.content.this-show {
+  padding-top: 75rpx;
+}
+
+.c_listCon {
+  position: relative;
+  margin-top: 10rpx;
+}
+
+.hotList {
+  position: relative;
+  display: flex;
+  background: white;
+  padding: 19rpx 0 19rpx 14rpx;
+  margin-bottom: 15rpx;
+}
+
+.c_listCon .hotList .pro_img {
+  width: 189rpx;
+  height: 189rpx;
+}
+
+.c_listCon .hotList .pro_img image {
+  height: 100%;
+  width: 100%;
+}
+
+.c_listCon .pro_info {
+  margin-left: 10rpx;
+  width: 70%;
+}
+
+.choiceStore {
+  margin-left: 25rpx;
+  width: 50%;
+}
+
+.choiceStore .storeName {
+  display: flex;
+  margin-bottom: 12rpx;
+  /* height: 70rpx; */
+  line-height: 30rpx;
+}
+
+.choiceStore .storeName text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 20rpx;
+  line-height: 36rpx;
+}
+
+.pre_Price {
+  margin-top: 28rpx;
+}
+
+.use_price {
+  margin-top: 10rpx;
+}
+
+.golden {
+  width: 43rpx;
+  height: 32rpx;
+  margin-left: 10rpx;
+  vertical-align: middle;
+}
+
+.status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 90rpx;
+  height: 100%;
+  color: white;
+  font-size: 44rpx;
+  writing-mode:vertical-lr;
+  text-align: center;
+  padding-left: 15rpx;
+  box-sizing: border-box;
+  letter-spacing: 6rpx;
+}
+
+.bg-red {
+  background: #f75d45;
+}
+
+.bg-gray{
+  background: #cccccc;
+}

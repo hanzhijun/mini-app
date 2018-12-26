@@ -1,0 +1,89 @@
+.content {
+  box-sizing: border-box;
+  padding-bottom: 50rpx;
+  margin-top: 15rpx;
+  text-align: center;
+  /* min-height: 100vh; */
+}
+
+.imgCon {
+  text-align: center;
+  padding-top: 60rpx;
+}
+
+.status {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.content .imgCon image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.tips {
+  font-size: 20rpx;
+  color: #999;
+  margin: 38rpx 0 38rpx 0;
+}
+
+.btns {
+  border-radius: 10rpx;
+  width: 370rpx;
+  height: 90rpx;
+  color: white;
+  text-align: center;
+  line-height: 90rpx;
+  margin: auto;
+  margin-top: 30rpx;
+}
+
+.active {
+  background: #f85c45;
+}
+.btns.gray {
+  background: #ccc;
+  color: #fff;
+}
+.now {
+  background: #dcdcdc;
+}
+
+.mar {
+  margin-top: 37rpx;
+}
+
+.mar3 {
+  margin: 70rpx 0 38rpx 0;
+}
+
+.payAgain {
+  width: 100rpx;
+  height: 200rxp;
+  background: red;
+}
+
+.payagain {
+  border-radius: 10rpx;
+  width: 200rpx;
+  height: 90rpx;
+  color: white;
+  text-align: center;
+  line-height: 90rpx;
+  margin: auto;
+  margin-top: 60rpx;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 35rpx;
+}
+
+.footer text {
+  width: 100%;
+  padding: 0 15rpx;
+}
+

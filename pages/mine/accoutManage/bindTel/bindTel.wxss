@@ -1,0 +1,65 @@
+.bindPhoneCon {
+  height: 200rpx;
+}
+
+.phoneNum {
+  display: flex;
+  /* justify-content: space-around; */
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.phone {
+  color: #999;
+  /* margin-left: -30rpx; */
+}
+
+.phoneNum text, .checkCon text{
+  box-sizing: border-box;
+  display: inline-block;
+  width: 150rpx;
+}
+
+.countDown {
+  display: inline-block;
+  height: 55rpx;
+  width: 146rpx;
+  background: #ccc;
+  vertical-align: middle;
+  line-height: 55rpx;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+.countDown::after {
+  border: 0;
+}
+
+button[disabled] {
+  border: none;
+}
+
+.checkCon {
+  display: flex;
+  align-items: center;
+  line-height: 100rpx;
+  padding: 0 30rpx;
+}
+
+.checkCon input {
+  /* margin-left: 20rpx; */
+  /* border:1px solid #cccccc; *//* padding-left: 10rpx; */
+}
+
+.bindTel {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 70%;
+  background: #f85c45;
+  color: white;
+  margin-top: 100rpx;
+}

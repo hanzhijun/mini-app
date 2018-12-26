@@ -1,0 +1,28 @@
+<view class='box'>
+  <open-page url='shopCart/goodsDetail/goodsDetail?gid={{item.gid}}&type={{type}}' wx:key='gid' wx:for='{{list}}'>
+
+    <view class='goods'>
+      <image src='{{imgUrl}}/{{item.list_url}}'></image>
+      <view class="goods-mess">
+        <text class='fs-24 goodsName'>{{item.goods_name}}</text>
+        <view class='fs-24 goodsTxt'>
+          <view wx:if='{{item.goods_activity_id && item.status == 1}}'>
+            <text wx:if='{{item.payment == 1}}'><text class="red">￥{{item.price / 100}}</text>  送 <text class="red">{{item.base_return || 0}} </text></text>
+            <image wx:if='{{item.payment == 1}}' src="/images/currency/jinbei.png" class="golden"></image>
+            <text wx:if='{{item.payment == 2}}'>{{item.gold_price || 0}}金贝 + {{item.copper_price || 0}}铜贝</text>
+            <text wx:if='{{item.payment == 3}}'>{{item.price || 0}}银贝</text>
+          </view>
+
+          <view wx:else>
+            <text wx:if='{{item.type == -1}}' class='fs-24'><text class="red">￥{{item.sale_price / 100}}</text>  送 <text class="red">{{item.base_return || 0}}</text></text>
+            <image wx:if='{{item.type == -1}}' src="/images/currency/jinbei.png" class="golden"></image>
+            <text class='fs-24' wx:else>{{item.silver_price || 0}} 银贝</text>  
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </open-page>
+
+  <view class="goods-null" wx:if="{{ nums==0 }}" bindtap="goBack">暂无商品，去其他地方逛逛~</view>
+</view>

@@ -1,0 +1,83 @@
+<view style='min-height: 100vh;'>
+  <!--header  -->
+  <view class="header fs-30">
+    <text bindtap='switchBar' data-type='business' class="now {{opt == 'business' && 'active'}}">商家</text>
+    <text bindtap='switchBar' data-type='package' class="now {{opt == 'package' && 'active'}}">套餐</text>
+    <text bindtap='switchBar' data-type='goods' class="now {{opt == 'goods' && 'active'}}">商品</text>
+  </view>
+  
+  <!--商家  -->
+  <view class="c_listCon" wx:if='{{opt == "business"}}'>
+    <!--list start  -->
+    <view data-index='{{index}}' class="touch-item" data-id="{{item.business_offline_id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for='{{res_data}}' wx:key="" bindtap='openPage'>
+      <view class="hotList content {{item.del_type && 'content-active'}}">
+        <view class="pro_img">
+          <image src="{{imgUrl}}/{{item.category_goods_url}}{{item.logo}}"></image>
+        </view>
+        <view class="choiceStore">
+          <view class="fs-24 fc-gray-darkest storeName">
+            <text>{{item.name}}</text>
+            <text>{{item.km}}km</text>
+          </view>
+          <view>
+            <button class="btn fs-20" wx:for='{{item.label}}' wx:for-item='val' wx:key="">{{val}}</button>
+          </view>
+          <view class="storeAdress">
+            <text class='iconfont icon-dizhi iconfs-40 fc-gray9'></text>
+            <text class="fs-24 fc-gray9">{{item.address}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="del {{!item.del_type  && 'del-hidden'}}" catchtap="del" data-cid="{{item.cid}}">删除</view>
+    </view>
+    <!--list end  -->
+  </view>
+
+  <!-- 套餐 -->
+  <view class="c_listCon" wx:if='{{opt == "package"}}'>
+    <!--list start  -->
+    <view class="touch-item" data-index='{{index}}' bindtouchstart="touchstart" bindtouchmove="touchmove" data-id='{{item.package_id}}' wx:for='{{res_data}}' wx:key="" bindtap='openPage'>
+      <view class="hotList content {{item.del_type && 'content-active'}}">
+        <view class="pro_img">
+          <image src="{{imgUrl}}/{{item.category_goods_url}}{{item.list_img}}"></image>
+        </view>
+        <view class="pro_info fs-24 fc-gray-darkest">
+          <text class="proText proTitle">{{item.package_name}}</text>
+          <view>
+            <text>{{item.silver_price}}银贝</text>
+            <text>已售{{item.sale_num}}</text>
+          </view>
+          <text class="proText">{{item.name}}</text>
+          <button data-package_id='{{item.package_id}}' class="go_buy fs-24">购买</button>
+        </view>
+      </view>
+      <view class="del {{!item.del_type  && 'del-hidden'}}" catchtap="del" data-cid="{{item.cid}}">删除</view>
+    </view>
+    <!--list end  -->
+  </view>
+
+
+  <!--商品  -->
+  <view class="c_listCon" wx:if='{{opt == "goods"}}'>
+    <!--list start  -->
+    <view class="touch-item" data-index='{{index}}' data-id='{{item.gid}}' bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for='{{res_data}}' wx:key="" bindtap='openPage'>
+      <view class="list content {{item.del_type && 'content-active'}}">
+        <view class="pro_img">
+          <image src="{{imgUrl}}/{{item.category_goods_url}}{{item.list_url}}"></image>
+        </view>
+        <view class="pro_info fs-24 fc-gray-darkest">
+          <text class="proText listTitle">{{item.goods_name}}</text>
+          <view class="fs-24 listPrice">
+            <text wx:if='type == -1'>￥{{item.sale_price/100}}</text>
+            <text wx:else>{{item.silver_price}} 银贝</text>
+            <text wx:if='type == -1'>得{{item.base_return}}</text>
+            <image wx:if='type == -1' src="/images/currency/jinbei.png" class="tongbeiIcon"></image>
+          </view>
+          <view class="saleHot fs-24">热卖中</view>
+        </view>
+      </view>
+      <view class="del {{!item.del_type  && 'del-hidden'}}" catchtap="del" data-cid="{{item.cid}}">删除</view>
+    </view>
+    <!--list end  -->
+  </view>
+</view>

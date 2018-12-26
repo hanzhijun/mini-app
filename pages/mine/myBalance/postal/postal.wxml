@@ -1,0 +1,9 @@
+<view class="postal_con">
+  <view class="hasTotal fs-30 fc-gray-darkest">
+    <text>可用余额</text>
+    <text>￥456.00</text>
+  </view>
+  <input type="number" placeholder='请输入您的提现金额' class="postalInp bg-white fs-30"></input>
+  <text class="tips fs-20">注：一次最少提现金额为100元整数起</text>
+  <navigator url="../postalDetail/postalDetail" hover-class='none'><button class="postal fs-30 fc-gray-darkest bg-white">提现</button></navigator>
+</view>

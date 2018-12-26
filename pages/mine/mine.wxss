@@ -1,0 +1,346 @@
+.personal {
+  height: 270rpx;
+  width: 100%;
+  background: #38454e;
+  padding: 8rpx;
+  box-sizing: border-box;
+}
+
+.photo {
+  height: 115rpx;
+  width: 115rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin: auto;
+}
+
+.photo image {
+  height: 100%;
+  width: 100%;
+}
+
+.test {
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: content-box !important;
+  line-height: 1.4;
+  color: white!important;
+}
+
+button::after {
+  border: none;
+}
+
+.photoCon {
+  background: #38454e;
+}
+
+.nickName {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 26rpx!important;
+  color: white!important;
+}
+
+.asset {
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+  margin: 15rpx auto;
+  text-align: center;
+}
+
+.asset view>text {
+  display: block;
+  text-align: center;
+  font-size: 24rpx;
+  color: white;
+  margin-top:-10rpx;
+}
+
+.changeIcon {
+  height: 47rpx;
+  width: 47rpx;
+}
+
+.goldenIcon {
+  height: 41rpx;
+  width: 52rpx;
+}
+
+.sliverIcon {
+  height: 41rpx;
+  width: 52rpx;
+}
+
+.tongbeiIcon {
+  height: 40rpx;
+  width: 51rpx;
+}
+
+.goldenShell, .silverShell {
+  width: 33%;
+  height: 100%;
+  text-align: center;
+}
+
+.goldenShell image, .silverShell image {
+  height: 94rpx;
+  width: 230rpx;
+}
+
+.goldenShell {
+  position: relative;
+}
+
+.silverShell {
+  position: relative;
+}
+
+.count {
+  display: inline-block;
+  position: absolute;
+  right: 19rpx;
+  top: 10rpx;
+}
+
+.c_title {
+  display: block;
+  font-size: 18rpx;
+  color: #308cab;
+}
+
+.s_title {
+  color: #d0950b;
+}
+
+.c_count {
+  display: block;
+  color: #fff;
+}
+
+.count_detail {
+  display: block;
+  position: absolute;
+  bottom: 12%;
+  font-size: 14rpx;
+  color: #333;
+  left: 38%;
+}
+
+.orderCon {
+  height: 240rpx;
+  width: 100%;
+  background: #fff;
+  margin-top: 21rpx;
+}
+
+.orderMain {
+  height: 240rpx;
+  margin: 0 15rpx 0 15rpx;
+}
+
+.allOrder {
+  height: 94rpx;
+  line-height: 94rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+.allOrder view .icon {
+  display: inline-block;
+  height: 41rpx;
+  width: 36rpx;
+  vertical-align: middle;
+  margin-left: 8rpx;
+}
+
+.allOrder view text {
+  color: #444;
+  padding-left: 14rpx;
+  box-sizing: border-box;
+}
+
+.watchAll {
+  color: #b9b9b9 !important;
+}
+
+.arrow {
+  height: 22rpx;
+  width: 11rpx;
+  display: inline-block;
+  margin-right: 8rpx;
+  padding-left: 16rpx;
+}
+
+.orderStateCon {
+  height: 80rpx;
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.orderStateCon .orderState {
+  position: relative;
+  width: 20%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.parOff image {
+  width: 44rpx;
+  height: 38rpx;
+}
+
+.sendOff image {
+  width: 41rpx;
+  height: 36rpx;
+}
+
+.resevieOff image {
+  width: 41rpx;
+  height: 38rpx;
+}
+
+.finish image {
+  width: 43rpx;
+  height: 43rpx;
+}
+
+.cancel image {
+  width: 43rpx;
+  height: 43rpx;
+}
+
+.orderStateCon .orderState text {
+  display: block;
+  color: #727071;
+  height: 50rpx;
+  line-height: 50rpx;
+  /* padding-top: 10rpx; */
+}
+
+.circle {
+  position: absolute;
+  right: 25%;
+  top: -5rpx;
+  width: 33rpx;
+  height: 33rpx;
+  border-radius: 100%;
+  background-color: #f00;
+  text-align: center;
+  line-height: 32rpx;
+  font-size: 22rpx;
+  color: #fff;
+}
+
+.m_otherCon {
+  width: 100%;
+  background: #fff;
+  margin-top: 21rpx;
+}
+
+.otherMain {
+  margin-left: 6rpx;
+}
+
+.label {
+  line-height: 80rpx;
+  height: 80rpx;
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+  color: #444;
+}
+
+.disInline {
+  display: inline-block !important;
+}
+
+.bd-none {
+  border-bottom: none;
+}
+
+.iconColor1 {
+  color: #f82a2a;
+}
+
+.iconColor2 {
+  color: #f4821d;
+}
+
+.iconColor3 {
+  color: #1296db;
+}
+
+.iconColor4 {
+  color: #78bc6d;
+}
+
+.iconColor5 {
+  color: #f59898;
+}
+
+.iconColor6 {
+  color: #9ebd5d;
+}
+
+.iconColor7 {
+  color: #f2c821;
+}
+
+.iconColor8 {
+  color: #13b76a !important;
+  vertical-align: middle;
+}
+
+.iconColor9 {
+  color: #61aee4;
+}
+
+.iconColor10 {
+  color: #f4db67;
+}
+
+.label text {
+  padding-left: 15rpx;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.img_pos {
+  display: inline-block;
+  width: 70rpx;
+  text-align: center;
+}
+
+.link {
+  padding-right: 15rpx !important;
+}
+
+.contact {
+  border: none;
+  height: 80rpx;
+  background: none;
+  border-radius: 0;
+  line-height: 80rpx;
+  color: #444;
+  text-align: left;
+  margin-left: -11rpx;
+}
+
+.contact:after {
+  border: none;
+}
+
+.contact .arrow {
+  height: 22rpx;
+  width: 11rpx;
+  display: inline-block;
+  margin-right: -17rpx;
+}
+
+.marBot {
+  margin-bottom: 21rpx;
+  border-bottom: none !important;
+}
