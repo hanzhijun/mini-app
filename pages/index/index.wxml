@@ -7,7 +7,8 @@
 </view>
 
 <!-- 轮播 -->
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        circular="true">
     <block wx:for="{{list[0].data}}" wx:key="">
         <swiper-item>
             <image src="{{item.img_path}}{{item.img}}?x-oss-process=image/resize,m_lfit,h_300,w_750/format,jpg" class="slide-image" width="355" height="150"
