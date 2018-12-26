@@ -16,8 +16,8 @@ App({
         height: wx.getSystemInfoSync().windowWidth,               // swiper 高度:宽度  1:1
         w_height: wx.getSystemInfoSync().windowHeight,            // 可视区域高度
         height_1875: wx.getSystemInfoSync().windowWidth / 1.875,  // 线下商家7.5:4
-        // host: 'https://api.duishangbao.cn', // 线上
-        host: 'https://api.duishangbao.net', // 测试线
+        host: 'https://api.duishangbao.cn', // 线上
+        // host: 'https://api.duishangbao.net', // 测试线
         // host: 'http://192.168.100.200',    // 本地
         imgUrl: 'https://img.duishangbao.cn',
         imgAli: 'https://bhs-duishangbao.oss-cn-shenzhen.aliyuncs.com',
